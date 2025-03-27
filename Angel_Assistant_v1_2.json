@@ -266,14 +266,14 @@
         "operation": "send",
         "phoneNumberId": "545590858641488",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=⚒️The master engineer is crafting this mighty feature for you. \n\nIt shall be ready in due time!",
+        "textBody": "=*{{ $('Google Sheets - On-going Quests').item.json['Quest ID:'] }}*.  *{{ $('Google Sheets - On-going Quests').item.json['Quest:'] }}*\n\n*The quest:* {{ $('Google Sheets - On-going Quests').item.json['The Quest:'] }}\n\n*The choosen one:* {{ $('Google Sheets - On-going Quests').item.json['The Chosen One:'] }}\n\n*Impact:* {{ $('Google Sheets - On-going Quests').item.json['Impact:'] }}\n\n*Mission duration:* {{ $('Google Sheets - On-going Quests').item.json['Mission Duration:'] }}\n\n*Reward:* {{ $('Google Sheets - On-going Quests').item.json['Reward:'] }}\n\n*Time is of the essence:* {{ $('Google Sheets - On-going Quests').item.json['Time is of the Essence:'] }}\n\n*Start date:* {{ $('Google Sheets - On-going Quests').item.json['Start Date:'] }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3180,
-        -580
+        4120,
+        -540
       ],
       "id": "6be31e86-5014-4297-b851-fc27bb103e0a",
       "name": "On-going Quests Menu",
@@ -290,14 +290,14 @@
         "operation": "send",
         "phoneNumberId": "545590858641488",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=⚒️The master engineer is crafting this mighty feature for you. \n\nIt shall be ready in due time!",
+        "textBody": "=🪙You currently have a total of {{ $json['Total points'] }} points.\n\n📈That's a planned potential treasure of €{{ $json['Planned Potential Value From'] }} – €{{ $json['Planned Potential Value To'] }} at fund culmination, which you can cash out or donate to a charity close to your heart.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3180,
-        -400
+        3440,
+        -260
       ],
       "id": "43feb70a-c730-4fae-9074-96940f3f0e5c",
       "name": "My Points Menu",
@@ -701,8 +701,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2340,
-        -80
+        2260,
+        280
       ],
       "id": "064d43a4-8f00-4f17-9341-909cd2672061",
       "name": "Google Sheets - Bounty Board1",
@@ -725,8 +725,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3200,
-        -180
+        3120,
+        180
       ],
       "id": "1be8f4a5-d15e-4ae3-9bbd-2cde084eb23b",
       "name": "Quest Details",
@@ -750,8 +750,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2900,
-        60
+        2820,
+        420
       ],
       "id": "c2569a66-a6ce-40c5-80c7-8cd74474bc86",
       "name": "Non-available Quest",
@@ -838,7 +838,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4360,
+        4400,
         -780
       ],
       "id": "8c5be131-0f4d-4231-af2e-f9462ed459c7",
@@ -888,8 +888,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3740,
-        -180
+        3660,
+        180
       ],
       "id": "53a29804-06a8-4887-8308-b9604ef829e3",
       "name": "Go Back MSG2",
@@ -930,8 +930,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2580,
-        -80
+        2500,
+        280
       ],
       "id": "f1ceb221-91d9-4db8-a774-c614280e9011",
       "name": "If"
@@ -951,8 +951,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2820,
-        -180
+        2760,
+        180
       ],
       "id": "0feeafae-39f5-492f-b4fb-87b776a16799",
       "name": "Quest Detail In",
@@ -970,8 +970,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3460,
-        -180
+        3380,
+        180
       ],
       "id": "f18a3a98-207b-4c18-97f8-6c37c45fa5c2",
       "name": "Quest Contact",
@@ -981,6 +981,177 @@
         "whatsAppApi": {
           "id": "yAckmhoosQkhjF0F",
           "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 568225123,
+          "mode": "list",
+          "cachedResultName": "Quest Board",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Quest Status:",
+              "lookupValue": "Assigned"
+            },
+            {
+              "lookupColumn": "Assigned Angel Phone:",
+              "lookupValue": "={{ $('Chat start').item.json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3120,
+        -460
+      ],
+      "id": "55853107-01e5-40ea-94f5-ec61de5872b3",
+      "name": "Google Sheets - On-going Quests",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=📖The scrolls reveal no active quests.\n\nSeek a new adventure.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4100,
+        -240
+      ],
+      "id": "6f2944ca-0307-405e-a891-b88d0298051c",
+      "name": "No On-going Quests",
+      "webhookId": "a9b224c5-4374-42bc-bf85-d2d9c2cb13ae",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "64495076-0c04-4dbd-b870-b518d1845787",
+              "leftValue": "={{ $json['Quest:'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3440,
+        -440
+      ],
+      "id": "f681f933-a1b1-4480-b045-ef478fc87742",
+      "name": "Check quests existence"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+        "textBody": "=📖These are your ongoing quests:",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3800,
+        -500
+      ],
+      "id": "096b6cee-dfc5-41c7-ae96-860e8555bef3",
+      "name": "On-going Quests MGS1",
+      "webhookId": "11abd107-55a0-4c1b-93ee-bacba4d7dcc3",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1062664991,
+          "mode": "list",
+          "cachedResultName": "Total Points",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=1062664991"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Assigned Angel Phone",
+              "lookupValue": "={{ $('Chat start').item.json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3120,
+        -260
+      ],
+      "id": "5339c76d-4da4-48fe-b027-f3622b43589b",
+      "name": "Google Sheets - Points Menu",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
         }
       }
     }
@@ -1131,14 +1302,14 @@
         ],
         [
           {
-            "node": "On-going Quests Menu",
+            "node": "Google Sheets - On-going Quests",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "My Points Menu",
+            "node": "Google Sheets - Points Menu",
             "type": "main",
             "index": 0
           }
@@ -1326,14 +1497,98 @@
           }
         ]
       ]
+    },
+    "Google Sheets - On-going Quests": {
+      "main": [
+        [
+          {
+            "node": "Check quests existence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check quests existence": {
+      "main": [
+        [
+          {
+            "node": "On-going Quests MGS1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No On-going Quests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On-going Quests MGS1": {
+      "main": [
+        [
+          {
+            "node": "On-going Quests Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No On-going Quests": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On-going Quests Menu": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Points Menu": {
+      "main": [
+        [
+          {
+            "node": "My Points Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "My Points Menu": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "792526ae-72ae-437c-9356-3b92435da79d",
+  "versionId": "2737928c-c0e1-4b4c-a672-08abb4c9b596",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "fd385dcd0eec939a4845a5e89f7bc223238b9e13cf452d479da9c8717885d553"

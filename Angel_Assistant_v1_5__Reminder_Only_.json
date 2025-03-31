@@ -1,0 +1,613 @@
+{
+  "name": "Angel Assistant v1.5 (Reminder Only)",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 568225123,
+          "mode": "list",
+          "cachedResultName": "Quest Board",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Quest Status:",
+              "lookupValue": "Open"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -5000,
+        2780
+      ],
+      "id": "893286bc-995f-4c9d-9714-ee41731e5044",
+      "name": "Google Sheets - Bounty Data",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KVxUluenje8d2lhS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Reminder MSG').item.json.contacts[0].wa_id }}",
+        "textBody": "={{ $json['concatenated_ID_&_name'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -4560,
+        2780
+      ],
+      "id": "aacb2c14-133c-4aee-bc07-7871bdcf69e0",
+      "name": "Bounty Board Reminder",
+      "webhookId": "2b1b2907-d1d7-441c-987c-ac4627f3a050",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "clqA6lHpp9hHgTzF",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $json.phone }}",
+        "textBody": "=🧭Your call to adventure has arrived. Behold some of the quests that await your courage and valor:",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -5220,
+        2780
+      ],
+      "id": "ce94573a-de76-4118-83b5-eda67f335c61",
+      "name": "Reminder MSG",
+      "webhookId": "3f835f7b-5526-4c52-b969-f8d28284219d",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "clqA6lHpp9hHgTzF",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToSummarize": {
+          "values": [
+            {
+              "aggregation": "concatenate",
+              "field": "ID & name",
+              "separateBy": "\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.summarize",
+      "typeVersion": 1.1,
+      "position": [
+        -4780,
+        2780
+      ],
+      "id": "2b1dcf32-63bd-47f4-bde1-13ec0485695c",
+      "name": "Summarize"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $json.phone }}",
+        "textBody": "=Don't get left behind {{ $json.originalItem.Trait }} {{ $json.originalItem['Angel name'] }}.\n\nAccess the bounty board by typing \"Go\"",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -5000,
+        2980
+      ],
+      "id": "9bdf1659-a893-4072-bfae-2a751bf3da41",
+      "name": "Call to action reminder",
+      "webhookId": "5d2d195e-ff8c-405a-9910-117b98177a9c",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "clqA6lHpp9hHgTzF",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -6540,
+        2880
+      ],
+      "id": "f46a0294-d4ea-460b-95f6-fd5e2db4115a",
+      "name": "Daily Checker"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -6320,
+        2880
+      ],
+      "id": "b68e8ef4-e12f-4ff9-8130-473eeb54d0be",
+      "name": "Google Sheets Node - Get Contacts",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KVxUluenje8d2lhS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get current date info\nconst now = new Date();\nconst currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.\nconst currentYear = now.getFullYear();\nconst currentMonth = now.getMonth();\nconst currentDate = now.getDate();\nconst today = new Date(currentYear, currentMonth, currentDate);\n\n// Map day names to day numbers\nconst dayToNumber = {\n  \"Sunday\": 0,\n  \"Monday\": 1,\n  \"Tuesday\": 2,\n  \"Wednesday\": 3,\n  \"Thursday\": 4,\n  \"Friday\": 5,\n  \"Saturday\": 6\n};\n\n// Process each contact\nconst toSendToday = [];\nconst items = $input.all();\n\nitems.forEach(item => {\n  // Extract relevant data\n  const phone = item.json.Phone;\n  const frequency = item.json['Reminder freq.'];\n  const preferredDay = item.json['Reminder day'];\n  const reminderHourFull = item.json['Reminder hour']; // This might contain \"11:00\" format\n  const period = item.json['Reminder period'];\n  const lastSentStr = item.json['Last sent'];\n  \n  // Skip if missing required data\n  if (!phone || !frequency || !preferredDay) return;\n  \n  // Extract the hour value from the time string (e.g., \"11:00\" -> 11)\n  let preferredHour = parseInt(reminderHourFull);\n  \n  // Parse last sent date if available\n  let lastSent = null;\n  if (lastSentStr && lastSentStr.trim() !== '') {\n    lastSent = new Date(lastSentStr);\n  }\n  \n  // Calculate hour in 24-hour format\n  let hour24 = preferredHour;\n  if (period && period.toUpperCase() === 'P.M.' && preferredHour < 12) {\n    hour24 += 12;\n  }\n  if (period && period.toUpperCase() === 'A.M.' && preferredHour === 12) {\n    hour24 = 0;\n  }\n  \n  // Check if today matches the preferred day\n  const preferredDayNumber = dayToNumber[preferredDay];\n  if (currentDay === preferredDayNumber) {\n    let shouldSend = false;\n    \n    // Handle different frequency formats\n    const frequencyLower = frequency.toLowerCase();\n    \n    // For daily/daily reminders\n    if (frequencyLower === '1 day' || frequencyLower === 'daily') {\n      shouldSend = true;\n    } \n    // For weekly/7 days reminders\n    else if (frequencyLower === '7 days' || frequencyLower === 'weekly') {\n      if (!lastSent || dateDiffInDays(lastSent, today) >= 7) {\n        shouldSend = true;\n      }\n    }\n    // For bi-weekly/14 days reminders\n    else if (frequencyLower === '14 days' || frequencyLower === 'bi-weekly') {\n      if (!lastSent || dateDiffInDays(lastSent, today) >= 14) {\n        shouldSend = true;\n      }\n    }\n    // For monthly/30 days reminders\n    else if (frequencyLower === '30 days' || frequencyLower === 'monthly') {\n      if (!lastSent || dateDiffInDays(lastSent, today) >= 30) {\n        shouldSend = true;\n      }\n    }\n    \n    if (shouldSend) {\n      toSendToday.push({\n        phone,\n        hour: hour24,\n        frequency,\n        preferredDay,\n        angelName: item.json['Angel name'],\n        lastSent: lastSent ? lastSent.toISOString() : null,\n        originalItem: item.json\n      });\n    }\n  }\n});\n\n// Helper function to calculate difference in days between two dates\nfunction dateDiffInDays(date1, date2) {\n  const _MS_PER_DAY = 1000 * 60 * 60 * 24;\n  // Discard the time and time-zone information\n  const utc1 = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());\n  const utc2 = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());\n  \n  return Math.floor((utc2 - utc1) / _MS_PER_DAY);\n}\n\n// Return the filtered list of reminders to send today\nreturn toSendToday;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5880,
+        2880
+      ],
+      "id": "bf1dc8b3-84d9-4210-bb14-1f0141391950",
+      "name": "Function Node - Calculate Next Reminder Dates",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "57c72a77-3403-433f-a90a-6e247d7b63d8",
+              "leftValue": "={{ $json['Reminder freq.'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -6100,
+        2880
+      ],
+      "id": "da3f733c-c254-4b57-9e38-2b6c3773980d",
+      "name": "Only users with reminders"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const now = new Date();\nconst currentHour = now.getHours();\nconsole.log(\"AAAAAAAAAAA\");\nconsole.log(currentHour);\n// Get the contact information\nconst item = $input.item;\nconst preferredHour = item.json.hour;\n\n// Only proceed if current hour matches preferred hour\nif (currentHour === preferredHour) {\n  return item;\n} else {\n  return null; // Skip this item\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5440,
+        2880
+      ],
+      "id": "da399375-3c26-4b65-96e1-5bf50322fb26",
+      "name": "Check Hour",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "hour",
+        "include": "selectedOtherFields",
+        "fieldsToInclude": "frequency, preferredDay, angelName, lastSent, phone, originalItem",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -5660,
+        2880
+      ],
+      "id": "09d3fb9e-61a3-4441-84b9-e139f282f666",
+      "name": "Split By Hour",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -5220,
+        2980
+      ],
+      "id": "e5a30c64-c7f7-4772-8d3a-cdd5c5a43e20",
+      "name": "Wait",
+      "webhookId": "0d659936-5f00-4b1b-add2-1dca877f4fcb"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phone": "={{ $json.contacts[0].wa_id }}",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Angel ID",
+              "displayName": "Angel ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Angel full name",
+              "displayName": "Angel full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel buddy",
+              "displayName": "Angel buddy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact",
+              "displayName": "Alternative contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact phone",
+              "displayName": "Alternative contact phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder freq.",
+              "displayName": "Reminder freq.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder day",
+              "displayName": "Reminder day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder hour",
+              "displayName": "Reminder hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder period",
+              "displayName": "Reminder period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Trait",
+              "displayName": "Trait",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel name",
+              "displayName": "Angel name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -4340,
+        2780
+      ],
+      "id": "7f85f68d-8b6f-44dd-97be-4348d17ed177",
+      "name": "Google Sheets - Update Last Sent",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KVxUluenje8d2lhS",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets - Bounty Data": {
+      "main": [
+        [
+          {
+            "node": "Summarize",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reminder MSG": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Bounty Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarize": {
+      "main": [
+        [
+          {
+            "node": "Bounty Board Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bounty Board Reminder": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Update Last Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily Checker": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets Node - Get Contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets Node - Get Contacts": {
+      "main": [
+        [
+          {
+            "node": "Only users with reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Function Node - Calculate Next Reminder Dates": {
+      "main": [
+        [
+          {
+            "node": "Split By Hour",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Only users with reminders": {
+      "main": [
+        [
+          {
+            "node": "Function Node - Calculate Next Reminder Dates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Hour": {
+      "main": [
+        [
+          {
+            "node": "Reminder MSG",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split By Hour": {
+      "main": [
+        [
+          {
+            "node": "Check Hour",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Call to action reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "453f764b-af7f-4d77-af5a-dd24211cbfd6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8f2d02d77e7ce3764ed166f99b724308be82a7d9ed12cfd556ccb02cda5d0e50"
+  },
+  "id": "erf1h9jNX7XE2hdX",
+  "tags": []
+}

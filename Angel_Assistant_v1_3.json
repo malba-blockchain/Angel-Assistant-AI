@@ -1,0 +1,2887 @@
+{
+  "name": "Angel Assistant v1.3",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30616b7c-3ff0-4b36-852a-d1aa696d5903",
+              "name": "UserID",
+              "value": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+              "type": "string"
+            },
+            {
+              "id": "88a3a903-1057-4e35-95db-c4aa9cc5bb33",
+              "name": "=Timestamp",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Timestamp:\\s*(\\d+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "305333c1-18d4-4852-86be-87e8d79889ac",
+              "name": "Trait",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Trait:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "f373bbf6-aee6-4ab2-b2e7-a078a0b533ea",
+              "name": "Name",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Name:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "c0f61994-a806-4f00-8f1d-c91de36f8586",
+              "name": "Menu",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Menu:\\s*([^\\r\\n]+)/)?.[1].trim() || null}}",
+              "type": "string"
+            },
+            {
+              "id": "a2cde7b1-4176-4d37-a368-a8e171dcbeec",
+              "name": "Option",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Option:\\s*([\\w\\s]+)/)?.[1] || null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1200,
+        -300
+      ],
+      "id": "eede28f7-fbac-4c1c-9ffb-c0b56c23f699",
+      "name": "Regenerate variables"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "📜I do not yet know your name among the scrolls of allies.\n\n*Speak first with the leader of the fund*, and he shall grant you passage.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        300
+      ],
+      "id": "4822e19e-3de5-45ca-ac4b-b7bc956723e2",
+      "name": "Angel not registered",
+      "webhookId": "5e0bb340-79ee-4196-adb8-738cd79ac6f8",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0f1514e2-21cb-4b84-8bd2-dfb23f52c6cd",
+              "leftValue": "={{ $json.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1460,
+        -80
+      ],
+      "id": "7805253e-8364-4eda-9530-c372074496b1",
+      "name": "Validate there is a message"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Phone",
+              "lookupValue": "={{ $json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1000,
+        -120
+      ],
+      "id": "8736488e-2adf-44b5-b241-a68c0553c73b",
+      "name": "Google Sheets - Authenticate user",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fcbac122-3fb2-4f30-8cfd-68c6cdf514fc",
+              "leftValue": "={{ $json['Angel name'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -660,
+        -100
+      ],
+      "id": "961478c0-76e0-4009-a510-4a939741f988",
+      "name": "Validate user registration"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f76129ac-554b-46c6-881a-ce9cf6026395",
+              "leftValue": "={{ parseInt($('Chat start').item.json.messages[0].text.body) }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -300,
+        -120
+      ],
+      "id": "90ef89c6-c858-4f82-85b7-d8cab7d2203b",
+      "name": "Angel Registered: Starting message vs number option"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 1
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1780,
+        800
+      ],
+      "id": "4b29c264-482a-4b10-a25b-3a807fd6ee94",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+        "textBody": "=*{{ $('Google Sheets - Bounty Board').item.json.row_number }}. {{ $('Google Sheets - Bounty Board').item.json['Quest:'] }}*\n\n*Reward:* {{ $('Google Sheets - Bounty Board').item.json['Reward:'] }}\n*Start date:* {{ $('Google Sheets - Bounty Board').item.json['Start Date:'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4060,
+        -740
+      ],
+      "id": "06fb8c34-1d4a-474a-acfe-a3c4e044e25e",
+      "name": "Bounty Board Menu",
+      "webhookId": "11abd107-55a0-4c1b-93ee-bacba4d7dcc3",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*{{ $('Google Sheets - On-going Quests').item.json['Quest ID:'] }}*.  *{{ $('Google Sheets - On-going Quests').item.json['Quest:'] }}*\n\n*The quest:* {{ $('Google Sheets - On-going Quests').item.json['The Quest:'] }}\n\n*The choosen one:* {{ $('Google Sheets - On-going Quests').item.json['The Chosen One:'] }}\n\n*Impact:* {{ $('Google Sheets - On-going Quests').item.json['Impact:'] }}\n\n*Mission duration:* {{ $('Google Sheets - On-going Quests').item.json['Mission Duration:'] }}\n\n*Reward:* {{ $('Google Sheets - On-going Quests').item.json['Reward:'] }}\n\n*Time is of the essence:* {{ $('Google Sheets - On-going Quests').item.json['Time is of the Essence:'] }}\n\n*Start date:* {{ $('Google Sheets - On-going Quests').item.json['Start Date:'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4340,
+        -540
+      ],
+      "id": "6be31e86-5014-4297-b851-fc27bb103e0a",
+      "name": "On-going Quests Menu",
+      "webhookId": "a7ec1a64-9ce9-4ce4-8d98-b84546a6eb70",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=🪙You currently have a total of {{ $json['Total points'] }} points.\n\n📈That's a planned potential treasure of €{{ $json['Planned Potential Value From'] }} – €{{ $json['Planned Potential Value To'] }} at fund culmination, which you can cash out or donate to a charity close to your heart.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3660,
+        -260
+      ],
+      "id": "43feb70a-c730-4fae-9074-96940f3f0e5c",
+      "name": "My Points Menu",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ ($json.Menu == \"Main\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "17931a50-692b-4288-bc4d-927c1967024b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bb34d3cf-5d15-40fd-ab2e-8cb3b4666c7b",
+                    "leftValue": "={{ ($json.Menu == \"Board\" && $('Chat start').item.json.messages[0].text.body == \"0\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Main Display"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c304dfa2-bffb-41f9-9387-bd3f634676e2",
+                    "leftValue": "={{ $json.Menu == \"Board\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Quest"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3270d19b-4ffa-4607-bc0f-eee237277f03",
+                    "leftValue": "={{ ($json.Menu == \"Quest\" && $('Chat start').item.json.messages[0].text.body == \"0\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Board display"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "05709701-52c9-45b2-b8ea-544d45800708",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "Frequency",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Frequency"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1b1bdfdd-2f87-445a-a8a0-13ee32a1153a",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "Day",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Day"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "afbb66cb-2165-4b67-8208-4b98be7d86d4",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "Period",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Period"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0541e723-d80b-4130-8096-0fc20b5c988a",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "Hour",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Hour"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1700,
+        -740
+      ],
+      "id": "97932893-15f3-46f1-bcff-0599db074eee",
+      "name": "Main menu switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == 1 }}",
+                    "rightValue": "1",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "95ec37fc-ef8f-4ff3-9102-2a28c7bc5f83"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1. Bounty Board"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a8f238a2-3662-4de0-baca-8d3cf28c03ec",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+                    "rightValue": "2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2. On-going Quests"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9c653e1a-7f49-440f-bedb-92318b819db9",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+                    "rightValue": "3",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3. My points"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7616b1c9-9475-499a-bdc3-6a57c7a610fa",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+                    "rightValue": "4",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "4. Setup signals"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2520,
+        -620
+      ],
+      "id": "b747e86f-bf7a-4b01-a811-0ec584d85356",
+      "name": "Main Menu Options"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 568225123,
+          "mode": "list",
+          "cachedResultName": "Quest Board",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Quest Status:",
+              "lookupValue": "Open"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3840,
+        -740
+      ],
+      "id": "f4689f2b-b728-4135-9177-de3f384e4e73",
+      "name": "Google Sheets - Bounty Board",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Fate has summoned you! Which adventure will you embark upon?",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3540,
+        -760
+      ],
+      "id": "88baec9b-108f-451a-a05e-bd7c8bf23403",
+      "name": "Bounty Board MSG1",
+      "webhookId": "80b1532e-b676-4251-b2c4-a6206a685aaa",
+      "executeOnce": false,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Main\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        80
+      ],
+      "id": "cefad832-743d-4ee3-aa2b-b25136c89e96",
+      "name": "Main Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Board\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3100,
+        -680
+      ],
+      "id": "326fb58d-7644-4a9a-b801-26440f0c0f17",
+      "name": "Quest Board Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2060,
+        -80
+      ],
+      "id": "10efa2c5-ba3c-474f-97f0-3a7040c708b0",
+      "name": "Chat start",
+      "webhookId": "7a93ca75-9f2b-4642-abc7-4888d4766c96",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "2eV3N85YK9YLJy2q",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        800,
+        -300
+      ],
+      "id": "3b930f17-9982-442b-ab21-f6af4e6d8a01",
+      "name": "Main Menu Out"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 568225123,
+          "mode": "list",
+          "cachedResultName": "Quest Board",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Quest ID:",
+              "lookupValue": "={{ $('Chat start').item.json.messages[0].text.body }}"
+            },
+            {
+              "lookupColumn": "Quest Status:",
+              "lookupValue": "Open"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3060,
+        1240
+      ],
+      "id": "064d43a4-8f00-4f17-9341-909cd2672061",
+      "name": "Google Sheets - Bounty Board1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*{{ $('Google Sheets - Bounty Board1').item.json['Quest ID:'] }}*.  *{{ $('Google Sheets - Bounty Board1').item.json['Quest:'] }}*\n\n*The quest:* {{ $('Google Sheets - Bounty Board1').item.json['The Quest:'] }}\n\n*The choosen one:* {{ $('Google Sheets - Bounty Board1').item.json['The Chosen One:'] }}\n\n*Impact:* {{ $('Google Sheets - Bounty Board1').item.json['Impact:'] }}\n\n*Mission duration:* {{ $('Google Sheets - Bounty Board1').item.json['Mission Duration:'] }}\n\n*Reward:* {{ $('Google Sheets - Bounty Board1').item.json['Reward:'] }}\n\n*Time is of the essence:* {{ $('Google Sheets - Bounty Board1').item.json['Time is of the Essence:'] }}\n\n*Start date:* {{ $('Google Sheets - Bounty Board1').item.json['Start Date:'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3920,
+        1140
+      ],
+      "id": "1be8f4a5-d15e-4ae3-9bbd-2cde084eb23b",
+      "name": "Quest Details",
+      "webhookId": "b990b7e7-dcb0-4b83-aea6-b08562ad8fb5",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=⚔️ That quest is not available. Choose another adventure.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        1380
+      ],
+      "id": "c2569a66-a6ce-40c5-80c7-8cd74474bc86",
+      "name": "Non-available Quest",
+      "webhookId": "a9b224c5-4374-42bc-bf85-d2d9c2cb13ae",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        900,
+        80
+      ],
+      "id": "47b1d4e0-d547-4e72-b5c8-5c6e497f2f54",
+      "name": "Clean Memory",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*How may I assist you?*\n\n1. Show me the bounty board\n2. Show me my on-going quests\n3. Show me my points\n4. Setup quest signals",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        280,
+        80
+      ],
+      "id": "c7487e1f-da49-4130-8fa2-986da7781ee0",
+      "name": "Main Menu1",
+      "webhookId": "47c65494-808c-4a6e-9470-55b11954ef77",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=🔮Greetings {{ $json.Trait }} {{ $json['Angel name'] }}. ",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        20,
+        80
+      ],
+      "id": "508911bc-c34e-4a4e-a34b-2fa1312d09a2",
+      "name": "Initial Greeting",
+      "webhookId": "54fc05f8-f8e5-4916-8c2d-d22b19459b78",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $json.contacts[0].wa_id }}",
+        "textBody": "=🗺️Choose a quest ID number to unveil its secrets.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4620,
+        -780
+      ],
+      "id": "8c5be131-0f4d-4231-af2e-f9462ed459c7",
+      "name": "Choose a Quest MSG",
+      "webhookId": "69b9fcf4-ed91-4c16-bdd6-2e019e9394b9",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*0. Go back*",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4320,
+        -800
+      ],
+      "id": "45c51542-a1b6-4976-b945-b7c01c11252f",
+      "name": "Go Back MSG1",
+      "webhookId": "b8737fa2-5cff-42b6-afb8-ca2befe69b27",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*0. Go back*",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4460,
+        1140
+      ],
+      "id": "53a29804-06a8-4887-8308-b9604ef829e3",
+      "name": "Go Back MSG2",
+      "webhookId": "929798f1-bdd1-4910-8bc3-41376024e40c",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1b089920-3e08-440b-8d2d-3bf60526c4af",
+              "leftValue": "={{ $json['Quest Status:'] }}",
+              "rightValue": "Open",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3300,
+        1240
+      ],
+      "id": "f1ceb221-91d9-4db8-a774-c614280e9011",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Quest\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3560,
+        1140
+      ],
+      "id": "0feeafae-39f5-492f-b4fb-87b776a16799",
+      "name": "Quest Detail In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=*Interested?* {{ $('Google Sheets - Bounty Board1').item.json['Interested?'] }}\n\n*Click here:* {{ $('Google Sheets - Bounty Board1').item.json['Action link'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4180,
+        1140
+      ],
+      "id": "f18a3a98-207b-4c18-97f8-6c37c45fa5c2",
+      "name": "Quest Contact",
+      "webhookId": "b990b7e7-dcb0-4b83-aea6-b08562ad8fb5",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 568225123,
+          "mode": "list",
+          "cachedResultName": "Quest Board",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Quest Status:",
+              "lookupValue": "Assigned"
+            },
+            {
+              "lookupColumn": "Assigned Angel Phone:",
+              "lookupValue": "={{ $('Chat start').item.json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        -460
+      ],
+      "id": "55853107-01e5-40ea-94f5-ec61de5872b3",
+      "name": "Google Sheets - On-going Quests",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=📖The scrolls reveal no active quests.\n\nSeek a new adventure.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4320,
+        -240
+      ],
+      "id": "6f2944ca-0307-405e-a891-b88d0298051c",
+      "name": "No On-going Quests",
+      "webhookId": "a9b224c5-4374-42bc-bf85-d2d9c2cb13ae",
+      "executeOnce": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "64495076-0c04-4dbd-b870-b518d1845787",
+              "leftValue": "={{ $json['Quest:'] }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3660,
+        -440
+      ],
+      "id": "f681f933-a1b1-4480-b045-ef478fc87742",
+      "name": "Check quests existence"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+        "textBody": "=📖These are your ongoing quests:",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4020,
+        -500
+      ],
+      "id": "096b6cee-dfc5-41c7-ae96-860e8555bef3",
+      "name": "On-going Quests MGS1",
+      "webhookId": "11abd107-55a0-4c1b-93ee-bacba4d7dcc3",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1062664991,
+          "mode": "list",
+          "cachedResultName": "Total Points",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=1062664991"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Assigned Angel Phone",
+              "lookupValue": "={{ $('Chat start').item.json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        -260
+      ],
+      "id": "5339c76d-4da4-48fe-b027-f3622b43589b",
+      "name": "Google Sheets - Points Menu",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=📜How often do you wish to receive word of new quests?\n\n1. Daily\n2. Weekly\n3. Bi-weekly\n4. Monthly",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        -20
+      ],
+      "id": "57b396a6-20a8-4bb9-9919-d0d21fd86912",
+      "name": "Frequency MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Frequency\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        -20
+      ],
+      "id": "bffaf57b-8dc7-4e37-baba-ccf0d973054a",
+      "name": "Frequency Menu",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=📅Which day shall the call to adventure reach you?\n\n1. Monday\n2. Tuesday\n3. Wednesday\n4. Tuesday\n5. Friday\n6. Saturday\n7. Sunday",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        200
+      ],
+      "id": "2899dda9-9f7c-43e6-84ee-571990fdc9c0",
+      "name": "Day MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Day\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        200
+      ],
+      "id": "e54af28a-33a6-479a-ba32-26bee914b9ef",
+      "name": "Day Menu",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Reminder freq.": "={{ \n  $('Chat start').item.json.messages[0].text.body == \"1\" ? \"Daily\" :\n  $('Chat start').item.json.messages[0].text.body == \"2\" ? \"Weekly\" :\n  $('Chat start').item.json.messages[0].text.body == \"3\" ? \"Bi-weekly\" :\n  $('Chat start').item.json.messages[0].text.body == \"4\" ? \"Monthly\" :\n  \"\"\n}}",
+            "Phone": "={{ $('Chat start').item.json.contacts[0].wa_id }}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Angel ID",
+              "displayName": "Angel ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Angel full name",
+              "displayName": "Angel full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel buddy",
+              "displayName": "Angel buddy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact",
+              "displayName": "Alternative contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact phone",
+              "displayName": "Alternative contact phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder freq.",
+              "displayName": "Reminder freq.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reminder day",
+              "displayName": "Reminder day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder hour",
+              "displayName": "Reminder hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder period",
+              "displayName": "Reminder period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trait",
+              "displayName": "Trait",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel name",
+              "displayName": "Angel name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        200
+      ],
+      "id": "ace81997-2447-43d6-babb-568fdb2095a6",
+      "name": "Save Frequency",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phone": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+            "Reminder day": "={{ \n  $('Chat start').item.json.messages[0].text.body == \"1\" ? \"Monday\" :\n  $('Chat start').item.json.messages[0].text.body == \"2\" ? \"Tuesday\" :\n  $('Chat start').item.json.messages[0].text.body == \"3\" ? \"Wednesday\" :\n  $('Chat start').item.json.messages[0].text.body == \"4\" ? \"Thursday\" :\n  $('Chat start').item.json.messages[0].text.body == \"5\" ? \"Friday\" :\n  $('Chat start').item.json.messages[0].text.body == \"6\" ? \"Saturday\" :\n  $('Chat start').item.json.messages[0].text.body == \"7\" ? \"Sunday\" :\n  \"\"\n}}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Angel ID",
+              "displayName": "Angel ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Angel full name",
+              "displayName": "Angel full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel buddy",
+              "displayName": "Angel buddy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact",
+              "displayName": "Alternative contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact phone",
+              "displayName": "Alternative contact phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder freq.",
+              "displayName": "Reminder freq.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder day",
+              "displayName": "Reminder day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder hour",
+              "displayName": "Reminder hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder period",
+              "displayName": "Reminder period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trait",
+              "displayName": "Trait",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel name",
+              "displayName": "Angel name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        420
+      ],
+      "id": "bce7dafb-df61-4fd9-bd50-6fd294699aad",
+      "name": "Save Day",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phone": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+            "Reminder period": "={{   $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" :   $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" :   \"\" }}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Angel ID",
+              "displayName": "Angel ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Angel full name",
+              "displayName": "Angel full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel buddy",
+              "displayName": "Angel buddy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact",
+              "displayName": "Alternative contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact phone",
+              "displayName": "Alternative contact phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder freq.",
+              "displayName": "Reminder freq.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder day",
+              "displayName": "Reminder day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder hour",
+              "displayName": "Reminder hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder period",
+              "displayName": "Reminder period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Trait",
+              "displayName": "Trait",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel name",
+              "displayName": "Angel name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        640
+      ],
+      "id": "4611e84b-4634-418d-a5f1-4b4ecfd0139c",
+      "name": "Save Period",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Which moment in the day best suits your journey?\n\n1. In the morning (A.M.)\n2. Afternoon/evening (P.M.)",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        420
+      ],
+      "id": "7b696b5e-7734-4698-99e8-4e6ef893942a",
+      "name": "Period MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Period\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        420
+      ],
+      "id": "53af962e-e2d5-4b63-b198-e809c9dc1d9f",
+      "name": "Period Menu",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phone": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+            "Reminder hour": "={{ \n  $('Chat start').item.json.messages[0].text.body == \"1\" ? \"1:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"2\" ? \"2:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"3\" ? \"3:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"4\" ? \"4:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"5\" ? \"5:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"6\" ? \"6:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"7\" ? \"7:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"8\" ? \"8:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"9\" ? \"9:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"10\" ? \"10:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"11\" ? \"11:00\" :\n  $('Chat start').item.json.messages[0].text.body == \"12\" ? \"12:00\" :\n  \"Unknown\"\n}}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Angel ID",
+              "displayName": "Angel ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Angel full name",
+              "displayName": "Angel full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel buddy",
+              "displayName": "Angel buddy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact",
+              "displayName": "Alternative contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Alternative contact phone",
+              "displayName": "Alternative contact phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder freq.",
+              "displayName": "Reminder freq.",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder day",
+              "displayName": "Reminder day",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Reminder hour",
+              "displayName": "Reminder hour",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder period",
+              "displayName": "Reminder period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trait",
+              "displayName": "Trait",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Angel name",
+              "displayName": "Angel name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3340,
+        860
+      ],
+      "id": "653523aa-4b42-49f1-9d75-0ab0f80058a7",
+      "name": "Save Hour",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=🏹Well done. Your settings are now locked and ready.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        860
+      ],
+      "id": "254b4bd0-7923-4ef2-a6ca-0819ccf13a23",
+      "name": "Settings Saved MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=🕙At what hour shall destiny’s call reach you?\n\n1. 1:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n2. 2:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n3. 3:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n4. 4:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n5. 5:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n6. 6:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n7. 7:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n8. 8:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n9. 9:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n10. 10:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n11. 11:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}\n12. 12:00 {{ $('Chat start').item.json.messages[0].text.body == \"1\" ? \"A.M.\" : $('Chat start').item.json.messages[0].text.body == \"2\" ? \"P.M.\" : \"Unknown\" }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3620,
+        640
+      ],
+      "id": "50780314-bf4b-46c0-96d1-1173413c66b4",
+      "name": "Hour MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].text.body }}\nTrait:{{ $('Google Sheets - Authenticate user').item.json.Trait }}\nName:{{ $('Google Sheets - Authenticate user').item.json['Angel name'] }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Hour\nOption: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        640
+      ],
+      "id": "e53382f2-4809-4f4e-9298-0f6ea0633184",
+      "name": "Hour Menu",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "mode": "list",
+          "cachedResultName": "Digital Involvement Points Registry",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Whitelist",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Phone",
+              "lookupValue": "={{ $json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3900,
+        860
+      ],
+      "id": "f0e9c464-876d-4399-99d4-87dda73582c3",
+      "name": "Signals Settings",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3n7SL3yv7syw7yPh",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "545590858641488",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=A call to action shall reach you on a {{ $json['Reminder freq.'] }} basis.\nEvery {{ $json['Reminder day'] }} at {{ $json['Reminder hour'] }} {{ $json['Reminder period'] }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4180,
+        860
+      ],
+      "id": "0de365da-a322-4af1-a493-18893082aba1",
+      "name": "Signals Settings MSG",
+      "webhookId": "3ce6ffa8-15cf-4ca0-8306-124080c77462",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "yAckmhoosQkhjF0F",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Regenerate variables": {
+      "main": [
+        [
+          {
+            "node": "Main menu switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate there is a message": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Authenticate user",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Google Sheets - Authenticate user": {
+      "main": [
+        [
+          {
+            "node": "Validate user registration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate user registration": {
+      "main": [
+        [
+          {
+            "node": "Angel Registered: Starting message vs number option",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Angel not registered",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Registered: Starting message vs number option": {
+      "main": [
+        [
+          {
+            "node": "Main Menu Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Initial Greeting",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Main Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Quest Board Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Main Menu Out",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Quest Detail In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Frequency Menu",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Day Menu",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Period Menu",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Hour Menu",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main menu switch": {
+      "main": [
+        [
+          {
+            "node": "Main Menu Options",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Bounty Board1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Quest Board Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Frequency",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Day",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Period",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Hour",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu Options": {
+      "main": [
+        [
+          {
+            "node": "Quest Board Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - On-going Quests",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Points Menu",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Frequency MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bounty Board Menu": {
+      "main": [
+        [
+          {
+            "node": "Go Back MSG1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Bounty Board": {
+      "main": [
+        [
+          {
+            "node": "Bounty Board Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bounty Board MSG1": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Bounty Board",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu In": {
+      "main": [
+        [
+          {
+            "node": "Clean Memory",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat start": {
+      "main": [
+        [
+          {
+            "node": "Validate there is a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quest Board Menu In": {
+      "main": [
+        [
+          {
+            "node": "Bounty Board MSG1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu Out": {
+      "main": [
+        [
+          {
+            "node": "Regenerate variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Bounty Board1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu1": {
+      "main": [
+        [
+          {
+            "node": "Main Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Initial Greeting": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Choose a Quest MSG": {
+      "main": [
+        []
+      ]
+    },
+    "Quest Details": {
+      "main": [
+        [
+          {
+            "node": "Quest Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Go Back MSG1": {
+      "main": [
+        [
+          {
+            "node": "Choose a Quest MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Quest Detail In",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Non-available Quest",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Go Back MSG2": {
+      "main": [
+        []
+      ]
+    },
+    "Quest Detail In": {
+      "main": [
+        [
+          {
+            "node": "Quest Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quest Contact": {
+      "main": [
+        [
+          {
+            "node": "Go Back MSG2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - On-going Quests": {
+      "main": [
+        [
+          {
+            "node": "Check quests existence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check quests existence": {
+      "main": [
+        [
+          {
+            "node": "On-going Quests MGS1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No On-going Quests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On-going Quests MGS1": {
+      "main": [
+        [
+          {
+            "node": "On-going Quests Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No On-going Quests": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On-going Quests Menu": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Points Menu": {
+      "main": [
+        [
+          {
+            "node": "My Points Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "My Points Menu": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Frequency MSG": {
+      "main": [
+        [
+          {
+            "node": "Frequency Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Day MSG": {
+      "main": [
+        [
+          {
+            "node": "Day Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Frequency": {
+      "main": [
+        [
+          {
+            "node": "Day MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Day": {
+      "main": [
+        [
+          {
+            "node": "Period MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Period": {
+      "main": [
+        [
+          {
+            "node": "Hour MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Period MSG": {
+      "main": [
+        [
+          {
+            "node": "Period Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Hour": {
+      "main": [
+        [
+          {
+            "node": "Settings Saved MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Settings Saved MSG": {
+      "main": [
+        [
+          {
+            "node": "Signals Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hour MSG": {
+      "main": [
+        [
+          {
+            "node": "Hour Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Signals Settings": {
+      "main": [
+        [
+          {
+            "node": "Signals Settings MSG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Signals Settings MSG": {
+      "main": [
+        [
+          {
+            "node": "Main Menu1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "16a94d18-f23d-4b9a-9613-8d1b35847587",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "fd385dcd0eec939a4845a5e89f7bc223238b9e13cf452d479da9c8717885d553"
+  },
+  "id": "mcNIa2x9Tw7AOtaW",
+  "tags": []
+}

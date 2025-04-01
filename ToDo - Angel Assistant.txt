@@ -46,29 +46,28 @@ Show points where the assigned angel is the same name as the name of the phone n
 
 4. Create the Reminder assistant based on: Frequency, Day and Hour DONE
 
-
-------------------ToDo------------------
-
 5. Implement reminder based on user preferences and available board
 
 5.1. Get all table users preferences DONE
 5.2. Select only the ones with inputs DONE
 5.3. Configure WA message straight away DONE
 
-5.4. Schedule a main task to run once a day
+5.4. Schedule a main task to run once a day DONE
 
-5.5. Read all the reminder info.
+5.5. Read all the reminder info. DONE
 
-5.6. Check what day is today.
+5.6. Check what day is today. DONE
 
-Convert triggers to days:
-
+Convert triggers to days: DONE
 
 Use that info to schedule respective triggers.
 
 
+------------------ToDo------------------
+
 6. Add I'm interested button to notify the fund leader.
 
+7. Add remind me later funcionality inside the quest detail
 
-6. Add remind me later funcionality inside the quest detail
+8. Add the genie question.
 

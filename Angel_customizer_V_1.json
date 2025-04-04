@@ -1,0 +1,350 @@
+{
+  "name": "Angel customizer V.1",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate the keywords that will be used in this \"Angel Investor Canvas\", it's like a \"Business Model Canvas\" so it's based on just keywords or short phrases (less than 30 characters).\n\nGenerate the keywords for each of these 12 areas, based on the answers provided by the angel investor down below.\n\nMake the output look like a excel format, following this format: Name | Email | Phone | Date | Goals | Market Vision | Market Needs | Involvement Profile | Commitment | Added Value | Investment Profile | Investment Plan | Portfolio Plan | Startup Profile | Verticals & Geographies | Business Models\n\nMake sure that the keywords or each area don't exceed 70 characters.\n\nMake sure to export the date using the format example: 01-Ene-2020\n\n1. Goals: Identify your personal goals and ways to measure good outcomes. Why am I investing as Angel. Which outcomes do I look for.\n\n2. Market Vision: Identify what you believe is the future and in which trends you want to participate. What is the future. Big opportunities.\n\n3. Market Needs: Define the challenges you wish to help solving. Which are the important problems to solve. To what do I want to contribute.\n\n4. Involvement Profile: What do I want founders to say about me.\n\n5. Commitment: Be clear about how much time you can and want to commit to the Angel activity. Time available. Dedication.\n\n6. Added Value: Clarify what you can promise the startups and the ecosystem regarding the value you will add on top of money. What value can I add to startups. What do I want founders to say about me.\n\n7. Investment Plan: Define how much will I invest per year or in total.\n\n8. Investment Profile: Define what’s my investment return time frame.\n\n9. Portfolio Plan: Design your plan to build a portfolio and dilute the risk. How will I create a portfolio. How many startups.\n\n10. Startup Profile: Define the maturity stage of the startups you want to invest in. In which startups will I invest. Which maturity stage.\n\n11. Verticals & Geographies: Clarify the categories of startups you will invest in, regarding industries and geography. In which industries will I invest. In which geographies will I invest.\n\n12. Business Models: Identify the business models you will consider investing in. In which business model will I invest.\n\nTurn it into a json file\n\nANGEL INVESTORS ANSWERS:\n\n{{ $json['Angel Responses'] }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        660,
+        0
+      ],
+      "id": "a5a10100-4190-4772-9207-e01173b29b1e",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        640,
+        260
+      ],
+      "id": "c4848029-1669-4f69-885f-2260a2cc8968",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NxtCsuWHKOTbBGEi",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Generator",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        0
+      ],
+      "id": "f77fed2c-cacb-4946-93e0-db29023b1091",
+      "name": "Angel Canvas Responses",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "VH3Qjd91cTRH1QQO",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a02df3b3-7090-44de-b93c-4bd48341daca",
+              "leftValue": "={{ $json.Processed }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        140,
+        0
+      ],
+      "id": "349c6bb6-1387-40ec-9916-e172b027a38d",
+      "name": "Filter only non processed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ccb7d0fa-d549-4963-93e6-725416d121b6",
+              "name": "=Angel Responses",
+              "value": "=Name: {{ $json['What’s your name?'] }} \nEmail:{{ $json['Where should I email it to?'] }}\nPhone:{{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($json['Submitted at']);\n    if (isNaN(date.getTime())) return $json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $json['(1/21) What\\'s my previous experience investing in startups'] }} \nHow do you perceive your role as an angel investor: {{ $json['(2/21) How do you perceive your role as an angel investor?'] }} \nAngel investing is a great way to earn money: {{ $json['\"Angel investing is a great way to earn money\"'] }} \nAngel investing is an efficient way to diversify investments: {{ $json['\"Angel investing is an efficient way to diversify investments\"'] }} \nAngel investing increases my wealth adequately in view of the risk I bear: {{ $json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }} \nAngel investing is an easy way to invest: {{ $json['\"Angel investing is an easy way to invest\"'] }} \nAngel investing is not unnecessarily time-consuming: {{ $json['\"Angel investing is not unnecessarily time-consuming\"'] }} \nAngel investing is a way to give back to society: {{ $json['\"Angel investing is a way to give back to society\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing encourages me to have a life with a higher purpose: {{ $json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{ $json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{ $json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{ $json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{ $json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{ $json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{ $json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{ $json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{ $json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{ $json['(8/21) What future changes in the world you foresee and would love to be part of?'] }} \nWhich are the main challenges in the world that startups can solve: {{ $json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: {{ $json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{ $json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me: {{ $json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{ $json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{ $json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{ $json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{ $json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n{{ $json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        400,
+        0
+      ],
+      "id": "8927e1c5-984d-441e-a0d9-d275cf972a37",
+      "name": "Text with angel responses"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c1dbca2-f447-409f-9ad1-2f60d575292e",
+              "name": "Name",
+              "value": "={{$json.output.match(/\"Name\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "ea11b266-934f-4cb3-94a0-6cbe5a2e3a30",
+              "name": "Email",
+              "value": "={{$json.output.match(/\"Email\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "176dbc87-745c-4839-8ba2-61ed76e3ddcc",
+              "name": "Phone",
+              "value": "={{$json.output.match(/\"Phone\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "48be97c0-f5a0-4c57-8852-d0265769053d",
+              "name": "Date",
+              "value": "={{$json.output.match(/\"Date\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "b53720fd-54af-4706-af23-8ca490e4498e",
+              "name": "Goals",
+              "value": "={{$json.output.match(/\"Goals\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "3dd7e9dc-7db0-4580-9223-149cf14fb8f9",
+              "name": "Market Vision",
+              "value": "={{$json.output.match(/\"Market Vision\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "9140f763-3876-4123-b351-bf93efba1797",
+              "name": "Market Needs",
+              "value": "={{$json.output.match(/\"Market Needs\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "9f6108a1-dd34-4af3-9081-3b576737238f",
+              "name": "Involvement Profile",
+              "value": "={{$json.output.match(/\"Involvement Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "a4de58c4-ea95-42e7-8976-cc8eb676c31d",
+              "name": "Commitment",
+              "value": "={{$json.output.match(/\"Commitment\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "029ee225-3ff5-48ef-bbe4-3bba223b2249",
+              "name": "Added Value",
+              "value": "={{$json.output.match(/\"Added Value\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "5f33c80b-48dc-4c15-9eeb-2f9f6909db70",
+              "name": "Investment Plan",
+              "value": "={{$json.output.match(/\"Investment Plan\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "5c8b8281-cdab-4d6d-867f-7f91a75be66a",
+              "name": "Investment Profile",
+              "value": "={{$json.output.match(/\"Investment Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "f153cbd1-5dd1-496e-af13-e3eb5f72593f",
+              "name": "Portfolio Plan",
+              "value": "={{$json.output.match(/\"Portfolio Plan\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "71b62ce9-8a1b-4685-9b76-76605f1cf860",
+              "name": "Startup Profile",
+              "value": "={{$json.output.match(/\"Startup Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "f5c959c6-a675-4ebd-81fc-bb48cad4ce6c",
+              "name": "Verticals & Geographies",
+              "value": "={{$json.output.match(/\"Verticals & Geographies\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "60f688a7-b032-4c45-9880-8ce515c84093",
+              "name": "Business Models",
+              "value": "={{$json.output.match(/\"Business Models\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1140,
+        0
+      ],
+      "id": "cdfe3798-2cae-444b-8c93-3906a2313568",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "={{ $json.Name }}\n{{ $json.Email }}\n{{ String($json.Phone).toString() }}\n{{ $json.Date }}\n{{ $json.Goals }}\n{{ $json['Market Vision'] }}\n{{ $json['Market Needs'] }}\n{{ $json['Involvement Profile'] }}\n{{ $json.Commitment }}\n{{ $json['Added Value'] }}\n{{ $json['Investment Profile'] }}\n{{ $json['Portfolio Plan'] }}\n{{ $json['Startup Profile'] }}\n{{ $json['Verticals & Geographies'] }}\n{{ $json['Business Models'] }}\n{{ $json['Investment Plan'] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        1460,
+        0
+      ],
+      "id": "f0ea1bb4-79d6-4aed-83da-539f1c9d4e9a",
+      "name": "Convert to File"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Canvas Responses": {
+      "main": [
+        [
+          {
+            "node": "Filter only non processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter only non processed": {
+      "main": [
+        [
+          {
+            "node": "Text with angel responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text with angel responses": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f3ef5a53-50d9-4eec-8978-5cedee63f01c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8f2d02d77e7ce3764ed166f99b724308be82a7d9ed12cfd556ccb02cda5d0e50"
+  },
+  "id": "RZgDeFKalf9vM2Uo",
+  "tags": []
+}

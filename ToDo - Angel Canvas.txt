@@ -11,9 +11,13 @@ List of keywords for each field
 1.1. Create prompt DONE
 1.2. Test prompt DONE
 
+1.3. Find how to connect N8N with gemini DONE
+
 ------------------ToDo------------------
 
-1.3. Find how to connect MAKE with gemini
+1.4. Store the results of the LLM in Drive to use it in canva
 
-1.4. Store the results of the LLM in make
+1.5. Store the results of the LLM in an excel for tracking and data analysis
+
+1.6. Create email and WA template to have it ready
 

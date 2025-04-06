@@ -13,7 +13,16 @@ List of keywords for each field
 
 1.3. Find how to connect N8N with gemini DONE
 
+1.4. Finish direct connection with canva
+-Continue setting up the access token DONE
+
 ------------------ToDo------------------
+
+
+Connect the curl requests to n8n. Don't forget to adapt back the format to linux
+
+Learn how to use the refresh token so you don't need to generate access tokens oven and over
+
 
 1.4. Store the results of the LLM in Drive to use it in canva
 

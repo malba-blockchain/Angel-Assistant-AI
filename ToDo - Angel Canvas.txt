@@ -15,13 +15,17 @@ List of keywords for each field
 
 1.4. Finish direct connection with canva
 -Continue setting up the access token DONE
+-Connect the curl requests to n8n. Don't forget to adapt back the format to linux DONE
+-Learn how to use the refresh token so you don't need to generate access tokens oven and over
+--Use a refresh token every 3H50M DONE
+--Follow the N8N tutorial form aidelcorp DONE
 
 ------------------ToDo------------------
 
+Finish the email integration with the right format.
+Add the other 2 designs to the folder
 
-Connect the curl requests to n8n. Don't forget to adapt back the format to linux
 
-Learn how to use the refresh token so you don't need to generate access tokens oven and over
 
 
 1.4. Store the results of the LLM in Drive to use it in canva

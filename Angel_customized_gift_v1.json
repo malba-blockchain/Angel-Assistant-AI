@@ -1,5 +1,5 @@
 {
-  "name": "Angel customized gift v.1",
+  "name": "Angel customized gift v1",
   "nodes": [
     {
       "parameters": {
@@ -17,7 +17,7 @@
       "credentials": {
         "googlePalmApi": {
           "id": "NxtCsuWHKOTbBGEi",
-          "name": "Google Gemini(PaLM) Api account"
+          "name": "Google Gemini(PaLM) Api account (Ecosistema)"
         }
       }
     },
@@ -245,9 +245,7 @@
       "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
     },
     {
-      "parameters": {
-        "amount": 3
-      },
+      "parameters": {},
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
@@ -312,7 +310,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3140,
+        3120,
         0
       ],
       "id": "269c5e60-f403-46ad-b88d-bcc3f54b3536",
@@ -338,8 +336,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        60,
-        -360
+        40,
+        -300
       ],
       "id": "60da4558-89f7-49e4-8395-dea94bc1a6c9",
       "name": "Token Refresh Schedule"
@@ -398,8 +396,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        800,
-        -360
+        780,
+        -300
       ],
       "id": "b3c98870-fcab-454a-a877-7eef9c9cd4d6",
       "name": "Refresh Canva Token",
@@ -464,8 +462,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        600,
-        -360
+        580,
+        -300
       ],
       "id": "7ba5ee80-4186-4e98-8c0b-303e645d3d71",
       "name": "Set canva variables",
@@ -488,8 +486,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        420,
-        -360
+        400,
+        -300
       ],
       "id": "e392ff31-ac97-4195-979d-4b16965d23d7",
       "name": "Aggregate"
@@ -501,8 +499,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1000,
-        -360
+        980,
+        -300
       ],
       "id": "27e06366-f420-4d55-a261-f73d3bbb6ddd",
       "name": "Process New Tokens"
@@ -515,36 +513,11 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1220,
-        -360
+        1200,
+        -300
       ],
       "id": "66beac26-66e1-481f-aca3-21e607f4f817",
       "name": "Turn tokens into items to store"
-    },
-    {
-      "parameters": {
-        "sendTo": "={{ $('Filter only non processed').item.json['Where should I email it to?'] }}",
-        "subject": "=Dear {{ $('Filter only non processed').item.json['What’s your name?'] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>a letter for you and a list of costly mistakes you must avoid in 2025.</b>\n<br> \n<br> \nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}\n<br>\n<br> \nI’m on a <b>mission to help angels like you all over the world</b> discover their why, map their profile, and design their plan.\n<br> \n<br> \nThat’s why I’m sharing <b>two more Angel Canvas gifts with you</b>, so you can pass them on to those you believe will benefit most.\n<br>\n<br>\n<b>The link expires at the end of this week</b>, many angels have already found them to be total game changers. I’m confident they’ll help your people too.\n<br>\n<br> \nhttps://tally.so/r/n9MY2V\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
-        "options": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        3320,
-        0
-      ],
-      "id": "71e7c8cc-a997-4900-bd62-74527c344173",
-      "name": "Gmail",
-      "webhookId": "c4c97449-6a71-47e7-bea6-da9d59e551cd",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "latwrtGYVu7mteAt",
-          "name": "Gmail account"
-        }
-      }
     },
     {
       "parameters": {
@@ -608,8 +581,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        240,
-        -360
+        220,
+        -300
       ],
       "id": "7450cdd0-303a-4183-bbeb-9f22ecd73099",
       "name": "Get Current Canva Tokens",
@@ -697,8 +670,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1440,
-        -360
+        1420,
+        -300
       ],
       "id": "e230382a-7cca-4ebe-b588-431e3af82db2",
       "name": "Update Canva Tokens in Sheet",
@@ -712,7 +685,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Generate the keywords that will be used in this \"Angel Investor Canvas\", it's like a \"Business Model Canvas\" so it's based on just keywords or short phrases (less than 30 characters).\n\nGenerate the keywords for each of these 12 areas, based on the answers provided by the angel investor down below.\n\nMake the output look like a excel format, following this format: Name | Email | Phone | Date | Goals | Market Vision | Market Needs | Involvement Profile | Commitment | Added Value | Investment Profile | Investment Plan | Portfolio Plan | Startup Profile | Verticals & Geographies | Business Models\n\nMake sure that the keywords or each area don't exceed 70 characters.\n\nMake sure to export the date using the format example: 01-Ene-2020\n\n1. Goals: Identify your personal goals and ways to measure good outcomes. Why am I investing as Angel. Which outcomes do I look for.\n\n2. Market Vision: Identify what you believe is the future and in which trends you want to participate. What is the future. Big opportunities.\n\n3. Market Needs: Define the challenges you wish to help solving. Which are the important problems to solve. To what do I want to contribute.\n\n4. Involvement Profile: What do I want founders to say about me.\n\n5. Commitment: Be clear about how much time you can and want to commit to the Angel activity. Time available. Dedication.\n\n6. Added Value: Clarify what you can promise the startups and the ecosystem regarding the value you will add on top of money. What value can I add to startups. What do I want founders to say about me.\n\n7. Investment Plan: Define how much will I invest per year or in total.\n\n8. Investment Profile: Define what’s my investment return time frame.\n\n9. Portfolio Plan: Design your plan to build a portfolio and dilute the risk. How will I create a portfolio. How many startups.\n\n10. Startup Profile: Define the maturity stage of the startups you want to invest in. In which startups will I invest. Which maturity stage.\n\n11. Verticals & Geographies: Clarify the categories of startups you will invest in, regarding industries and geography. In which industries will I invest. In which geographies will I invest.\n\n12. Business Models: Identify the business models you will consider investing in. In which business model will I invest.\n\nTurn it into a json file. \n\nREMOVE ANY SPECIAL CHARACTERS FROM THE FINAL OUTPUT.\n\nANGEL INVESTORS ANSWERS:\n\n{{ $json['Angel Responses'] }}",
+        "text": "=Generate the keywords that will be used in this \"Angel Investor Canvas\", it's like a \"Business Model Canvas\" so it's based on just keywords or short phrases (usuaslly less than 30 characters).\n\nGenerate the keywords for each of these 12 areas, based on the answers provided by the angel investor down below.\n\nMake the output look like a excel format, following this format: Name | Email | Phone | Date | Goals | Market Vision | Market Needs | Involvement Profile | Commitment | Added Value | Investment Profile | Investment Plan | Portfolio Plan | Startup Profile | Verticals & Geographies | Business Models\n\nMake sure that the keywords of each area always between 10 and 70 characters long.\n\nMake sure to export the date using the format example: 01-Ene-2020\n\n1. Goals: Identify your personal goals and ways to measure good outcomes. Why am I investing as Angel. Which outcomes do I look for.\n\n2. Market Vision: Identify what you believe is the future and in which trends you want to participate. What is the future. Big opportunities.\n\n3. Market Needs: Define the challenges you wish to help solving. Which are the important problems to solve. To what do I want to contribute.\n\n4. Involvement Profile: What do I want founders to say about me.\n\n5. Commitment: Be clear about how much time you can and want to commit to the Angel activity. Time available. Dedication.\n\n6. Added Value: Clarify what you can promise the startups and the ecosystem regarding the value you will add on top of money. What value can I add to startups. What do I want founders to say about me.\n\n7. Investment Plan: Define how much will I invest per year or in total.\n\n8. Investment Profile: Define what’s my investment return time frame.\n\n9. Portfolio Plan: Design your plan to build a portfolio and dilute the risk. How will I create a portfolio. How many startups.\n\n10. Startup Profile: Define the maturity stage of the startups you want to invest in. In which startups will I invest. Which maturity stage.\n\n11. Verticals & Geographies: Clarify the categories of startups you will invest in, regarding industries and geography. In which industries will I invest. In which geographies will I invest.\n\n12. Business Models: Identify the business models you will consider investing in. In which business model will I invest.\n\nTurn it into a json file. \n\nREMOVE ANY SPECIAL CHARACTERS FROM THE FINAL OUTPUT.\n\nANGEL INVESTORS ANSWERS:\n\n{{ $json['Angel Responses'] }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -727,35 +700,35 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Take the following \"INVESTOR ADVICE\" and the following ANSWERS from the ANGEL CANVAS to generate the advice of what type of investment works best for this investor based on his answers. Generate maximum three pros and three cons of his investor type, based on the answers provided.\n\nFormat it as a letter written to the person, starting with \"Dear [FIRST NAME],\n[Add two Line spaces]\nBased on your angel investing preferences and my experience helping investors like you, I believe that being...\".\n[Add two Line spaces]\nTurn the pros and cons into bulletpoints, each bulletpoints in between 30 to 40 characters. Add two Line spaces to separate pros and cons.\n[Add two Line spaces]\nIf the profile is not of an Angel Fund Investor, mention how the cons of his investor type can be solved by joining an angel fund. By saying: \"In my decade of experience I’ve realized that joining a proven angel fund model with a seasoned management team could resolve these issues by...\"\n\nMake bold 4 key phrases in the letter.\n\nDO NOT make any call to action. DO NOT use the em dash. DO NOT use exclamation mark. DO NOT use emojis. Don't say: \"Best,\" DO NOT add name signature placeholder at the end. Make sure to add the line spaces I requested.\n\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nINVESTOR ADVICE HERE:\n\nInvestor Types and Personalized Advice Framework  \n1. Solo Angel  \n\n    Time Commitment : Hands-On Partner (20+ hours/week)\n    Number of Startups : 1–5 startups – Selective, high-conviction\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tDirect relationship with founders\n\tMore independency\n\tFull control\n\tFlexible ticket size\n\tMore involvement with ecosystem\n    Cons :\n        Workload, time commitment and costs\n\tHighest risk and limited diversification\n\tNeed more money available\n\tLimited deal access\n\tStatistically lowers returns\n\tKnowledge requirements\n    Best For :\n        Experienced angels who are very confident in deciding alone, want to get hands-on, and have significant time available. Go Solo if you want full control, direct relationships, and are confident in your investing skills.\n    Customized Message :\n        \"You’ve built a strong intuition and track record investing on your own, but even the best solo angels eventually hit the limits of time and diversification. Consider an angel fund if you find it important to leverage your experience without burning out. An angel fund gives you access to a professionally managed, diversified portfolio and frees up your time to focus on the deals or sectors you're truly passionate about. It’s not about giving up control; it’s about amplifying your impact.\"\n         \n     \n\n2. Small Angel Vehicle (Friends)  \n\n    Time Commitment : Engaged Investor (10-20 hours/week)\n    Number of Startups : 10–20 startups – Balanced risk across multiple bets\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tWith friends - trust\n\tShared decision and due dilligence\n\tPooling capital increased ticket size\n\tSignificant involvement\n    Cons :\n\tHigh risk-low diversification\n\tNo professional team\n\tPotential for conflicts, friendship risks\n\tInformal governance\n    Best For :\n        Close-knit, aligned investors who want more leverage but not formal structure.\n        Invest with Friends if you trust each other and want to share risk/effort without formalizing too much.\n         \n    Customized Message :\n        \"Investing with friends has its rewards, but it also has its limits, both in deal access and decision-making. An angel fund can complement your group's strategy by exposing you to larger, more competitive deals, with none of the admin headaches. You still get to learn and share insights together, but with the backing of a dedicated team curating and managing a diversified pipeline.\"\n         \n     \n\n3. Angel Syndicate (Club/Network)  \n\n    Time Commitment : Advisor and Mentor (2-5 hours/week)\n    Number of Startups : 5–10 startups – Focused portfolio with calculated risk\n    Amount to Invest : 100K–250K per year\n    Pros :\n\tEvents\n\tTraining opportunities\n\tNetworking\n\tShared due diligence\n\tAccess to vetted deals\n\tLow effort per deal\n         \n    Cons :\n\tRisk of treating startups as entertainment\n\tMore social club than investment \n\tNot professional in most syndicates\n\tFees & carry to lead investor\n\tLess control\n\tDecisions may be rushed\n         \n    Best For :\n        Busy professionals and inexperienced angels who prefer passive involvement with vetted access to deals.\n        Join a Syndicate if you want access to quality deals and community input with minimal effort.\n         \n    Customized Message :\n        \"You already appreciate the power of collective intelligence and deal curation; now imagine that at scale, with a professional team managing portfolio construction, follow-ons, and exits. Angel funds are the next step if you want broader exposure without spending more time. You can still co-invest in your favorite deals while building a stronger, safer base.\"\n         \n     \n\n4. Angel Fund  \n\n    Time Commitment : Engaged Investor (10-20 hours/week)\n    Number of Startups : 20–50 startups – Aggressive diversification\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tInvolvement with flexibility\n\tNetworking \n\tBest early-stage deal-flow\n\tProfessional management\n\tLearn from experienced angels\n\tDiversification \n\tDiscuss decisions \n         \n    Cons :\n\tMight have less independence\n\tA bit of less control\n\tCould have longer lock-in\n\tCould count with management fees\n         \n    Best For :\n        Investors who want to get involved sometimes but can rely on a group when needed. Investors who value diversification and want a professional team but don't want to delegate the entire process.\n        Choose an Angel Fund if you want diversification and professional oversight but don’t want to delegate completely losing the opportunity to engage with startups directly.\n         \n\n5. VC Fund  \n\n    Time Commitment : Regular Check-Ins (30 min/week)\n    Number of Startups : 50+ startups – Super-angel strategy, spreading risk across many ventures\n    Amount to Invest : $1M+ per year\n    Pros :\n\tConvenience\n\tProfessional management\n\tInstitutional-grade due diligence\n\tFollow-on power\n\tDiversification \n         \n    Cons :\n\tNo involvement \n\tNo independence or control\n\tHigh minimum investment commitment\n\tIlliquidity\n\tManagement fees and Carry\n         \n    Best For :\n        Accredited high net worth investors, looking for exposure to high-growth companies with a hands-off approach.\n        Commit to a VC Fund if you want to go big and can afford long-term, illiquid investments with higher minimums and prefer delegating to a management team over getting involved with startups directly.\n         \n    Customized Message :\n        \"If you’re looking for more than just quarterly reports, an angel fund gives you something a VC fund can’t: a seat at the table. You’ll have the opportunity to actively participate in investment decisions, engage directly with founders, and immerse yourself in the early-stage ecosystem — all while benefiting from the structure and diversification of a professionally managed fund. It’s the best of both worlds: the strategic exposure of a VC fund, with the hands-on engagement and learning of an angel. Ideal for investors who want to stay sharp, expand their network, and shape the future, not just watch from the sidelines.\"\n         \nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nREMOVE ANY SPECIAL CHARACTERS FROM THE FINAL OUTPUT.\n\nANGEL CANVAS ANSWERS:",
+        "text": "=Take the following \"INVESTOR ADVICE\" and the following ANSWERS from the ANGEL CANVAS to generate the advice of what type of investment works best for this investor based on his answers.\n\nFormat it as a letter written to the person, starting with \"Dear [FIRST NAME],\n[Add one line space]\nBased on your angel investing preferences and my experience helping investors like you, I believe that being...\". MAKE SURE TO ONLY RECOMMEND ONE TYPE OF INVESTOR TYPE, DON'T MENTION ANYTHING ABOUT COMPLEMENTING OR MIXING INVESTMENT STRATEGIES. JUST EXPLAIN IN A SUMMARIZED WAY IN BETWEEN 50 TO 80 ADDITIONAL CHARACTERS, WHY HIS PREFERENCES ALIGN WITH THAT INVESTOR TYPE.\n[Add one line space]\nPros\nTurn the pros into bulletpoints, each bullet point is between 40 to 50 characters long. MAKE SURE TO ADD A BULLT POINT SYMBOL GLYPH at the beginning of each bullet point \"•\". Only add 3 pros.\n\nCons\nTurn the cons into bulletpoints, each bullet point is between 40 to 50 characters long. MAKE SURE TO ADD A BULLT POINT SYMBOL GLYPH at the beginning of each bullet point \"•\". Only add 3 cons.\n\nIf the profile is not of an Angel Fund Investor, mention how the cons of his investor type can be solved by joining an angel fund. By saying: \"In my decade of experience I’ve realized that joining a proven angel fund model with a seasoned management team could resolve these issues by...\"\n\nDO NOT make any call to action. DO NOT use the em dash. DO NOT use exclamation mark. DO NOT use emojis. Don't say: \"Best,\" DO NOT add name signature placeholder at the end. Make sure to add the line spaces I requested.\n\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nINVESTOR ADVICE HERE:\n\nInvestor Types and Personalized Advice Framework  \n1. Solo Angel  \n\n    Time Commitment : Hands-On Partner (20+ hours/week)\n    Number of Startups : 1–5 startups – Selective, high-conviction\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tDirect relationship with founders\n\tMore independency\n\tFull control\n\tFlexible ticket size\n\tMore involvement with ecosystem\n    Cons :\n        Workload, time commitment and costs\n\tHighest risk and limited diversification\n\tNeed more money available\n\tLimited deal access\n\tStatistically lowers returns\n\tKnowledge requirements\n    Best For :\n        Experienced angels who are very confident in deciding alone, want to get hands-on, and have significant time available. Go Solo if you want full control, direct relationships, and are confident in your investing skills.\n    Customized Message :\n        \"You’ve built a strong intuition and track record investing on your own, but even the best solo angels eventually hit the limits of time and diversification. Consider an angel fund if you find it important to leverage your experience without burning out. An angel fund gives you access to a professionally managed, diversified portfolio and frees up your time to focus on the deals or sectors you're truly passionate about. It’s not about giving up control; it’s about amplifying your impact.\"\n         \n     \n\n2. Small Angel Vehicle (Friends)  \n\n    Time Commitment : Engaged Investor (10-20 hours/week)\n    Number of Startups : 10–20 startups – Balanced risk across multiple bets\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tWith friends - trust\n\tShared decision and due dilligence\n\tPooling capital increased ticket size\n\tSignificant involvement\n    Cons :\n\tHigh risk-low diversification\n\tNo professional team\n\tPotential for conflicts, friendship risks\n\tInformal governance\n    Best For :\n        Close-knit, aligned investors who want more leverage but not formal structure.\n        Invest with Friends if you trust each other and want to share risk/effort without formalizing too much.\n         \n    Customized Message :\n        \"Investing with friends has its rewards, but it also has its limits, both in deal access and decision-making. An angel fund can complement your group's strategy by exposing you to larger, more competitive deals, with none of the admin headaches. You still get to learn and share insights together, but with the backing of a dedicated team curating and managing a diversified pipeline.\"\n         \n     \n\n3. Angel Syndicate (Club/Network)  \n\n    Time Commitment : Advisor and Mentor (2-5 hours/week)\n    Number of Startups : 5–10 startups – Focused portfolio with calculated risk\n    Amount to Invest : 100K–250K per year\n    Pros :\n\tEvents\n\tTraining opportunities\n\tNetworking\n\tShared due diligence\n\tAccess to vetted deals\n\tLow effort per deal\n         \n    Cons :\n\tRisk of treating startups as entertainment\n\tMore social club than investment \n\tNot professional in most syndicates\n\tFees & carry to lead investor\n\tLess control\n\tDecisions may be rushed\n         \n    Best For :\n        Busy professionals and inexperienced angels who prefer passive involvement with vetted access to deals.\n        Join a Syndicate if you want access to quality deals and community input with minimal effort.\n         \n    Customized Message :\n        \"You already appreciate the power of collective intelligence and deal curation; now imagine that at scale, with a professional team managing portfolio construction, follow-ons, and exits. Angel funds are the next step if you want broader exposure without spending more time. You can still co-invest in your favorite deals while building a stronger, safer base.\"\n         \n     \n\n4. Angel Fund  \n\n    Time Commitment : Engaged Investor (10-20 hours/week)\n    Number of Startups : 20–50 startups – Aggressive diversification\n    Amount to Invest : 250K–500K per year\n    Pros :\n\tInvolvement with flexibility\n\tNetworking \n\tBest early-stage deal-flow\n\tProfessional management\n\tLearn from experienced angels\n\tDiversification \n\tDiscuss decisions \n         \n    Cons :\n\tMight have less independence\n\tA bit of less control\n\tCould have longer lock-in\n\tCould count with management fees\n         \n    Best For :\n        Investors who want to get involved sometimes but can rely on a group when needed. Investors who value diversification and want a professional team but don't want to delegate the entire process.\n        Choose an Angel Fund if you want diversification and professional oversight but don’t want to delegate completely losing the opportunity to engage with startups directly.\n         \n\n5. VC Fund  \n\n    Time Commitment : Regular Check-Ins (30 min/week)\n    Number of Startups : 50+ startups – Super-angel strategy, spreading risk across many ventures\n    Amount to Invest : $1M+ per year\n    Pros :\n\tConvenience\n\tProfessional management\n\tInstitutional-grade due diligence\n\tFollow-on power\n\tDiversification \n         \n    Cons :\n\tNo involvement \n\tNo independence or control\n\tHigh minimum investment commitment\n\tIlliquidity\n\tManagement fees and Carry\n         \n    Best For :\n        Accredited high net worth investors, looking for exposure to high-growth companies with a hands-off approach.\n        Commit to a VC Fund if you want to go big and can afford long-term, illiquid investments with higher minimums and prefer delegating to a management team over getting involved with startups directly.\n         \n    Customized Message :\n        \"If you’re looking for more than just quarterly reports, an angel fund gives you something a VC fund can’t: a seat at the table. You’ll have the opportunity to actively participate in investment decisions, engage directly with founders, and immerse yourself in the early-stage ecosystem — all while benefiting from the structure and diversification of a professionally managed fund. It’s the best of both worlds: the strategic exposure of a VC fund, with the hands-on engagement and learning of an angel. Ideal for investors who want to stay sharp, expand their network, and shape the future, not just watch from the sidelines.\"\n         \nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nREMOVE ANY SPECIAL CHARACTERS FROM THE FINAL OUTPUT.\n\nANGEL CANVAS ANSWERS:\n{{ $('Text with angel responses').item.json['Angel Responses'] }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
         2920,
-        300
+        260
       ],
       "id": "299d8032-28eb-496a-9955-7c9c486ee6c8",
       "name": "Advice Letter Agent"
     },
     {
       "parameters": {
-        "modelName": "models/gemini-1.5-pro",
+        "modelName": "models/gemini-2.0-flash",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
         2920,
-        500
+        460
       ],
       "id": "56f7b37b-de5a-4d55-90bb-542217a3f741",
       "name": "Google Gemini Chat Model1",
       "credentials": {
         "googlePalmApi": {
-          "id": "NxtCsuWHKOTbBGEi",
-          "name": "Google Gemini(PaLM) Api account"
+          "id": "tGMEebXl7XBEFkIA",
+          "name": "Google Gemini(PaLM) Api account (Metaverse)"
         }
       }
     },
@@ -867,7 +840,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2920,
+        2900,
         0
       ],
       "id": "7e6c8dfa-59c5-4085-93d2-90bd8b3ec3c8",
@@ -888,14 +861,14 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"brand_template_id\": \"EAGj-OrPzME\",\n  \"data\": {\n    \"Letter\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Advice Letter Agent').item.json.output }}\"\n    }\n  }\n}",
+        "jsonBody": "={\n  \"brand_template_id\": \"EAGj-OrPzME\",\n  \"data\": {\n    \"Letter\": {\n      \"type\": \"text\",\n      \"text\": \"{{ JSON.stringify($('Advice Letter Agent').item.json.output.replace(/\\*/g, '')).slice(1, -1)}}\"\n    }\n  }\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
         3480,
-        300
+        260
       ],
       "id": "a3ebcc36-ef30-407f-9a23-42d8539593d4",
       "name": "Request (Job) to generate the customized letter"
@@ -906,7 +879,7 @@
       "typeVersion": 1.1,
       "position": [
         3680,
-        300
+        260
       ],
       "id": "011bfbe2-a303-432c-b82e-b68621dac7c4",
       "name": "Wait2",
@@ -930,7 +903,7 @@
       "typeVersion": 4.2,
       "position": [
         3880,
-        300
+        260
       ],
       "id": "01575b60-0f70-4842-9bbe-d5b832f5fc9a",
       "name": "Get the status of the letter request (Job) sent"
@@ -944,20 +917,20 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $('Get Canva Tokens').item.json['Variable Value'] }}"
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
             }
           ]
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1,\n      2\n    ]\n  }\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
         4100,
-        300
+        260
       ],
       "id": "e7867bee-1c7a-4856-8cab-7e3e860d351f",
       "name": "Request (Job) Export the letter design in PDF"
@@ -968,7 +941,7 @@
       "typeVersion": 1.1,
       "position": [
         4280,
-        300
+        260
       ],
       "id": "a5ed486e-8399-4dfb-a6da-8d1d24e75b33",
       "name": "Wait3",
@@ -982,7 +955,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $('Get Canva Tokens').item.json['Variable Value'] }}"
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
             }
           ]
         },
@@ -992,7 +965,7 @@
       "typeVersion": 4.2,
       "position": [
         4460,
-        300
+        260
       ],
       "id": "b993a741-2bba-4161-a72a-13048b2231bd",
       "name": "Request to get the letter PDF version"
@@ -1006,7 +979,7 @@
       "typeVersion": 4.2,
       "position": [
         4680,
-        300
+        260
       ],
       "id": "0f19c80e-ee95-4d2b-b3e3-c2d070f2df6a",
       "name": "Download the letter PDF"
@@ -1014,7 +987,7 @@
     {
       "parameters": {
         "inputDataFieldName": "=data",
-        "name": "=2. Letter to {{ $('Edit Fields').item.json.Name }} - How to use the canvas",
+        "name": "=2. Letter to {{ $('Edit Fields').item.json.Name.split(' ')[0]  }} - How to use the canvas",
         "driveId": {
           "__rl": true,
           "mode": "list",
@@ -1031,7 +1004,7 @@
       "typeVersion": 3,
       "position": [
         4900,
-        300
+        260
       ],
       "id": "b2011fc3-52ff-46b4-8610-afd81fb40b68",
       "name": "Upload the letter file to the folder",
@@ -1072,7 +1045,7 @@
       "typeVersion": 4.5,
       "position": [
         3280,
-        300
+        260
       ],
       "id": "3e772b67-a1c8-4ed1-81c2-d681c4888d2d",
       "name": "Get Canva Tokens1",
@@ -1080,6 +1053,557 @@
         "googleSheetsOAuth2Api": {
           "id": "KVxUluenje8d2lhS",
           "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1t_fGf7ZeSkzwqpzWKS-v8GemZFm8jFbR",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3480,
+        580
+      ],
+      "id": "1498aba8-ec23-437d-af49-6753e3922e78",
+      "name": "Download the mistakes PDF",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YkGjajBkg7IKNq0b",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=data",
+        "name": "=3. Five mistakes you must avoid {{ $('Edit Fields').item.json.Name.split(' ')[0]  }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3680,
+        580
+      ],
+      "id": "e112dec3-1759-4be3-9f6d-5bf644013334",
+      "name": "Upload the mistakes PDF to the folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "YkGjajBkg7IKNq0b",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Generator",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/15PafDD7usyHJ2AERlMfz5CX4yPjem7TPQuNoPYEE0IY/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Edit Fields').item.json.Phone }}",
+            "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+            "Processed": "YES"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups",
+              "displayName": "(1/21) What's my previous experience investing in startups",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do you perceive your role as an angel investor?",
+              "displayName": "(2/21) How do you perceive your role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world you foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world you foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3360,
+        0
+      ],
+      "id": "cafc6eaf-4969-43b2-9624-df086de21e37",
+      "name": "Update drive folder link",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KVxUluenje8d2lhS",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Filter only non processed').item.json['Where should I email it to?'] }}",
+        "subject": "=Dear {{ $('Edit Fields').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>a letter for you and a list of costly mistakes you must avoid in 2025.</b>\n<br> \n<br> \nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}\n<br>\n<br> \nI’m on a <b>mission to help angels like you all over the world</b> discover their why, map their profile, and design their plan.\n<br> \n<br> \nThat’s why I’m sharing <b>two more Angel Canvas gifts with you</b>, so you can pass them on to those you believe will benefit most.\n<br>\n<br>\n<b>The link expires at the end of this week</b>, many angels have already found them to be total game changers. I’m confident they’ll help your people too.\n<br>\n<br> \nhttps://tally.so/r/n9MY2V\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3540,
+        0
+      ],
+      "id": "71e7c8cc-a997-4900-bd62-74527c344173",
+      "name": "Send custom email",
+      "webhookId": "c4c97449-6a71-47e7-bea6-da9d59e551cd",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "latwrtGYVu7mteAt",
+          "name": "Gmail account"
         }
       }
     }
@@ -1249,7 +1773,7 @@
       "main": [
         [
           {
-            "node": "Gmail",
+            "node": "Update drive folder link",
             "type": "main",
             "index": 0
           }
@@ -1450,8 +1974,40 @@
             "node": "Request (Job) to generate the customized letter",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Download the mistakes PDF",
+            "type": "main",
+            "index": 0
           }
         ]
+      ]
+    },
+    "Download the mistakes PDF": {
+      "main": [
+        [
+          {
+            "node": "Upload the mistakes PDF to the folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update drive folder link": {
+      "main": [
+        [
+          {
+            "node": "Send custom email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send custom email": {
+      "main": [
+        []
       ]
     }
   },
@@ -1459,7 +2015,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "5596201f-d63f-43fc-b66b-5326b8de8a6e",
+  "versionId": "501909b5-6cdd-49b7-a67d-a270215cabe3",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "8f2d02d77e7ce3764ed166f99b724308be82a7d9ed12cfd556ccb02cda5d0e50"

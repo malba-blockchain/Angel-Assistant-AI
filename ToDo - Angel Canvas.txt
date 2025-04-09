@@ -30,8 +30,6 @@ Add the other 2 designs to the folder DONE
 
 1.7. Create email template to have it ready DONE
 
-------------------ToDo------------------
-
 2. Gift card generator and sender.
 
 Create google sheet DONE
@@ -41,3 +39,15 @@ Create canva flow generation DONE
 Create email template DONE
 Send email DONE
 Update sent status in google sheet DONE
+
+------------------ToDo------------------
+
+Migrate to Yangel account
+-N8N flow DONE
+-Email used to send DONE
+-Drive storage DONE
+
+Format the prompt with the bulletpoints DONE
+
+Only 3 parameters to the model
+

@@ -29,10 +29,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        700,
-        1260
+        180,
+        1200
       ],
-      "id": "b3b397b6-1e70-4652-a5f1-7cefc30176e6",
+      "id": "d58252d1-3f42-4ebb-a787-6216a5cc7d75",
       "name": "Filter only non processed"
     },
     {
@@ -40,10 +40,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1260,
-        1260
+        740,
+        1200
       ],
-      "id": "6facd8ae-c323-45d7-8cb3-fba79ca5a3c6",
+      "id": "a18a4f76-9878-4e1e-9aab-0107da374010",
       "name": "Wait6",
       "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
     },
@@ -52,10 +52,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1820,
-        1260
+        1300,
+        1200
       ],
-      "id": "b8f59503-b6b4-4157-9127-bb52e99b2272",
+      "id": "e95f9302-0fa7-4b92-a5e4-ac5d512247dc",
       "name": "Wait7",
       "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
     },
@@ -88,15 +88,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        900,
-        1260
+        360,
+        1200
       ],
-      "id": "a241ccf6-3d88-40e5-8395-a93a8ce0f096",
+      "id": "62095477-7fbf-4d5a-a7c5-b586a706f430",
       "name": "Get Canva Tokens",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -117,10 +117,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1440,
-        1260
+        920,
+        1200
       ],
-      "id": "e5040fdc-9c34-4562-b841-68d882513d50",
+      "id": "3fcd3cf0-d584-43b4-8365-5f529c0f545f",
       "name": "Get the status of the gift card request (Job) sent"
     },
     {
@@ -144,10 +144,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1640,
-        1260
+        1120,
+        1200
       ],
-      "id": "42f816ca-2038-4d48-add1-90343524fc3d",
+      "id": "7df308ef-cb78-43a5-9644-01c64356275e",
       "name": "Request (Job) Export the gift card design in PDF"
     },
     {
@@ -167,10 +167,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1980,
-        1260
+        1460,
+        1200
       ],
-      "id": "9e0d57b4-1821-443d-848b-25dcec887e3a",
+      "id": "d17931c6-fa70-48bb-859c-3e6b3962c3ca",
       "name": "Request to get the gift card PDF version"
     },
     {
@@ -181,10 +181,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2180,
-        1260
+        1660,
+        1200
       ],
-      "id": "e4fd0422-1f2a-46e3-988c-c70a9e4a02c7",
+      "id": "bb15d639-9c97-4d13-955f-b17f42a7bc7a",
       "name": "Download the gift card PDF"
     },
     {
@@ -204,16 +204,16 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2380,
-        1260
+        1860,
+        1200
       ],
-      "id": "59cdd0f5-cd37-4050-af0f-f1c93ba6c0d5",
+      "id": "301bf5e2-b96d-4c02-88a2-b3e604b421e3",
       "name": "Send Gift Card Email",
       "webhookId": "35a80676-5222-4c22-9af7-fbfdf99cce4f",
       "credentials": {
         "gmailOAuth2": {
-          "id": "3EjxlzWZaOFWu0Qe",
-          "name": "Gmail account YAngel"
+          "id": "r3pB1CfRiDHIZqt1",
+          "name": "Gmail account"
         }
       }
     },
@@ -333,15 +333,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2560,
-        1260
+        2040,
+        1200
       ],
-      "id": "21390cdc-d918-46e4-b9fd-af225c21499c",
+      "id": "83be8c81-eea7-42ff-94a2-1b9c580eb5ce",
       "name": "Update Gift Card Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -356,14 +356,14 @@
       "typeVersion": 1,
       "position": [
         160,
-        240
+        300
       ],
-      "id": "082595ff-d939-4864-b455-cc70b6e18d4e",
+      "id": "2c81b42b-cb5c-42dd-95af-4a437304c419",
       "name": "Chat start",
       "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "TnwYA0kchtVpwN0H",
+          "id": "pQp2v0ZeXlLFtcLl",
           "name": "WhatsApp OAuth account"
         }
       }
@@ -397,9 +397,9 @@
       "typeVersion": 2.2,
       "position": [
         340,
-        240
+        300
       ],
-      "id": "b878c9f5-c6af-40d2-bec4-cb3840b9a6ce",
+      "id": "45cedc33-da92-40ac-bb8a-6ec56baee5b1",
       "name": "Validate there is a message"
     },
     {
@@ -430,9 +430,9 @@
       "typeVersion": 2.2,
       "position": [
         540,
-        240
+        300
       ],
-      "id": "f78bc2b7-24a8-42b9-9711-ed6e156cbf5b",
+      "id": "bde91494-b432-4f52-86ae-333ae6013938",
       "name": "Check message type"
     },
     {
@@ -448,14 +448,14 @@
       "typeVersion": 1,
       "position": [
         860,
-        160
+        220
       ],
-      "id": "73d26ce8-9df6-47c7-acd6-ef56a977fda0",
+      "id": "4da8df65-161f-46c2-b723-ddafa73a7462",
       "name": "Gift Card Example",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -470,9 +470,9 @@
       "typeVersion": 1.3,
       "position": [
         1100,
-        900
+        960
       ],
-      "id": "d84a388c-cb98-44af-a70d-13b34484511d",
+      "id": "a58b3ddf-e5f2-419f-a216-399abe422ac3",
       "name": "Simple Memory"
     },
     {
@@ -487,14 +487,14 @@
       "typeVersion": 1,
       "position": [
         1700,
-        160
+        220
       ],
-      "id": "3f447eac-3e44-440c-8a3a-c1b88ba7d64e",
+      "id": "c854be4a-862d-4639-8d12-337b0f777f61",
       "name": "Gift Card Default MSG",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -584,9 +584,9 @@
       "typeVersion": 3.2,
       "position": [
         1380,
-        340
+        400
       ],
-      "id": "059e997f-61f5-4d19-aca0-08eaa6fa5982",
+      "id": "a648f705-0536-4e48-af59-d9362af63d59",
       "name": "Main Gift Card menu switch",
       "alwaysOutputData": false
     },
@@ -602,14 +602,14 @@
       "typeVersion": 1,
       "position": [
         2380,
-        340
+        400
       ],
-      "id": "ccd83026-3bd1-40e7-86b5-a5054a257289",
+      "id": "89b7176a-cdfb-4cf7-9222-75be87eb36d7",
       "name": "Gift Card Recipient",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -626,14 +626,14 @@
       "typeVersion": 1,
       "position": [
         1080,
-        160
+        220
       ],
-      "id": "8d1adfa7-42bc-45c2-83b3-e9ae732b5a20",
+      "id": "76435f70-9771-4968-b8b3-f0962f7dd802",
       "name": "Gift Card Sender",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -654,9 +654,9 @@
       "typeVersion": 1.1,
       "position": [
         1260,
-        160
+        220
       ],
-      "id": "0a5bd9bd-6a82-449c-9b63-4a8546a6b208",
+      "id": "2a916a62-a124-49f1-beb6-a4cddd542c15",
       "name": "Gift Card Sender Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -677,9 +677,9 @@
       "typeVersion": 1.1,
       "position": [
         2040,
-        340
+        400
       ],
-      "id": "5bf2dff5-9274-4001-b083-eff47fb613cf",
+      "id": "4740fe4f-3219-45d6-9614-b2c5639fe353",
       "name": "Gift Card Recipient Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -720,9 +720,9 @@
       "typeVersion": 3.4,
       "position": [
         1160,
-        340
+        400
       ],
-      "id": "9a2ea6d4-c7fe-4e82-964e-d2cc61eff219",
+      "id": "b455c916-17ea-4d32-b6bb-349793ec37ac",
       "name": "Regenerate variables sender"
     },
     {
@@ -733,9 +733,9 @@
       "typeVersion": 1.1,
       "position": [
         840,
-        340
+        400
       ],
-      "id": "52c10b07-2933-460d-acc3-6c0034ca3133",
+      "id": "e18a18fc-5c43-414e-b181-c4af3e2abea1",
       "name": "Gift Card Menu Out"
     },
     {
@@ -750,14 +750,14 @@
       "typeVersion": 1,
       "position": [
         1700,
-        580
+        600
       ],
-      "id": "9254dfe0-3949-4310-a691-703f70126682",
+      "id": "d9953440-70a0-4048-80a0-b7f7937fad67",
       "name": "Gift Card is being processed",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -776,10 +776,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        140,
-        -140
+        160,
+        -80
       ],
-      "id": "dac30d5f-e698-4a37-a11e-7c454ed1d66b",
+      "id": "44e188cd-346c-4585-8f74-1a5a3fd00290",
       "name": "Token Refresh Schedule"
     },
     {
@@ -836,10 +836,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        920,
-        -140
+        940,
+        -80
       ],
-      "id": "ed3408c0-5ad3-4016-9f71-083cc4b82ae3",
+      "id": "57be8f98-1a2f-4fbe-a3dd-e83ca105bd68",
       "name": "Refresh Canva Token",
       "executeOnce": true
     },
@@ -902,10 +902,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        720,
-        -140
+        740,
+        -80
       ],
-      "id": "92fe36a2-2c97-4ddf-8bba-e34d9ce91aff",
+      "id": "555405cf-979e-43f1-b631-ed3dae171cf9",
       "name": "Set canva variables",
       "executeOnce": false
     },
@@ -926,10 +926,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        540,
-        -140
+        560,
+        -80
       ],
-      "id": "5171b9f4-9775-4653-bcee-08e5a4a2b874",
+      "id": "c4c00b34-9df9-4450-98d9-40584ba79e51",
       "name": "Aggregate"
     },
     {
@@ -939,10 +939,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1120,
-        -140
+        1140,
+        -80
       ],
-      "id": "4fe23ff1-72bb-46d0-9564-a20efd5de8d4",
+      "id": "40530648-2331-415f-8dd2-80c7f80947b8",
       "name": "Process New Tokens"
     },
     {
@@ -953,10 +953,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1340,
-        -140
+        1360,
+        -80
       ],
-      "id": "7772531e-14a2-4183-a9ed-d9b6d8a501cd",
+      "id": "fcd0c64b-317d-4852-aaf2-86ff69589eb7",
       "name": "Turn tokens into items to store"
     },
     {
@@ -980,16 +980,16 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        360,
-        -140
+        380,
+        -80
       ],
-      "id": "f18caa17-f5a1-4ce6-a333-00263c1d0ce3",
+      "id": "76fd4c0d-59ff-4517-91aa-989fbbe69979",
       "name": "Get Current Canva Tokens",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1069,15 +1069,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1560,
-        -140
+        1580,
+        -80
       ],
-      "id": "111794a5-c811-4474-a0aa-9435ecfd6dab",
+      "id": "d9f5b099-cc53-411d-a966-0d4839968480",
       "name": "Update Canva Tokens in Sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1086,10 +1086,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2760,
-        580
+        2840,
+        600
       ],
-      "id": "831518f3-59f3-4764-a2a9-830ecdcf26c0",
+      "id": "409d5422-f184-4250-a2be-8aac9ae47a97",
       "name": "Wait",
       "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
     },
@@ -1110,75 +1110,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2380,
-        580
+        2440,
+        600
       ],
-      "id": "f92cb79a-9f91-45bb-8553-b85bf8d63cbc",
+      "id": "25d310b6-0d3a-4375-a984-06f26dc7f542",
       "name": "Get the status of the gift card request (Job) sent1"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://api.canva.com/rest/v1/exports",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"png\",\n    \"size\": \"a4\",\n    \"quality\": \"100\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2600,
-        580
-      ],
-      "id": "f938b011-8120-40bc-8656-3301416ab159",
-      "name": "Request (Job) Export the gift card design in PDF1"
-    },
-    {
-      "parameters": {
-        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the gift card design in PDF1').item.json.job.id }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Authorization",
-              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2920,
-        580
-      ],
-      "id": "826c7a3c-10d9-4c92-8d4e-75e1ad221cdc",
-      "name": "Request to get the gift card PDF version1"
-    },
-    {
-      "parameters": {
-        "url": "={{ $('Request to get the gift card PDF version1').item.json.job.urls[0] }}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        3340,
-        560
-      ],
-      "id": "0e9a18b0-6b62-4334-bbf8-1fde4b3e9833",
-      "name": "Download the gift card PDF1"
     },
     {
       "parameters": {
@@ -1201,10 +1137,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1080,
-        1260
+        560,
+        1200
       ],
-      "id": "b940a042-6ca2-4943-bb37-54569d5a50e6",
+      "id": "9bf9e897-f220-43a9-a866-7835d836c084",
       "name": "Request (Job) to generate the customized gift card"
     },
     {
@@ -1212,10 +1148,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2220,
-        580
+        2260,
+        600
       ],
-      "id": "0acfe06e-9349-4812-abfc-40f953c0611f",
+      "id": "b3865006-819d-4c7b-afe3-0163c684da7e",
       "name": "Wait8",
       "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
     },
@@ -1240,10 +1176,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2060,
-        580
+        2080,
+        600
       ],
-      "id": "408aa610-020e-4dc0-9beb-568ad4d63884",
+      "id": "24a3d897-4eb7-418e-938f-e5d1effd2e71",
       "name": "Request (Job) to generate the customized gift card1"
     },
     {
@@ -1251,21 +1187,21 @@
         "operation": "send",
         "phoneNumberId": "545590858641488",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "There you gou. Now you just need to forward it.",
+        "textBody": "There you go. Now you just need to forward it.\n\nWant another one? Just type their first and last name.\n\n---",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3120,
-        560
+        3220,
+        600
       ],
-      "id": "60ced83a-ebbc-420d-92aa-3b31c4804888",
+      "id": "e707dfe8-e342-49c7-9160-f8587c27c74b",
       "name": "Gift Card is done",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -1275,21 +1211,21 @@
         "operation": "send",
         "phoneNumberId": "545590858641488",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Hi {{ $('Chat start').item.json.messages[0].text.body.split(' ')[0]  }}, {{ $('Regenerate variables sender').item.json.Sender }} is sharing this Angel Canvas Gift Card with you. \n\nIt will give you the tools to suceed in your angel investor journey and help you avoid costly mistakes.\n\nMany investors around the world have found it useful, and we hope you will too.\n\nhttps://tally.so/r/n9MY2V",
+        "textBody": "=Hi {{ $('Chat start').item.json.messages[0].text.body.split(' ')[0]  }}, I found this tool and it was very insightful to better understand my angel profile and plan my angel investing strategy.\n\nI think you will like it too.\n\nhttps://tally.so/r/n9MY2V",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3780,
-        560
+        3820,
+        600
       ],
-      "id": "0dfdb477-b09c-4a26-904d-64f53fc383c6",
+      "id": "8e00e930-1ef9-4b84-93ba-2ef68a5232bf",
       "name": "Gift Card Invite Message",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
@@ -1306,46 +1242,22 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3540,
-        560
+        3620,
+        600
       ],
-      "id": "edd2a5a6-2616-4424-8f72-9668e4df1719",
+      "id": "e930c8a7-b592-4049-a144-defc0ea3e3ba",
       "name": "Gift Card Customized",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
+          "id": "XqpzhJSpoR0UqNS3",
           "name": "WhatsApp account"
         }
       }
     },
     {
       "parameters": {
-        "operation": "send",
-        "phoneNumberId": "545590858641488",
-        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "Want another one? Just type their first and last name.",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        3980,
-        560
-      ],
-      "id": "e94ac199-97b6-4e81-b34f-eb87feae8c4a",
-      "name": "Another Gift Card",
-      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "clqA6lHpp9hHgTzF",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
+        "operation": "append",
         "documentId": {
           "__rl": true,
           "value": "185Bg9WwFMoyQlcZUVlYosh0Dp3_LKWamvL6nK6BjI-0",
@@ -1363,32 +1275,25 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Recipient email": "={{ $('Filter only non processed').item.json['Recipient email'] }}",
-            "Processed": "YES"
+            "Sender Whatsapp": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+            "Submitted at": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Processed": "YES",
+            "Recipient (To)": "={{ $('Chat start').item.json.messages[0].text.body }}",
+            "Sender (From)": "={{ $('Main Gift Card menu switch').item.json.Sender }}"
           },
           "matchingColumns": [
-            "Recipient email"
+            "Sender Whatsapp"
           ],
           "schema": [
             {
-              "id": "Submission ID",
-              "displayName": "Submission ID",
+              "id": "Sender Whatsapp",
+              "displayName": "Sender Whatsapp",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Respondent ID",
-              "displayName": "Respondent ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Submitted at",
@@ -1398,31 +1303,21 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "Your name (From)",
-              "displayName": "Your name (From)",
+              "id": "Sender (From)",
+              "displayName": "Sender (From)",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
-              "id": "Recipient name (To)",
-              "displayName": "Recipient name (To)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Recipient email",
-              "displayName": "Recipient email",
+              "id": "Recipient (To)",
+              "displayName": "Recipient (To)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1437,18 +1332,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "row_number",
-              "displayName": "row_number",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
               "canBeUsedToMatch": true,
-              "readOnly": true,
-              "removed": true
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -1459,15 +1344,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4240,
-        560
+        4040,
+        600
       ],
-      "id": "f11cb301-b1f4-45f7-bfdf-f19929bd646e",
+      "id": "08edf716-efc2-493c-92f0-d92b464cf3ad",
       "name": "Update Gift Card Status1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1500,15 +1385,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1860,
-        580
+        1880,
+        600
       ],
-      "id": "e1d65ed4-655a-4b29-9a43-79de26597dbf",
+      "id": "de463262-e9d4-40ba-a2ee-604a6913bf66",
       "name": "Get Canva Tokens1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "8FHtADkIvI2iabEq",
-          "name": "Google Sheets account YAngel"
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1521,10 +1406,74 @@
       "typeVersion": 1.1,
       "position": [
         1700,
-        340
+        400
       ],
-      "id": "6b8b818d-c2b3-4af7-812b-d22d88f6c8ae",
+      "id": "7b41004a-7bff-4e28-9e02-e5dab0af78d4",
       "name": "Clean Memory"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/exports",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"jpg\",\n    \"size\": \"1\",\n    \"quality\": \"100\",\n    \"width\": \"2185\",\n    \"height\": \"1550\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2660,
+        600
+      ],
+      "id": "542986d3-74dc-46ca-8981-90f447557128",
+      "name": "Request (Job) Export the gift card design JPG"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the gift card design JPG').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3020,
+        600
+      ],
+      "id": "b1ed2698-c277-4fe9-916c-f2eb55719352",
+      "name": "Request to get the gift card JPG"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Request to get the gift card JPG').item.json.job.urls[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3420,
+        600
+      ],
+      "id": "43592773-1598-4ba1-9c41-6dae7b154653",
+      "name": "Download the gift card JPG"
     }
   ],
   "pinData": {},
@@ -1730,11 +1679,6 @@
         ]
       ]
     },
-    "Gift Card Recipient": {
-      "main": [
-        []
-      ]
-    },
     "Gift Card Sender": {
       "main": [
         [
@@ -1860,7 +1804,7 @@
       "main": [
         [
           {
-            "node": "Request to get the gift card PDF version1",
+            "node": "Request to get the gift card JPG",
             "type": "main",
             "index": 0
           }
@@ -1871,29 +1815,7 @@
       "main": [
         [
           {
-            "node": "Request (Job) Export the gift card design in PDF1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Request (Job) Export the gift card design in PDF1": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Request to get the gift card PDF version1": {
-      "main": [
-        [
-          {
-            "node": "Gift Card is done",
+            "node": "Request (Job) Export the gift card design JPG",
             "type": "main",
             "index": 0
           }
@@ -1944,22 +1866,11 @@
         ]
       ]
     },
-    "Download the gift card PDF1": {
-      "main": [
-        [
-          {
-            "node": "Gift Card Customized",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Gift Card is done": {
       "main": [
         [
           {
-            "node": "Download the gift card PDF1",
+            "node": "Download the gift card JPG",
             "type": "main",
             "index": 0
           }
@@ -1970,7 +1881,7 @@
       "main": [
         [
           {
-            "node": "Another Gift Card",
+            "node": "Update Gift Card Status1",
             "type": "main",
             "index": 0
           }
@@ -1986,11 +1897,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Another Gift Card": {
-      "main": [
-        []
       ]
     },
     "Get Canva Tokens1": {
@@ -2014,17 +1920,50 @@
           }
         ]
       ]
+    },
+    "Request (Job) Export the gift card design JPG": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request to get the gift card JPG": {
+      "main": [
+        [
+          {
+            "node": "Gift Card is done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the gift card JPG": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Customized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "80ff5adc-cee9-41d1-86fe-933857bc4995",
+  "versionId": "5337423c-029f-4e93-b648-b426eea9e75c",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "8f2d02d77e7ce3764ed166f99b724308be82a7d9ed12cfd556ccb02cda5d0e50"
+    "instanceId": "eebb88157724567235c65d3912ba9913bfccec23fb20e5121b6ac6ae258f85dd"
   },
-  "id": "BFJBT437cNUUj3X4",
+  "id": "Fas2XyQhexTPo8dY",
   "tags": []
 }

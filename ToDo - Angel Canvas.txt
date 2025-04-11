@@ -53,9 +53,11 @@ Find out how to feed the AI API with knowledge DONE
 
 ------------------ToDo------------------
 
-3. Gift card generator on whatsapp
+3. Gift card generator on whatsapp.
 
-Link to the Gift card generator via WA with customized message. "Create my gift card".
+Continue configuring the values stored in memory IN of recipient and sender. Test WA message from 0.
+
+Link to the Gift card generator via WA with customized message. "Create gift card".
 
 https://wa.me/573012748971?text=Create+gift+card
 --------
@@ -66,9 +68,9 @@ Tell me your first and last name:
 Name of the person you want to gift it:
 
 --------
-Here you gou. Now you only need to forward this message.
+There you gou. Now you only need to forward it.
 
-Want another one? Just type their name: 
+Want another one? Just type their first and last name.
 
 
 

@@ -51,7 +51,6 @@ Only 3 parameters to the model DONE
 
 Find out how to feed the AI API with knowledge DONE
 
-------------------ToDo------------------
 
 3. Gift card generator on whatsapp.
 
@@ -72,7 +71,20 @@ There you gou. Now you only need to forward it.
 
 Want another one? Just type their first and last name.
 
+Change the name of the business to Angel Assistant DONE
+
+Change the picture of the business DONE
 
 
+Find out how to verify the number as I did before. DONE
 
+Find out how to get the WA API up and running full time. -  How to create a permanent token. DONE
+
+------------------ToDo------------------
+
+Connect the API to deliver the customized canvas to non registered numbers. Template required? DONE
+
+Fix the order. Delay the last message.
+
+Fix the format. Button link drive in a separate message
 

@@ -1,0 +1,2556 @@
+{
+  "name": "Angel Canvas Gift v3",
+  "nodes": [
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        820,
+        440
+      ],
+      "id": "698bbbe8-6cb8-450b-8962-b3043c325a1d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "mbDylJftnYFF42lG",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        -180,
+        260
+      ],
+      "id": "9d5a88d4-5913-4906-a8af-ced739f70afb",
+      "name": "Angel Canvas Responses",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "tVNmY5aRVaGVJoZL",
+          "name": "Google Sheets Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a02df3b3-7090-44de-b93c-4bd48341daca",
+              "leftValue": "={{ $json.Processed }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        40,
+        260
+      ],
+      "id": "2e13dc30-46f2-47bc-86b1-ab5f6874592c",
+      "name": "Filter only non processed"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ccb7d0fa-d549-4963-93e6-725416d121b6",
+              "name": "=Angel Responses",
+              "value": "=Name: {{ Object.values($json)[3].split(' ').slice(0, 3).join(' ') }}\nEmail:{{ $json['Where should I email it to?'] }}\nPhone:{{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($json['Submitted at']);\n    if (isNaN(date.getTime())) return $json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $json['(1/21) What\\'s my previous experience investing in startups'] }} \nHow do you perceive your role as an angel investor: {{ $json['(2/21) How do you perceive your role as an angel investor?'] }} \nAngel investing is a great way to earn money: {{ $json['\"Angel investing is a great way to earn money\"'] }} \nAngel investing is an efficient way to diversify investments: {{ $json['\"Angel investing is an efficient way to diversify investments\"'] }} \nAngel investing increases my wealth adequately in view of the risk I bear: {{ $json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }} \nAngel investing is an easy way to invest: {{ $json['\"Angel investing is an easy way to invest\"'] }} \nAngel investing is not unnecessarily time-consuming: {{ $json['\"Angel investing is not unnecessarily time-consuming\"'] }} \nAngel investing is a way to give back to society: {{ $json['\"Angel investing is a way to give back to society\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing encourages me to have a life with a higher purpose: {{ $json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{ $json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{ $json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{ $json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{ $json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{ $json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{ $json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{ $json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{ $json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{ $json['(8/21) What future changes in the world you foresee and would love to be part of?'] }} \nWhich are the main challenges in the world that startups can solve: {{ $json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: {{ $json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{ $json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me: {{ $json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{ $json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{ $json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{ $json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{ $json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n{{ $json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        260,
+        260
+      ],
+      "id": "52bbb21b-bd06-4096-85df-b494cb5db3a2",
+      "name": "Text with angel responses"
+    },
+    {
+      "parameters": {
+        "amount": 7
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1900,
+        260
+      ],
+      "id": "a368a8e9-a554-49e8-a032-69fefe26c511",
+      "name": "Wait",
+      "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2480,
+        260
+      ],
+      "id": "93d2ffda-29c6-41ca-913e-20b35f91e736",
+      "name": "Wait1",
+      "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $('Set Fields').item.json.Name }} - Angel Investor Journey",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1nbZR24-ynoh6QYjUref4iFYjr4bi4Lpu",
+          "mode": "list",
+          "cachedResultName": "Angel Journeys",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1nbZR24-ynoh6QYjUref4iFYjr4bi4Lpu"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        2860,
+        260
+      ],
+      "id": "a8c56ffd-3217-4831-b70a-ea91013213cc",
+      "name": "Create Folder: NAME - Angel Investor Journey",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "j0AvO46ZH6BYnqEu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=data",
+        "name": "=1. {{ $('Set Fields').item.json.Name }} - Angel Investor Canvas",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3300,
+        260
+      ],
+      "id": "c99a078f-617f-42a3-99d7-253fadff5762",
+      "name": "Upload the canvas file to the folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "j0AvO46ZH6BYnqEu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/oauth/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Basic {{ $json.EncodedBase64 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "code_verifier",
+              "value": "P2utVxX9jQvVV1WfcLmNSebBcItMOryOfBLfE8duOweY4uwubzybyKLx_HUnOLufqXSF19bf6I-jO3WX3n4H0yuD6v-D_ZPiJ1LLA7wrCfNTQFshSUiyBRExOmNJxceg"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.canvaAuthToken }}"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "={{ $json.redirectUri }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2420,
+        480
+      ],
+      "id": "b34c8ec4-703d-4049-8e51-0e7b3124801e",
+      "name": "Refresh Canva Token",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba4ec344-3a6e-4229-8110-cd3ef389bd47",
+              "name": "={{ $json[\"Variable Name\"][0] }}",
+              "value": "={{ $json[\"Variable Value\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "b52979bc-f09b-4564-83ae-09ca7c980ffe",
+              "name": "={{ $json[\"Variable Name\"][1] }}",
+              "value": "={{ $json[\"Variable Value\"][1] }}",
+              "type": "string"
+            },
+            {
+              "id": "8092a730-2d5a-4dba-9bcc-5a04fa046a2a",
+              "name": "={{ $json[\"Variable Name\"][2] }}",
+              "value": "={{ $json['Variable Value'][2] }}",
+              "type": "string"
+            },
+            {
+              "id": "6339f9ad-3372-4d94-8d81-3e8cc0c5dd4b",
+              "name": "={{ $json['Variable Name'][3] }}",
+              "value": "={{ $json['Variable Value'][3] }}",
+              "type": "string"
+            },
+            {
+              "id": "12b6e0f6-4a0c-4c60-9347-1da2f0028fb3",
+              "name": "={{ $json['Variable Name'][4] }}",
+              "value": "={{ $json['Variable Value'][4] }}",
+              "type": "string"
+            },
+            {
+              "id": "821e2c39-9927-499c-9862-919b20e2ab34",
+              "name": "={{ $json['Variable Name'][5] }}",
+              "value": "={{ $json['Variable Value'][5] }}",
+              "type": "string"
+            },
+            {
+              "id": "4b83fc29-5bd1-400c-b7d6-067531ea6fca",
+              "name": "={{ $json['Variable Name'][6] }}",
+              "value": "={{ $json['Variable Value'][6] }}",
+              "type": "string"
+            },
+            {
+              "id": "644a4ac7-786d-4c6a-a7f7-a3081c716ac3",
+              "name": "={{ $json['Variable Name'][7] }}",
+              "value": "={{ $json['Variable Value'][7] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2240,
+        480
+      ],
+      "id": "bd0910c9-b594-4b20-9d8f-66b053b3d009",
+      "name": "Set canva variables",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Variable Name"
+            },
+            {
+              "fieldToAggregate": "Variable Value"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        480
+      ],
+      "id": "00dc68f6-35fc-498c-b59b-90fef70090d2",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get current date and time\nconst now = new Date();\n// Calculate expiry time (current time + expires_in seconds)\nconst expiryTime = new Date(now.getTime() + $input.first().json.expires_in * 1000);\n\n// Format the dates\nconst formattedNow = now.toISOString();\nconst formattedExpiry = expiryTime.toISOString();\n\n// Prepare data for spreadsheet update\nconst updateData = [\n  {\n    \"Variable Name\": \"canvaAccessToken\",\n    \"Variable Value\": $input.first().json.access_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canvaRefreshToken\",\n    \"Variable Value\": $input.first().json.refresh_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canva_token_expiry\",\n    \"Variable Value\": formattedExpiry,\n    \"Last Updated\": formattedNow\n  }\n];\n\nreturn {json: {data: updateData}};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        480
+      ],
+      "id": "3c6bddf3-903f-4a90-8c6b-25ad6ccf74fb",
+      "name": "Process New Tokens"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2820,
+        480
+      ],
+      "id": "318bcfe6-5048-439e-a3ac-cad7ef54ba3f",
+      "name": "Turn tokens into items to store"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Variable Name",
+              "lookupValue": "canvaAccessToken"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1300,
+        260
+      ],
+      "id": "cdbfb1e7-b061-4097-a254-328c91333bfc",
+      "name": "Get Canva Tokens",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1900,
+        480
+      ],
+      "id": "7b60245b-de98-4b63-a4b5-d12c65901744",
+      "name": "Get Current Canva Tokens",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Variable Name": "={{ $json['Variable Name'] }}",
+            "Last Updated": "={{ $json['Last Updated'] }}",
+            "Variable Value": "={{ $json['Variable Value'] }}"
+          },
+          "matchingColumns": [
+            "Variable Name"
+          ],
+          "schema": [
+            {
+              "id": "Variable Name",
+              "displayName": "Variable Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Last Updated",
+              "displayName": "Last Updated",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Variable Value",
+              "displayName": "Variable Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3040,
+        480
+      ],
+      "id": "a9642425-4dab-408e-a987-aa61edbfda02",
+      "name": "Update Canva Tokens in Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate the keywords that will be used in this \"Angel Investor Canvas\", it's like a \"Business Model Canvas\" so it's based on just keywords or short phrases (usually less than 30 characters).\n\nGenerate the keywords for each of these 12 areas, based on the answers provided by the angel investor down below. Make sure that the keywords of each area are always between 10 and 60 characters long.\n\nMake the output look like a excel format, following this format: Name | Email | Phone | Date | Goals | Market Vision | Market Needs | Involvement Profile | Commitment | Added Value | Investment Profile | Investment Plan | Portfolio Plan | Startup Profile | Verticals & Geographies | Business Models\n\nMake sure that the keywords of each area are always between 10 and 60 characters long.\n\nMake sure that the keywords of each area always between 10 and 60 characters long.\n\nMake sure to export the date using the format example: 01-Ene-2020\n\n{{ $json['Canvas Prompts'] }}\n\nTurn it into a json file. \n\nMake sure to space the keywords properly with space and commas.\n\nMake sure that the keywords of each area are always between 10 and 60 characters long.\n\nMAKE SURE TO ELIMINATE ANY SPECIAL CHARACTERS\n\nANGEL INVESTORS ANSWERS:\n\n{{ $('Text with angel responses').item.json[\"Angel Responses\"] }}\nMake sure that the keywords of each area are always between 10 and 60 characters long.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        800,
+        260
+      ],
+      "id": "afa9361a-4c39-4f77-8cd4-a2b2f6d99a88",
+      "name": "Canvas Keyword Agent"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Take the following \"INVESTOR ADVICE\" and the following ANSWERS from the ANGEL CANVAS to generate the advice of what type of investment works best for this investor based on his answers. Generate maximum three pros and three cons of his investor type, based on the answers provided.\n\nFormat it as a letter written to the person, starting with \"Dear {{ $('Set Fields').item.json.Name.split(' ')[0] }},\n[Add two Line spaces]\nBased on your angel investing preferences and my experience helping investors like you, I believe that being...\".\nMAKE SURE TO ONLY RECOMMEND ONE TYPE OF INVESTOR TYPE, DON'T MENTION ANYTHING ABOUT COMPLEMENTING OR MIXING INVESTMENT STRATEGIES. JUST EXPLAIN IN A SUMMARIZED WAY IN BETWEEN 50 TO 80 ADDITIONAL CHARACTERS, WHY HIS PREFERENCES ALIGN WITH THAT INVESTOR TYPE.\n[Add one line space]\nPros\nTurn the pros into bulletpoints, each bullet point is between 40 to 50 characters long. MAKE SURE TO ADD A BULLT POINT SYMBOL GLYPH at the beginning of each bullet point \"•\". Only add 3 pros.\n\nCons\nTurn the cons into bulletpoints, each bullet point is between 40 to 50 characters long. MAKE SURE TO ADD A BULLT POINT SYMBOL GLYPH at the beginning of each bullet point \"•\". Only add 3 cons.\n\nThen close with a paragrahp with personalized advice taking between 220 and 300 characters with the following details:\n\n{{ $json['Advice Prompts'] }}\n\nINVESTOR ADVICE HERE:\n\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nTHE ROLES FOR THE INVESTOR ADVICE:\n{{ $('Aggregated Matrix Advice').item.json.data.toJsonString() }}\nInvestor Types and Personalized Advice Framework:\n\n1. Angel Fund  \n\n    Pros :\n\tInvolvement with flexibility\n\tNetworking \n\tBest early-stage deal-flow\n\tProfessional management\n\tLearn from experienced angels\n\tDiversification \n\tDiscuss decisions \n         \n    Cons :\n\tMight have less independence\n\tA bit of less control\n\tCould have longer lock-in\n\tCould count with management fees\n         \n    Best For :\n        Investors who want to get involved sometimes but can rely on a group when needed. Investors who value diversification and want a professional team but don't want to delegate the entire process.\n        Choose an Angel Fund if you want diversification and professional oversight but don’t want to delegate completely losing the opportunity to engage with startups directly.\n\n\n2. Solo Angel  \n\n    Pros :\n\tDirect relationship with founders\n\tMore independency\n\tFull control\n\tFlexible ticket size\n\tMore involvement with ecosystem\n    Cons :\n        Workload, time commitment and costs\n\tHighest risk and limited diversification\n\tNeed more money available\n\tLimited deal access\n\tStatistically lowers returns\n\tKnowledge requirements\n    Best For :\n        Experienced angels who are very confident in deciding alone, want to get hands-on, and have significant time available. Go Solo if you want full control, direct relationships, and are confident in your investing skills.\n    Customized Message :\n        \"You’ve built a strong intuition and track record investing on your own, but even the best solo angels eventually hit the limits of time and diversification. Consider an angel fund if you find it important to leverage your experience without burning out. An angel fund gives you access to a professionally managed, diversified portfolio and frees up your time to focus on the deals or sectors you're truly passionate about. It’s not about giving up control; it’s about amplifying your impact.\"\n         \n\n3. Small Angel Vehicle (Friends)  \n\n    Pros :\n\tWith friends - trust\n\tShared decision and due dilligence\n\tPooling capital increased ticket size\n\tSignificant involvement\n    Cons :\n\tHigh risk-low diversification\n\tNo professional team\n\tPotential for conflicts, friendship risks\n\tInformal governance\n    Best For :\n        Close-knit, aligned investors who want more leverage but not formal structure.\n        Invest with Friends if you trust each other and want to share risk/effort without formalizing too much.\n         \n    Customized Message :\n        \"Investing with friends has its rewards, but it also has its limits, both in deal access and decision-making. An angel fund can complement your group's strategy by exposing you to larger, more competitive deals, with none of the admin headaches. You still get to learn and share insights together, but with the backing of a dedicated team curating and managing a diversified pipeline.\"\n         \n     \n\n4. Angel Syndicate (Club/Network)  \n\n    Pros :\n\tEvents\n\tTraining opportunities\n\tNetworking\n\tShared due diligence\n\tAccess to vetted deals\n\tLow effort per deal\n         \n    Cons :\n\tRisk of treating startups as entertainment\n\tMore social club than investment \n\tNot professional in most syndicates\n\tFees & carry to lead investor\n\tLess control\n\tDecisions may be rushed\n         \n    Best For :\n        Busy professionals and inexperienced angels who prefer passive involvement with vetted access to deals.\n        Join a Syndicate if you want access to quality deals and community input with minimal effort.\n         \n    Customized Message :\n        \"You already appreciate the power of collective intelligence and deal curation; now imagine that at scale, with a professional team managing portfolio construction, follow-ons, and exits. Angel funds are the next step if you want broader exposure without spending more time. You can still co-invest in your favorite deals while building a stronger, safer base.\"\n\n5. VC Fund  \n\n    Pros :\n\tConvenience\n\tProfessional management\n\tInstitutional-grade due diligence\n\tFollow-on power\n\tDiversification \n         \n    Cons :\n\tNo involvement \n\tNo independence or control\n\tHigh minimum investment commitment\n\tIlliquidity\n\tManagement fees and Carry\n         \n    Best For :\n        Accredited high net worth investors, looking for exposure to high-growth companies with a hands-off approach.\n        Commit to a VC Fund if you want to go big and can afford long-term, illiquid investments with higher minimums and prefer delegating to a management team over getting involved with startups directly.\n         \n    Customized Message :\n        \"If you’re looking for more than just quarterly reports, an angel fund gives you something a VC fund can’t: a seat at the table. You’ll have the opportunity to actively participate in investment decisions, engage directly with founders, and immerse yourself in the early-stage ecosystem — all while benefiting from the structure and diversification of a professionally managed fund. It’s the best of both worlds: the strategic exposure of a VC fund, with the hands-on engagement and learning of an angel. Ideal for investors who want to stay sharp, expand their network, and shape the future, not just watch from the sidelines.\"\n         \nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\nDo the whole letter in between 500 to 600 characters.\n\nREMOVE ANY SPECIAL CHARACTERS FROM THE FINAL OUTPUT.\n\nANGEL CANVAS ANSWERS TO CUSTOMIZE YOUR ADVICE:\nWhat's my previous experience investing in startups?\n{{ $('Set Fields').item.json.Experience }}\nHow much time do I want to dedicate to angel investing?\nAnswer: {{ $('Set Fields').item.json.Commitment }}\nHow much would I be comfortable investing?\nAnswer: {{ $('Set Fields').item.json[\"Investment Plan\"] }}\nHow many startups would I like to invest on?\n{{ $('Set Fields').item.json[\"Portfolio Plan\"] }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        4080,
+        480
+      ],
+      "id": "604412e5-ce75-490e-b311-b153139ba425",
+      "name": "Advice Letter Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4120,
+        660
+      ],
+      "id": "fc795336-a97b-4fbc-812d-74bb2dc058c4",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Ghb2gyKp7zE1kxv1",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/autofills",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"brand_template_id\": \"EAGjyByY0JQ\",\n  \"data\": {\n    \"GOALS\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json.Goals }}\"\n    },\n    \"MARKETVISION\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Market Vision'] }}\"\n    },\n    \"MARKETNEEDS\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Market Needs'] }}\"\n    },\n    \"INVESTMENTPLAN\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Investment Plan'] }}\"\n    },\n    \"INVESTMENTPROFILE\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Investment Profile'] }}\"\n    },\n    \"PORTFOLIOPLAN\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Portfolio Plan'] }}\"\n    },\n    \"BUSINESSMODELS\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Business Models'] }}\"\n    },\n    \"STARTUPPROFILE\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Startup Profile'] }}\"\n    },\n    \"VERTICALSANDGEOGRAPHIES\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Verticals & Geographies'] }}\"\n    },\n    \"ADDEDVALUE\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Added Value'] }}\"\n    },\n    \"INVOLVEMENTPROFILE\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json['Involvement Profile'] }}\"\n    },\n    \"COMMITMENT\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json.Commitment }}\"\n    },\n    \"NAME\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json.Name }}\"\n    },\n    \"DATE\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Set Fields').item.json.Date }}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1500,
+        260
+      ],
+      "id": "92837455-1e40-456e-847a-ea0d6c634be6",
+      "name": "Request (Job) to generate the customized canvas",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/autofills/{{ $json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        260
+      ],
+      "id": "004ba667-92fd-40bd-84a9-b90b1cab79ad",
+      "name": "Get the status of the canvas request (Job) sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/exports",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2300,
+        260
+      ],
+      "id": "321753d2-e0eb-46ff-b3ff-b0b2f426b1e0",
+      "name": "Request (Job) Export the canvas design in PDF"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the canvas design in PDF').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2660,
+        260
+      ],
+      "id": "289f424a-0ce3-499f-8352-fdef0039dde5",
+      "name": "Request to get the canvas PDF version"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Request to get the canvas PDF version').item.json.job.urls[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        260
+      ],
+      "id": "518aaa8e-481a-4ec1-aeb5-61f75301e8c0",
+      "name": "Download the canvas PDF"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/autofills",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"brand_template_id\": \"EAGj-OrPzME\",\n  \"data\": {\n    \"Letter P1\": {\n      \"type\": \"text\",\n      \"text\": \"{{ JSON.stringify($('Advice Letter Agent').item.json.output.replace(/\\*/g, '')).slice(1, -1)}}\"\n    },\n    \"Letter P2\": {\n      \"type\": \"text\",\n      \"text\": \"{{ JSON.stringify($('Advice Letter Agent P2').item.json.output.replace(/\\*/g, '')).slice(1, -1)}}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4920,
+        480
+      ],
+      "id": "aac0bb79-0d12-4444-8799-af3e4b9825d6",
+      "name": "Request (Job) to generate the customized letter"
+    },
+    {
+      "parameters": {
+        "amount": 7
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5120,
+        480
+      ],
+      "id": "fb262380-4cfc-4ee9-b0b6-3a698f89caf8",
+      "name": "Wait2",
+      "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/autofills/{{ $json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5300,
+        480
+      ],
+      "id": "f0a745c7-ef65-4146-8eab-9041f168fb75",
+      "name": "Get the status of the letter request (Job) sent"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/exports",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1,\n      2,\n      3\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5520,
+        480
+      ],
+      "id": "0cc21582-a1d4-4829-ae23-edac4e424da5",
+      "name": "Request (Job) Export the letter design in PDF"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5680,
+        480
+      ],
+      "id": "afe44ca1-6a49-4d2a-a00a-3608641277b0",
+      "name": "Wait3",
+      "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the letter design in PDF').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5840,
+        480
+      ],
+      "id": "8d6e5c9c-d5c8-4f4a-97dc-af62f40ea9c5",
+      "name": "Request to get the letter PDF version"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Request to get the letter PDF version').item.json.job.urls[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        6040,
+        480
+      ],
+      "id": "740ec9f8-6d3a-45a4-89d4-b5eaa6a78060",
+      "name": "Download the letter PDF"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=data",
+        "name": "=2. Letter to {{ $('Set Fields').item.json.Name }} - How to use the canvas",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        6240,
+        480
+      ],
+      "id": "e06c7bdd-c076-4f7f-af62-27e7e58bbb66",
+      "name": "Upload the letter file to the folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "j0AvO46ZH6BYnqEu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Variable Name",
+              "lookupValue": "canvaAccessToken"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4720,
+        480
+      ],
+      "id": "dc57c78f-b1c3-4988-ad96-4f7cf2e505b9",
+      "name": "Get Canva Tokens1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "=1Tb-U0Qlr6Tl2EuEyjAl0S37YPQochOkl",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        4920,
+        700
+      ],
+      "id": "b9e134dd-1ee9-4b00-8987-89f16bdfe71a",
+      "name": "Download the mistakes PDF",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "j0AvO46ZH6BYnqEu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=data",
+        "name": "=3. Five mistakes you must avoid {{ $('Set Fields').item.json.Name.split(' ')[0]  }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        5120,
+        700
+      ],
+      "id": "f32c2f83-d0cd-4d4e-ac3a-7af542aa6d9e",
+      "name": "Upload the mistakes PDF to the folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "j0AvO46ZH6BYnqEu",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw",
+          "mode": "list",
+          "cachedResultName": "AI Tuning",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Advice Matrix",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3300,
+        480
+      ],
+      "id": "8c9f3f6b-a363-4b49-ab61-ad32469e3c23",
+      "name": "Get Matrix Advice",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "allFieldsExcept",
+        "fieldsToExclude": "row_number",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3500,
+        480
+      ],
+      "id": "b95e374f-4ab6-407f-a88b-9ab2418c508b",
+      "name": "Aggregated Matrix Advice"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Advice Prompts"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        3900,
+        480
+      ],
+      "id": "afad72b7-36a5-4c94-aa20-5d326c626e40",
+      "name": "Aggregated Matrix Prompts"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw",
+          "mode": "list",
+          "cachedResultName": "AI Tuning",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 403481022,
+          "mode": "list",
+          "cachedResultName": "Advice Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit#gid=403481022"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3720,
+        480
+      ],
+      "id": "2dc37a63-f088-4918-ac9c-b67a9982938a",
+      "name": "Get Advice Prompts",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw",
+          "mode": "list",
+          "cachedResultName": "AI Tuning",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 312792959,
+          "mode": "list",
+          "cachedResultName": "Canvas Prompts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit#gid=312792959"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        460,
+        260
+      ],
+      "id": "cb1a999f-8842-464a-a29f-657e44fbe7fb",
+      "name": "Get Canvas Prompts",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Canvas Prompts"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        640,
+        260
+      ],
+      "id": "b1bd0d3d-0811-4894-9cd3-525cb5cadb9e",
+      "name": "Aggregated Canvas Prompts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c1dbca2-f447-409f-9ad1-2f60d575292e",
+              "name": "Name",
+              "value": "={{$json.output.match(/\"Name\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "ea11b266-934f-4cb3-94a0-6cbe5a2e3a30",
+              "name": "Email",
+              "value": "={{$json.output.match(/\"Email\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "176dbc87-745c-4839-8ba2-61ed76e3ddcc",
+              "name": "Phone",
+              "value": "={{$json.output.match(/\"Phone\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "48be97c0-f5a0-4c57-8852-d0265769053d",
+              "name": "Date",
+              "value": "={{$json.output.match(/\"Date\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "b53720fd-54af-4706-af23-8ca490e4498e",
+              "name": "Goals",
+              "value": "={{$json.output.match(/\"Goals\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "3dd7e9dc-7db0-4580-9223-149cf14fb8f9",
+              "name": "Market Vision",
+              "value": "={{$json.output.match(/\"Market Vision\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "9140f763-3876-4123-b351-bf93efba1797",
+              "name": "Market Needs",
+              "value": "={{$json.output.match(/\"Market Needs\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "9f6108a1-dd34-4af3-9081-3b576737238f",
+              "name": "Involvement Profile",
+              "value": "={{$json.output.match(/\"Involvement Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "a4de58c4-ea95-42e7-8976-cc8eb676c31d",
+              "name": "Commitment",
+              "value": "={{$json.output.match(/\"Commitment\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "029ee225-3ff5-48ef-bbe4-3bba223b2249",
+              "name": "Added Value",
+              "value": "={{$json.output.match(/\"Added Value\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "5f33c80b-48dc-4c15-9eeb-2f9f6909db70",
+              "name": "Investment Plan",
+              "value": "={{$json.output.match(/\"Investment Plan\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "5c8b8281-cdab-4d6d-867f-7f91a75be66a",
+              "name": "Investment Profile",
+              "value": "={{$json.output.match(/\"Investment Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "f153cbd1-5dd1-496e-af13-e3eb5f72593f",
+              "name": "Portfolio Plan",
+              "value": "={{$json.output.match(/\"Portfolio Plan\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "71b62ce9-8a1b-4685-9b76-76605f1cf860",
+              "name": "Startup Profile",
+              "value": "={{$json.output.match(/\"Startup Profile\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "f5c959c6-a675-4ebd-81fc-bb48cad4ce6c",
+              "name": "Verticals & Geographies",
+              "value": "={{$json.output.match(/\"Verticals & Geographies\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "60f688a7-b032-4c45-9880-8ce515c84093",
+              "name": "Business Models",
+              "value": "={{$json.output.match(/\"Business Models\": *\"([^\"]+)\"/)[1]}}",
+              "type": "string"
+            },
+            {
+              "id": "18e9a55a-b71d-4f11-985e-8c5a28177124",
+              "name": "Experience",
+              "value": "={{ $('Filter only non processed').item.json['(1/21) What\\'s my previous experience investing in startups'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1120,
+        260
+      ],
+      "id": "a2c3cd20-9b26-46e2-9231-cf189477ed25",
+      "name": "Set Fields"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Filter only non processed').item.json['Where should I email it to?'] }}",
+        "subject": "=Dear {{ $('Set Fields').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>a letter for you and a list of costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}\n<br>\n<br> \nI would appreciate it if you share with me your honest feedback, as I’m on a mission to <b>help 1 million angels like you all over the world</b> discover their why, map their profile, and design their plan.\n<br> \n<br>\nSeriously, tell me at least one thing we can do to improve it, and turn it into something your network could really appreciate.\n<br> \n<br> \nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3500,
+        260
+      ],
+      "id": "35c1d475-d34b-48d7-a8fb-9dd8ca9c62ec",
+      "name": "Send canvas email",
+      "webhookId": "c4c97449-6a71-47e7-bea6-da9d59e551cd",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "r3pB1CfRiDHIZqt1",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Set Fields').item.json.Phone }}",
+            "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+            "Processed": "YES",
+            "Phase": "1",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Investment Type": "={{ $json.output.replace(\"\\n\",\"\") }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups",
+              "displayName": "(1/21) What's my previous experience investing in startups",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do I perceive my role as an angel investor?",
+              "displayName": "(2/21) How do I perceive my role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Investment Type",
+              "displayName": "Investment Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        5620,
+        700
+      ],
+      "id": "abfed620-756d-49a7-beb8-bddec4396402",
+      "name": "Update drive folder variables",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d487c6f6-60ef-4cb8-9fdb-a24880e79260",
+              "leftValue": "={{ $json.job.status }}",
+              "rightValue": "in_progress",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        260
+      ],
+      "id": "82abf9d5-9814-43da-9c5e-cdb935390af6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4440,
+        660
+      ],
+      "id": "d179eff4-0b8d-49b6-9d91-d2eb601fc80c",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "oujNzqkGdp0h8n1O",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=TURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\n\nHERE ARE THEANGEL CANVAS ANSWERS TO MATCH THE ADVICE YOU WILL FIND:\n\nTime available\nAnswer: {{ $('Set Fields').item.json.Commitment }}\n\nAmount to invest\nAnswer: {{ $('Set Fields').item.json[\"Investment Plan\"] }}\n\n# of startups\nAnswer: {{ $('Set Fields').item.json[\"Portfolio Plan\"] }}\n\nPrevious experience investing in startups:\nAnswer: {{ $('Set Fields').item.json.Experience }}\n\nHERE IS THE ADVICE MATRIX WHERE YOU WILL FIND THE ADVICE YOU WILL OUTPUT:\n{{ $('Aggregated Matrix Advice').item.json.data.toJsonString() }}\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        4400,
+        480
+      ],
+      "id": "fc8c462a-6de7-43db-9438-2a897ff990aa",
+      "name": "Advice Letter Agent P2"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        5380,
+        920
+      ],
+      "id": "e6b84593-b167-4968-84e6-f89afef15bb6",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "zMysbZ6u25YC1wPB",
+          "name": "Google Gemini(PaLM) Api account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Take the following text and based on the text determine the type of investor that's being adviced to take, among these 6 options.\n\n1. \"Angel Fund\"\n2. \"Solo Angel\"\n3. \"Small Angel Vehicle\"\n4. \"Angel Syndicate\"\n5. \"VC fund\"\n6. \"Crowdfunding\"\n\nMake sure to only output one specific type of investor. Use one of the six specific types I just shared you. \n\nHere is the advice: {{ $('Advice Letter Agent P2').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        5300,
+        700
+      ],
+      "id": "464a2182-3b54-4b4e-b4e3-09d0a864f440",
+      "name": "Investor type extractor"
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "=573203944414",
+        "template": "send_canvas_6|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{$('Create Folder: NAME - Angel Investor Journey').item.json.id }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3680,
+        260
+      ],
+      "id": "16b507b0-ee84-4c24-9669-8ccea91aeb13",
+      "name": "Send Canvas",
+      "webhookId": "22eebf62-1cb0-4af9-b905-c00c3c7c36bb",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "573203944414",
+        "template": "feedback_request_5|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4000,
+        260
+      ],
+      "id": "d735e0af-0d60-4ac0-901d-346d01a15da2",
+      "name": "Feedback Request",
+      "webhookId": "d6ffbe64-44ae-4b0b-9ab2-aad602156e39",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3840,
+        260
+      ],
+      "id": "bc14259a-a219-45c0-a988-044cd2842f80",
+      "name": "Wait4",
+      "webhookId": "b309e0e7-e4d8-4048-b380-c5c5268ce4bd"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Canvas Keyword Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Canvas Responses": {
+      "main": [
+        [
+          {
+            "node": "Filter only non processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter only non processed": {
+      "main": [
+        [
+          {
+            "node": "Text with angel responses",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text with angel responses": {
+      "main": [
+        [
+          {
+            "node": "Get Canvas Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get the status of the canvas request (Job) sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Request to get the canvas PDF version",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Folder: NAME - Angel Investor Journey": {
+      "main": [
+        [
+          {
+            "node": "Download the canvas PDF",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Matrix Advice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set canva variables": {
+      "main": [
+        [
+          {
+            "node": "Refresh Canva Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Set canva variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refresh Canva Token": {
+      "main": [
+        [
+          {
+            "node": "Process New Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process New Tokens": {
+      "main": [
+        [
+          {
+            "node": "Turn tokens into items to store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn tokens into items to store": {
+      "main": [
+        [
+          {
+            "node": "Update Canva Tokens in Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload the canvas file to the folder": {
+      "main": [
+        [
+          {
+            "node": "Send canvas email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Canva Tokens": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) to generate the customized canvas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Current Canva Tokens": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canvas Keyword Agent": {
+      "main": [
+        [
+          {
+            "node": "Set Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Advice Letter Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Advice Letter Agent": {
+      "main": [
+        [
+          {
+            "node": "Advice Letter Agent P2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) to generate the customized canvas": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the status of the canvas request (Job) sent": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the canvas design in PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) Export the canvas design in PDF": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request to get the canvas PDF version": {
+      "main": [
+        [
+          {
+            "node": "Create Folder: NAME - Angel Investor Journey",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the canvas PDF": {
+      "main": [
+        [
+          {
+            "node": "Upload the canvas file to the folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) to generate the customized letter": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Get the status of the letter request (Job) sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the status of the letter request (Job) sent": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the letter design in PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) Export the letter design in PDF": {
+      "main": [
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Request to get the letter PDF version",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request to get the letter PDF version": {
+      "main": [
+        [
+          {
+            "node": "Download the letter PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the letter PDF": {
+      "main": [
+        [
+          {
+            "node": "Upload the letter file to the folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Canva Tokens1": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) to generate the customized letter",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Download the mistakes PDF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the mistakes PDF": {
+      "main": [
+        [
+          {
+            "node": "Upload the mistakes PDF to the folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Matrix Advice": {
+      "main": [
+        [
+          {
+            "node": "Aggregated Matrix Advice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregated Matrix Advice": {
+      "main": [
+        [
+          {
+            "node": "Get Advice Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregated Matrix Prompts": {
+      "main": [
+        [
+          {
+            "node": "Advice Letter Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Advice Prompts": {
+      "main": [
+        [
+          {
+            "node": "Aggregated Matrix Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Canvas Prompts": {
+      "main": [
+        [
+          {
+            "node": "Aggregated Canvas Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregated Canvas Prompts": {
+      "main": [
+        [
+          {
+            "node": "Canvas Keyword Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Fields": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send canvas email": {
+      "main": [
+        [
+          {
+            "node": "Send Canvas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update drive folder variables": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Current Canva Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Canva Tokens in Sheet": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Advice Letter Agent P2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Advice Letter Agent P2": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Investor type extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload the mistakes PDF to the folder": {
+      "main": [
+        [
+          {
+            "node": "Investor type extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Investor type extractor": {
+      "main": [
+        [
+          {
+            "node": "Update drive folder variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Canvas": {
+      "main": [
+        [
+          {
+            "node": "Wait4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Feedback Request": {
+      "main": [
+        []
+      ]
+    },
+    "Wait4": {
+      "main": [
+        [
+          {
+            "node": "Feedback Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "829b91e0-b630-4a2f-9739-558c9cb0b25e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eebb88157724567235c65d3912ba9913bfccec23fb20e5121b6ac6ae258f85dd"
+  },
+  "id": "4Mfw2bgRJqk6GQ0A",
+  "tags": []
+}

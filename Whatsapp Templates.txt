@@ -1,0 +1,37 @@
+send_canvas_6
+
+Hi {{1}}, I just sent you an email with your angel canvas as I promised.
+
+Here is the link to your personal Angel Journey folder, so you can bookmark it and revisit next time you need it.
+
+https://drive.google.com/drive/folders/{{2}}
+
+Carlos
+
+https://drive.google.com/drive/folders/1M4ZEQObO2LxvbHsy0SaNbw-AukoqgLJW
+
+1M4ZEQObO2LxvbHsy0SaNbw-AukoqgLJW
+
+Validity period
+12 hours
+
+----------------------------------------------------------
+
+
+feedback_request_5
+
+Btw {{1}}, as I mentioned in the email,  please tell me at least one thing we can do to improve it.
+
+I want to turn it into something your network could really appreciate.
+
+Carlos
+
+Validity period
+12 hours
+
+
+{{ $('Set Fields').item.json.Phone }} Phone
+
+{{ $('Set Fields').item.json.Name.split(' ')[0] }} Name
+
+{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }} URL ID

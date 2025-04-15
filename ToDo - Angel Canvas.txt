@@ -80,11 +80,14 @@ Find out how to verify the number as I did before. DONE
 
 Find out how to get the WA API up and running full time. -  How to create a permanent token. DONE
 
-------------------ToDo------------------
-
 Connect the API to deliver the customized canvas to non registered numbers. Template required? DONE
 
-Fix the order. Delay the last message.
+Fix the order. Delay the last message. DONE
 
-Fix the format. Button link drive in a separate message
+Fix the format. DONE
+
+------------------ToDo------------------
+
+4. Create customizable giftcard template DONE
+4.1. Add template sender to the Gift Card Generator v2 to search the list of people who was sent 1 day ago, and update phase at the end DONE
 

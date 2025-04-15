@@ -1,0 +1,2359 @@
+{
+  "name": "Gift Card Generator v2",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        160,
+        300
+      ],
+      "id": "2c81b42b-cb5c-42dd-95af-4a437304c419",
+      "name": "Chat start",
+      "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "pQp2v0ZeXlLFtcLl",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0f1514e2-21cb-4b84-8bd2-dfb23f52c6cd",
+              "leftValue": "={{ $json.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "97ea097b-1705-4a42-9e73-eac8be9aca9e",
+              "leftValue": "={{ $json.messages[0].button.text }}",
+              "rightValue": "={{ $json.messages[0].button.text }}",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        340,
+        300
+      ],
+      "id": "45cedc33-da92-40ac-bb8a-6ec56baee5b1",
+      "name": "Validate there is a message"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f76129ac-554b-46c6-881a-ce9cf6026395",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+              "rightValue": "Get Custom Gift Card",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "321d5b2c-ce0d-49e3-bc8b-bdd6631caa09",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].button.text }}",
+              "rightValue": "Get Custom Gift Card",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        540,
+        300
+      ],
+      "id": "bde91494-b432-4f52-86ae-333ae6013938",
+      "name": "Check message type"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "messageType": "image",
+        "mediaLink": "https://drive.usercontent.google.com/download?id=1YUXLQbrpkVu2vUnBQoILulgwW_6ecSv8&export=download&authuser=3&confirm=t&uuid=0379da93-e62d-469f-8638-2f195dea36be&at=APcmpoy0Wx0AsSeRFjTOObIg3Ozs:1744306838874",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        860,
+        220
+      ],
+      "id": "4da8df65-161f-46c2-b723-ddafa73a7462",
+      "name": "Gift Card Example",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Chat start').item.json.messages[0].from }}",
+        "contextWindowLength": 1
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1100,
+        960
+      ],
+      "id": "a58b3ddf-e5f2-419f-a216-399abe422ac3",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "To create your gift card just type: \"Create gift card\"",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        220
+      ],
+      "id": "c854be4a-862d-4639-8d12-337b0f777f61",
+      "name": "Gift Card Default MSG",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "54422fd0-31b6-4087-a5dc-f71cb2fc1393",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ ($json.Menu == \"Sender\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "17931a50-692b-4288-bc4d-927c1967024b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Sender"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bb34d3cf-5d15-40fd-ab2e-8cb3b4666c7b",
+                    "leftValue": "={{ ($json.Menu == \"Recipient\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Recipient"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1380,
+        400
+      ],
+      "id": "a648f705-0536-4e48-af59-d9362af63d59",
+      "name": "Main Gift Card menu switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Got it. What’s the name of the person or group you want to gift it to?\n\nExamples:\n-Simon Sinek\n-Stanford MBA Alumni\n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        400
+      ],
+      "id": "89b7176a-cdfb-4cf7-9222-75be87eb36d7",
+      "name": "Gift Card Recipient",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "I will help you create your own Angel Canvas Gift Card, like this one. Tell me your first and last name.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        220
+      ],
+      "id": "76435f70-9771-4968-b8b3-f0962f7dd802",
+      "name": "Gift Card Sender",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $json.contacts[0].wa_id }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Sender"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1260,
+        220
+      ],
+      "id": "2a916a62-a124-49f1-beb6-a4cddd542c15",
+      "name": "Gift Card Sender Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $json.UserID }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Recipient\nSender:{{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        2040,
+        400
+      ],
+      "id": "4740fe4f-3219-45d6-9614-b2c5639fe353",
+      "name": "Gift Card Recipient Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30616b7c-3ff0-4b36-852a-d1aa696d5903",
+              "name": "UserID",
+              "value": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+              "type": "string"
+            },
+            {
+              "id": "88a3a903-1057-4e35-95db-c4aa9cc5bb33",
+              "name": "=Timestamp",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Timestamp:\\s*(\\d+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "f373bbf6-aee6-4ab2-b2e7-a078a0b533ea",
+              "name": "Menu",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Menu:\\s*(\\S+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "a9f25064-9661-43e0-b326-e2cc18a75339",
+              "name": "Sender",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Sender:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1160,
+        400
+      ],
+      "id": "b455c916-17ea-4d32-b6bb-349793ec37ac",
+      "name": "Regenerate variables sender"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        840,
+        400
+      ],
+      "id": "e18a18fc-5c43-414e-b181-c4af3e2abea1",
+      "name": "Gift Card Menu Out"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Ok, I'm creating it. Hold on 20 sec.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1700,
+        600
+      ],
+      "id": "d9953440-70a0-4048-80a0-b7f7937fad67",
+      "name": "Gift Card is being processed",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/oauth/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Basic {{ $json.EncodedBase64 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "code_verifier",
+              "value": "P2utVxX9jQvVV1WfcLmNSebBcItMOryOfBLfE8duOweY4uwubzybyKLx_HUnOLufqXSF19bf6I-jO3WX3n4H0yuD6v-D_ZPiJ1LLA7wrCfNTQFshSUiyBRExOmNJxceg"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.canvaAuthToken }}"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "={{ $json.redirectUri }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        800
+      ],
+      "id": "57be8f98-1a2f-4fbe-a3dd-e83ca105bd68",
+      "name": "Refresh Canva Token",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba4ec344-3a6e-4229-8110-cd3ef389bd47",
+              "name": "={{ $json[\"Variable Name\"][0] }}",
+              "value": "={{ $json[\"Variable Value\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "b52979bc-f09b-4564-83ae-09ca7c980ffe",
+              "name": "={{ $json[\"Variable Name\"][1] }}",
+              "value": "={{ $json[\"Variable Value\"][1] }}",
+              "type": "string"
+            },
+            {
+              "id": "8092a730-2d5a-4dba-9bcc-5a04fa046a2a",
+              "name": "={{ $json[\"Variable Name\"][2] }}",
+              "value": "={{ $json['Variable Value'][2] }}",
+              "type": "string"
+            },
+            {
+              "id": "6339f9ad-3372-4d94-8d81-3e8cc0c5dd4b",
+              "name": "={{ $json['Variable Name'][3] }}",
+              "value": "={{ $json['Variable Value'][3] }}",
+              "type": "string"
+            },
+            {
+              "id": "12b6e0f6-4a0c-4c60-9347-1da2f0028fb3",
+              "name": "={{ $json['Variable Name'][4] }}",
+              "value": "={{ $json['Variable Value'][4] }}",
+              "type": "string"
+            },
+            {
+              "id": "821e2c39-9927-499c-9862-919b20e2ab34",
+              "name": "={{ $json['Variable Name'][5] }}",
+              "value": "={{ $json['Variable Value'][5] }}",
+              "type": "string"
+            },
+            {
+              "id": "4b83fc29-5bd1-400c-b7d6-067531ea6fca",
+              "name": "={{ $json['Variable Name'][6] }}",
+              "value": "={{ $json['Variable Value'][6] }}",
+              "type": "string"
+            },
+            {
+              "id": "644a4ac7-786d-4c6a-a7f7-a3081c716ac3",
+              "name": "={{ $json['Variable Name'][7] }}",
+              "value": "={{ $json['Variable Value'][7] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2880,
+        800
+      ],
+      "id": "555405cf-979e-43f1-b631-ed3dae171cf9",
+      "name": "Set canva variables",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Variable Name"
+            },
+            {
+              "fieldToAggregate": "Variable Value"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2700,
+        800
+      ],
+      "id": "c4c00b34-9df9-4450-98d9-40584ba79e51",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get current date and time\nconst now = new Date();\n// Calculate expiry time (current time + expires_in seconds)\nconst expiryTime = new Date(now.getTime() + $input.first().json.expires_in * 1000);\n\n// Format the dates\nconst formattedNow = now.toISOString();\nconst formattedExpiry = expiryTime.toISOString();\n\n// Prepare data for spreadsheet update\nconst updateData = [\n  {\n    \"Variable Name\": \"canvaAccessToken\",\n    \"Variable Value\": $input.first().json.access_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canvaRefreshToken\",\n    \"Variable Value\": $input.first().json.refresh_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canva_token_expiry\",\n    \"Variable Value\": formattedExpiry,\n    \"Last Updated\": formattedNow\n  }\n];\n\nreturn {json: {data: updateData}};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3280,
+        800
+      ],
+      "id": "40530648-2331-415f-8dd2-80c7f80947b8",
+      "name": "Process New Tokens"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3480,
+        800
+      ],
+      "id": "fcd0c64b-317d-4852-aaf2-86ff69589eb7",
+      "name": "Turn tokens into items to store"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Variable Name": "={{ $json['Variable Name'] }}",
+            "Last Updated": "={{ $json['Last Updated'] }}",
+            "Variable Value": "={{ $json['Variable Value'] }}"
+          },
+          "matchingColumns": [
+            "Variable Name"
+          ],
+          "schema": [
+            {
+              "id": "Variable Name",
+              "displayName": "Variable Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Last Updated",
+              "displayName": "Last Updated",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Variable Value",
+              "displayName": "Variable Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3680,
+        800
+      ],
+      "id": "d9f5b099-cc53-411d-a966-0d4839968480",
+      "name": "Update Canva Tokens in Sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3100,
+        600
+      ],
+      "id": "409d5422-f184-4250-a2be-8aac9ae47a97",
+      "name": "Wait",
+      "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/autofills/{{ $json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2700,
+        600
+      ],
+      "id": "25d310b6-0d3a-4375-a984-06f26dc7f542",
+      "name": "Get the status of the gift card request (Job) sent1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2520,
+        600
+      ],
+      "id": "b3865006-819d-4c7b-afe3-0163c684da7e",
+      "name": "Wait8",
+      "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/autofills",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"brand_template_id\": \"EAGkEVqo5VY\",\n  \"data\": {\n    \"To\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Chat start').item.json.messages[0].text.body }}\"\n    },\n\"From\": {\n      \"type\": \"text\",\n      \"text\": \"{{ $('Regenerate variables sender').item.json.Sender }}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        600
+      ],
+      "id": "24a3d897-4eb7-418e-938f-e5d1effd2e71",
+      "name": "Request (Job) to generate the customized gift card1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "There you go. Now you just need to share it. \n\nWant another one? Just type their full name or group name.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3460,
+        600
+      ],
+      "id": "e707dfe8-e342-49c7-9160-f8587c27c74b",
+      "name": "Gift Card is done",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Angel Canvas Gift Link\nhttps://tally.so/r/n9MY2V",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4160,
+        600
+      ],
+      "id": "8e00e930-1ef9-4b84-93ba-2ef68a5232bf",
+      "name": "Gift Card Invite Message",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "messageType": "image",
+        "mediaPath": "useMedian8n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        600
+      ],
+      "id": "e930c8a7-b592-4049-a144-defc0ea3e3ba",
+      "name": "Gift Card Customized",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Variable Name",
+              "lookupValue": "canvaAccessToken"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1880,
+        600
+      ],
+      "id": "de463262-e9d4-40ba-a2ee-604a6913bf66",
+      "name": "Get Canva Tokens1",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1700,
+        400
+      ],
+      "id": "7b41004a-7bff-4e28-9e02-e5dab0af78d4",
+      "name": "Clean Memory"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/exports",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"jpg\",\n    \"size\": \"1\",\n    \"quality\": \"100\",\n    \"width\": \"2185\",\n    \"height\": \"1550\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2920,
+        600
+      ],
+      "id": "542986d3-74dc-46ca-8981-90f447557128",
+      "name": "Request (Job) Export the gift card design JPG"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the gift card design JPG').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens1').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3280,
+        600
+      ],
+      "id": "b1ed2698-c277-4fe9-916c-f2eb55719352",
+      "name": "Request to get the gift card JPG"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Request to get the gift card JPG').item.json.job.urls[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3640,
+        600
+      ],
+      "id": "43592773-1598-4ba1-9c41-6dae7b154653",
+      "name": "Download the gift card JPG"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "43eb84f6-3a80-42f0-b5c4-fca2b63af865",
+              "leftValue": "={{ $json.job.status }}",
+              "rightValue": "in_progress",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2300,
+        600
+      ],
+      "id": "6a9890d9-55db-4fcc-96e5-e3765f07249d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2520,
+        800
+      ],
+      "id": "76fd4c0d-59ff-4517-91aa-989fbbe69979",
+      "name": "Get Current Canva Tokens",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "573203944414",
+        "template": "gift_card_mesage_v3|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "Carlos"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        720,
+        -60
+      ],
+      "id": "d11c6d2e-73fc-4fe2-9e4d-c23caae9d993",
+      "name": "Gift Card Message",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "573203944414",
+        "template": "gift_card_generator_v3|en"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1040,
+        -60
+      ],
+      "id": "749c4da1-731e-4c0b-af87-b7b86a48a3cc",
+      "name": "Gift Card Generator",
+      "webhookId": "9570a0ff-915d-457a-86cc-50a9b320987c",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        880,
+        -60
+      ],
+      "id": "e56b5ed9-c859-498d-8e1f-e10190e3c805",
+      "name": "Wait1",
+      "webhookId": "7bc2e460-fa81-48b0-880e-77750ec81ae0"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        160,
+        -60
+      ],
+      "id": "71c127ea-cba2-4b4b-bc4a-b574fdd9b259",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Processed",
+              "lookupValue": "YES"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        340,
+        -60
+      ],
+      "id": "90057d54-f967-4ede-b733-bd90cae1711d",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RFVsffoImGJE2nTG",
+          "name": "Google Sheets account (YAngel)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a02df3b3-7090-44de-b93c-4bd48341daca",
+              "leftValue": "={{ $json.Processed }}",
+              "rightValue": "YES",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ new Date().toISOString() }}",
+              "rightValue": "={{ $json['Last sent'] ? new Date(Date.parse($json['Last sent']) + (30 * 24 * 60 * 60 * 1000)).toISOString() : '' }}",
+              "operator": {
+                "type": "dateTime",
+                "operation": "afterOrEquals"
+              }
+            },
+            {
+              "id": "c4b98817-c8d8-4e81-8d70-9284082d82a3",
+              "leftValue": "={{ $json.Phase }}",
+              "rightValue": "1-Angel Canvas Sent",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        -60
+      ],
+      "id": "22b0c1c7-26d0-4b18-b9e9-9a23a7610827",
+      "name": "Filter only processed & a day older"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Google Sheets').item.json['Where should I email it to?'] }}",
+        "subject": "=Dear {{ $('Google Sheets').item.json['What’s your name?'].split(' ')[0]  }}, you can also get a customized gift card",
+        "message": "=The Angel Canvas has provided many current and aspiring Angel Investors the tools to succeed and avoid costly mistakes.\n<br> \n<br> \nWe are confident it’ll help your network too.\n<br> \n<br>\nYou can now share it to help a current or aspiring angel.\n<br> \n<br>\nAngel Canvas Gift Link\n<br>\nhttps://tally.so/r/n9MY2V\n<br> \n<br>\nYou can also get a personalized gift card to share with a group or someone specific.\n<br> \n<br>\nGet Custom Gift Card\n<br>\nhttps://wa.me/573012748971?text=Get+Custom+Gift+Card\n<br> \n<br>\nBest,\n<br>\nPedro Bandeira\n<br> \nYAngel CEO",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1220,
+        -60
+      ],
+      "id": "301bf5e2-b96d-4c02-88a2-b3e604b421e3",
+      "name": "Send Gift Card Email",
+      "webhookId": "35a80676-5222-4c22-9af7-fbfdf99cce4f",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "r3pB1CfRiDHIZqt1",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "185Bg9WwFMoyQlcZUVlYosh0Dp3_LKWamvL6nK6BjI-0",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Gift Card",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185Bg9WwFMoyQlcZUVlYosh0Dp3_LKWamvL6nK6BjI-0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/185Bg9WwFMoyQlcZUVlYosh0Dp3_LKWamvL6nK6BjI-0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Sender Whatsapp": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+            "Submitted at": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Processed": "YES",
+            "Recipient (To)": "={{ $('Chat start').item.json.messages[0].text.body }}",
+            "Sender (From)": "={{ $('Main Gift Card menu switch').item.json.Sender }}"
+          },
+          "matchingColumns": [
+            "Sender Whatsapp"
+          ],
+          "schema": [
+            {
+              "id": "Sender Whatsapp",
+              "displayName": "Sender Whatsapp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sender (From)",
+              "displayName": "Sender (From)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Recipient (To)",
+              "displayName": "Recipient (To)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4380,
+        600
+      ],
+      "id": "08edf716-efc2-493c-92f0-d92b464cf3ad",
+      "name": "Update Gift Card Status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "z4zcaB2A9lC5GCR4",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phase": "2-Gift Card Sent ",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Filter only processed & a day older').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups",
+              "displayName": "(1/21) What's my previous experience investing in startups",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do I perceive my role as an angel investor?",
+              "displayName": "(2/21) How do I perceive my role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Investment Type",
+              "displayName": "Investment Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "AI Tunning",
+              "displayName": "AI Tunning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1420,
+        -60
+      ],
+      "id": "e6bba79b-d466-49a1-b6b0-1e0fc249d524",
+      "name": "Update Angel Registry Status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RFVsffoImGJE2nTG",
+          "name": "Google Sheets account (YAngel)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4000,
+        600
+      ],
+      "id": "169eaa2d-dd61-4298-adc8-9ac65e5d7c29",
+      "name": "Wait2",
+      "webhookId": "7b8b0806-53fa-4a28-9ec1-b3c7a25eea42"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Chat start": {
+      "main": [
+        [
+          {
+            "node": "Validate there is a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate there is a message": {
+      "main": [
+        [
+          {
+            "node": "Check message type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check message type": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Example",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gift Card Menu Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Example": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Gift Card Sender Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Gift Card Menu Out",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Gift Card Recipient Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Gift Card menu switch": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Default MSG",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Memory",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gift Card is being processed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Sender": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Sender Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Recipient Menu In": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Recipient",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Regenerate variables sender": {
+      "main": [
+        [
+          {
+            "node": "Main Gift Card menu switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Menu Out": {
+      "main": [
+        [
+          {
+            "node": "Regenerate variables sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refresh Canva Token": {
+      "main": [
+        [
+          {
+            "node": "Process New Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set canva variables": {
+      "main": [
+        [
+          {
+            "node": "Refresh Canva Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Set canva variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process New Tokens": {
+      "main": [
+        [
+          {
+            "node": "Turn tokens into items to store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn tokens into items to store": {
+      "main": [
+        [
+          {
+            "node": "Update Canva Tokens in Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Request to get the gift card JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the status of the gift card request (Job) sent1": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the gift card design JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) to generate the customized gift card1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card is being processed": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait8": {
+      "main": [
+        [
+          {
+            "node": "Get the status of the gift card request (Job) sent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card is done": {
+      "main": [
+        [
+          {
+            "node": "Download the gift card JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Invite Message": {
+      "main": [
+        [
+          {
+            "node": "Update Gift Card Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Customized": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Canva Tokens1": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) to generate the customized gift card1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Memory": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Recipient Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) Export the gift card design JPG": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request to get the gift card JPG": {
+      "main": [
+        [
+          {
+            "node": "Gift Card is done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the gift card JPG": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Customized",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Wait8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Current Canva Tokens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Canva Tokens in Sheet": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Current Canva Tokens": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Message": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Filter only processed & a day older",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter only processed & a day older": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Gift Card Email": {
+      "main": [
+        [
+          {
+            "node": "Update Angel Registry Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Angel Registry Status": {
+      "main": [
+        []
+      ]
+    },
+    "Update Gift Card Status": {
+      "main": [
+        []
+      ]
+    },
+    "Gift Card Generator": {
+      "main": [
+        [
+          {
+            "node": "Send Gift Card Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Invite Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fee5c810-caee-40b4-83ac-ef96fab47b4b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eebb88157724567235c65d3912ba9913bfccec23fb20e5121b6ac6ae258f85dd"
+  },
+  "id": "Fas2XyQhexTPo8dY",
+  "tags": []
+}

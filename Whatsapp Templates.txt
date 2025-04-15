@@ -17,7 +17,6 @@ Validity period
 
 ----------------------------------------------------------
 
-
 feedback_request_5
 
 Btw {{1}}, as I mentioned in the email,  please tell me at least one thing we can do to improve it.
@@ -29,9 +28,25 @@ Carlos
 Validity period
 12 hours
 
+---------------------------------------------------------------
 
-{{ $('Set Fields').item.json.Phone }} Phone
+gift_card_mesage_v3
 
-{{ $('Set Fields').item.json.Name.split(' ')[0] }} Name
+Hi {{1}}, I hope the Angel Canvas gave you valuable insights. Many others have found it useful as well.
 
-{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }} URL ID
+You can now share it to help a current or aspiring angel find their path and avoid costly mistakes.
+
+You can also get a personalized gift card to share with a group or someone specific.
+
+Carlos
+
+---------------------------------------------------------------
+
+gift_card_generator_v3
+
+Angel Canvas Gift
+https://tally.so/r/n9MY2V
+
+Get Custom Gift Card
+
+---------------------------------------------------------------

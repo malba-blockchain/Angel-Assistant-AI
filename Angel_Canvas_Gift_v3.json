@@ -1292,6 +1292,195 @@
     },
     {
       "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d487c6f6-60ef-4cb8-9fdb-a24880e79260",
+              "leftValue": "={{ $json.job.status }}",
+              "rightValue": "in_progress",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1680,
+        260
+      ],
+      "id": "82abf9d5-9814-43da-9c5e-cdb935390af6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        4440,
+        660
+      ],
+      "id": "d179eff4-0b8d-49b6-9d91-d2eb601fc80c",
+      "name": "Google Gemini Chat Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "oujNzqkGdp0h8n1O",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=TURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\n\nHERE ARE THEANGEL CANVAS ANSWERS TO MATCH THE ADVICE YOU WILL FIND:\n\nTime available\nAnswer: {{ $('Set Fields').item.json.Commitment }}\n\nAmount to invest\nAnswer: {{ $('Set Fields').item.json[\"Investment Plan\"] }}\n\n# of startups\nAnswer: {{ $('Set Fields').item.json[\"Portfolio Plan\"] }}\n\nPrevious experience investing in startups:\nAnswer: {{ $('Set Fields').item.json.Experience }}\n\nHERE IS THE ADVICE MATRIX WHERE YOU WILL FIND THE ADVICE YOU WILL OUTPUT:\n{{ $('Aggregated Matrix Advice').item.json.data.toJsonString() }}\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        4400,
+        480
+      ],
+      "id": "fc8c462a-6de7-43db-9438-2a897ff990aa",
+      "name": "Advice Letter Agent P2"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        5380,
+        920
+      ],
+      "id": "e6b84593-b167-4968-84e6-f89afef15bb6",
+      "name": "Google Gemini Chat Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "zMysbZ6u25YC1wPB",
+          "name": "Google Gemini(PaLM) Api account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Take the following text and based on the text determine the type of investor that's being adviced to take, among these 6 options.\n\n1. \"Angel Fund\"\n2. \"Solo Angel\"\n3. \"Small Angel Vehicle\"\n4. \"Angel Syndicate\"\n5. \"VC fund\"\n6. \"Crowdfunding\"\n\nMake sure to only output one specific type of investor. Use one of the six specific types I just shared you. \n\nHere is the advice: {{ $('Advice Letter Agent P2').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        5300,
+        700
+      ],
+      "id": "464a2182-3b54-4b4e-b4e3-09d0a864f440",
+      "name": "Investor type extractor"
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "=573203944414",
+        "template": "send_canvas_6|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{$('Create Folder: NAME - Angel Investor Journey').item.json.id }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3680,
+        260
+      ],
+      "id": "16b507b0-ee84-4c24-9669-8ccea91aeb13",
+      "name": "Send Canvas",
+      "webhookId": "22eebf62-1cb0-4af9-b905-c00c3c7c36bb",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "573203944414",
+        "template": "feedback_request_5|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4000,
+        260
+      ],
+      "id": "d735e0af-0d60-4ac0-901d-346d01a15da2",
+      "name": "Feedback Request",
+      "webhookId": "d6ffbe64-44ae-4b0b-9ab2-aad602156e39",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "XqpzhJSpoR0UqNS3",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3840,
+        260
+      ],
+      "id": "bc14259a-a219-45c0-a988-044cd2842f80",
+      "name": "Wait4",
+      "webhookId": "b309e0e7-e4d8-4048-b380-c5c5268ce4bd"
+    },
+    {
+      "parameters": {
         "operation": "update",
         "documentId": {
           "__rl": true,
@@ -1313,7 +1502,7 @@
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Set Fields').item.json.Phone }}",
             "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
             "Processed": "YES",
-            "Phase": "1",
+            "Phase": "1-Angel Canvas Sent",
             "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
             "Investment Type": "={{ $json.output.replace(\"\\n\",\"\") }}"
           },
@@ -1775,202 +1964,13 @@
         700
       ],
       "id": "abfed620-756d-49a7-beb8-bddec4396402",
-      "name": "Update drive folder variables",
+      "name": "Update Angel Registry Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "z4zcaB2A9lC5GCR4",
           "name": "Google Sheets account"
         }
       }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "d487c6f6-60ef-4cb8-9fdb-a24880e79260",
-              "leftValue": "={{ $json.job.status }}",
-              "rightValue": "in_progress",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1680,
-        260
-      ],
-      "id": "82abf9d5-9814-43da-9c5e-cdb935390af6",
-      "name": "If"
-    },
-    {
-      "parameters": {
-        "modelName": "models/gemini-2.0-flash",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        4440,
-        660
-      ],
-      "id": "d179eff4-0b8d-49b6-9d91-d2eb601fc80c",
-      "name": "Google Gemini Chat Model2",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "oujNzqkGdp0h8n1O",
-          "name": "Google Gemini(PaLM) Api account 3"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=TURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\nTURN THE TEXT INTO 4 PARAGRAHPS OF SIMILAR SIZE SEPARATED BY A LINE SPACE.\n\nHERE ARE THEANGEL CANVAS ANSWERS TO MATCH THE ADVICE YOU WILL FIND:\n\nTime available\nAnswer: {{ $('Set Fields').item.json.Commitment }}\n\nAmount to invest\nAnswer: {{ $('Set Fields').item.json[\"Investment Plan\"] }}\n\n# of startups\nAnswer: {{ $('Set Fields').item.json[\"Portfolio Plan\"] }}\n\nPrevious experience investing in startups:\nAnswer: {{ $('Set Fields').item.json.Experience }}\n\nHERE IS THE ADVICE MATRIX WHERE YOU WILL FIND THE ADVICE YOU WILL OUTPUT:\n{{ $('Aggregated Matrix Advice').item.json.data.toJsonString() }}\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE TO FULLY SEARCH THE ADVICE MATRIX UNTIL YOU FIND A SAMPLE THAT MATCHES THE EXACTLY SAME \"Time available\", \"# of startups\" and \"Amount to invest\" values\n\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 1300 CHARACTERS.",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.8,
-      "position": [
-        4400,
-        480
-      ],
-      "id": "fc8c462a-6de7-43db-9438-2a897ff990aa",
-      "name": "Advice Letter Agent P2"
-    },
-    {
-      "parameters": {
-        "modelName": "models/gemini-2.0-flash",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        5380,
-        920
-      ],
-      "id": "e6b84593-b167-4968-84e6-f89afef15bb6",
-      "name": "Google Gemini Chat Model3",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "zMysbZ6u25YC1wPB",
-          "name": "Google Gemini(PaLM) Api account 4"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "promptType": "define",
-        "text": "=Take the following text and based on the text determine the type of investor that's being adviced to take, among these 6 options.\n\n1. \"Angel Fund\"\n2. \"Solo Angel\"\n3. \"Small Angel Vehicle\"\n4. \"Angel Syndicate\"\n5. \"VC fund\"\n6. \"Crowdfunding\"\n\nMake sure to only output one specific type of investor. Use one of the six specific types I just shared you. \n\nHere is the advice: {{ $('Advice Letter Agent P2').item.json.output }}",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.agent",
-      "typeVersion": 1.8,
-      "position": [
-        5300,
-        700
-      ],
-      "id": "464a2182-3b54-4b4e-b4e3-09d0a864f440",
-      "name": "Investor type extractor"
-    },
-    {
-      "parameters": {
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "=573203944414",
-        "template": "send_canvas_6|en",
-        "components": {
-          "component": [
-            {
-              "bodyParameters": {
-                "parameter": [
-                  {
-                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
-                  },
-                  {
-                    "text": "={{$('Create Folder: NAME - Angel Investor Journey').item.json.id }}"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        3680,
-        260
-      ],
-      "id": "16b507b0-ee84-4c24-9669-8ccea91aeb13",
-      "name": "Send Canvas",
-      "webhookId": "22eebf62-1cb0-4af9-b905-c00c3c7c36bb",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "XqpzhJSpoR0UqNS3",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "573203944414",
-        "template": "feedback_request_5|en",
-        "components": {
-          "component": [
-            {
-              "bodyParameters": {
-                "parameter": [
-                  {
-                    "text": "={{ $('Set Fields').item.json.Name.split(' ')[0] }}"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        4000,
-        260
-      ],
-      "id": "d735e0af-0d60-4ac0-901d-346d01a15da2",
-      "name": "Feedback Request",
-      "webhookId": "d6ffbe64-44ae-4b0b-9ab2-aad602156e39",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "XqpzhJSpoR0UqNS3",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        3840,
-        260
-      ],
-      "id": "bc14259a-a219-45c0-a988-044cd2842f80",
-      "name": "Wait4",
-      "webhookId": "b309e0e7-e4d8-4048-b380-c5c5268ce4bd"
     }
   ],
   "pinData": {},
@@ -2425,11 +2425,6 @@
         ]
       ]
     },
-    "Update drive folder variables": {
-      "main": [
-        []
-      ]
-    },
     "If": {
       "main": [
         [
@@ -2507,7 +2502,7 @@
       "main": [
         [
           {
-            "node": "Update drive folder variables",
+            "node": "Update Angel Registry Status",
             "type": "main",
             "index": 0
           }
@@ -2540,13 +2535,18 @@
           }
         ]
       ]
+    },
+    "Update Angel Registry Status": {
+      "main": [
+        []
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "829b91e0-b630-4a2f-9739-558c9cb0b25e",
+  "versionId": "3d4676e8-01f2-4cef-b4b0-ff19735ec4d5",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "eebb88157724567235c65d3912ba9913bfccec23fb20e5121b6ac6ae258f85dd"

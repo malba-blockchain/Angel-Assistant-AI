@@ -11,7 +11,7 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        160,
+        -140,
         300
       ],
       "id": "2c81b42b-cb5c-42dd-95af-4a437304c419",
@@ -62,7 +62,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        340,
+        20,
         300
       ],
       "id": "45cedc33-da92-40ac-bb8a-6ec56baee5b1",
@@ -123,7 +123,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        860,
+        780,
         220
       ],
       "id": "4da8df65-161f-46c2-b723-ddafa73a7462",
@@ -145,8 +145,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1100,
-        960
+        1180,
+        840
       ],
       "id": "a58b3ddf-e5f2-419f-a216-399abe422ac3",
       "name": "Simple Memory"
@@ -156,13 +156,13 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "To create your gift card just type: \"Create gift card\"",
+        "textBody": "To get your gift card just type: \"Get Custom Gift Card\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1700,
+        1620,
         220
       ],
       "id": "c854be4a-862d-4639-8d12-337b0f777f61",
@@ -259,7 +259,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1380,
+        1300,
         400
       ],
       "id": "a648f705-0536-4e48-af59-d9362af63d59",
@@ -277,7 +277,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2380,
+        2300,
         400
       ],
       "id": "89b7176a-cdfb-4cf7-9222-75be87eb36d7",
@@ -295,13 +295,13 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "I will help you create your own Angel Canvas Gift Card, like this one. Tell me your first and last name.",
+        "textBody": "I will help you create your own Angel Canvas Gift Card, like this one. \n\nTell me your first and last name.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1080,
+        1000,
         220
       ],
       "id": "76435f70-9771-4968-b8b3-f0962f7dd802",
@@ -329,7 +329,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1260,
+        1180,
         220
       ],
       "id": "2a916a62-a124-49f1-beb6-a4cddd542c15",
@@ -352,7 +352,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2040,
+        1960,
         400
       ],
       "id": "4740fe4f-3219-45d6-9614-b2c5639fe353",
@@ -395,7 +395,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1160,
+        1080,
         400
       ],
       "id": "b455c916-17ea-4d32-b6bb-349793ec37ac",
@@ -408,7 +408,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        840,
+        760,
         400
       ],
       "id": "e18a18fc-5c43-414e-b181-c4af3e2abea1",
@@ -425,7 +425,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1700,
+        1620,
         600
       ],
       "id": "d9953440-70a0-4048-80a0-b7f7937fad67",
@@ -492,7 +492,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3080,
+        2960,
         800
       ],
       "id": "57be8f98-1a2f-4fbe-a3dd-e83ca105bd68",
@@ -558,7 +558,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2880,
+        2760,
         800
       ],
       "id": "555405cf-979e-43f1-b631-ed3dae171cf9",
@@ -582,7 +582,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2700,
+        2580,
         800
       ],
       "id": "c4c00b34-9df9-4450-98d9-40584ba79e51",
@@ -595,7 +595,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3280,
+        3160,
         800
       ],
       "id": "40530648-2331-415f-8dd2-80c7f80947b8",
@@ -609,7 +609,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3480,
+        3360,
         800
       ],
       "id": "fcd0c64b-317d-4852-aaf2-86ff69589eb7",
@@ -691,7 +691,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3680,
+        3560,
         800
       ],
       "id": "d9f5b099-cc53-411d-a966-0d4839968480",
@@ -708,7 +708,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3100,
+        3120,
         600
       ],
       "id": "409d5422-f184-4250-a2be-8aac9ae47a97",
@@ -732,7 +732,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2700,
+        2580,
         600
       ],
       "id": "25d310b6-0d3a-4375-a984-06f26dc7f542",
@@ -743,7 +743,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2520,
+        2400,
         600
       ],
       "id": "b3865006-819d-4c7b-afe3-0163c684da7e",
@@ -771,7 +771,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2080,
+        2000,
         600
       ],
       "id": "24a3d897-4eb7-418e-938f-e5d1effd2e71",
@@ -784,13 +784,13 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "There you go. Now you just need to share it. \n\nWant another one? Just type their full name or group name.",
+        "textBody": "There you go. Ready to share.\n\nWant another one? Just type their full name or group name.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3460,
+        3480,
         600
       ],
       "id": "e707dfe8-e342-49c7-9160-f8587c27c74b",
@@ -814,7 +814,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4160,
+        4180,
         600
       ],
       "id": "8e00e930-1ef9-4b84-93ba-2ef68a5232bf",
@@ -839,7 +839,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3840,
+        3860,
         600
       ],
       "id": "e930c8a7-b592-4049-a144-defc0ea3e3ba",
@@ -881,7 +881,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1880,
+        1800,
         600
       ],
       "id": "de463262-e9d4-40ba-a2ee-604a6913bf66",
@@ -902,7 +902,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1700,
+        1620,
         400
       ],
       "id": "7b41004a-7bff-4e28-9e02-e5dab0af78d4",
@@ -929,7 +929,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2920,
+        2940,
         600
       ],
       "id": "542986d3-74dc-46ca-8981-90f447557128",
@@ -952,7 +952,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3280,
+        3300,
         600
       ],
       "id": "b1ed2698-c277-4fe9-916c-f2eb55719352",
@@ -966,7 +966,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3640,
+        3660,
         600
       ],
       "id": "43592773-1598-4ba1-9c41-6dae7b154653",
@@ -999,7 +999,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2300,
+        2180,
         600
       ],
       "id": "6a9890d9-55db-4fcc-96e5-e3765f07249d",
@@ -1026,7 +1026,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2520,
+        2400,
         800
       ],
       "id": "76fd4c0d-59ff-4517-91aa-989fbbe69979",
@@ -1042,15 +1042,15 @@
     {
       "parameters": {
         "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "573203944414",
-        "template": "gift_card_mesage_v3|en",
+        "recipientPhoneNumber": "={{ $('Google Sheets').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "template": "gift_card_message_v5|en",
         "components": {
           "component": [
             {
               "bodyParameters": {
                 "parameter": [
                   {
-                    "text": "Carlos"
+                    "text": "={{ $json['What’s your name?'].split(' ')[0]}}"
                   }
                 ]
               }
@@ -1061,8 +1061,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        720,
-        -60
+        420,
+        800
       ],
       "id": "d11c6d2e-73fc-4fe2-9e4d-c23caae9d993",
       "name": "Gift Card Message",
@@ -1076,45 +1076,11 @@
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "573203944414",
-        "template": "gift_card_generator_v3|en"
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        1040,
-        -60
-      ],
-      "id": "749c4da1-731e-4c0b-af87-b7b86a48a3cc",
-      "name": "Gift Card Generator",
-      "webhookId": "9570a0ff-915d-457a-86cc-50a9b320987c",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "XqpzhJSpoR0UqNS3",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        880,
-        -60
-      ],
-      "id": "e56b5ed9-c859-498d-8e1f-e10190e3c805",
-      "name": "Wait1",
-      "webhookId": "7bc2e460-fa81-48b0-880e-77750ec81ae0"
-    },
-    {
-      "parameters": {
         "rule": {
           "interval": [
             {
               "field": "minutes",
-              "minutesInterval": 30
+              "minutesInterval": 1
             }
           ]
         }
@@ -1122,8 +1088,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        160,
-        -60
+        -140,
+        800
       ],
       "id": "71c127ea-cba2-4b4b-bc4a-b574fdd9b259",
       "name": "Schedule Trigger"
@@ -1157,8 +1123,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        340,
-        -60
+        40,
+        800
       ],
       "id": "90057d54-f967-4ede-b733-bd90cae1711d",
       "name": "Google Sheets",
@@ -1175,7 +1141,7 @@
           "options": {
             "caseSensitive": true,
             "leftValue": "",
-            "typeValidation": "strict",
+            "typeValidation": "loose",
             "version": 2
           },
           "conditions": [
@@ -1191,7 +1157,7 @@
             {
               "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
               "leftValue": "={{ new Date().toISOString() }}",
-              "rightValue": "={{ $json['Last sent'] ? new Date(Date.parse($json['Last sent']) + (30 * 24 * 60 * 60 * 1000)).toISOString() : '' }}",
+              "rightValue": "={{ $json['Last sent'] ? new Date(Date.parse($json['Last sent'])).toISOString() : new Date(0).toISOString() }}",
               "operator": {
                 "type": "dateTime",
                 "operation": "afterOrEquals"
@@ -1210,13 +1176,14 @@
           ],
           "combinator": "and"
         },
+        "looseTypeValidation": true,
         "options": {}
       },
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        520,
-        -60
+        220,
+        800
       ],
       "id": "22b0c1c7-26d0-4b18-b9e9-9a23a7610827",
       "name": "Filter only processed & a day older"
@@ -1233,8 +1200,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1220,
-        -60
+        600,
+        800
       ],
       "id": "301bf5e2-b96d-4c02-88a2-b3e604b421e3",
       "name": "Send Gift Card Email",
@@ -1833,8 +1800,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1420,
-        -60
+        800,
+        800
       ],
       "id": "e6bba79b-d466-49a1-b6b0-1e0fc249d524",
       "name": "Update Angel Registry Status",
@@ -1852,12 +1819,157 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4000,
+        4020,
         600
       ],
       "id": "169eaa2d-dd61-4298-adc8-9ac65e5d7c29",
       "name": "Wait2",
       "webhookId": "7b8b0806-53fa-4a28-9ec1-b3c7a25eea42"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4",
+          "mode": "list",
+          "cachedResultName": "Chat History Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Gift Card Flow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Message": "={{ $('Chat start').item.json.messages[0].text?.body || $('Chat start').item.json.messages[0].button?.text || '' }}",
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Name": "={{ $json['What’s your name?'] }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        360,
+        300
+      ],
+      "id": "aa481b60-c3ed-43ac-bb14-6125283f9248",
+      "name": "Log Chat History",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RFVsffoImGJE2nTG",
+          "name": "Google Sheets account (YAngel)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2760,
+        600
+      ],
+      "id": "4f9c6f55-3d68-461e-b2f9-f8a929a4deda",
+      "name": "Wait3",
+      "webhookId": "69caee66-9583-4a20-a408-08d2f217542a"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "lookupValue": "={{ $json.contacts[0].wa_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        200,
+        300
+      ],
+      "id": "f8b61f3a-d5b4-42aa-ab8c-9284adaf65c7",
+      "name": "Get sender name",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RFVsffoImGJE2nTG",
+          "name": "Google Sheets account (YAngel)"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -1877,7 +1989,7 @@
       "main": [
         [
           {
-            "node": "Check message type",
+            "node": "Get sender name",
             "type": "main",
             "index": 0
           }
@@ -2078,7 +2190,7 @@
       "main": [
         [
           {
-            "node": "Request (Job) Export the gift card design JPG",
+            "node": "Wait3",
             "type": "main",
             "index": 0
           }
@@ -2250,18 +2362,7 @@
       "main": [
         [
           {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "Gift Card Generator",
+            "node": "Send Gift Card Email",
             "type": "main",
             "index": 0
           }
@@ -2322,22 +2423,44 @@
         []
       ]
     },
-    "Gift Card Generator": {
+    "Wait2": {
       "main": [
         [
           {
-            "node": "Send Gift Card Email",
+            "node": "Gift Card Invite Message",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Wait2": {
+    "Log Chat History": {
       "main": [
         [
           {
-            "node": "Gift Card Invite Message",
+            "node": "Check message type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the gift card design JPG",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get sender name": {
+      "main": [
+        [
+          {
+            "node": "Log Chat History",
             "type": "main",
             "index": 0
           }
@@ -2349,7 +2472,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "fee5c810-caee-40b4-83ac-ef96fab47b4b",
+  "versionId": "03223d90-a19c-4366-b3fe-196c881ac47e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "eebb88157724567235c65d3912ba9913bfccec23fb20e5121b6ac6ae258f85dd"

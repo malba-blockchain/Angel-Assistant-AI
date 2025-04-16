@@ -1,10 +1,14 @@
-send_canvas_6
+send_canvas_v7
 
 Hi {{1}}, I just sent you an email with your angel canvas as I promised.
 
 Here is the link to your personal Angel Journey folder, so you can bookmark it and revisit next time you need it.
 
 https://drive.google.com/drive/folders/{{2}}
+
+I want to turn it into something your network could really appreciate.
+
+Please tell me at least one thing we can do to improve it.
 
 Carlos
 
@@ -15,22 +19,9 @@ https://drive.google.com/drive/folders/1M4ZEQObO2LxvbHsy0SaNbw-AukoqgLJW
 Validity period
 12 hours
 
-----------------------------------------------------------
-
-feedback_request_5
-
-Btw {{1}}, as I mentioned in the email,  please tell me at least one thing we can do to improve it.
-
-I want to turn it into something your network could really appreciate.
-
-Carlos
-
-Validity period
-12 hours
-
 ---------------------------------------------------------------
 
-gift_card_mesage_v3
+gift_card_message_v4
 
 Hi {{1}}, I hope the Angel Canvas gave you valuable insights. Many others have found it useful as well.
 
@@ -39,10 +30,6 @@ You can now share it to help a current or aspiring angel find their path and avo
 You can also get a personalized gift card to share with a group or someone specific.
 
 Carlos
-
----------------------------------------------------------------
-
-gift_card_generator_v3
 
 Angel Canvas Gift
 https://tally.so/r/n9MY2V

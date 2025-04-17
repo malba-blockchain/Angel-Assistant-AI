@@ -21,19 +21,21 @@ Validity period
 
 ---------------------------------------------------------------
 
-gift_card_message_v4
+gift_card_message_v8
 
-Hi {{1}}, I hope the Angel Canvas gave you valuable insights. Many others have found it useful as well.
 
-You can now share it to help a current or aspiring angel find their path and avoid costly mistakes.
+Hey {{1}}, how did you find your canvas?
 
-You can also get a personalized gift card to share with a group or someone specific.
+I keep improving it based on community feedback.
+
+I made this personalized gift card you can now share with a group or someone who might find it useful.
+
+Or just send them this link. Check it out.
+
+https://tally.so/r/n9MY2V
 
 Carlos
 
-Angel Canvas Gift
-https://tally.so/r/n9MY2V
-
-Get Custom Gift Card
+Get Gift Card
 
 ---------------------------------------------------------------

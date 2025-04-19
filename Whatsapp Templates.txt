@@ -1,8 +1,8 @@
-send_canvas_v7
+send_canvas_v8
 
 Hi {{1}}, I just sent you an email with your angel canvas as I promised.
 
-Here is the link to your personal Angel Journey folder, so you can bookmark it and revisit next time you need it.
+Here is the link to your personal Angel Journey folder, so you can bookmark it and revisit every time you need it.
 
 https://drive.google.com/drive/folders/{{2}}
 
@@ -21,16 +21,20 @@ Validity period
 
 ---------------------------------------------------------------
 
-gift_card_message_v8
+gift_card_message_v9
 
 
-Hey {{1}}, how did you find your canvas?
+Hey {{1}}, how was your experience with the canvas?
 
-I keep improving it based on community feedback.
+I’ve been refining it based on community feedback.
 
-I made this personalized gift card you can now share with a group or someone who might find it useful.
+I made this personalized gift card you can now share with someone (or a group) who might find it useful.
 
-Or just send them this link. Check it out.
+Or simply forward them this link.
+
+We’re giving personalized advice to the first 10 people in this cohort, directly from our team with 30 years of combined experience.
+
+Check it out.
 
 https://tally.so/r/n9MY2V
 
@@ -39,3 +43,18 @@ Carlos
 Get Gift Card
 
 ---------------------------------------------------------------
+
+angel_story_v2
+
+Dear {{1}}, this episode’s angel story: “{{2}}”
+
+Angel stories are shared by angels just like you, so the community can learn from our experiences.
+
+I believe you also have stories worth sharing. Just type “Story” and I’ll get in touch.
+
+If you don't want this type of content, just type "Stop".
+
+Carlos
+
+From Investment Regret to Real Angel Wins.
+

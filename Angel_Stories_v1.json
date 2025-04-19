@@ -1,0 +1,860 @@
+{
+  "name": "Angel Stories v1",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a02df3b3-7090-44de-b93c-4bd48341daca",
+              "leftValue": "={{ $json.Processed }}",
+              "rightValue": "YES",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (format: \"16-Apr-2025\")\n  const parts = $json['Last sent'].split('-');\n  const day = parseInt(parts[0]);\n  const months = {\"Jan\":0, \"Feb\":1, \"Mar\":2, \"Apr\":3, \"May\":4, \"Jun\":5, \"Jul\":6, \"Aug\":7, \"Sep\":8, \"Oct\":9, \"Nov\":10, \"Dec\":11};\n  const month = months[parts[1]];\n  const year = parseInt(parts[2]);\n  \n  // Create a date object from $json['Last sent']\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add 24 hours (86400000 milliseconds)\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + 4*86400000);\n  \n  // Get current date from new Date().toISOString()\n  const currentDate = new Date();\n  \n  // Compare if current date is greater than or equal to lastSentDate + 24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c4b98817-c8d8-4e81-8d70-9284082d82a3",
+              "leftValue": "={{ $json.Phase }}",
+              "rightValue": "1-Angel Canvas Sent",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        360,
+        0
+      ],
+      "id": "56036157-4b0a-4d0f-b01b-86648bb9126e",
+      "name": "Filter only processed & a day older"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phase": "2-Angel Story 0",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Filter only processed & a day older').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do I perceive my role as an angel investor?",
+              "displayName": "(2/21) How do I perceive my role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Investment type",
+              "displayName": "Investment type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "AI Tunning",
+              "displayName": "AI Tunning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1400,
+        0
+      ],
+      "id": "e77ba127-f2e6-4768-9f48-6f50abb3f575",
+      "name": "Update Angel Registry Status1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Processed",
+              "lookupValue": "YES"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        180,
+        0
+      ],
+      "id": "2f118896-ecd2-4c4f-a2df-76cb431cd8e9",
+      "name": "Get Angel List",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "3e377c17-623b-4110-b248-fa7ac6870fa8",
+      "name": "Schedule Trigger Angel Story"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "messageType": "audio",
+        "mediaPath": "useMedian8n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        880,
+        0
+      ],
+      "id": "39d0cefb-aeca-4c2b-986f-2eb8685bafca",
+      "name": "Send Angel Story Audio",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "template": "angel_story_v3|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Filter only processed & a day older').item.json['What’s your name?'].split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{ $('Get Story Data').item.json.Title }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        0
+      ],
+      "id": "0478c7b5-915c-4fe0-9d7a-0b99de87d5a5",
+      "name": "Send Angel Story Message",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        540,
+        0
+      ],
+      "id": "875c9ae1-67bb-4bfc-9aab-3126d7e55cc2",
+      "name": "Get Story Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        0
+      ],
+      "id": "9bbcb0c4-194d-43b5-96f5-f8f15381b341",
+      "name": "Wait",
+      "webhookId": "6cd53389-dce2-420a-8f1b-e85e42541555"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.Link }}",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        700,
+        0
+      ],
+      "id": "69ec9eef-614b-4c82-87c8-1ec2e4de8b56",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "BUjeDAwnPTpXv2dJ",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Filter only processed & a day older": {
+      "main": [
+        [
+          {
+            "node": "Get Story Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Angel List": {
+      "main": [
+        [
+          {
+            "node": "Filter only processed & a day older",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Angel Story": {
+      "main": [
+        [
+          {
+            "node": "Get Angel List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Story Audio": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Story Message": {
+      "main": [
+        [
+          {
+            "node": "Update Angel Registry Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Story Data": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Story Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Story Audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8a3fe52f-3c0f-4dbb-bb6a-a96c1f2afbac",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"
+  },
+  "id": "d5hXQ08eWMaR0UHQ",
+  "tags": []
+}

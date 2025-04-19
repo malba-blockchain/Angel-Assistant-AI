@@ -9,15 +9,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1180,
-        180
+        1340,
+        100
       ],
-      "id": "fe3af521-bacd-4035-9adf-cc8adb8d8219",
+      "id": "633ca234-de68-42ce-9ef2-b12147671a44",
       "name": "Google Gemini Chat Model",
       "credentials": {
         "googlePalmApi": {
-          "id": "KR4nQcJpU6rxpW5s",
-          "name": "Google Gemini(PaLM) Api account 1"
+          "id": "Hzt56PzisVEKdpJR",
+          "name": "Google Gemini(PaLM) Api account"
         }
       }
     },
@@ -28,7 +28,7 @@
             {
               "id": "ccb7d0fa-d549-4963-93e6-725416d121b6",
               "name": "=Angel Responses",
-              "value": "=Name: {{ $json['What’s your name?'].split(' ').length > 3 ? $json['What’s your name?'].split(' ')[0] + ' ' + $json['What’s your name?'].split(' ')[$json['What’s your name?'].split(' ').length-1] : $json['What’s your name?'] }}\nEmail:{{ $json['Where should I email it to?'] }}\nPhone:{{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($json['Submitted at']);\n    if (isNaN(date.getTime())) return $json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $json['(1/21) What\\'s my previous experience investing in startups'] }} \nHow do you perceive your role as an angel investor: {{ $json['(2/21) How do I perceive my role as an angel investor?'] }}\nAngel investing is a great way to earn money: {{ $json['\"Angel investing is a great way to earn money\"'] }} \nAngel investing is an efficient way to diversify investments: {{ $json['\"Angel investing is an efficient way to diversify investments\"'] }} \nAngel investing increases my wealth adequately in view of the risk I bear: {{ $json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }} \nAngel investing is an easy way to invest: {{ $json['\"Angel investing is an easy way to invest\"'] }} \nAngel investing is not unnecessarily time-consuming: {{ $json['\"Angel investing is not unnecessarily time-consuming\"'] }} \nAngel investing is a way to give back to society: {{ $json['\"Angel investing is a way to give back to society\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing encourages me to have a life with a higher purpose: {{ $json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{ $json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{ $json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{ $json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{ $json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{ $json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{ $json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{ $json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{ $json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{ $json['(8/21) What future changes in the world do I foresee and would love to be part of?'] }}\nWhich are the main challenges in the world that startups can solve: {{ $json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: {{ $json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{ $json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me: {{ $json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{ $json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{ $json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{ $json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{ $json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n{{ $json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
+              "value": "=Name: {{ $json['What’s your name?'].split(' ').length > 3 ? $json['What’s your name?'].split(' ')[0] + ' ' + $json['What’s your name?'].split(' ')[$json['What’s your name?'].split(' ').length-1] : $json['What’s your name?'] }}\nEmail:{{ $json['Where should I email it to?'] }}\nPhone:{{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($json['Submitted at']);\n    if (isNaN(date.getTime())) return $json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $json['(1/21) What\\'s my previous experience investing in startups?'] }}\nHow do you perceive your role as an angel investor: {{ $json['(2/21) How do I perceive my role as an angel investor?'] }}\nAngel investing is a great way to earn money: {{ $json['\"Angel investing is a great way to earn money\"'] }} \nAngel investing is an efficient way to diversify investments: {{ $json['\"Angel investing is an efficient way to diversify investments\"'] }} \nAngel investing increases my wealth adequately in view of the risk I bear: {{ $json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }} \nAngel investing is an easy way to invest: {{ $json['\"Angel investing is an easy way to invest\"'] }} \nAngel investing is not unnecessarily time-consuming: {{ $json['\"Angel investing is not unnecessarily time-consuming\"'] }} \nAngel investing is a way to give back to society: {{ $json['\"Angel investing is a way to give back to society\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing encourages me to have a life with a higher purpose: {{ $json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{ $json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{ $json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{ $json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{ $json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{ $json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{ $json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{ $json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{ $json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{ $json['(8/21) What future changes in the world do I foresee and would love to be part of?'] }}\nWhich are the main challenges in the world that startups can solve: {{ $json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: \n{{ $json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{ $json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me:\n{{ $json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{ $json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{ $json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{ $json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{ $json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\nWhat types of business models will I back? \n{{ $json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
               "type": "string"
             }
           ]
@@ -38,10 +38,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        620,
-        0
+        780,
+        -80
       ],
-      "id": "bdc68280-99f1-4899-b27f-c89d781fa2cb",
+      "id": "467a79a2-72ca-4a48-8bb9-e49741cb88e6",
       "name": "Text with angel responses"
     },
     {
@@ -51,10 +51,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2260,
-        0
+        2420,
+        -80
       ],
-      "id": "3ac1da41-190b-486c-99f1-87fca8dd9bb0",
+      "id": "489a1be0-be1d-4fe9-9122-af6512c1f960",
       "name": "Wait",
       "webhookId": "dafeb747-2308-4af7-8436-2e3a8d202021"
     },
@@ -63,10 +63,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2840,
-        0
+        3000,
+        -80
       ],
-      "id": "3c349bcf-7b23-4b3c-9803-fa76ce39495e",
+      "id": "1084c50a-eda9-4778-8996-4614859652c7",
       "name": "Wait1",
       "webhookId": "c2ed91c0-4244-4422-a6a2-4d09b877619f"
     },
@@ -93,14 +93,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3220,
-        0
+        3380,
+        -80
       ],
-      "id": "ea0c6091-6b8c-430e-ba48-7754c6afa37f",
+      "id": "e13afac3-9831-4362-9b4b-559f25981d28",
       "name": "Create Folder: NAME - Angel Investor Journey",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "ZaunwAxa9L3ivJY1",
+          "id": "BUjeDAwnPTpXv2dJ",
           "name": "Google Drive account"
         }
       }
@@ -124,14 +124,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3660,
-        0
+        3820,
+        -80
       ],
-      "id": "9b1173dc-ec82-4550-93c1-2fd4703dec02",
+      "id": "cdf9b979-b1c5-4e51-a147-83869a506bb4",
       "name": "Upload the canvas file to the folder",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "ZaunwAxa9L3ivJY1",
+          "id": "BUjeDAwnPTpXv2dJ",
           "name": "Google Drive account"
         }
       }
@@ -190,10 +190,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2780,
-        220
+        2940,
+        140
       ],
-      "id": "4cf2ecdc-7ea7-4091-a284-807721838e88",
+      "id": "f1fd4a0a-25f3-436b-941e-d35e11c72dc7",
       "name": "Refresh Canva Token",
       "executeOnce": true
     },
@@ -256,10 +256,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2600,
-        220
+        2760,
+        140
       ],
-      "id": "70078d26-d14d-4434-a399-4ea68351ea84",
+      "id": "3e427884-75ba-4fa6-8160-16bc45f410eb",
       "name": "Set canva variables",
       "executeOnce": false
     },
@@ -280,10 +280,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2440,
-        220
+        2600,
+        140
       ],
-      "id": "d4d693e0-16e5-4828-884d-4ad46b6b066b",
+      "id": "b81cc96c-3355-4691-abc7-7436bcc55d6d",
       "name": "Aggregate"
     },
     {
@@ -293,10 +293,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2980,
-        220
+        3140,
+        140
       ],
-      "id": "46f4d71f-0dde-48a6-8952-3b218e1c6fb0",
+      "id": "e8d928b7-cd96-4eec-8023-971fea458d21",
       "name": "Process New Tokens"
     },
     {
@@ -307,10 +307,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3180,
-        220
+        3340,
+        140
       ],
-      "id": "54e0a0ae-f8d6-46b9-80d6-bcda767be009",
+      "id": "e83e93a6-eb2e-42df-854c-57f84e56736e",
       "name": "Turn tokens into items to store"
     },
     {
@@ -342,15 +342,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1660,
-        0
+        1820,
+        -80
       ],
-      "id": "7aded841-9cbd-4236-bd3f-9044b1ecd40e",
+      "id": "0f0eb60d-984a-44b1-8205-9459346f3e6d",
       "name": "Get Canva Tokens",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -376,15 +376,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2260,
-        220
+        2420,
+        140
       ],
-      "id": "7416abe6-2d79-495c-bff5-ea64abe57cb6",
+      "id": "4543c9ad-27bb-4860-add9-ddf8ad38bc98",
       "name": "Get Current Canva Tokens",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -465,14 +465,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3400,
-        220
+        3560,
+        140
       ],
-      "id": "4775dac2-34be-4105-90cc-0f2e23a53cef",
+      "id": "0fe82fa2-490e-4d5e-b774-073a12113102",
       "name": "Update Canva Tokens in Sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -486,10 +486,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1160,
-        0
+        1320,
+        -80
       ],
-      "id": "d9613141-661e-4d96-85fb-dbafcda445db",
+      "id": "db5ecbb0-2707-4f82-b1c5-ff0fb4eeb47b",
       "name": "Canvas Keyword Agent"
     },
     {
@@ -501,10 +501,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        4400,
-        220
+        4560,
+        140
       ],
-      "id": "82da07ee-4a90-485d-8c45-332f5b0a1191",
+      "id": "164c6a69-0c8b-44f2-9c9f-8875926d8b4b",
       "name": "Advice Letter Agent"
     },
     {
@@ -515,14 +515,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        4440,
-        400
+        4600,
+        320
       ],
-      "id": "896432da-1f49-4157-b8a1-6e0f4887dbc4",
+      "id": "89a2858a-f200-47b3-8865-9c5a849893d8",
       "name": "Google Gemini Chat Model1",
       "credentials": {
         "googlePalmApi": {
-          "id": "aHiDnq7pbedQlFzu",
+          "id": "7nfzYgmBCbDlvsnG",
           "name": "Google Gemini(PaLM) Api account 2"
         }
       }
@@ -548,10 +548,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1860,
-        0
+        2020,
+        -80
       ],
-      "id": "e8d29cf1-e2fa-4082-afab-5497c26bfe89",
+      "id": "d7d97abc-9986-45f9-b2ac-6b6ed1313ae5",
       "name": "Request (Job) to generate the customized canvas",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -573,10 +573,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2440,
-        0
+        2600,
+        -80
       ],
-      "id": "11c817b1-8ee2-4676-ae1a-c7760a8ef06a",
+      "id": "644b8002-eaf0-4741-aa15-5df95d2c195b",
       "name": "Get the status of the canvas request (Job) sent"
     },
     {
@@ -600,10 +600,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2660,
-        0
+        2820,
+        -80
       ],
-      "id": "47057ad8-a344-41d4-a622-8bb31376090c",
+      "id": "eea9f79d-c5a1-4667-9794-853704fba25b",
       "name": "Request (Job) Export the canvas design in PDF"
     },
     {
@@ -623,10 +623,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3020,
-        0
+        3180,
+        -80
       ],
-      "id": "862e1779-82d8-41ea-80e2-2dcc118b7bcf",
+      "id": "60d6bc77-a21b-419b-a2fe-b636bf6d5669",
       "name": "Request to get the canvas PDF version"
     },
     {
@@ -637,10 +637,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3440,
-        0
+        3600,
+        -80
       ],
-      "id": "38462d56-5b2e-4413-9706-40b88ba5ff76",
+      "id": "5124914c-ff50-47ef-bca5-bc8407053a1d",
       "name": "Download the canvas PDF"
     },
     {
@@ -664,10 +664,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5240,
-        220
+        5400,
+        140
       ],
-      "id": "e29689b2-df64-4c3e-bbd1-2c1372f517ef",
+      "id": "13238578-7d13-4485-8341-aa29bb8beccf",
       "name": "Request (Job) to generate the customized letter"
     },
     {
@@ -677,10 +677,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        5440,
-        220
+        5600,
+        140
       ],
-      "id": "649bd856-fe2b-4927-bc9e-323261aaba62",
+      "id": "5224bd6d-76d7-4e41-8aa3-931d4e0db20b",
       "name": "Wait2",
       "webhookId": "27cc0cd7-dfca-4551-b384-dc1fdbecd70c"
     },
@@ -701,10 +701,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5620,
-        220
+        5780,
+        140
       ],
-      "id": "bd8626c6-36fb-424f-bc0f-17d0989e07ee",
+      "id": "2abd0afc-60db-4cf0-9393-f8cf11b45e64",
       "name": "Get the status of the letter request (Job) sent"
     },
     {
@@ -728,10 +728,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5840,
-        220
+        6000,
+        140
       ],
-      "id": "975bc67e-47ab-4db7-9d42-50674a790682",
+      "id": "d4ae2fa2-d72e-414b-87f0-7ce445ba7876",
       "name": "Request (Job) Export the letter design in PDF"
     },
     {
@@ -739,10 +739,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        6000,
-        220
+        6160,
+        140
       ],
-      "id": "046cc318-f08b-403c-a13b-5d30b2646ef9",
+      "id": "d83c9077-da9e-4a74-9e55-23014acad3fc",
       "name": "Wait3",
       "webhookId": "46a6fb47-41d2-495d-8bd8-0f692eb658e0"
     },
@@ -763,10 +763,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        6160,
-        220
+        6320,
+        140
       ],
-      "id": "1567ba94-a6d0-4c62-9d32-e4b592df13da",
+      "id": "edd9cd94-1bde-4027-93b8-6dc20afd2c73",
       "name": "Request to get the letter PDF version"
     },
     {
@@ -777,16 +777,16 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        6360,
-        220
+        6520,
+        140
       ],
-      "id": "28890444-fcfb-416e-a684-ee17fb20fce3",
+      "id": "91d2ef21-b0dc-4916-865e-307f48029c12",
       "name": "Download the letter PDF"
     },
     {
       "parameters": {
         "inputDataFieldName": "=data",
-        "name": "=2. Letter to {{ $('Set Fields').item.json.Name }} - How to use the canvas",
+        "name": "=2. Letter to {{ $('Set Fields').item.json.Name.split(' ')[0] }} - How to use the canvas",
         "driveId": {
           "__rl": true,
           "value": "My Drive",
@@ -804,14 +804,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        6560,
-        220
+        6720,
+        140
       ],
-      "id": "09de87a6-6502-463a-8688-a229a4ae848d",
+      "id": "968bec96-0d37-42d0-a6f5-ec8c523424e5",
       "name": "Upload the letter file to the folder",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "ZaunwAxa9L3ivJY1",
+          "id": "BUjeDAwnPTpXv2dJ",
           "name": "Google Drive account"
         }
       }
@@ -845,14 +845,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5040,
-        220
+        5200,
+        140
       ],
-      "id": "ae371826-d484-47dd-8e97-2ebc9242ce74",
+      "id": "9c7920e8-652d-41c2-9902-44e5edfec410",
       "name": "Get Canva Tokens1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -870,14 +870,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        5240,
-        440
+        5400,
+        360
       ],
-      "id": "85f37d2f-df6c-4de8-8a6d-c825c69a9b76",
+      "id": "89f76c63-39d6-45c8-8d4f-b9f6318a7e3e",
       "name": "Download the mistakes PDF",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "ZaunwAxa9L3ivJY1",
+          "id": "BUjeDAwnPTpXv2dJ",
           "name": "Google Drive account"
         }
       }
@@ -903,14 +903,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        5440,
-        440
+        5600,
+        360
       ],
-      "id": "c8ff3e0d-65ae-4bc8-aa84-ccbc86dfbecf",
+      "id": "bf7eb772-d298-4ce3-8be4-30ff9694c07c",
       "name": "Upload the mistakes PDF to the folder",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "ZaunwAxa9L3ivJY1",
+          "id": "BUjeDAwnPTpXv2dJ",
           "name": "Google Drive account"
         }
       }
@@ -936,14 +936,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3660,
-        220
+        3820,
+        140
       ],
-      "id": "7d748f91-95fc-47bc-8896-67d0178ae001",
+      "id": "9664063d-7a66-4ee1-bcd0-3f9dbd001165",
       "name": "Get Matrix Advice",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -958,10 +958,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3860,
-        220
+        4020,
+        140
       ],
-      "id": "f36b867e-83d1-495a-8e0f-027cc688ec89",
+      "id": "af59cfac-a8e6-4d4e-814d-d0d1989194d3",
       "name": "Aggregated Matrix Advice"
     },
     {
@@ -978,10 +978,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4240,
-        220
+        4400,
+        140
       ],
-      "id": "c88acb3b-4fc8-422d-b3d2-4def2a2f539b",
+      "id": "b1704f6d-4bfa-448e-bafa-18dc758a2806",
       "name": "Aggregated Matrix Prompts"
     },
     {
@@ -1005,14 +1005,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4060,
-        220
+        4220,
+        140
       ],
-      "id": "2db02fb2-9582-4e22-a9ed-2100213d27d1",
+      "id": "7e7ae3af-c780-4fc2-ab73-78e4321db1fd",
       "name": "Get Advice Prompts",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -1038,15 +1038,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        0
+        980,
+        -80
       ],
-      "id": "17b8f5eb-211b-415a-8672-eec188467307",
+      "id": "498c3a4c-2d58-47c1-a672-e295705bec17",
       "name": "Get Canvas Prompts",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -1065,10 +1065,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1000,
-        0
+        1160,
+        -80
       ],
-      "id": "cbc49ce6-6efa-4e92-97bc-735339cbd61b",
+      "id": "5536aa85-0f73-4688-ba8a-7b9817c95a8c",
       "name": "Aggregated Canvas Prompts"
     },
     {
@@ -1184,17 +1184,17 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1480,
-        0
+        1640,
+        -80
       ],
-      "id": "2beb296a-af30-4316-98c0-26a9d8b6cce9",
+      "id": "fc872b1c-7c1b-4788-bc04-c19f241ee718",
       "name": "Set Fields"
     },
     {
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>a letter for you and a list of costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}\n<br>\n<br> \nI would appreciate it if you share with me your honest feedback, as I’m on a mission to <b>help 1 million angels like you all over the world</b>.\n<br> \n<br>\nSeriously, tell me at least one thing we can do to improve it, and turn it into something your network could really appreciate.\n<br> \n<br> \nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>a letter for you and a list of costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}\n<br>\n<br> \nI would appreciate it if you share with me your honest feedback, as I’m on a mission to <b>help 100 thousand angels like you all over the world</b>.\n<br> \n<br>\nSeriously, tell me at least one thing we can do to improve it, and turn it into something your network could really appreciate.\n<br> \n<br> \nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
         "options": {
           "appendAttribution": false
         }
@@ -1202,15 +1202,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        3860,
-        0
+        4020,
+        -80
       ],
-      "id": "055bbf0a-754d-4642-b7e2-470a0ec8a50b",
+      "id": "d44430c2-af29-42e0-bccf-5f0a953af3d4",
       "name": "Send canvas email",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "3FvRPo7xEJYsRvAt",
+          "id": "SzhJjqEOmRz2nVxW",
           "name": "Gmail account"
         }
       }
@@ -1243,10 +1243,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2040,
-        0
+        2200,
+        -80
       ],
-      "id": "33831418-b0a6-46ec-bef1-d92cff1f90ad",
+      "id": "a6853dbc-7e3b-47e4-a6ab-12beb225eba3",
       "name": "If"
     },
     {
@@ -1257,14 +1257,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        4760,
-        400
+        4920,
+        320
       ],
-      "id": "d27b681b-c96d-4fed-9d86-3f5b5855485e",
+      "id": "ac1997b4-a250-40e5-a2cf-bfa3c8c33dab",
       "name": "Google Gemini Chat Model2",
       "credentials": {
         "googlePalmApi": {
-          "id": "HFOuPFbJlSvERIbo",
+          "id": "tVoBoytfiEtlid1F",
           "name": "Google Gemini(PaLM) Api account 3"
         }
       }
@@ -1278,10 +1278,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        4720,
-        220
+        4880,
+        140
       ],
-      "id": "01cb061e-9649-450d-bad3-78955215b553",
+      "id": "873e22b1-eb61-432b-b1e4-73265eb27c21",
       "name": "Advice Letter Agent P2"
     },
     {
@@ -1292,14 +1292,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        5700,
-        660
+        5860,
+        580
       ],
-      "id": "40854727-d219-4ef7-9c12-c4e9db5767d9",
+      "id": "afbed4c6-aeda-4e00-bc65-420abdac6504",
       "name": "Google Gemini Chat Model3",
       "credentials": {
         "googlePalmApi": {
-          "id": "yhYRMp9opHGTsQH3",
+          "id": "vWeoWRlPw47GTB0F",
           "name": "Google Gemini(PaLM) Api account 4"
         }
       }
@@ -1313,17 +1313,17 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        5620,
-        440
+        5780,
+        360
       ],
-      "id": "94ac1b89-0ff5-4620-8180-a47afff3a6e2",
+      "id": "332e1d9f-8bb2-4e9d-a2a4-fcd329a6f406",
       "name": "Investor type extractor"
     },
     {
       "parameters": {
         "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "=573203944414",
-        "template": "send_canvas_v7|en",
+        "recipientPhoneNumber": "={{ $('Get Angel Responses').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "template": "send_canvas_v8|en",
         "components": {
           "component": [
             {
@@ -1344,15 +1344,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4040,
-        0
+        4200,
+        -80
       ],
-      "id": "5c0ab84b-7f0f-43da-820c-7f4a3082d628",
+      "id": "8428e2dd-17cc-4434-b318-dae4b8c93d9c",
       "name": "Send Canvas",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -1379,7 +1379,7 @@
           "value": {
             "Respondent ID": "={{ $('Filter only non processed and schedule rules').item.json['Respondent ID'] }}",
             "Processed": "YES",
-            "Drive URL": "https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
+            "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey').item.json.id }}",
             "Phase": "1-Angel Canvas Sent",
             "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
             "Investment type": "={{ $json.output.replace(\"\\n\",\"\") }}"
@@ -1848,15 +1848,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5960,
-        440
+        6120,
+        360
       ],
-      "id": "bc990239-8151-4cd0-a877-da7fa7475c12",
+      "id": "231e6ae7-c10b-4087-ab44-3c335a51fac1",
       "name": "Update Angel Registry Status",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -1882,14 +1882,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        200,
-        0
+        360,
+        -80
       ],
-      "id": "7eb1141e-6552-49c9-b9df-0df0d8ba5a9e",
+      "id": "997498cf-e5fb-4fe5-b5ae-8aa8652ec741",
       "name": "Get Angel Responses",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -1906,7 +1906,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 1 && new Date().getHours() < 24 }}",
+              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 21 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -1917,7 +1917,7 @@
             {
               "id": "b29ff6f8-18c7-4bc4-a8bc-826621c7620f",
               "leftValue": "={{ new Date() }}",
-              "rightValue": "={{ new Date(new Date($json['Submitted at']).getTime() + 4 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
+              "rightValue": "={{ new Date(new Date($json['Submitted at']).getTime() + 1 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
               "operator": {
                 "type": "dateTime",
                 "operation": "afterOrEquals"
@@ -1941,17 +1941,17 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        400,
-        0
+        560,
+        -80
       ],
-      "id": "7880c7ad-31e0-477a-9f95-e4463b39d5e6",
+      "id": "b69ab8fa-4e6a-4068-8163-322972bdd9f9",
       "name": "Filter only non processed and schedule rules"
     },
     {
       "parameters": {
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
-        "template": "gift_card_message_v8|en",
+        "template": "gift_card_message_v9|en",
         "components": {
           "component": [
             {
@@ -1969,15 +1969,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        560,
-        440
+        720,
+        360
       ],
-      "id": "352a3d33-0ac4-4a45-a1e4-30b2f6053b12",
+      "id": "5660711f-3f1c-4829-9cd0-2343b816303e",
       "name": "Gift Card Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2003,7 +2003,7 @@
             },
             {
               "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
-              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (format: \"16-Apr-2025\")\n  const parts = $json['Last sent'].split('-');\n  const day = parseInt(parts[0]);\n  const months = {\"Jan\":0, \"Feb\":1, \"Mar\":2, \"Apr\":3, \"May\":4, \"Jun\":5, \"Jul\":6, \"Aug\":7, \"Sep\":8, \"Oct\":9, \"Nov\":10, \"Dec\":11};\n  const month = months[parts[1]];\n  const year = parseInt(parts[2]);\n  \n  // Create a date object from $json['Last sent']\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add 24 hours (86400000 milliseconds)\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + 2*86400000);\n  \n  // Get current date from new Date().toISOString()\n  const currentDate = new Date();\n  \n  // Compare if current date is greater than or equal to lastSentDate + 24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
+              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (format: \"16-Apr-2025\")\n  const parts = $json['Last sent'].split('-');\n  const day = parseInt(parts[0]);\n  const months = {\"Jan\":0, \"Feb\":1, \"Mar\":2, \"Apr\":3, \"May\":4, \"Jun\":5, \"Jul\":6, \"Aug\":7, \"Sep\":8, \"Oct\":9, \"Nov\":10, \"Dec\":11};\n  const month = months[parts[1]];\n  const year = parseInt(parts[2]);\n  \n  // Create a date object from $json['Last sent']\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add 24 hours (86400000 milliseconds)\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + 7*86400000);\n  \n  // Get current date from new Date().toISOString()\n  const currentDate = new Date();\n  \n  // Compare if current date is greater than or equal to lastSentDate + 24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -2014,7 +2014,7 @@
             {
               "id": "c4b98817-c8d8-4e81-8d70-9284082d82a3",
               "leftValue": "={{ $json.Phase }}",
-              "rightValue": "1-Angel Canvas Sent",
+              "rightValue": "2-Angel Story 0",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -2030,10 +2030,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        360,
-        440
+        520,
+        360
       ],
-      "id": "d35b9c6c-3d2c-4098-aaac-fda438411c66",
+      "id": "9eb42ff4-9607-49c8-9ac2-9e6b401ee147",
       "name": "Filter only processed & a day older"
     },
     {
@@ -2048,15 +2048,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        740,
-        440
+        900,
+        360
       ],
-      "id": "a767b82d-ccf7-4815-894e-1d862dfe6ff2",
+      "id": "35acd0af-49ff-402d-83ec-6ee0913146c0",
       "name": "Send Gift Card Email",
       "webhookId": "35a80676-5222-4c22-9af7-fbfdf99cce4f",
       "credentials": {
         "gmailOAuth2": {
-          "id": "3FvRPo7xEJYsRvAt",
+          "id": "SzhJjqEOmRz2nVxW",
           "name": "Gmail account"
         }
       }
@@ -2547,14 +2547,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        940,
-        440
+        1100,
+        360
       ],
-      "id": "7235af04-6a2d-4119-8bf9-e35261f29d10",
+      "id": "e03f7b7e-dfcf-4c20-b513-223796db1507",
       "name": "Update Angel Registry Status1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -2564,8 +2564,7 @@
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 3
+              "field": "hours"
             }
           ]
         }
@@ -2573,10 +2572,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
-        0
+        160,
+        -80
       ],
-      "id": "d0c6d330-aa1f-4fac-bf08-b30e0db5e2d2",
+      "id": "25c52914-5bb2-44f8-b9eb-e0de56bc8959",
       "name": "Schedule Trigger Angel Canvas"
     },
     {
@@ -2584,8 +2583,7 @@
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 1
+              "field": "hours"
             }
           ]
         }
@@ -2593,11 +2591,12 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
-        440
+        160,
+        360
       ],
-      "id": "b391f346-cb3e-4472-88e5-7004c1aa360f",
-      "name": "Schedule Trigger Gift Card"
+      "id": "d39c625d-a49f-4323-b692-1f1840123d4e",
+      "name": "Schedule Trigger Gift Card",
+      "disabled": true
     },
     {
       "parameters": {
@@ -2616,6 +2615,16 @@
               "operator": {
                 "type": "string",
                 "operation": "equals"
+              }
+            },
+            {
+              "id": "668580a4-38dc-4039-acde-2e83b0f07808",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+              "rightValue": "gift",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
               }
             },
             {
@@ -2646,10 +2655,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        660,
-        920
+        820,
+        840
       ],
-      "id": "58fee0b3-2393-45a2-8df1-f5d9d6395285",
+      "id": "a870f61a-8df3-4336-9263-6fc7923d5e2d",
       "name": "Check message type"
     },
     {
@@ -2664,15 +2673,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        900,
-        840
+        1060,
+        760
       ],
-      "id": "28f25eb3-98ac-4ae7-a092-8f1330616676",
+      "id": "e57b2077-8659-470b-a88c-09326570bc0f",
       "name": "Gift Card Example",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2686,10 +2695,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1300,
-        1460
+        1460,
+        1380
       ],
-      "id": "466e4539-953d-4734-8266-fba4a0f2b076",
+      "id": "8565327e-1335-4eec-9d02-0c9692e9a418",
       "name": "Simple Memory"
     },
     {
@@ -2703,15 +2712,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1740,
-        840
+        1900,
+        760
       ],
-      "id": "0ea22f13-5aa5-40c8-8411-e7c31ece01f4",
+      "id": "6674aab4-7a48-4fc7-8123-8395d34b27ea",
       "name": "Gift Card Default MSG",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2800,10 +2809,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1420,
-        1020
+        1580,
+        940
       ],
-      "id": "4c3c1356-0719-4669-ba50-64b13c781211",
+      "id": "ac7bca7a-092a-4cea-a937-059de40e2799",
       "name": "Main Gift Card menu switch",
       "alwaysOutputData": false
     },
@@ -2818,15 +2827,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2420,
-        1020
+        2580,
+        940
       ],
-      "id": "389ca64a-e209-4a16-96b6-a9d0837e6561",
+      "id": "037eba66-d2c1-4893-b73e-ddac6252358a",
       "name": "Gift Card Recipient",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2842,15 +2851,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1120,
-        840
+        1280,
+        760
       ],
-      "id": "9f46102a-5779-44ea-9378-268eeda0cb75",
+      "id": "7dfeb8af-eada-4202-9be3-efc1d918a10e",
       "name": "Gift Card Sender",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2870,10 +2879,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1300,
-        840
+        1460,
+        760
       ],
-      "id": "39c0b6ca-57f2-45fb-852d-1beca613c6a4",
+      "id": "cf3d7c1d-2ec4-4f44-91b7-03c9562da349",
       "name": "Gift Card Sender Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2893,10 +2902,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2080,
-        1020
+        2240,
+        940
       ],
-      "id": "ba439121-6266-4ba2-ada9-203a888ec0da",
+      "id": "f19cc63e-b640-481d-a114-22d4b3396e83",
       "name": "Gift Card Recipient Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2936,10 +2945,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1200,
-        1020
+        1360,
+        940
       ],
-      "id": "cfc1d52b-a450-43ac-8108-54d35aa92ccb",
+      "id": "13f8fd87-d84c-4a19-bc0e-679fb9b460f1",
       "name": "Regenerate variables sender"
     },
     {
@@ -2949,10 +2958,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        880,
-        1020
+        1040,
+        940
       ],
-      "id": "ae5525ae-9c85-4725-89eb-c4cf5938615b",
+      "id": "5735046d-d883-4d70-8a7b-c25bb29217c8",
       "name": "Gift Card Menu Out"
     },
     {
@@ -2966,15 +2975,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1740,
-        1220
+        1900,
+        1140
       ],
-      "id": "eb1d82c4-2d31-4af3-97ee-da04b9acb097",
+      "id": "b7094c99-a1a2-4fc1-b4fa-e6600d36f10a",
       "name": "Gift Card is being processed",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -2996,10 +3005,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2700,
-        1220
+        2860,
+        1140
       ],
-      "id": "a286ccce-a18c-4ada-a528-4014a21ca04c",
+      "id": "bfa7aadc-4326-4b53-92d7-8f5bb4a2c1e5",
       "name": "Get the status of the gift card request (Job) sent1"
     },
     {
@@ -3007,10 +3016,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2520,
-        1220
+        2680,
+        1140
       ],
-      "id": "53218654-df92-41e6-b4ce-ba4d6b65948b",
+      "id": "f6907157-98e5-4a0c-999b-be72b12929a7",
       "name": "Wait8",
       "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
     },
@@ -3035,10 +3044,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2120,
-        1220
+        2280,
+        1140
       ],
-      "id": "404616c6-4254-4b81-a43b-5945aab3cb1d",
+      "id": "0ff69d17-debd-4f4a-ba88-7c30b7a02750",
       "name": "Request (Job) to generate the customized gift card1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -3048,45 +3057,21 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "There you go. Ready to share.\n\nWant another one? Just type \"Gift\"",
+        "textBody": "Feel free to use the gift card or the message template if you find it useful.  Please always share the link.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3600,
-        1220
+        3760,
+        1140
       ],
-      "id": "88fcb699-fe97-43fe-852a-4affb7ef7e6a",
+      "id": "1905e131-0a89-4d60-8999-037a4fa95976",
       "name": "Gift Card is done",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "send",
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Angel Canvas Gift Link\nhttps://tally.so/r/n9MY2V",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        4300,
-        1220
-      ],
-      "id": "ec6881ba-4c96-40e8-bed0-b811011fa7ce",
-      "name": "Gift Card Invite Message",
-      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -3103,15 +3088,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3980,
-        1220
+        4140,
+        1140
       ],
-      "id": "1ee1d818-0724-468d-bf33-0fd85f3dd096",
+      "id": "ef5d861f-9ae2-4ef3-970f-58964545ddcf",
       "name": "Gift Card Customized",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "jzCh0JNVDT9mKHyM",
+          "id": "ZconX2ENu6OHeTB8",
           "name": "WhatsApp account"
         }
       }
@@ -3124,10 +3109,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1740,
-        1020
+        1900,
+        940
       ],
-      "id": "d84add32-ff14-41ca-a53d-09d1c797fd27",
+      "id": "0244d402-d7e7-45c8-aa5f-dcaff2e928b8",
       "name": "Clean Memory"
     },
     {
@@ -3151,10 +3136,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3060,
-        1220
+        3220,
+        1140
       ],
-      "id": "f883c11e-c1e1-4785-ba9a-2b25ecbb8360",
+      "id": "a97abf6d-d697-4b33-970f-e12372969c5f",
       "name": "Request (Job) Export the gift card design JPG"
     },
     {
@@ -3174,10 +3159,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3420,
-        1220
+        3580,
+        1140
       ],
-      "id": "6b1fe34a-79d0-448f-9c04-8b971ecc087e",
+      "id": "efc056ff-5407-4e66-909f-a7d658426874",
       "name": "Request to get the gift card JPG"
     },
     {
@@ -3188,10 +3173,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3780,
-        1220
+        3940,
+        1140
       ],
-      "id": "4666e11c-1a50-483f-a422-015e2612dbaf",
+      "id": "ae7d2240-0338-453b-80d4-4dae9908ae5b",
       "name": "Download the gift card JPG"
     },
     {
@@ -3283,14 +3268,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4500,
-        1220
+        4880,
+        1140
       ],
-      "id": "cbe08a0f-bd3a-4f8c-a915-b4676e24b764",
+      "id": "efb79f70-bc54-44c9-99e4-970f8f2c39d4",
       "name": "Update Gift Card Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3349,10 +3334,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3080,
-        1420
+        3240,
+        1340
       ],
-      "id": "16841ee3-1c65-4c42-b235-fe912e3aa742",
+      "id": "af85d0d9-209d-4e53-8a91-08c00cd6572e",
       "name": "Refresh Canva Token1",
       "executeOnce": true
     },
@@ -3415,10 +3400,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2880,
-        1420
+        3040,
+        1340
       ],
-      "id": "397f9c0d-52c0-4cfd-ba7e-284ce817661f",
+      "id": "019ce2de-a799-49dc-a1eb-c3900a3e3fdc",
       "name": "Set canva variables1",
       "executeOnce": false
     },
@@ -3439,10 +3424,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2700,
-        1420
+        2860,
+        1340
       ],
-      "id": "717b40f4-3953-4a5c-8441-37b5343a5d6b",
+      "id": "25cfd02c-2de7-448c-8dde-4495be33732f",
       "name": "Aggregate1"
     },
     {
@@ -3452,10 +3437,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3280,
-        1420
+        3440,
+        1340
       ],
-      "id": "44e6d85b-343e-4962-8633-72f7047391ff",
+      "id": "ffa4fd7d-5cd0-44c6-8394-42f613bfbe52",
       "name": "Process New Tokens1"
     },
     {
@@ -3466,10 +3451,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3480,
-        1420
+        3640,
+        1340
       ],
-      "id": "846595cf-d0ba-4f82-bf24-c6a6a1337b96",
+      "id": "fe802184-dd6f-4b9d-b85e-4af6e4dad6ef",
       "name": "Turn tokens into items to store1"
     },
     {
@@ -3548,14 +3533,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3680,
-        1420
+        3840,
+        1340
       ],
-      "id": "71facf1a-a56d-4d44-93b2-441106dd791b",
+      "id": "2b131e4b-8dd5-429a-b29e-9c7f8269b112",
       "name": "Update Canva Tokens in Sheet1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3565,10 +3550,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3240,
-        1220
+        3400,
+        1140
       ],
-      "id": "4e4a5287-04fd-439e-8684-80d6fcbd3291",
+      "id": "8619d9df-d7cc-489b-8633-a4ce20a0b463",
       "name": "Wait4",
       "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
     },
@@ -3601,15 +3586,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1920,
-        1220
+        2080,
+        1140
       ],
-      "id": "0ef4de41-7ff9-40f7-9428-78118f78c4bc",
+      "id": "f3a1908c-7dda-4f68-9d04-1b6e076c0141",
       "name": "Get Canva Tokens2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3641,10 +3626,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2300,
-        1220
+        2460,
+        1140
       ],
-      "id": "86ae7678-a1a0-41f8-b980-267363877c7e",
+      "id": "0afb6f0f-8c04-4f33-8182-ab29a66ce355",
       "name": "If1"
     },
     {
@@ -3668,15 +3653,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2520,
-        1420
+        2680,
+        1340
       ],
-      "id": "f702cd3f-1c9b-4d00-aee0-f4a855975796",
+      "id": "1cdf69b9-bb98-4ce7-aacf-e0907c0a1165",
       "name": "Get Current Canva Tokens1",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3688,10 +3673,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4140,
-        1220
+        4300,
+        1140
       ],
-      "id": "4a5b5b1a-e475-463c-b086-f85c05dd32ee",
+      "id": "caa12760-0b87-4e74-b989-2bf12a0887f9",
       "name": "Wait5",
       "webhookId": "7b8b0806-53fa-4a28-9ec1-b3c7a25eea42"
     },
@@ -3702,10 +3687,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2880,
-        1220
+        3040,
+        1140
       ],
-      "id": "4fbde6b8-0cd5-4bbc-805f-de6e9c00f9ec",
+      "id": "0cb1c167-ae2d-4ef0-8e90-1fbdd4f3037c",
       "name": "Wait6",
       "webhookId": "69caee66-9583-4a20-a408-08d2f217542a"
     },
@@ -3738,14 +3723,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        180,
-        440
+        340,
+        360
       ],
-      "id": "ccb8b385-6e97-4714-bdb9-40a5421db2e6",
+      "id": "5de47176-bb33-4e71-a603-ec279e2b36c7",
       "name": "Get Angel List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3760,15 +3745,15 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -20,
-        920
+        140,
+        840
       ],
-      "id": "6970a780-9de4-4012-9151-ca73d6f50698",
+      "id": "f47c8335-c24b-4cdc-b61a-6a6b6e12a8e3",
       "name": "Chat start",
       "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "41eKxjad1BOsXY3L",
+          "id": "fPRLKoscGoC5WPvY",
           "name": "WhatsApp OAuth account"
         }
       }
@@ -3811,10 +3796,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        140,
-        920
+        300,
+        840
       ],
-      "id": "c13237f6-a32b-4bfe-9b28-baa571721310",
+      "id": "a6d53cad-5089-487a-bd9f-4e982242bc8f",
       "name": "Validate there is a message"
     },
     {
@@ -3846,14 +3831,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        320,
-        920
+        480,
+        840
       ],
-      "id": "7ed3c397-3ac4-4e96-bcc2-e67dc594740f",
+      "id": "4b016255-61b5-4012-8e97-fe3c761b4b74",
       "name": "Get sender name",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3936,14 +3921,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        480,
-        920
+        640,
+        840
       ],
-      "id": "3f409a22-1d25-4914-8aef-f5606f6612d7",
+      "id": "faa0c3fb-a87f-4f4c-9208-491e412ca56a",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "gcUMTyJHk1k17dGY",
+          "id": "OSnG48Edzrrh2udV",
           "name": "Google Sheets account"
         }
       }
@@ -3956,11 +3941,59 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        4700,
-        1220
+        5080,
+        1140
       ],
-      "id": "1a30fcd3-cfad-4bbd-a951-1ab0017bdd1a",
+      "id": "31fbcbb7-d83b-4f1e-aee3-e35396af1bf5",
       "name": "Clean Memory1"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Want another one? Just type \"Gift\"",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4680,
+        1140
+      ],
+      "id": "c68fce16-92e8-4c33-b354-e954b4a4e100",
+      "name": "Gift Card Another One",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=I found this tool very useful to understand my angel profile and plan the way I invest.\n\nI believe you will find it useful too.\n\nAngel Canvas Gift Link\nhttps://tally.so/r/n9MY2V",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4480,
+        1140
+      ],
+      "id": "a6c3d541-ec73-4c36-9a86-274cd3a35bfa",
+      "name": "Gift Card Template",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -4082,13 +4115,7 @@
     },
     "Upload the canvas file to the folder": {
       "main": [
-        [
-          {
-            "node": "Send canvas email",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Get Canva Tokens": {
@@ -4738,17 +4765,6 @@
         ]
       ]
     },
-    "Gift Card Invite Message": {
-      "main": [
-        [
-          {
-            "node": "Update Gift Card Status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Gift Card Customized": {
       "main": [
         [
@@ -4925,7 +4941,7 @@
       "main": [
         [
           {
-            "node": "Gift Card Invite Message",
+            "node": "Gift Card Template",
             "type": "main",
             "index": 0
           }
@@ -5009,9 +5025,26 @@
         ]
       ]
     },
-    "Update Angel Registry Status": {
+    "Gift Card Another One": {
       "main": [
-        []
+        [
+          {
+            "node": "Update Gift Card Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gift Card Template": {
+      "main": [
+        [
+          {
+            "node": "Gift Card Another One",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -5019,11 +5052,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "70f62429-cba4-4e2e-a3f6-30d8b343e305",
+  "versionId": "23c13cd9-087c-4a56-9d6a-3877623a1653",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "4ad6393d2cf10e7af567d57c7640ede222b0cedf6aefa3be81a43f6717a59f7e"
+    "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"
   },
-  "id": "r3xqPdALMg7UA4Mh",
+  "id": "COPY4bqjRBTedgkS",
   "tags": []
 }

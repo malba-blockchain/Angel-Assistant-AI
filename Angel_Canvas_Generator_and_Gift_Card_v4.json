@@ -1352,8 +1352,8 @@
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
-          "name": "WhatsApp account"
+          "id": "CmkiH8RvaR6rJRb1",
+          "name": "WhatsApp account 2"
         }
       }
     },
@@ -1867,14 +1867,14 @@
           "__rl": true,
           "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
           "mode": "list",
-          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultName": "Angel Database",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
+          "cachedResultName": "Canvas Responses",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
         },
         "options": {}
@@ -1916,11 +1916,12 @@
             },
             {
               "id": "b29ff6f8-18c7-4bc4-a8bc-826621c7620f",
-              "leftValue": "={{ new Date() }}",
-              "rightValue": "={{ new Date(new Date($json['Submitted at']).getTime() + 1 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
+              "leftValue": "={{ new Date().toISOString().replace('T', ' ').slice(0, 19) > new Date(new Date($json['Submitted at']).getTime() + 4 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
+              "rightValue": "=",
               "operator": {
-                "type": "dateTime",
-                "operation": "afterOrEquals"
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
               }
             },
             {
@@ -1945,7 +1946,8 @@
         -80
       ],
       "id": "b69ab8fa-4e6a-4068-8163-322972bdd9f9",
-      "name": "Filter only non processed and schedule rules"
+      "name": "Filter only non processed and schedule rules",
+      "alwaysOutputData": false
     },
     {
       "parameters": {
@@ -2014,7 +2016,7 @@
             {
               "id": "c4b98817-c8d8-4e81-8d70-9284082d82a3",
               "leftValue": "={{ $json.Phase }}",
-              "rightValue": "2-Angel Story 0",
+              "rightValue": "1-Angel Canvas Sent",
               "operator": {
                 "type": "string",
                 "operation": "equals",
@@ -2040,7 +2042,7 @@
       "parameters": {
         "sendTo": "={{ $('Get Angel List').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Get Angel List').item.json['What’s your name?'].split(' ')[0]  }}, you can also get a customized gift card",
-        "message": "=We built the Angel Canvas to support angel investors in making better decisions, and it keeps getting better thanks to the suggestions from people like you.\n<br> \n<br> \nWe are confident it’ll help your network too.\n<br> \n<br>\nYou can now share it to help a current or aspiring angel.\n<br> \n<br>\nAngel Canvas Gift Link\n<br>\nhttps://tally.so/r/n9MY2V\n<br> \n<br>\nYou can also get a personalized gift card to share with a group or someone specific.\n<br> \n<br>\nGet Custom Gift Card\n<br>\nhttps://wa.me/573012748971?text=Get+Custom+Gift+Card\n<br> \n<br>\nBest,\n<br>\nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=We built the Angel Canvas to support angel investors in making better decisions, and it keeps getting better thanks to the suggestions from people like you.\n<br> \n<br> \nWe are confident it’ll help your network too.\n<br> \n<br>\nYou can now share it to help a current or aspiring angel.\n<br> \n<br>\nAngel Canvas Gift Link\n<br>\nhttps://tally.so/r/n9MY2V\n<br> \n<br>\nYou can also get a personalized gift card to share with a group or someone specific.\n<br> \n<br>\nGet Custom Gift Card\n<br>\nhttps://wa.me/573012748971?text=Get+Gift+Card\n<br> \n<br>\nBest,\n<br>\nPedro Bandeira\n<br> \nYAngel CEO",
         "options": {
           "appendAttribution": false
         }
@@ -2655,7 +2657,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        820,
+        840,
         840
       ],
       "id": "a870f61a-8df3-4336-9263-6fc7923d5e2d",
@@ -2673,7 +2675,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1060,
+        1080,
         760
       ],
       "id": "e57b2077-8659-470b-a88c-09326570bc0f",
@@ -2695,7 +2697,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1460,
+        1500,
         1380
       ],
       "id": "8565327e-1335-4eec-9d02-0c9692e9a418",
@@ -2712,7 +2714,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1900,
+        1920,
         760
       ],
       "id": "6674aab4-7a48-4fc7-8123-8395d34b27ea",
@@ -2809,7 +2811,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1580,
+        1600,
         940
       ],
       "id": "ac7bca7a-092a-4cea-a937-059de40e2799",
@@ -2827,7 +2829,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2580,
+        2600,
         940
       ],
       "id": "037eba66-d2c1-4893-b73e-ddac6252358a",
@@ -2851,7 +2853,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1280,
+        1300,
         760
       ],
       "id": "7dfeb8af-eada-4202-9be3-efc1d918a10e",
@@ -2871,7 +2873,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $json.contacts[0].wa_id }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Sender"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Sender"
             }
           ]
         }
@@ -2879,7 +2881,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1460,
+        1480,
         760
       ],
       "id": "cf3d7c1d-2ec4-4f44-91b7-03c9562da349",
@@ -2894,7 +2896,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $json.UserID }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Recipient\nSender:{{ $('Chat start').item.json.messages[0].text.body }}"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Recipient\nSender:{{ $('Chat start').item.json.messages[0].text.body }}"
             }
           ]
         }
@@ -2902,7 +2904,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2240,
+        2260,
         940
       ],
       "id": "f19cc63e-b640-481d-a114-22d4b3396e83",
@@ -2917,7 +2919,7 @@
             {
               "id": "30616b7c-3ff0-4b36-852a-d1aa696d5903",
               "name": "UserID",
-              "value": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+              "value": "={{ $('Chat start').item.json.messages[0].from }}",
               "type": "string"
             },
             {
@@ -2945,7 +2947,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1360,
+        1380,
         940
       ],
       "id": "13f8fd87-d84c-4a19-bc0e-679fb9b460f1",
@@ -2958,7 +2960,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1060,
         940
       ],
       "id": "5735046d-d883-4d70-8a7b-c25bb29217c8",
@@ -2975,7 +2977,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1900,
+        1920,
         1140
       ],
       "id": "b7094c99-a1a2-4fc1-b4fa-e6600d36f10a",
@@ -3005,7 +3007,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2860,
+        2880,
         1140
       ],
       "id": "bfa7aadc-4326-4b53-92d7-8f5bb4a2c1e5",
@@ -3016,7 +3018,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2680,
+        2700,
         1140
       ],
       "id": "f6907157-98e5-4a0c-999b-be72b12929a7",
@@ -3044,7 +3046,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2280,
+        2300,
         1140
       ],
       "id": "0ff69d17-debd-4f4a-ba88-7c30b7a02750",
@@ -3063,7 +3065,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3760,
+        3780,
         1140
       ],
       "id": "1905e131-0a89-4d60-8999-037a4fa95976",
@@ -3088,7 +3090,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4140,
+        4160,
         1140
       ],
       "id": "ef5d861f-9ae2-4ef3-970f-58964545ddcf",
@@ -3109,7 +3111,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1900,
+        1920,
         940
       ],
       "id": "0244d402-d7e7-45c8-aa5f-dcaff2e928b8",
@@ -3136,7 +3138,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3220,
+        3240,
         1140
       ],
       "id": "a97abf6d-d697-4b33-970f-e12372969c5f",
@@ -3159,7 +3161,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3580,
+        3600,
         1140
       ],
       "id": "efc056ff-5407-4e66-909f-a7d658426874",
@@ -3173,7 +3175,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3940,
+        3960,
         1140
       ],
       "id": "ae7d2240-0338-453b-80d4-4dae9908ae5b",
@@ -3268,7 +3270,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4880,
+        4900,
         1140
       ],
       "id": "efb79f70-bc54-44c9-99e4-970f8f2c39d4",
@@ -3334,7 +3336,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3240,
+        3260,
         1340
       ],
       "id": "af85d0d9-209d-4e53-8a91-08c00cd6572e",
@@ -3400,7 +3402,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3040,
+        3060,
         1340
       ],
       "id": "019ce2de-a799-49dc-a1eb-c3900a3e3fdc",
@@ -3424,7 +3426,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2860,
+        2880,
         1340
       ],
       "id": "25cfd02c-2de7-448c-8dde-4495be33732f",
@@ -3437,7 +3439,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3440,
+        3460,
         1340
       ],
       "id": "ffa4fd7d-5cd0-44c6-8394-42f613bfbe52",
@@ -3451,7 +3453,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3640,
+        3660,
         1340
       ],
       "id": "fe802184-dd6f-4b9d-b85e-4af6e4dad6ef",
@@ -3533,7 +3535,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3840,
+        3860,
         1340
       ],
       "id": "2b131e4b-8dd5-429a-b29e-9c7f8269b112",
@@ -3550,7 +3552,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3400,
+        3420,
         1140
       ],
       "id": "8619d9df-d7cc-489b-8633-a4ce20a0b463",
@@ -3586,7 +3588,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2080,
+        2100,
         1140
       ],
       "id": "f3a1908c-7dda-4f68-9d04-1b6e076c0141",
@@ -3626,7 +3628,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2460,
+        2480,
         1140
       ],
       "id": "0afb6f0f-8c04-4f33-8182-ab29a66ce355",
@@ -3653,7 +3655,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2680,
+        2700,
         1340
       ],
       "id": "1cdf69b9-bb98-4ce7-aacf-e0907c0a1165",
@@ -3673,7 +3675,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4300,
+        4320,
         1140
       ],
       "id": "caa12760-0b87-4e74-b989-2bf12a0887f9",
@@ -3687,7 +3689,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3040,
+        3060,
         1140
       ],
       "id": "0cb1c167-ae2d-4ef0-8e90-1fbdd4f3037c",
@@ -3700,14 +3702,14 @@
           "__rl": true,
           "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
           "mode": "list",
-          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultName": "Angel Database",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
+          "cachedResultName": "Canvas Responses",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
         },
         "filtersUI": {
@@ -3745,7 +3747,7 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        140,
+        160,
         840
       ],
       "id": "f47c8335-c24b-4cdc-b61a-6a6b6e12a8e3",
@@ -3796,7 +3798,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        300,
+        320,
         840
       ],
       "id": "a6d53cad-5089-487a-bd9f-4e982242bc8f",
@@ -3808,14 +3810,14 @@
           "__rl": true,
           "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
           "mode": "list",
-          "cachedResultName": "Angel Canvas Responses",
+          "cachedResultName": "Angel Database",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
+          "cachedResultName": "Canvas Responses",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
         },
         "filtersUI": {
@@ -3831,7 +3833,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        480,
+        500,
         840
       ],
       "id": "4b016255-61b5-4012-8e97-fe3c761b4b74",
@@ -3921,7 +3923,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        640,
+        660,
         840
       ],
       "id": "faa0c3fb-a87f-4f4c-9208-491e412ca56a",
@@ -3941,7 +3943,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        5080,
+        5100,
         1140
       ],
       "id": "31fbcbb7-d83b-4f1e-aee3-e35396af1bf5",
@@ -3958,7 +3960,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4680,
+        4700,
         1140
       ],
       "id": "c68fce16-92e8-4c33-b354-e954b4a4e100",
@@ -3982,7 +3984,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4480,
+        4500,
         1140
       ],
       "id": "a6c3d541-ec73-4c36-9a86-274cd3a35bfa",
@@ -4115,7 +4117,13 @@
     },
     "Upload the canvas file to the folder": {
       "main": [
-        []
+        [
+          {
+            "node": "Send canvas email",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Get Canva Tokens": {
@@ -5052,7 +5060,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "23c13cd9-087c-4a56-9d6a-3877623a1653",
+  "versionId": "0368ebcf-04c1-4f9d-929e-bb75ae4b2cab",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"

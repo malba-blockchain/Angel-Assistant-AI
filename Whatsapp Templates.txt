@@ -98,3 +98,82 @@ Carlos
 
 Angel Investing vs Venture Capital
 
+
+------------------------------------------------------
+
+mission_reminder_v3
+
+🧭 Your call to adventure has arrived. Behold the quest we’ve prepared for you:
+
+{{1}}
+
+{{2}}
+
+*Impact:* {{3}}
+
+*Mission duration:* {{4}}
+
+*Reward:* {{5}}
+
+*Execution time:* {{6}}
+
+*Start date:* {{7}}
+
+*Interested?* {{8}}
+
+*Click here:* {{9}}
+
+
+
+
+
+🧭 Your call to adventure has arrived. Behold the quest we’ve prepared for you:
+
+*{{ $('Google Sheets - Bounty Data').item.json['Quest:'] }}*
+
+{{ $('Google Sheets - Bounty Data').item.json['The Quest:'] }}
+
+*Impact:* {{ $('Google Sheets - Bounty Data').item.json['Impact:'] }}
+
+*Mission duration:* {{ $('Google Sheets - Bounty Data').item.json['Mission Duration:'] }}
+
+*Reward:* {{ $('Google Sheets - Bounty Data').item.json['Reward:'] }}
+
+*Execution time:* {{ $('Google Sheets - Bounty Data').item.json['Execution Time:'] }}
+
+*Start date:* {{ $('Google Sheets - Bounty Data').item.json['Start Date:'] }}
+
+*Interested?* {{ $('Google Sheets - Bounty Data').item.json['Interested?'] }}
+
+*Click here:* {{ $('Google Sheets - Bounty Data').item.json['Action link'] }}
+
+
+*3.  Involvement board coordinator*
+
+Step up as a leader. Organize, empower, and make a difference.
+
+Your leadership as Involvement Board Coordinator will ignite action and drive impact.
+
+One hour a month is the minimum to fuel the future (12 months).
+
+150 Points per month (potential treasure of €150– €450 at fund culmination).
+
+Execute your mission on a monthly basis.
+
+Jun-2025
+
+Contact Fund Leader Pedro to know more about it. Your interest will guide the board’s choice for coordinator.
+
+https://www.coreangels.com/
+
+
+
+------------------------------------------------------
+
+mission_call_v2
+
+{{1}}, are you ready for your next adventure?
+
+You can also see the full bounty board by typing "Go"
+
+Carlos

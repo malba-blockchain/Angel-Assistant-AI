@@ -1916,7 +1916,7 @@
             },
             {
               "id": "b29ff6f8-18c7-4bc4-a8bc-826621c7620f",
-              "leftValue": "={{ new Date().toISOString().replace('T', ' ').slice(0, 19) > new Date(new Date($json['Submitted at']).getTime() + 4 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
+              "leftValue": "={{ new Date().toISOString().replace('T', ' ').slice(0, 19) > new Date(new Date($json['Submitted at']).getTime() + 24 * 60 * 60 * 1000).toISOString().replace('T', ' ').slice(0, 19) }}",
               "rightValue": "=",
               "operator": {
                 "type": "boolean",
@@ -5056,11 +5056,11 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "0368ebcf-04c1-4f9d-929e-bb75ae4b2cab",
+  "versionId": "2fa90a6d-4e6d-40fd-9b01-43d6f73cb2e6",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"

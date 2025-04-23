@@ -86,8 +86,10 @@ Fix the order. Delay the last message. DONE
 
 Fix the format. DONE
 
-------------------ToDo------------------
-
 4. Create customizable giftcard template DONE
 4.1. Add template sender to the Gift Card Generator v2 to search the list of people who was sent 1 day ago, and update phase at the end DONE
+
+
+
+------------------ToDo------------------
 

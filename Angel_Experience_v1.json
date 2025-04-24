@@ -22,8 +22,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        120,
-        -60
+        60,
+        1220
       ],
       "id": "2f118896-ecd2-4c4f-a2df-76cb431cd8e9",
       "name": "Get Angel List",
@@ -71,8 +71,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        660,
-        -60
+        600,
+        1220
       ],
       "id": "0478c7b5-915c-4fe0-9d7a-0b99de87d5a5",
       "name": "Send Angel Story Message",
@@ -90,14 +90,14 @@
           "__rl": true,
           "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
           "mode": "list",
-          "cachedResultName": "Angel Stories",
+          "cachedResultName": "Angel Experience",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
+          "cachedResultName": "Angel Stories",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
         },
         "filtersUI": {
@@ -113,8 +113,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        480,
-        -60
+        420,
+        1220
       ],
       "id": "875c9ae1-67bb-4bfc-9aab-3126d7e55cc2",
       "name": "Get Story Data",
@@ -124,25 +124,6 @@
           "name": "Google Sheets account"
         }
       }
-    },
-    {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "hours"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -60,
-        -60
-      ],
-      "id": "3e377c17-623b-4110-b248-fa7ac6870fa8",
-      "name": "Schedule Trigger Angel Experience"
     },
     {
       "parameters": {
@@ -270,8 +251,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1040,
-        -60
+        980,
+        1220
       ],
       "id": "e77ba127-f2e6-4768-9f48-6f50abb3f575",
       "name": "Update Angel Experience Status",
@@ -329,8 +310,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        480,
-        620
+        440,
+        600
       ],
       "id": "dfec643f-c5b0-4c94-bac7-86970aa95757",
       "name": "Check message type"
@@ -344,7 +325,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1040,
+        1000,
         980
       ],
       "id": "7c69529b-5e91-4faa-82cf-efb6d3ded9e3",
@@ -365,7 +346,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1020,
+        980,
         480
       ],
       "id": "fa8af82e-cc86-4c4e-a12b-f17763f2dc81",
@@ -403,8 +384,8 @@
             },
             {
               "id": "1099529c-638f-40cf-81d3-9ca853835ac0",
-              "name": "Frequency",
-              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Frequency:\\s*([^\\n]+)/)?.[1] || null}}",
+              "name": "Level",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Level:\\s*([^\\n]+)/)?.[1] || null}}",
               "type": "string"
             }
           ]
@@ -414,7 +395,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
+        1080,
         720
       ],
       "id": "a25a11f0-7b69-45b2-a802-65b40561eaf3",
@@ -427,7 +408,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        780,
+        740,
         720
       ],
       "id": "b7fb92cc-0496-4ee2-8b7d-1f33123d9a89",
@@ -443,8 +424,8 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -100,
-        620
+        -140,
+        600
       ],
       "id": "454599b2-235e-4028-b8f8-ad363eb839d7",
       "name": "Chat start",
@@ -494,8 +475,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        80,
-        620
+        40,
+        600
       ],
       "id": "7862a64c-2dd2-40cb-bee0-cc5d64e97e3e",
       "name": "Validate there is a message"
@@ -578,8 +559,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        280,
-        620
+        240,
+        600
       ],
       "id": "9e2f5586-2632-406d-9578-da56c68ae359",
       "name": "Log Chat History",
@@ -653,6 +634,31 @@
                 "conditions": [
                   {
                     "id": "80fd97af-b1ca-448e-a4f7-d2c20fe45768",
+                    "leftValue": "={{ ($json.Menu == \"Level\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Level"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6a01d974-6785-4755-86a0-c21530c63262",
                     "leftValue": "={{ ($json.Menu == \"Frequency\") }}",
                     "rightValue": "",
                     "operator": {
@@ -666,31 +672,6 @@
               },
               "renameOutput": true,
               "outputKey": "Frequency"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "6a01d974-6785-4755-86a0-c21530c63262",
-                    "leftValue": "={{ ($json.Menu == \"Email\") }}",
-                    "rightValue": "",
-                    "operator": {
-                      "type": "boolean",
-                      "operation": "true",
-                      "singleValue": true
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Email"
             }
           ]
         },
@@ -699,7 +680,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1340,
+        1300,
         680
       ],
       "id": "660c9e3f-70f4-44d3-9bf4-99000e60e55e",
@@ -717,7 +698,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1740,
+        1700,
         420
       ],
       "id": "d0e02bce-cdd6-4ad3-aa74-6f8615dd80fc",
@@ -738,105 +719,11 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1740,
+        1700,
         600
       ],
       "id": "c8dfd46c-001d-49f8-8247-fe7d7d150e7c",
       "name": "Clean Memory1"
-    },
-    {
-      "parameters": {
-        "mode": "insert",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Frequency\nName: {{ $('Chat start').item.json.messages[0].text.body }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryManager",
-      "typeVersion": 1.1,
-      "position": [
-        2080,
-        600
-      ],
-      "id": "147b0dc4-35ab-4104-a8f0-adc087bf18e2",
-      "name": "Angel Frequency Menu In",
-      "alwaysOutputData": true,
-      "executeOnce": false
-    },
-    {
-      "parameters": {
-        "operation": "send",
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(2/3) How often would you like to have access to Angel Stories?\n\n3. Every 3 days\n4. Every 4 days\n5. Every 5 days\n6. Every 6 days\n7. Every 7 days",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        2420,
-        600
-      ],
-      "id": "fe7c79c5-08e1-4ac5-9e1c-d503bd1b98ba",
-      "name": "Angel Frequency",
-      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
-          "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "mode": "insert",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Email\nName: {{ $('Regenerate variables sender').item.json.Name }}\nFrequency: {{ $('Chat start').item.json.messages[0].text.body }}"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryManager",
-      "typeVersion": 1.1,
-      "position": [
-        2080,
-        760
-      ],
-      "id": "5a848db6-5947-4732-853d-80937adc0054",
-      "name": "Angel Email Menu In",
-      "alwaysOutputData": true,
-      "executeOnce": false
-    },
-    {
-      "parameters": {
-        "operation": "send",
-        "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "(3/3) What's your email?",
-        "additionalFields": {}
-      },
-      "type": "n8n-nodes-base.whatsApp",
-      "typeVersion": 1,
-      "position": [
-        2420,
-        760
-      ],
-      "id": "b5f12a94-bf0d-43f1-98ec-3cbe4d994dea",
-      "name": "Angel Email",
-      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
-          "name": "WhatsApp account"
-        }
-      }
     },
     {
       "parameters": {
@@ -877,8 +764,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        300,
-        -60
+        240,
+        1220
       ],
       "id": "56036157-4b0a-4d0f-b01b-86648bb9126e",
       "name": "Filter only registered and frequency"
@@ -906,10 +793,10 @@
             "Submitted at": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
             "Name": "={{ $('Regenerate variables sender').item.json.Name }}",
             "Number": "={{ $('Regenerate variables sender').item.json.UserID }}",
-            "Email": "={{ $('Chat start').item.json.messages[0].text.body }}",
-            "Frequency": "={{ $('Regenerate variables sender').item.json.Frequency }}",
+            "Frequency": "={{ $('Chat start').item.json.messages[0].text.body }}",
             "Phase": "0-Angel Story 0",
-            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}"
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Level": "={{ \n  ($('Regenerate variables sender').item.json.Level == 1) \n    ? \"Beginner\" \n    : ($('Regenerate variables sender').item.json.Level == 2) \n      ? \"Intermediate\" \n      : ($('Regenerate variables sender').item.json.Level == 3) \n        ? \"Advanced\" \n        : $('Regenerate variables sender').item.json.Level \n}}"
           },
           "matchingColumns": [],
           "schema": [
@@ -941,15 +828,6 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Email",
-              "displayName": "Email",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
               "id": "Frequency",
               "displayName": "Frequency",
               "required": false,
@@ -957,6 +835,16 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
             },
             {
               "id": "Phase",
@@ -985,7 +873,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1740,
+        1700,
         920
       ],
       "id": "087da033-9de7-4909-a917-de3c6e5989b4",
@@ -1002,13 +890,13 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "Hello, I will grant you access to Angel Stories. (Mini podcasts from 3 to 5 min long).\n\n(1/3) What's your full name?",
+        "textBody": "Hello, I will grant you access to Angel Stories (mini podcasts from 3 to 5 min long).\n\n(1/3) What's your full name?",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        780,
+        740,
         480
       ],
       "id": "eb42c62d-55ca-4438-b6b0-0d08d71f9764",
@@ -1032,7 +920,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1940,
+        1900,
         920
       ],
       "id": "8f962b7b-83d0-4f51-8f9d-bff4fe696b9c",
@@ -1074,7 +962,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2120,
+        2080,
         920
       ],
       "id": "13e97d4e-286b-406a-99bb-6ba4a54c8edf",
@@ -1090,7 +978,7 @@
       "parameters": {
         "operation": "send",
         "phoneNumberId": "661969530322547",
-        "recipientPhoneNumber": "573203944414",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "messageType": "audio",
         "mediaPath": "useMedian8n",
         "additionalFields": {}
@@ -1098,7 +986,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2460,
+        2420,
         920
       ],
       "id": "c48d0691-835c-481b-a336-fbf69fc661da",
@@ -1126,7 +1014,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2300,
+        2260,
         920
       ],
       "id": "f9c1e7fe-30a2-44ab-8a96-813a07415c12",
@@ -1146,7 +1034,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1740,
+        1700,
         760
       ],
       "id": "77f68250-7732-4d49-966e-a405674fd0ad",
@@ -1163,7 +1051,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2820,
+        2780,
         920
       ],
       "id": "60bdc6c8-13c8-4034-9d79-e8c00c88ae63",
@@ -1181,7 +1069,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2640,
+        2600,
         920
       ],
       "id": "2f0a58a2-dd33-498a-84e6-ad73265205a1",
@@ -1200,8 +1088,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        840,
-        -60
+        780,
+        1220
       ],
       "id": "b1ee3fa3-42a7-4c80-9aba-f1e33fe38ef8",
       "name": "Send Story Email",
@@ -1212,6 +1100,496 @@
           "name": "Gmail account"
         }
       }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        40,
+        1640
+      ],
+      "id": "d58bee8e-0307-4117-95d7-f4f02e2a441c",
+      "name": "Get Angel List1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Number": "={{ $('Get Angel List1').item.json.Number }}",
+            "Phase": "2-Angel Concept 0"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        960,
+        1640
+      ],
+      "id": "ebf53be8-1e7b-4eea-b4a8-060628f77fde",
+      "name": "Update Angel Experience Status1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (format: \"16-Apr-2025\")\n  const parts = $json['Last sent'].split('-');\n  const day = parseInt(parts[0]);\n  const months = {\"Jan\":0, \"Feb\":1, \"Mar\":2, \"Apr\":3, \"May\":4, \"Jun\":5, \"Jul\":6, \"Aug\":7, \"Sep\":8, \"Oct\":9, \"Nov\":10, \"Dec\":11};\n  const month = months[parts[1]];\n  const year = parseInt(parts[2]);\n  \n  // Create a date object from $json['Last sent']\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add 24 hours (86400000 milliseconds)\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + $json.Frequency*86400000);\n  \n  // Get current date from new Date().toISOString()\n  const currentDate = new Date();\n  \n  // Compare if current date is greater than or equal to lastSentDate + 24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c4b98817-c8d8-4e81-8d70-9284082d82a3",
+              "leftValue": "={{ $json.Phase == \"1-Angel Story 1\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        1640
+      ],
+      "id": "eaabc692-a63e-47d3-8ae2-2d3e0c6b0c1c",
+      "name": "Filter only registered and frequency1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        400,
+        1640
+      ],
+      "id": "b6bc22bc-b43e-4d6d-8b7b-7f95063ff566",
+      "name": "Get Concept Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OSnG48Edzrrh2udV",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        1220
+      ],
+      "id": "3e377c17-623b-4110-b248-fa7ac6870fa8",
+      "name": "Schedule Trigger Angel Story"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -140,
+        1640
+      ],
+      "id": "5ed09cc2-bbf2-4186-a8d2-34cfc07d3093",
+      "name": "Schedule Trigger Angel Concept"
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Filter only registered and frequency1').item.json.Number.toString() }}",
+        "template": "angel_concept_v2|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Filter only registered and frequency1').item.json.Name.split(\" \")[0] }}"
+                  },
+                  {
+                    "text": "={{ $json.Concept }}"
+                  },
+                  {
+                    "text": "={{ $json.Description }}"
+                  },
+                  {
+                    "text": "={{ $json['Fun Fact'] }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        580,
+        1640
+      ],
+      "id": "eaef5506-1954-4477-8087-0c7c01c948d5",
+      "name": "Send Angel Concept Message",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Filter only registered and frequency1').item.json.Email }}",
+        "subject": "=Hi {{ $('Filter only registered and frequency1').item.json.Name.split(\" \")[0] }}, today's Angel Concept: {{ $('Get Concept Data').item.json.Concept }}",
+        "message": "={{ $('Get Concept Data').item.json.Description }}\n<br>\n<br>\n{{ $('Get Concept Data').item.json['Fun Fact'] }}\n<br>\n<br>\nIf you'd like to propose a topic or concept to be explained, just let me know.",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        760,
+        1640
+      ],
+      "id": "8027ea5d-c411-46af-b147-7c56e1c92d69",
+      "name": "Send Concept Email",
+      "webhookId": "909629e6-615a-4e59-bfd4-7a9039858ee9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "SzhJjqEOmRz2nVxW",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "(3/3) How often would you like to have access to Angel Stories?\n\n3. Every 3 days\n4. Every 4 days\n5. Every 5 days\n6. Every 6 days\n7. Every 7 days",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        760
+      ],
+      "id": "b5f12a94-bf0d-43f1-98ec-3cbe4d994dea",
+      "name": "Angel Frequency",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=(2/3) How many years of experience do you have as a business angel investor?\n\n1. None to 2 years\n2. 2 to 5 years\n3. More than 5 years",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        2380,
+        600
+      ],
+      "id": "fe7c79c5-08e1-4ac5-9e1c-d503bd1b98ba",
+      "name": "Angel Level",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZconX2ENu6OHeTB8",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Frequency\nName: {{ $('Regenerate variables sender').item.json.Name }}\nLevel: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        2040,
+        760
+      ],
+      "id": "5a848db6-5947-4732-853d-80937adc0054",
+      "name": "Angel Frequency Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Level\nName: {{ $('Chat start').item.json.messages[0].text.body }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        2040,
+        600
+      ],
+      "id": "147b0dc4-35ab-4104-a8f0-adc087bf18e2",
+      "name": "Angel Level Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "content": "## Send Angel Story",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -460,
+        1200
+      ],
+      "typeVersion": 1,
+      "id": "a0f7b8fe-6b36-4a81-a792-0d45139d63ee",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Send Angel Concept",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -460,
+        1620
+      ],
+      "typeVersion": 1,
+      "id": "d777aeea-9bc8-4930-bb6b-eb2ab6b8dbd3",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## Register to Angel Experience",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -460,
+        580
+      ],
+      "typeVersion": 1,
+      "id": "8f281d3c-0d34-4e5b-8986-21166223fda8",
+      "name": "Sticky Note2"
     }
   ],
   "pinData": {},
@@ -1243,17 +1621,6 @@
         [
           {
             "node": "Send Angel Story Message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Schedule Trigger Angel Experience": {
-      "main": [
-        [
-          {
-            "node": "Get Angel List",
             "type": "main",
             "index": 0
           }
@@ -1297,12 +1664,12 @@
             "index": 0
           },
           {
-            "node": "Angel Frequency Menu In",
+            "node": "Angel Level Menu In",
             "type": "ai_memory",
             "index": 0
           },
           {
-            "node": "Angel Email Menu In",
+            "node": "Angel Frequency Menu In",
             "type": "ai_memory",
             "index": 0
           },
@@ -1405,29 +1772,7 @@
       "main": [
         [
           {
-            "node": "Angel Frequency Menu In",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Angel Frequency Menu In": {
-      "main": [
-        [
-          {
-            "node": "Angel Frequency",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Angel Email Menu In": {
-      "main": [
-        [
-          {
-            "node": "Angel Email",
+            "node": "Angel Level Menu In",
             "type": "main",
             "index": 0
           }
@@ -1493,7 +1838,7 @@
       "main": [
         [
           {
-            "node": "Angel Email Menu In",
+            "node": "Angel Frequency Menu In",
             "type": "main",
             "index": 0
           }
@@ -1548,13 +1893,112 @@
           }
         ]
       ]
+    },
+    "Get Angel List1": {
+      "main": [
+        [
+          {
+            "node": "Filter only registered and frequency1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter only registered and frequency1": {
+      "main": [
+        [
+          {
+            "node": "Get Concept Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Concept Data": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Concept Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Angel Story": {
+      "main": [
+        [
+          {
+            "node": "Get Angel List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Angel Concept": {
+      "main": [
+        [
+          {
+            "node": "Get Angel List1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Concept Message": {
+      "main": [
+        [
+          {
+            "node": "Send Concept Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Concept Email": {
+      "main": [
+        [
+          {
+            "node": "Update Angel Experience Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Frequency Menu In": {
+      "main": [
+        [
+          {
+            "node": "Angel Frequency",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Level Menu In": {
+      "main": [
+        [
+          {
+            "node": "Angel Level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "181fb901-5530-4667-bdc6-4f41ca68c4ff",
+  "versionId": "ac448afe-cf26-47de-962e-f88c61eb462f",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"

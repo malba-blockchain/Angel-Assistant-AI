@@ -2806,6 +2806,34 @@
           "name": "WhatsApp account"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "## Bounty Board Access",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2800,
+        740
+      ],
+      "typeVersion": 1,
+      "id": "0ced4fd0-5516-4f61-9a90-b2d964f7948f",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Scheduled Send of Mission Reminder",
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2760,
+        2060
+      ],
+      "typeVersion": 1,
+      "id": "5a1d9121-6610-4c35-b78d-6d4681b4fac7",
+      "name": "Sticky Note1"
     }
   ],
   "pinData": {},
@@ -3510,11 +3538,11 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "23aef4ce-72db-447b-9d50-93d758dce93b",
+  "versionId": "a88d9143-33cb-4488-ab42-0477e887ab1e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"

@@ -21,7 +21,7 @@ Validity period
 
 ---------------------------------------------------------------
 
-gift_card_message_v9
+gift_card_message_v10 | tracking_card_message_v10 
 
 
 Hey {{1}}, how was your experience with the canvas?
@@ -177,3 +177,11 @@ mission_call_v2
 You can also see the full bounty board by typing "Go"
 
 Carlos
+
+
+------------------------------------------------------
+TEMPLATE NOT BEING SENT
+
+Disconnect all access tokens and connect them again.
+
+

@@ -1352,8 +1352,8 @@
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "CmkiH8RvaR6rJRb1",
-          "name": "WhatsApp account 2"
+          "id": "QqHuDAxMP38Bw7iF",
+          "name": "WhatsApp account"
         }
       }
     },
@@ -1953,7 +1953,7 @@
       "parameters": {
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
-        "template": "gift_card_message_v9|en",
+        "template": "gift_card_message_v10|en",
         "components": {
           "component": [
             {
@@ -1979,7 +1979,7 @@
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -2050,7 +2050,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        900,
+        920,
         360
       ],
       "id": "35acd0af-49ff-402d-83ec-6ee0913146c0",
@@ -2549,7 +2549,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1100,
+        1120,
         360
       ],
       "id": "e03f7b7e-dfcf-4c20-b513-223796db1507",
@@ -2597,8 +2597,7 @@
         360
       ],
       "id": "d39c625d-a49f-4323-b692-1f1840123d4e",
-      "name": "Schedule Trigger Gift Card",
-      "disabled": true
+      "name": "Schedule Trigger Gift Card"
     },
     {
       "parameters": {
@@ -2683,7 +2682,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -2722,7 +2721,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -2837,7 +2836,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -2861,7 +2860,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -2977,15 +2976,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1920,
-        1140
+        1900,
+        1240
       ],
       "id": "b7094c99-a1a2-4fc1-b4fa-e6600d36f10a",
       "name": "Gift Card is being processed",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -3046,8 +3045,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2300,
-        1140
+        2280,
+        1240
       ],
       "id": "0ff69d17-debd-4f4a-ba88-7c30b7a02750",
       "name": "Request (Job) to generate the customized gift card1",
@@ -3073,7 +3072,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -3098,7 +3097,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -3588,8 +3587,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2100,
-        1140
+        2080,
+        1240
       ],
       "id": "f3a1908c-7dda-4f68-9d04-1b6e076c0141",
       "name": "Get Canva Tokens2",
@@ -3628,8 +3627,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2480,
-        1140
+        2460,
+        1240
       ],
       "id": "0afb6f0f-8c04-4f33-8182-ab29a66ce355",
       "name": "If1"
@@ -3968,7 +3967,7 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
@@ -3992,19 +3991,19 @@
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "ZconX2ENu6OHeTB8",
+          "id": "QqHuDAxMP38Bw7iF",
           "name": "WhatsApp account"
         }
       }
     },
     {
       "parameters": {
-        "content": "## Generate and Send Canvas",
-        "color": 5
+        "content": "\n\n## Generate and Send Canvas",
+        "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -180,
+        -260,
         -100
       ],
       "typeVersion": 1,
@@ -4013,12 +4012,12 @@
     },
     {
       "parameters": {
-        "content": "## Scheduled Gift Card Invitation Send",
-        "color": 5
+        "content": "\n## Scheduled Gift Card Invitation Send",
+        "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -180,
+        -260,
         340
       ],
       "typeVersion": 1,
@@ -4027,12 +4026,12 @@
     },
     {
       "parameters": {
-        "content": "## Customized Gift Card Generator\n",
-        "color": 5
+        "content": "\n\n## Customized Gift Card Generator\n",
+        "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -160,
+        -260,
         820
       ],
       "typeVersion": 1,
@@ -5098,11 +5097,11 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "6eebcbde-8b57-4d95-8b30-ad5be63e21a6",
+  "versionId": "6d7ca3e3-da73-4318-a10d-fd9b99bca6e5",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "45de587cdd5f8411648bbabc480257026e865baa5cd7fd696e8f88a3b643a1aa"

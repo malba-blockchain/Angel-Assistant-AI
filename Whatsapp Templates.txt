@@ -60,21 +60,17 @@ From Investment Regret to Real Angel Wins.
 
 ---------------------------------------------------------------
 
-angel_story_v9
+angel_story_v12
 
 Hey {{1}}, today's angel story: “{{2}}”. ({{3}} min)
 
-Angel stories are shared by angels just like you, so the community can learn from our experiences.
+I'm turning Angel Stories into something your network could really appreciate.
 
-I'm turning it into something your network could really appreciate.
-
-Please tell me at least one thing we can do to improve it.
-
-(If you want to lose access just type "Stop")
+If there's a concept or story you'd like to propose, just let me know.
 
 Carlos
 
-From Investment Regret to Real Angel Wins.
+From Investment Regret to Real Angel Wins
 
 3
 
@@ -82,7 +78,7 @@ Listen Angel Story
 
 https://drive.google.com/file/d/
 
-https://drive.google.com/file/d/1paaVcp463W2RZB3GhGixYqDIdXM6qO6e
+https://drive.google.com/file/d/13lc6zRR2jPXsiyTFt7IvGewlJASxsJm1
 
 ------------------------------------------------------
 
@@ -92,7 +88,7 @@ Hey {{1}}, today's angel concept: {{2}}
 
 {{3}}
 
-If you'd like to propose a topic or concept to be explained, just let me know.
+If you'd like to propose a concept to explain or a story to tell, just let me know.
 
 Carlos
 

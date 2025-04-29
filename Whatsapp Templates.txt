@@ -82,21 +82,6 @@ https://drive.google.com/file/d/13lc6zRR2jPXsiyTFt7IvGewlJASxsJm1
 
 ------------------------------------------------------
 
-angel_concept_v2
-
-Hey {{1}}, today's angel concept: {{2}}
-
-{{3}}
-
-If you'd like to propose a concept to explain or a story to tell, just let me know.
-
-Carlos
-
-Angel Investing vs Venture Capital
-
-
-------------------------------------------------------
-
 mission_reminder_v3
 
 🧭 Your call to adventure has arrived. Behold the quest we’ve prepared for you:

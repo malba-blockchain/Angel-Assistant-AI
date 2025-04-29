@@ -1,0 +1,335 @@
+{
+  "name": "Email Sender v1",
+  "nodes": [
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U",
+          "mode": "list",
+          "cachedResultName": "Networks Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1374262321,
+          "mode": "list",
+          "cachedResultName": "Email Sender",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit#gid=1374262321"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        300,
+        0
+      ],
+      "id": "dbd2a9c5-9853-4f88-879d-f65a549b722f",
+      "name": "Get Emails Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZTe0NUFKqCZTEBqm",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U",
+          "mode": "list",
+          "cachedResultName": "Networks Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1374262321,
+          "mode": "list",
+          "cachedResultName": "Email Sender",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit#gid=1374262321"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "EMAIL": "={{ $('Filter by status').item.json.EMAIL }}",
+            "STATUS": "SENT",
+            "LAST SENT": "={{ $('Random Trigger (1 to 3) minutes').item.json['Readable date'] }}"
+          },
+          "matchingColumns": [
+            "EMAIL"
+          ],
+          "schema": [
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ORGANIZATION",
+              "displayName": "ORGANIZATION",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "NAME",
+              "displayName": "NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "DOMAIN",
+              "displayName": "DOMAIN",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "EMAIL",
+              "displayName": "EMAIL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "FIRST NAME",
+              "displayName": "FIRST NAME",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "SUBJECT",
+              "displayName": "SUBJECT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "BODY",
+              "displayName": "BODY",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "LAST SENT",
+              "displayName": "LAST SENT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        940,
+        0
+      ],
+      "id": "d3abfeb3-d532-4e6e-bc8d-4dfcd3455f29",
+      "name": "Update status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZTe0NUFKqCZTEBqm",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.EMAIL }}",
+        "subject": "={{ $json.SUBJECT }}",
+        "message": "={{ $json.BODY }}\n<br>\n<br>\n{{ $json.URL }}\n<br>\n<br>\nBest,\n<br>\nCarlos Alba\n<br>\nlinkedin.com/in/carlos-alba-ai/",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        0
+      ],
+      "id": "8d649183-1820-4b2d-9ccf-826aa7b07fb2",
+      "name": "Send Email",
+      "webhookId": "21f31dd9-9023-4423-9d5f-bc3af0163d50",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "LksX7loBaniI8bub",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "49f08a04-630d-440b-9a62-c9ddb743029e",
+              "leftValue": "={{ $json.STATUS == \"READY\" }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        0
+      ],
+      "id": "3a8bdb1f-f076-4138-8e88-cf42093f65c3",
+      "name": "Filter by status",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": "={{Math.floor(Math.random() * 4) + 1}}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        80,
+        0
+      ],
+      "id": "c7ed4a58-6759-4793-9ca3-ab8f24ecbeb5",
+      "name": "Random Trigger (1 to 3) minutes"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Get Emails Data": {
+      "main": [
+        [
+          {
+            "node": "Filter by status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Update status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter by status": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Random Trigger (1 to 3) minutes": {
+      "main": [
+        [
+          {
+            "node": "Get Emails Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cdc8009f-922f-4616-89fb-15d09a9e3dcc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1d32c4ceb249c845d5a99e99b2ede3764cbe8ab3d474ff9bce0fa61cd047a465"
+  },
+  "id": "eAmWrQIt5013aV3d",
+  "tags": []
+}

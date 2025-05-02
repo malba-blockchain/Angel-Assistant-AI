@@ -821,10 +821,10 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "13lc6zRR2jPXsiyTFt7IvGewlJASxsJm1",
+          "value": "1BQArs52FRYwemCrE0FisbyJPpZ4Rfybw",
           "mode": "list",
           "cachedResultName": "0-We Believed When No One Did.mp3",
-          "cachedResultUrl": "https://drive.google.com/file/d/13lc6zRR2jPXsiyTFt7IvGewlJASxsJm1/view?usp=drivesdk"
+          "cachedResultUrl": "https://drive.google.com/file/d/1BQArs52FRYwemCrE0FisbyJPpZ4Rfybw/view?usp=drivesdk"
         },
         "options": {}
       },
@@ -862,7 +862,7 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: “{{ $('Get First Story Data1').item.json.Title }}” ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nIf you have ideas to improve, let me know.",
+        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: “{{ $('Get First Story Data1').item.json.Title }}” ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nIf there's a concept or story you'd like to propose, just let me know.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -1137,7 +1137,7 @@
           "conditions": [
             {
               "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
-              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (format: \"16-Apr-2025\")\n  const parts = $json['Last sent'].split('-');\n  const day = parseInt(parts[0]);\n  const months = {\"Jan\":0, \"Feb\":1, \"Mar\":2, \"Apr\":3, \"May\":4, \"Jun\":5, \"Jul\":6, \"Aug\":7, \"Sep\":8, \"Oct\":9, \"Nov\":10, \"Dec\":11};\n  const month = months[parts[1]];\n  const year = parseInt(parts[2]);\n  \n  // Create a date object from $json['Last sent']\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add 24 hours (86400000 milliseconds)\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + $json.Frequency*86400000);\n  \n  // Get current date from new Date().toISOString()\n  const currentDate = new Date();\n  \n  // Compare if current date is greater than or equal to lastSentDate + 24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
+              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  const lastSentStr = $json['Last sent'];\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency * 24 hours\n  const lastSentPlus24h = new Date(lastSentDate.getTime() + $json.Frequency*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlus24h, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + frequency*24h\n  return currentDate >= lastSentPlus24h;\n})() }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -2131,7 +2131,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "89805554-2ed3-4d16-92d3-b6ef3af3c686",
+  "versionId": "569533ae-fce8-49ff-97e5-b03782698e70",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1d32c4ceb249c845d5a99e99b2ede3764cbe8ab3d474ff9bce0fa61cd047a465"

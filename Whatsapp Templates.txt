@@ -161,8 +161,23 @@ Carlos
 
 
 ------------------------------------------------------
-TEMPLATE NOT BEING SENT
+letter_notifier_v1
 
-Disconnect all access tokens and connect them again.
+Dear {{1}}, I just added something for you to your Angel Journey folder. 
 
+Please don't forget to check it out.
+
+{{2}}
+
+
+Carlos
+
+https://drive.google.com/drive/u/0/folders/1mIAy93qycOWl34QCt5mfkejW5EhwsmbO
+
+------------------------------------------------------
+canvas_reminder_v1
+
+🔔Here is the reminder to access your Angel Canvas.
+
+To get started just type "Canvas"
 

@@ -3629,7 +3629,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1600,
+        2040,
         -20
       ],
       "id": "3a23f3aa-7c13-4e84-815b-03bdf79c12ec",
@@ -3648,7 +3648,7 @@
             {
               "id": "ccb7d0fa-d549-4963-93e6-725416d121b6",
               "name": "=Angel Responses",
-              "value": "=Name: {{ $json['What’s your name?'].split(' ').length > 3 ? $json['What’s your name?'].split(' ')[0] + ' ' + $json['What’s your name?'].split(' ')[$json['What’s your name?'].split(' ').length-1] : $json['What’s your name?'] }}\nEmail:{{ $json['Where should I email it to?'] }}\nPhone:{{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($json['Submitted at']);\n    if (isNaN(date.getTime())) return $json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $json['(1/21) What\\'s my previous experience investing in startups?'] }}\nHow do you perceive your role as an angel investor: {{ $json['(2/21) How do I perceive my role as an angel investor?'] }}\nAngel investing is a great way to earn money: {{ $json['\"Angel investing is a great way to earn money\"'] }} \nAngel investing is an efficient way to diversify investments: {{ $json['\"Angel investing is an efficient way to diversify investments\"'] }} \nAngel investing increases my wealth adequately in view of the risk I bear: {{ $json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }} \nAngel investing is an easy way to invest: {{ $json['\"Angel investing is an easy way to invest\"'] }} \nAngel investing is not unnecessarily time-consuming: {{ $json['\"Angel investing is not unnecessarily time-consuming\"'] }} \nAngel investing is a way to give back to society: {{ $json['\"Angel investing is a way to give back to society\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing gives me the opportunity to express benevolence toward other people: {{ $json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }} \nAngel investing encourages me to have a life with a higher purpose: {{ $json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{ $json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{ $json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{ $json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{ $json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{ $json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{ $json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{ $json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{ $json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{ $json['(8/21) What future changes in the world do I foresee and would love to be part of?'] }}\nWhich are the main challenges in the world that startups can solve: {{ $json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: \n{{ $json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{ $json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me:\n{{ $json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{ $json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{ $json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{ $json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{ $json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\nWhat types of business models will I back? \n{{ $json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
+              "value": "=Name: {{ $('Filter only non processed and schedule rules2').item.json['What’s your name?'].split(' ').length > 3 ? $('Filter only non processed and schedule rules2').item.json['What’s your name?'].split(' ')[0] + ' ' + $('Filter only non processed and schedule rules2').item.json['What’s your name?'].split(' ')[$('Filter only non processed and schedule rules2').item.json['What’s your name?'].split(' ').length-1] : $('Filter only non processed and schedule rules2').item.json['What’s your name?'] }}\nEmail:{{ $('Filter only non processed and schedule rules2').item.json['Where should I email it to?'] }}\nPhone:{{ $('Filter only non processed and schedule rules2').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'] }}\nDate: {{ \n  (function() {\n    const date = new Date($('Filter only non processed and schedule rules2').item.json['Submitted at']);\n    if (isNaN(date.getTime())) return $('Filter only non processed and schedule rules2').item.json['Submitted at'];\n    const day = date.getDate().toString().padStart(2, '0');\n    const month = date.toLocaleString('en', { month: 'short' });\n    const year = date.getFullYear();\n    return `${day}-${month}-${year}`;\n  })()\n}}\nWhat's my previous experience investing in startups: {{ $('Filter only non processed and schedule rules2').item.json['(1/21) What\\'s my previous experience investing in startups?'] }}\nHow do you perceive your role as an angel investor: {{ $('Filter only non processed and schedule rules2').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\nAngel investing is a great way to earn money: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing is a great way to earn money\"'] }}\nAngel investing is an efficient way to diversify investments: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing is an efficient way to diversify investments\"'] }}\nAngel investing increases my wealth adequately in view of the risk I bear: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing increases my wealth adequately in view of the risk I bear\"'] }}\nAngel investing is an easy way to invest: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing is an easy way to invest\"'] }}\nAngel investing is not unnecessarily time-consuming:{{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing is not unnecessarily time-consuming\"'] }}\nAngel investing is a way to give back to society: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing is a way to give back to society\"'] }}\nAngel investing gives me the opportunity to express benevolence toward other people: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }}\nAngel investing gives me the opportunity to express benevolence toward other people: {{ $('Filter only non processed and schedule rules2').item.json['\"Angel investing gives me the opportunity to express benevolence toward other people\"'] }}\nAngel investing encourages me to have a life with a higher purpose: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing encourages me to have a life with a higher purpose\"'] }} \nAngel investing boosts my self-esteem: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing boosts my self-esteem\"'] }} \nAngel investing gives me sheer joy: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing gives me sheer joy\"'] }} \nAngel investing makes me feel valuable: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing makes me feel valuable\"'] }} \nAngel investing increases my self-confidence: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing increases my self-confidence\"'] }} \nAngel investing allows me to be part of entrepreneurship: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing allows me to be part of entrepreneurship\"'] }} \nAngel investing gives me the pleasure to begin something from scratch: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing gives me the pleasure to begin something from scratch\"'] }} \nAngel investing gives me the opportunity for involvement with startups: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing gives me the opportunity for involvement with startups\"'] }} \nAngel investing allows me to mentor entrepreneurs: {{  $('Filter only non processed and schedule rules2').item.json['\"Angel investing allows me to mentor entrepreneurs\"'] }} \nWhat future changes in the world you foresee and would love to be part of: {{  $('Filter only non processed and schedule rules2').item.json['(8/21) What future changes in the world do I foresee and would love to be part of?'] }}\nWhich are the main challenges in the world that startups can solve: {{  $('Filter only non processed and schedule rules2').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }} \nHow much time do I want to dedicate to angel investing: {{  $('Filter only non processed and schedule rules2').item.json['(10/21) How much time do I want to dedicate to angel investing?'] }}\nWhat can be my key contributions beyond capital: \n{{  $('Filter only non processed and schedule rules2').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\nWhat do I want founders to say about me:\n{{  $('Filter only non processed and schedule rules2').item.json['(12/21) What do I want founders to say about me? (Pick Max. 5)'] }}\nWhat do I want other angels to say about me:\n{{  $('Filter only non processed and schedule rules2').item.json['(13/21) What do I want other angels to say about me? (Pick Max. 5)'] }}\nHow much would I be comfortable investing: {{  $('Filter only non processed and schedule rules2').item.json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}\nHow many startups would I like to invest on: {{  $('Filter only non processed and schedule rules2').item.json['(15/21) How many startups would I like to invest on?'] }}\nWhat types of startups will I invest in: {{  $('Filter only non processed and schedule rules2').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\nWhat’s my investment return time frame: {{  $('Filter only non processed and schedule rules2').item.json['(17/21) What’s my investment return time frame?'] }}\nIn which geographies will I invest: {{  $('Filter only non processed and schedule rules2').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\nWhat types of business models will I back? \n{{  $('Filter only non processed and schedule rules2').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\nWhat are the key reasons that have kept me from angel investing in the past:\n{{ $json['(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)']  || \"Not Answered\" }}\nWhich tasks would I delegate to an assistant in my angel investing activities: {{ $json['(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)'] || \"Not Answered\"  }}",
               "type": "string"
             }
           ]
@@ -3658,7 +3658,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1040,
+        1460,
         -200
       ],
       "id": "85cb8ae3-5255-4534-9b97-06b4aa2ce384",
@@ -3718,7 +3718,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4240,
+        4680,
         20
       ],
       "id": "58a1c98a-0353-48bf-93b8-da97be13c167",
@@ -3784,7 +3784,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4060,
+        4500,
         20
       ],
       "id": "49936682-90f1-422d-a89a-b9afe13e638a",
@@ -3808,7 +3808,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3900,
+        4340,
         20
       ],
       "id": "6b8ab294-9eb7-4708-8a32-bc648cb89132",
@@ -3821,7 +3821,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4440,
+        4880,
         20
       ],
       "id": "b4baa1fc-e47c-4f36-b429-eb949aa50e44",
@@ -3835,7 +3835,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        4640,
+        5080,
         20
       ],
       "id": "48c5bae9-cdf0-450f-b71a-3e143b64e506",
@@ -3870,7 +3870,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3520,
+        3960,
         -200
       ],
       "id": "84be9def-b88f-4710-8113-f90d14de81a6",
@@ -3904,7 +3904,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3720,
+        4160,
         20
       ],
       "id": "b4a381ca-57cc-42f4-a83e-49efa2035a9b",
@@ -3993,7 +3993,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4840,
+        5280,
         20
       ],
       "id": "044306e3-e15e-49cf-8aa4-ebd79e3377d6",
@@ -4014,7 +4014,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1580,
+        2020,
         -200
       ],
       "id": "b2cfd138-ada3-4e5a-87ba-ef1fcc8d451d",
@@ -4032,7 +4032,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        2820,
+        3260,
         -200
       ],
       "id": "d108db64-c8e9-4083-9196-a9e523f66be9",
@@ -4049,7 +4049,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        2860,
+        3300,
         -20
       ],
       "id": "a9d2de2c-6053-4ed0-9b40-ac0f40c7bc91",
@@ -4082,11 +4082,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3720,
+        4160,
         -200
       ],
       "id": "18548ad9-e173-4b4a-900d-184deed80bf7",
-      "name": "Request (Job) to generate the customized letter1"
+      "name": "Request (Job) to generate the customized letter1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -4105,7 +4107,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4240,
+        4680,
         -200
       ],
       "id": "7c187f71-4e47-4985-9669-cf26449ae683",
@@ -4134,7 +4136,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4440,
+        4880,
         -200
       ],
       "id": "ee9fe277-d586-47de-a376-86cb939f84dd",
@@ -4145,7 +4147,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4640,
+        5080,
         -200
       ],
       "id": "9dbe8da4-02c6-468e-8082-611efee8d697",
@@ -4169,7 +4171,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4840,
+        5280,
         -200
       ],
       "id": "a0f61c94-3dc0-492f-90ac-8cca0013b6ad",
@@ -4183,7 +4185,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5060,
+        5500,
         -200
       ],
       "id": "aea17235-5fa9-4249-8a26-69dd2de0b14e",
@@ -4210,7 +4212,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        5260,
+        5700,
         -200
       ],
       "id": "c01e5b47-6d7f-4fba-9ec4-1e64e0d17f31",
@@ -4243,7 +4245,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2080,
+        2520,
         -200
       ],
       "id": "f54eace0-1a5c-4be2-9912-681bb20ea1dd",
@@ -4265,7 +4267,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2280,
+        2720,
         -200
       ],
       "id": "6db0ee57-70d9-41b3-9871-bffb233f4572",
@@ -4285,7 +4287,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2640,
+        3080,
         -200
       ],
       "id": "054d6e62-5a0e-4fd2-b202-7a4aa6936b20",
@@ -4312,7 +4314,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2460,
+        2900,
         -200
       ],
       "id": "54a5f928-dd1e-4693-9330-b53cb13689ae",
@@ -4345,7 +4347,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1240,
+        1640,
         -200
       ],
       "id": "adfe20d3-be6f-4624-859c-c95ff170be68",
@@ -4372,7 +4374,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1420,
+        1840,
         -200
       ],
       "id": "99e97092-e004-47e5-ad2d-734374ae630a",
@@ -4491,7 +4493,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1900,
+        2340,
         -200
       ],
       "id": "a8f27465-11bd-49f4-94f4-c7751c9468a5",
@@ -4509,7 +4511,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        5440,
+        6060,
         -200
       ],
       "id": "dc428a1a-2b59-463f-a488-d1e886781d73",
@@ -4550,7 +4552,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3900,
+        4340,
         -200
       ],
       "id": "db506cd6-6b5e-4706-a055-ff107dec04d7",
@@ -4564,7 +4566,7 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        3180,
+        3620,
         -20
       ],
       "id": "849c0f6b-4d75-48f4-a46e-0df9b53d141c",
@@ -4585,7 +4587,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3140,
+        3580,
         -200
       ],
       "id": "57ab954f-5416-42ed-b79c-581941e719a9",
@@ -4602,8 +4604,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        5620,
-        20
+        6280,
+        0
       ],
       "id": "c36f6d81-65ca-4dff-87cc-e604128898de",
       "name": "Google Gemini Chat Model8",
@@ -4623,7 +4625,7 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        5600,
+        6240,
         -200
       ],
       "id": "5338f90b-a3c3-4068-99d0-4583f84bcf7a",
@@ -4654,7 +4656,8 @@
           "value": {
             "Respondent ID": "={{ $('Filter only non processed and schedule rules2').item.json['Respondent ID'] }}",
             "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
-            "Investment type": "={{ $json.output.replace(\"\\n\",\"\") }}"
+            "Investment type": "={{ $json.output.replace(\"\\n\",\"\") }}",
+            "Phase": "2-Letter Sent"
           },
           "matchingColumns": [
             "Respondent ID"
@@ -5068,7 +5071,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Last sent",
@@ -5120,7 +5123,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5940,
+        6580,
         -200
       ],
       "id": "a0934cbc-75f0-4537-a57d-a3084d1eb477",
@@ -5178,7 +5181,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 21 }}",
+              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 21 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -5188,7 +5191,7 @@
             },
             {
               "id": "a02df3b3-7090-44de-b93c-4bd48341daca",
-              "leftValue": "={{ $json['AI Tunning'] == \"YES\" }}",
+              "leftValue": "={{ $json['Phase'] == \"1-Angel Canvas Sent\" }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -5214,7 +5217,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        820,
+        840,
         -200
       ],
       "id": "aca68a9c-25fa-4b47-97a0-24ca8cd8c94a",
@@ -5226,7 +5229,7 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "seconds"
             }
           ]
         }
@@ -5234,7 +5237,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        420,
+        400,
         -200
       ],
       "id": "9bc1c083-f079-49a6-afd8-b49411d2eb91",
@@ -5259,12 +5262,133 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4060,
+        4500,
         -200
       ],
       "id": "7628f5d6-9d11-427d-a6d3-494b2a105e8a",
       "name": "Wait10",
       "webhookId": "579cbc43-e941-4c47-a8a3-ec8eb7b7624e"
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "670549546137615",
+        "recipientPhoneNumber": "={{ $('Get Angel Responses2').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "template": "letter_notifier_v1|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Set Fields2').item.json.Name.split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{ $('Get Angel Responses2').item.json['Drive URL'] }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        5880,
+        -200
+      ],
+      "id": "4c582df0-1877-48f3-a53e-a4df2f1706c3",
+      "name": "Send Canvas",
+      "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "oV5oIaJH9lvCSXFE",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw",
+          "mode": "list",
+          "cachedResultName": "AI Tuning",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Advice Matrix",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kVFjxCdcAzoQ2rUvGHDiHhtmvs6nyBWVtiRvtpKXkxw/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Time available",
+              "lookupValue": "={{ $json['(10/21) How much time do I want to dedicate to angel investing?'] }}"
+            },
+            {
+              "lookupColumn": "# of startups",
+              "lookupValue": "={{ $json['(15/21) How many startups would I like to invest on?'] }}"
+            },
+            {
+              "lookupColumn": "Amount to invest",
+              "lookupValue": "={{ $json['(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1060,
+        -200
+      ],
+      "id": "bbf89bb3-b35a-4b88-9898-a57d6b59e5ef",
+      "name": "Google Sheets - Continue only if advice has been added",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9wybitU8goR312Vg",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f60f6b10-9561-4fd7-9f83-d7a3715a24ac",
+              "leftValue": "={{ $json.Advice }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1280,
+        -200
+      ],
+      "id": "2a381098-fd7b-4130-8679-2be182f20147",
+      "name": "Continue only with advice provided"
     }
   ],
   "pinData": {},
@@ -6495,7 +6619,7 @@
       "main": [
         [
           {
-            "node": "Text with angel responses2",
+            "node": "Google Sheets - Continue only if advice has been added",
             "type": "main",
             "index": 0
           }
@@ -6517,7 +6641,7 @@
       "main": [
         [
           {
-            "node": "Send canvas email2",
+            "node": "Send Canvas",
             "type": "main",
             "index": 0
           }
@@ -6534,13 +6658,46 @@
           }
         ]
       ]
+    },
+    "Send Canvas": {
+      "main": [
+        [
+          {
+            "node": "Send canvas email2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Continue only if advice has been added": {
+      "main": [
+        [
+          {
+            "node": "Continue only with advice provided",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Continue only with advice provided": {
+      "main": [
+        [
+          {
+            "node": "Text with angel responses2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1b0839d9-ad3c-4704-ab09-1d2b4405e7a0",
+  "versionId": "a7beec5d-37df-4595-acd0-0806eec0729a",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1d32c4ceb249c845d5a99e99b2ede3764cbe8ab3d474ff9bce0fa61cd047a465"

@@ -3,39 +3,6 @@
   "nodes": [
     {
       "parameters": {
-        "documentId": {
-          "__rl": true,
-          "value": "197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U",
-          "mode": "list",
-          "cachedResultName": "Networks Sheet",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": 1374262321,
-          "mode": "list",
-          "cachedResultName": "Email Sender",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit#gid=1374262321"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        300,
-        0
-      ],
-      "id": "dbd2a9c5-9853-4f88-879d-f65a549b722f",
-      "name": "Get Emails Data",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "ZTe0NUFKqCZTEBqm",
-          "name": "Google Sheets account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
         "operation": "update",
         "documentId": {
           "__rl": true,
@@ -195,31 +162,6 @@
     },
     {
       "parameters": {
-        "sendTo": "={{ $json.EMAIL }}",
-        "subject": "={{ $json.SUBJECT }}",
-        "message": "={{ $json.BODY }}\n<br>\n<br>\n{{ $json.URL }}\n<br>\n<br>\nBest,\n<br>\nCarlos Alba\n<br>\nlinkedin.com/in/carlos-alba-ai/",
-        "options": {
-          "appendAttribution": false
-        }
-      },
-      "type": "n8n-nodes-base.gmail",
-      "typeVersion": 2.1,
-      "position": [
-        720,
-        0
-      ],
-      "id": "8d649183-1820-4b2d-9ccf-826aa7b07fb2",
-      "name": "Send Email",
-      "webhookId": "21f31dd9-9023-4423-9d5f-bc3af0163d50",
-      "credentials": {
-        "gmailOAuth2": {
-          "id": "LksX7loBaniI8bub",
-          "name": "Gmail account"
-        }
-      }
-    },
-    {
-      "parameters": {
         "conditions": {
           "options": {
             "caseSensitive": true,
@@ -258,8 +200,8 @@
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": "={{Math.floor(Math.random() * 4) + 1}}"
+              "field": "seconds",
+              "secondsInterval": "={{Math.floor(Math.random() * 70*1) +70}}"
             }
           ]
         }
@@ -272,32 +214,76 @@
       ],
       "id": "c7ed4a58-6759-4793-9ca3-ab8f24ecbeb5",
       "name": "Random Trigger (1 to 3) minutes"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U",
+          "mode": "list",
+          "cachedResultName": "Networks Sheet",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1374262321,
+          "mode": "list",
+          "cachedResultName": "Email Sender",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/197L-uUacjkFAvGzGpSldxV8zQvfWwyZb0eU6eJz_J_U/edit#gid=1374262321"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "STATUS",
+              "lookupValue": "READY"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        280,
+        0
+      ],
+      "id": "9f0b47f1-8166-48d9-b03c-a0f0a771948d",
+      "name": "Get Emails Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "9wybitU8goR312Vg",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.EMAIL }}",
+        "subject": "={{ $json.SUBJECT }}",
+        "message": "={{ $json.BODY }}\n<br>\n<br>\nBest,\n<br>\nCarlos Alba\n<br>\nlinkedin.com/in/carlos-alba-ai/",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        0
+      ],
+      "id": "14b4ea25-46de-42e4-82f7-380b5fa866a7",
+      "name": "Send Email",
+      "webhookId": "21f31dd9-9023-4423-9d5f-bc3af0163d50",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "FdCp4WOyceuFzoK6",
+          "name": "Gmail account VC"
+        }
+      }
     }
   ],
   "pinData": {},
   "connections": {
-    "Get Emails Data": {
-      "main": [
-        [
-          {
-            "node": "Filter by status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Send Email": {
-      "main": [
-        [
-          {
-            "node": "Update status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Filter by status": {
       "main": [
         [
@@ -319,13 +305,35 @@
           }
         ]
       ]
+    },
+    "Get Emails Data": {
+      "main": [
+        [
+          {
+            "node": "Filter by status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email": {
+      "main": [
+        [
+          {
+            "node": "Update status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "cdc8009f-922f-4616-89fb-15d09a9e3dcc",
+  "versionId": "aa396b8c-efb3-44cc-82a8-01b999699965",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "1d32c4ceb249c845d5a99e99b2ede3764cbe8ab3d474ff9bce0fa61cd047a465"

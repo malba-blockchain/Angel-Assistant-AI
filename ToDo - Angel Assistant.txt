@@ -62,7 +62,8 @@ Convert triggers to days: DONE
 
 Use that info to schedule respective triggers.
 
-
+How to Solve " Number in Pending" issue in WhatsApp official API 
+https://www.youtube.com/watch?v=62NfZaoZV-g
 ------------------ToDo------------------
 
 6. Add I'm interested button to notify the fund leader.

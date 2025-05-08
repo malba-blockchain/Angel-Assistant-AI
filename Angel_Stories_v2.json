@@ -25,11 +25,11 @@
         -1660,
         1000
       ],
-      "id": "c46f3b09-532d-4e0d-be1e-226b1b412fa2",
+      "id": "41483c64-a3ff-4cf5-b9cb-50b9527a337f",
       "name": "Get Angel List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -74,12 +74,12 @@
         -780,
         1000
       ],
-      "id": "ff33d348-7b74-488e-baaf-83def012cff1",
+      "id": "22133bfa-4532-45ba-8714-3358ed02adea",
       "name": "Send Angel Story Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -116,11 +116,11 @@
         -980,
         1000
       ],
-      "id": "66b6d188-08c5-4ce1-8a0a-2862ded7387b",
+      "id": "504bcc6a-9fe0-42b5-92c2-659598e047c6",
       "name": "Get Story Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -175,7 +175,7 @@
         -1260,
         180
       ],
-      "id": "24b9849a-e79d-441e-935e-f0b718f78db7",
+      "id": "3fbae0c8-8f50-4522-ac8d-7188e02c07c5",
       "name": "Check message type"
     },
     {
@@ -190,31 +190,8 @@
         -700,
         560
       ],
-      "id": "a856d5dc-8e2f-4919-adea-a8178116d712",
+      "id": "24766182-4af4-42dd-951c-ef7d8f0d2bef",
       "name": "Simple Memory"
-    },
-    {
-      "parameters": {
-        "mode": "insert",
-        "messages": {
-          "messageValues": [
-            {
-              "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Name"
-            }
-          ]
-        }
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryManager",
-      "typeVersion": 1.1,
-      "position": [
-        -720,
-        60
-      ],
-      "id": "560591f6-9122-4fb3-89b5-b1f1a74c1c0d",
-      "name": "Gift Card Sender Menu In",
-      "alwaysOutputData": true,
-      "executeOnce": false
     },
     {
       "parameters": {
@@ -260,21 +237,8 @@
         -620,
         300
       ],
-      "id": "89893a1e-0701-4aa8-acca-546970c55d91",
+      "id": "a0454338-5cb2-4dd6-a8d0-e432a1a28069",
       "name": "Regenerate variables sender"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryManager",
-      "typeVersion": 1.1,
-      "position": [
-        -960,
-        300
-      ],
-      "id": "237f93f0-0325-42e4-a75d-dbf323dc8da9",
-      "name": "Gift Card Menu Out"
     },
     {
       "parameters": {
@@ -289,12 +253,12 @@
         -1840,
         180
       ],
-      "id": "5fd33cf6-ebe1-407f-8e09-dcfc85f9f9e1",
+      "id": "2784a920-2daf-4327-bd53-f1b6cd1e5aae",
       "name": "Chat start",
       "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "YLonZ0OcNZlnHGds",
+          "id": "BLGKchr9yb6Gx4Vm",
           "name": "WhatsApp OAuth account"
         }
       }
@@ -340,7 +304,7 @@
         -1660,
         180
       ],
-      "id": "4c2b424e-d4ef-4958-a55a-943600d10021",
+      "id": "4928c96f-cb7d-416d-bd09-e026706e4fe4",
       "name": "Validate there is a message"
     },
     {
@@ -424,11 +388,11 @@
         -1460,
         180
       ],
-      "id": "fa62f669-8a1e-41cf-9a89-16890cfe9326",
+      "id": "14a75d1f-1757-4ba2-a8b6-750522530e4b",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -545,7 +509,7 @@
         -400,
         260
       ],
-      "id": "f01e301c-4a00-454a-976c-28d24dcf3033",
+      "id": "85b88938-889c-44f9-9437-9fe563043d4a",
       "name": "Main Registration menu switch",
       "alwaysOutputData": false
     },
@@ -563,12 +527,12 @@
         0,
         0
       ],
-      "id": "7013cd57-6bbc-4a6f-a471-62eaa79ca10e",
+      "id": "1faaaad4-8899-48c0-a524-9469af821254",
       "name": "Default MSG",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -584,7 +548,7 @@
         0,
         180
       ],
-      "id": "0d3d783d-b1f4-4bd9-aab7-748ada4c40a5",
+      "id": "69bda07f-69bd-4dca-bb5b-85a7643c10a8",
       "name": "Clean Memory1"
     },
     {
@@ -693,11 +657,11 @@
         0,
         500
       ],
-      "id": "6fdb5c7d-58ad-420f-bcb0-509d97aa072f",
+      "id": "ce476cd9-2812-4ebc-ad95-8efd6974462b",
       "name": "Register Angel Experience Database",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -716,12 +680,12 @@
         -960,
         60
       ],
-      "id": "d3534487-69e7-43c4-8b32-c2662cd67c27",
+      "id": "7079fe1c-9d42-46dd-8aa8-e158383d9b9b",
       "name": "Ask Angel Name",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -740,12 +704,12 @@
         200,
         500
       ],
-      "id": "630a74e2-a315-48f9-8956-ebe8cf0e9937",
+      "id": "f66aab89-a49e-466f-bf5c-b90ad6709ee8",
       "name": "Registration success",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -782,11 +746,11 @@
         380,
         500
       ],
-      "id": "6ab7472c-132f-4eab-9321-3d9435863bf5",
+      "id": "a9bc1b1e-5baa-423f-ad1e-7d8c6ccf9994",
       "name": "Get First Story Data1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -806,12 +770,12 @@
         720,
         500
       ],
-      "id": "677373c9-def1-4965-8866-a0681e4e2fe3",
+      "id": "8fb511d1-6b3a-4ab2-901f-58145fc316f0",
       "name": "Send First Angel Story",
       "webhookId": "ead5d192-052c-4e92-a91e-e5868950f08e",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -834,11 +798,11 @@
         560,
         500
       ],
-      "id": "e2ce139a-6235-466b-be13-f3a61559a8ce",
+      "id": "4a135bce-076f-4f50-a1a5-5c3a3b343c26",
       "name": "Google Drive",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "1msa0uyc2lHZZvar",
+          "id": "WsIWp6Ta19kEn2RD",
           "name": "Google Drive account"
         }
       }
@@ -854,7 +818,7 @@
         0,
         340
       ],
-      "id": "238c78bd-dcb9-4ec0-9485-1142fa09ab54",
+      "id": "91c4298c-6e08-427b-bb97-790b6481b26b",
       "name": "Clean Memory2"
     },
     {
@@ -871,12 +835,12 @@
         1080,
         500
       ],
-      "id": "f8ed52bb-bb8a-4760-9bf2-80902a5bca10",
+      "id": "15943fb9-e740-4f84-b76c-b2f11bf227cc",
       "name": "First Angel Story message",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -889,7 +853,7 @@
         900,
         500
       ],
-      "id": "46920374-8665-4d09-af4b-0e8a44d0d76b",
+      "id": "f7cf90f7-1a17-4165-b5d6-9523c8d0c6de",
       "name": "Wait",
       "webhookId": "de682aa7-c533-4afe-996f-0d3ebeb212a8"
     },
@@ -925,11 +889,11 @@
         -980,
         1180
       ],
-      "id": "47589014-632d-448e-b083-0f4932bad7bb",
+      "id": "7a44260a-b74a-4b5a-8790-e3a7ebfeeb40",
       "name": "Get Concept Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -950,7 +914,7 @@
         -1840,
         1000
       ],
-      "id": "2b77375a-6484-45fb-a580-ee32e8e86250",
+      "id": "7b6d6fea-b03b-417b-80d5-f61c4da655fd",
       "name": "Schedule Trigger Angel Story"
     },
     {
@@ -993,12 +957,12 @@
         -780,
         1180
       ],
-      "id": "41c041bd-c1ef-4380-9baf-817c3cfadd09",
+      "id": "e81af179-d447-4824-8def-772e6f713bc6",
       "name": "Send Angel Concept Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -1017,12 +981,12 @@
         680,
         340
       ],
-      "id": "f1f78b12-aac4-4b3f-822a-8efc1cc88a70",
+      "id": "2e29cd4f-2ab4-46f5-a5f6-7f1660b40d8a",
       "name": "Angel Frequency",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -1041,12 +1005,12 @@
         680,
         180
       ],
-      "id": "04ef4233-b815-43d6-96ed-1572e3d5da24",
+      "id": "be6fc879-3d25-4ee3-a4e2-95766433d1fc",
       "name": "Angel Level",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
@@ -1069,7 +1033,7 @@
         340,
         340
       ],
-      "id": "c92494a1-8259-4624-b530-ccdf2aa05092",
+      "id": "6f9f6e35-f666-428d-b2b1-04fde30773a1",
       "name": "Angel Frequency Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1092,7 +1056,7 @@
         340,
         180
       ],
-      "id": "14d70341-d958-4398-9186-222f70f179bc",
+      "id": "def76f26-bc04-441d-a61f-4ed624a30788",
       "name": "Angel Level Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1108,7 +1072,7 @@
         980
       ],
       "typeVersion": 1,
-      "id": "56d21f0b-dd33-446c-baae-e41abd98c49d",
+      "id": "123d72ec-c4a5-4816-b9cc-1d6fe885b930",
       "name": "Sticky Note"
     },
     {
@@ -1122,7 +1086,7 @@
         180
       ],
       "typeVersion": 1,
-      "id": "5a3b4d23-118b-4622-8157-0db3ad6ee075",
+      "id": "2b38453a-d7d2-424a-bcbb-62214dfe18a7",
       "name": "Sticky Note2"
     },
     {
@@ -1157,7 +1121,7 @@
         -1480,
         1000
       ],
-      "id": "b006373c-221b-4596-8d9b-3e88011e960a",
+      "id": "d4f7a82b-83b1-4097-b371-6bafe914ac5a",
       "name": "Filter based on frequency"
     },
     {
@@ -1249,7 +1213,7 @@
         -1300,
         1000
       ],
-      "id": "2247a39a-846d-47a8-83ff-a700599f9861",
+      "id": "0bfe10ca-fb8c-4b42-b201-f41b181e282d",
       "name": "Switch"
     },
     {
@@ -1284,11 +1248,11 @@
         -980,
         840
       ],
-      "id": "2bcbc8f7-0bf8-4bef-a2cd-6cb006e2c564",
+      "id": "104c110c-3e63-4cc8-b14c-2467f9d61041",
       "name": "Get First Story Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -1422,11 +1386,11 @@
         -580,
         840
       ],
-      "id": "8b240b52-f482-46bd-bb80-157755de66c1",
+      "id": "ad92d8fc-2379-4102-8572-a89992c64da9",
       "name": "Update First Angel Experience Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -1550,11 +1514,11 @@
         -580,
         1000
       ],
-      "id": "6f18cbcc-e1bc-4de5-985d-1643faabcb83",
+      "id": "6ee4ca8b-7693-4b8d-bbc7-260acc8e2f21",
       "name": "Update Angel Experience Status Story",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -1678,11 +1642,11 @@
         -580,
         1180
       ],
-      "id": "49dd1a54-7441-497d-bb0e-b2cb801e399a",
+      "id": "1b77b4b2-282f-42c7-a474-fb5f2585ad29",
       "name": "Update Angel Experience Status Concept",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "9wybitU8goR312Vg",
+          "id": "QRYTTZ7H4dhhDtA5",
           "name": "Google Sheets account"
         }
       }
@@ -1727,15 +1691,51 @@
         -780,
         840
       ],
-      "id": "b0d3650b-33e4-4935-84cc-c3e2618d6d22",
+      "id": "c40ffc9b-c6d0-4287-8576-d43695f42811",
       "name": "Send Angel Story #1",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "oV5oIaJH9lvCSXFE",
+          "id": "JBQii1HjELCZzFgq",
           "name": "WhatsApp account"
         }
       }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nMenu: Name"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        -720,
+        60
+      ],
+      "id": "8831640c-a518-4106-b58c-e2acbce9dffe",
+      "name": "Angel Name Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        -960,
+        300
+      ],
+      "id": "c7f0ef43-2631-4bcf-a52c-965aed297b23",
+      "name": "Angel Story Menu Out"
     }
   ],
   "pinData": {},
@@ -1784,7 +1784,7 @@
         ],
         [
           {
-            "node": "Gift Card Menu Out",
+            "node": "Angel Story Menu Out",
             "type": "main",
             "index": 0
           }
@@ -1795,12 +1795,12 @@
       "ai_memory": [
         [
           {
-            "node": "Gift Card Sender Menu In",
+            "node": "Angel Name Menu In",
             "type": "ai_memory",
             "index": 0
           },
           {
-            "node": "Gift Card Menu Out",
+            "node": "Angel Story Menu Out",
             "type": "ai_memory",
             "index": 0
           },
@@ -1832,17 +1832,6 @@
         [
           {
             "node": "Main Registration menu switch",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Gift Card Menu Out": {
-      "main": [
-        [
-          {
-            "node": "Regenerate variables sender",
             "type": "main",
             "index": 0
           }
@@ -1929,7 +1918,7 @@
       "main": [
         [
           {
-            "node": "Gift Card Sender Menu In",
+            "node": "Angel Name Menu In",
             "type": "main",
             "index": 0
           }
@@ -2125,17 +2114,28 @@
           }
         ]
       ]
+    },
+    "Angel Story Menu Out": {
+      "main": [
+        [
+          {
+            "node": "Regenerate variables sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "569533ae-fce8-49ff-97e5-b03782698e70",
+  "versionId": "995962a2-90c8-4267-959f-c6b964691dac",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "1d32c4ceb249c845d5a99e99b2ede3764cbe8ab3d474ff9bce0fa61cd047a465"
+    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
   },
-  "id": "vdarITljxVodDH3h",
+  "id": "154l0GKl9Brp0gMp",
   "tags": []
 }

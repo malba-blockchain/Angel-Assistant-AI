@@ -1,5 +1,5 @@
 {
-  "name": "Angel Canvas Agent v1",
+  "name": "Angel_Canvas_Agent_v1",
   "nodes": [
     {
       "parameters": {
@@ -48,10 +48,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -3240,
-        1300
+        -1560,
+        1940
       ],
-      "id": "b734ba15-fa4d-47ca-bebd-2e140fa6ae56",
+      "id": "f31e45ba-b7ae-4cb5-9c6a-b8953c8f48cf",
       "name": "Check message type"
     },
     {
@@ -63,10 +63,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -3060,
-        3480
+        -1380,
+        4120
       ],
-      "id": "ac721f6f-62df-4c24-bed9-13056e9d0054",
+      "id": "16839d2a-a534-4a80-9b6a-5da4331c3b95",
       "name": "Simple Memory"
     },
     {
@@ -98,10 +98,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -2460,
-        2200
+        -780,
+        2840
       ],
-      "id": "b07f6c55-b34e-49e2-99ab-af103ed3044a",
+      "id": "537dc699-786d-4b95-a5ed-0a491b4f6559",
       "name": "Regenerate variables sender"
     },
     {
@@ -114,15 +114,15 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -3900,
-        1300
+        -2220,
+        1940
       ],
-      "id": "139f6a82-dad5-48fe-81c5-87bc0b5d8562",
+      "id": "d0cc0fb4-ee93-4ba0-bcae-73ab7cb48874",
       "name": "Chat start",
       "webhookId": "334032b9-81a6-41bc-a26f-7110da4a01ee",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "BLGKchr9yb6Gx4Vm",
+          "id": "CeayfzYamfHJ4xVo",
           "name": "WhatsApp OAuth account"
         }
       }
@@ -165,10 +165,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -3680,
-        1300
+        -2000,
+        1940
       ],
-      "id": "cd37d46b-8cca-4340-bb6b-5d47128069df",
+      "id": "1f03981a-5ea7-4b28-87e2-e771048887ee",
       "name": "Validate there is a message"
     },
     {
@@ -249,14 +249,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3460,
-        1300
+        -1780,
+        1940
       ],
-      "id": "87e3d3ab-7fcd-4ae5-8155-7530db34f270",
+      "id": "f3a588e9-fe75-4a3b-a862-97b916483a4f",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -1172,10 +1172,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -2260,
-        1500
+        -580,
+        2140
       ],
-      "id": "d45522f0-6112-4d50-b9b8-acc132a4645a",
+      "id": "1f5c99eb-8f9a-404d-8fe8-3efe56d0a7cf",
       "name": "Main Registration menu switch",
       "alwaysOutputData": false
     },
@@ -1190,15 +1190,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1460,
-        0
+        220,
+        640
       ],
-      "id": "251245b2-d228-4951-a2d0-7502a386f59d",
+      "id": "f3a331bc-2b3a-4670-9411-5fffa6811415",
       "name": "Ask Angel Name",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -1211,10 +1211,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        400
+        -140,
+        1040
       ],
-      "id": "c2982747-d8b5-4f39-83e6-3fef381641d8",
+      "id": "f5fc79fd-b77c-4663-820a-0984a72f965a",
       "name": "Clean Memory2"
     },
     {
@@ -1224,11 +1224,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4320,
-        420
+        -2640,
+        1060
       ],
       "typeVersion": 1,
-      "id": "6cd7d6a8-6d2f-4f65-b718-d09b26d2324c",
+      "id": "87ab3a58-7566-4d73-9fa6-dd2c6a0f1856",
       "name": "Sticky Note"
     },
     {
@@ -1238,11 +1238,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4320,
-        1260
+        -2640,
+        1900
       ],
       "typeVersion": 1,
-      "id": "7d5319bc-0a9e-4380-b32a-cfc3ca46a650",
+      "id": "3e6fbd55-5a54-4971-a545-d7c92761d3b5",
       "name": "Sticky Note2"
     },
     {
@@ -1256,15 +1256,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1760,
-        -620
+        -80,
+        20
       ],
-      "id": "3e45e051-024d-4fb0-9051-920eecb0f7ad",
+      "id": "06275775-3d44-4aa0-9ebf-6bf53beffdc7",
       "name": "Default MSG 1",
       "webhookId": "9d666963-4356-43ba-81ae-5197f2335ce1",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -1274,21 +1274,21 @@
         "operation": "send",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=*Alright {{ $('Chat start').item.json.contacts[0].profile.name.split(\" \")[0] }}, let's customize your canvas.*\n\n(1/21) What's your previous experience investing in startups?\n\nA. I've never invested in startups\nB. I invested through crowdfunding or VC funds\nC. I invested as solo angel\nD. I invested through an investment vehicle with few people\nE. I invested through an angel syndicate\nF. I invested through an angel fund\nG. I've been an angel for 1 to 3 years\nH. I've been an angel for 3 to 5 years\nI. I've been an angel for 5 to 10 years\nJ. I've been an angel for more than 10 years\n",
+        "textBody": "=*Alright {{ $('Chat start').item.json.contacts[0].profile.name.split(\" \")[0] }}, let's customize your canvas.*\n\n(1/21) What's your previous experience investing in startups?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. I've never invested in startups\nB. I invested through crowdfunding or VC funds\nC. I invested as solo angel\nD. I invested through an investment vehicle with few people\nE. I invested through an angel syndicate\nF. I invested through an angel fund\nG. I've been an angel for 1 to 3 years\nH. I've been an angel for 3 to 5 years\nI. I've been an angel for 5 to 10 years\nJ. I've been an angel for more than 10 years",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        200
+        600,
+        840
       ],
-      "id": "99d0290e-bbff-42fb-91a8-5f5accc13b6c",
+      "id": "0f6840fd-be55-45e9-96e5-0e3d672fccf3",
       "name": "Question 1",
       "webhookId": "821ef378-bf66-4052-b071-356063e3d57c",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -1304,15 +1304,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        400
+        600,
+        1040
       ],
-      "id": "04f7df95-0aad-4679-8ab5-a597bcb030b0",
+      "id": "ed4c8286-3086-47f1-8e3c-444f7c1f103f",
       "name": "Question 2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -1403,10 +1403,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -1760,
-        -220
+        -80,
+        420
       ],
-      "id": "6a359475-1fe1-4f1d-8275-02b5115ab911",
+      "id": "87a52e54-e8da-4d5b-80f0-d3a392cd3481",
       "name": "Main Menu Switch"
     },
     {
@@ -1470,14 +1470,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1460,
-        -420
+        220,
+        220
       ],
-      "id": "97b062b7-70f7-49c3-b494-42f9bba3e107",
+      "id": "d35f2fcc-2f84-42a7-8913-69bd24a9a353",
       "name": "Google Sheets - Save Reminder Tomorrow",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -1532,7 +1532,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -1543,14 +1544,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1460,
-        -220
+        220,
+        420
       ],
-      "id": "320542df-5224-4218-b76d-ac4a5b2db524",
+      "id": "1f67423d-cfdc-44ef-b93b-49a8eed7b293",
       "name": "Google Sheets - Save Reminder Two Days",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -1570,10 +1571,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1260,
-        0
+        420,
+        640
       ],
-      "id": "464f5156-07c5-4fd8-8463-6602e7cbc98b",
+      "id": "7ce63c93-762b-435c-baac-92c0c7e9bf90",
       "name": "Angel Name Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1585,10 +1586,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -2760,
-        2200
+        -1080,
+        2840
       ],
-      "id": "9ad9a97b-7e81-42e7-9adc-e59c181c86e6",
+      "id": "ce617bd9-b624-4db8-a787-4dc62bcb34f9",
       "name": "Angel Canvas Menu Out"
     },
     {
@@ -1606,10 +1607,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1200,
-        -620
+        480,
+        20
       ],
-      "id": "d4df7a84-2a48-42c0-b800-b8e184004694",
+      "id": "e69a6a16-3d03-4c4b-afc0-3393b32bef2d",
       "name": "Angel Canvas Main Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1625,15 +1626,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1260,
-        -220
+        420,
+        420
       ],
-      "id": "aae85514-9860-431a-84fd-453e8d60f9a4",
+      "id": "de596bd0-2e32-40e9-b1f0-33a0c07ce2e1",
       "name": "Reminder set 2 days",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -1649,500 +1650,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1260,
-        -420
+        420,
+        220
       ],
-      "id": "b69ca76c-9cf0-452c-8370-6b57ebb189f3",
+      "id": "142e8aaa-aedd-4f79-8daa-53cc65c4cd3d",
       "name": "Reminder set tomorrow",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "append",
-        "documentId": {
-          "__rl": true,
-          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
-          "mode": "list",
-          "cachedResultName": "Angel Database",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
-        },
-        "sheetName": {
-          "__rl": true,
-          "value": "gid=0",
-          "mode": "list",
-          "cachedResultName": "Canvas Responses",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "Submission ID": "={{ (() => {\n  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n  let result = '';\n  for (let i = 0; i < 7; i++) {\n    result += chars.charAt(Math.floor(Math.random() * chars.length));\n  }\n  return result;\n})() }}",
-            "Respondent ID": "={{ (() => {   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';   let result = '';   for (let i = 0; i < 7; i++) {     result += chars.charAt(Math.floor(Math.random() * chars.length));   }   return result; })() }}",
-            "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}"
-          },
-          "matchingColumns": [],
-          "schema": [
-            {
-              "id": "Submission ID",
-              "displayName": "Submission ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Respondent ID",
-              "displayName": "Respondent ID",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Submitted at",
-              "displayName": "Submitted at",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "What’s your name?",
-              "displayName": "What’s your name?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "(1/21) What's my previous experience investing in startups?",
-              "displayName": "(1/21) What's my previous experience investing in startups?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(2/21) How do I perceive my role as an angel investor?",
-              "displayName": "(2/21) How do I perceive my role as an angel investor?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing is a great way to earn money\"",
-              "displayName": "\"Angel investing is a great way to earn money\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing is an efficient way to diversify investments\"",
-              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
-              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing is an easy way to invest\"",
-              "displayName": "\"Angel investing is an easy way to invest\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing is a way to give back to society\"",
-              "displayName": "\"Angel investing is a way to give back to society\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
-              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
-              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing boosts my self-esteem\"",
-              "displayName": "\"Angel investing boosts my self-esteem\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing gives me sheer joy\"",
-              "displayName": "\"Angel investing gives me sheer joy\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing makes me feel valuable\"",
-              "displayName": "\"Angel investing makes me feel valuable\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing increases my self-confidence\"",
-              "displayName": "\"Angel investing increases my self-confidence\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
-              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
-              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
-              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
-              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
-              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
-              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(10/21) How much time do I want to dedicate to angel investing?",
-              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
-              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
-              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
-              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
-              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(15/21) How many startups would I like to invest on?",
-              "displayName": "(15/21) How many startups would I like to invest on?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
-              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(17/21) What’s my investment return time frame?",
-              "displayName": "(17/21) What’s my investment return time frame?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
-              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
-              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
-              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
-              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Where should I email it to?",
-              "displayName": "Where should I email it to?",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true
-            },
-            {
-              "id": "Processed",
-              "displayName": "Processed",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Drive URL",
-              "displayName": "Drive URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Phase",
-              "displayName": "Phase",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Last sent",
-              "displayName": "Last sent",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "Investment type",
-              "displayName": "Investment type",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            },
-            {
-              "id": "AI Tunning",
-              "displayName": "AI Tunning",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.googleSheets",
-      "typeVersion": 4.5,
-      "position": [
-        -860,
-        200
-      ],
-      "id": "64a35f1f-1cf3-49f6-8e7f-ad79b6f1372d",
-      "name": "Google Sheets - Add Name",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
         }
       }
     },
@@ -2167,7 +1684,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(1/21) What's my previous experience investing in startups?": "={{ \n  (function() {\n  switch($('Chat start').item.json.messages[0].text.body.trim().toUpperCase()) {\n    case 'A': return 'I\\'ve never invested in startups';\n    case 'B': return 'I invested through crowdfunding or VC funds';\n    case 'C': return 'I invested as solo angel';\n    case 'D': return 'I invested through an investment vehicle with few people';\n    case 'E': return 'I invested through an angel syndicate';\n    case 'F': return 'I invested through an angel fund';\n    case 'G': return 'I\\'ve been an angel for 1 to 3 years';\n    case 'H': return 'I\\'ve been an angel for 3 to 5 years';\n    case 'I': return 'I\\'ve been an angel for 5 to 10 years';\n    case 'J': return 'I\\'ve been an angel for more than 10 years';\n    default: return 'Unknown option: ' + $('Chat start').item.json.messages[0].text.body;\n  }\n  })()\n}}"
+            "(1/21) What's my previous experience investing in startups?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I\\'ve never invested in startups',\n    'B': 'I invested through crowdfunding or VC funds',\n    'C': 'I invested as solo angel',\n    'D': 'I invested through an investment vehicle with few people',\n    'E': 'I invested through an angel syndicate',\n    'F': 'I invested through an angel fund',\n    'G': 'I\\'ve been an angel for 1 to 3 years',\n    'H': 'I\\'ve been an angel for 3 to 5 years',\n    'I': 'I\\'ve been an angel for 5 to 10 years',\n    'J': 'I\\'ve been an angel for more than 10 years'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -2632,14 +2149,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        400
+        820,
+        1040
       ],
-      "id": "c9ace142-0495-44b8-a9cd-774d0cbbe82a",
+      "id": "3f43604c-af3d-4cdc-b1c3-d01799016d4e",
       "name": "Google Sheets - Add Q1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -2652,10 +2169,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        200
+        -140,
+        840
       ],
-      "id": "14dd25b1-d86d-41c7-93db-40dbb15925c7",
+      "id": "107ee3cd-1aa7-41c9-9d19-3c75f84c5b5f",
       "name": "Clean Memory1"
     },
     {
@@ -2666,10 +2183,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        600
+        -140,
+        1240
       ],
-      "id": "3316661b-3b03-4904-ab19-334445e3899f",
+      "id": "bcbd480a-601d-4f32-843c-5f4bdb698a4c",
       "name": "Clean Memory3"
     },
     {
@@ -2687,10 +2204,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        200
+        240,
+        840
       ],
-      "id": "470e4035-55dc-4b48-8d3f-b6a7fce9b4be",
+      "id": "618545da-95a4-412b-bbb1-f6172f4ba528",
       "name": "Angel Menu Q1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2710,10 +2227,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        400
+        240,
+        1040
       ],
-      "id": "f065fbab-5b1b-415d-9255-6ff63cb8938a",
+      "id": "bb70bd33-b9a2-48e5-ae67-cd5f49deed83",
       "name": "Angel Menu Q2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2729,15 +2246,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        600
+        600,
+        1240
       ],
-      "id": "b6df661a-0080-4015-bfdd-bf8ac33ef4cb",
+      "id": "8ac1bdd2-de43-4dbb-b548-c7b5719a2124",
       "name": "Question 3-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -2750,10 +2267,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        800
+        -140,
+        1440
       ],
-      "id": "fa3a668c-58f0-4788-b11a-6ea8a00825a0",
+      "id": "eca32264-38e1-468a-bb08-c4b72d767c75",
       "name": "Clean Memory4"
     },
     {
@@ -2767,15 +2284,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        800
+        600,
+        1440
       ],
-      "id": "4ef94e8c-289b-4fac-86b2-5528f6773959",
+      "id": "8a8bc85a-99e2-4f29-98e6-0ad59f2d46a6",
       "name": "Question 3-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -2795,10 +2312,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        600
+        240,
+        1240
       ],
-      "id": "2a89adfa-10b1-4291-b701-1e0712237f40",
+      "id": "150a08ea-9e57-4fd9-a77c-64d470d3bb30",
       "name": "Angel Menu Q3-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2818,10 +2335,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        800
+        240,
+        1440
       ],
-      "id": "d36131ac-cb63-46f0-9d55-99318f1b88e1",
+      "id": "26c23057-a303-45e9-a356-9a9303e04964",
       "name": "Angel Menu Q3-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2834,10 +2351,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        1000
+        -140,
+        1640
       ],
-      "id": "994e1435-d8fd-4ec3-8ef5-c52a2fada14a",
+      "id": "424ef66b-80bd-42a7-a095-5c54e02ddc51",
       "name": "Clean Memory5"
     },
     {
@@ -2851,15 +2368,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        1000
+        600,
+        1640
       ],
-      "id": "59db64e2-dd51-4a7c-a67b-51b466a4559a",
+      "id": "d469b2f2-c416-4f5a-9d44-6bccce9dddf4",
       "name": "Question 3-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -2879,10 +2396,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        1000
+        240,
+        1640
       ],
-      "id": "91192e9c-fdde-481c-916c-196fa0656e46",
+      "id": "6d6f74e3-cd89-43a3-bc12-57f049b2a7fb",
       "name": "Angel Menu Q3-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2895,10 +2412,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        1200
+        -140,
+        1840
       ],
-      "id": "4d82f3dd-c695-4545-b5ba-cc7f65578f8a",
+      "id": "3342ba63-210a-481a-9984-ed3e5376dd52",
       "name": "Clean Memory"
     },
     {
@@ -2916,10 +2433,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        1200
+        240,
+        1840
       ],
-      "id": "6e90083f-f6e9-4fe0-8749-e2619d8b9af2",
+      "id": "cdb906af-6e8f-4a77-ac1e-a94cba44955a",
       "name": "Angel Menu Q4-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2935,15 +2452,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        1200
+        600,
+        1840
       ],
-      "id": "63fe30ec-8473-483e-8b4e-d7690b88ee4e",
+      "id": "d3798b0e-1844-46bc-9327-b0aa512b3e66",
       "name": "Question 4-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -2956,10 +2473,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        1400
+        -140,
+        2040
       ],
-      "id": "0515898a-a513-4b75-8c36-8f7356bacecd",
+      "id": "06c392d1-5d3f-42f0-90c1-6e60352bf75d",
       "name": "Clean Memory6"
     },
     {
@@ -2977,10 +2494,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        1400
+        240,
+        2040
       ],
-      "id": "8ea8c6a3-62c0-4cec-9f59-7dc5193cc486",
+      "id": "29c8dec9-3a84-4a7c-8b35-52e343266823",
       "name": "Angel Menu Q4-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2996,15 +2513,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        1400
+        600,
+        2040
       ],
-      "id": "bcbb09f6-553b-43a1-9e54-8d6aaecccf58",
+      "id": "3872bcba-70f8-4f0c-af05-3e822ef1dd5e",
       "name": "Question 4-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3017,10 +2534,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        1600
+        -140,
+        2240
       ],
-      "id": "869a2d2e-e0ba-4f28-8499-157be7b0add6",
+      "id": "e727813a-c174-4d8d-aa26-5b11dd94c1d3",
       "name": "Clean Memory7"
     },
     {
@@ -3034,15 +2551,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        1600
+        600,
+        2240
       ],
-      "id": "74447965-f958-4d27-879d-ea4cdfe5e633",
+      "id": "54affd20-3bc4-4e5b-8f2c-d199a000ab78",
       "name": "Question 5-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3062,10 +2579,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        1600
+        220,
+        2240
       ],
-      "id": "ba476765-c2a8-4c6a-afbd-695e0118a369",
+      "id": "4fd700ac-336f-4c3c-8e9c-e63c0d154a1d",
       "name": "Angel Menu Q5-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3078,10 +2595,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        1800
+        -140,
+        2440
       ],
-      "id": "ac4ea213-0726-47a1-aa74-c8be0749c144",
+      "id": "b2255cb9-b817-4caa-9d35-d5810cb11623",
       "name": "Clean Memory8"
     },
     {
@@ -3095,15 +2612,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        1800
+        600,
+        2440
       ],
-      "id": "c91a18d9-492b-461e-b14a-6e41edf64dfd",
+      "id": "e3db21e9-107e-4539-9e3c-e33a4d098c11",
       "name": "Question 5-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3123,10 +2640,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        1800
+        240,
+        2440
       ],
-      "id": "4410b6e9-38f2-4d62-a1ab-a99ed2807341",
+      "id": "a374d101-0b88-409d-afcf-930b9c84dd4a",
       "name": "Angel Menu Q5-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3139,10 +2656,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        2000
+        -140,
+        2640
       ],
-      "id": "d7ef8a8a-fd3d-42aa-95d4-a38e14004f5b",
+      "id": "358c07cc-a23e-4ce4-bc3c-dde4f6e73de6",
       "name": "Clean Memory9"
     },
     {
@@ -3160,10 +2677,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        2000
+        240,
+        2640
       ],
-      "id": "33c5e362-a0c1-40a6-8db0-16acab8a5070",
+      "id": "c3654547-6b33-48f4-95d0-b712219c92b4",
       "name": "Angel Menu Q5-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3179,15 +2696,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        2000
+        600,
+        2640
       ],
-      "id": "1b3bf267-f0aa-4b03-8871-aabefce5c067",
+      "id": "61bdfd04-5b24-4355-9895-afe349b1e090",
       "name": "Question 5-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3200,10 +2717,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        2200
+        -140,
+        2840
       ],
-      "id": "53fafbf2-2e19-4297-9003-7e96efa3cf87",
+      "id": "36c9fa47-1a8c-4ab7-8ab9-621e5ac2db3c",
       "name": "Clean Memory10"
     },
     {
@@ -3221,10 +2738,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        2200
+        240,
+        2840
       ],
-      "id": "7b1a38d2-0250-4e86-8df6-1693ad7aa0a5",
+      "id": "24e988ac-03aa-4c65-8540-627ab2179ba1",
       "name": "Angel Menu Q6-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3240,15 +2757,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        2200
+        600,
+        2840
       ],
-      "id": "89438681-b95d-46c5-9ea5-e0bfcd75d042",
+      "id": "297b0209-928b-4cd1-9607-a69a83df26f6",
       "name": "Question 6-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3261,10 +2778,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        2400
+        -140,
+        3040
       ],
-      "id": "42264e6c-7f81-4576-95bc-90d7b09b5d6e",
+      "id": "c0a24a2b-f345-4652-a4d3-e4e8579bf709",
       "name": "Clean Memory11"
     },
     {
@@ -3282,10 +2799,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        2400
+        240,
+        3040
       ],
-      "id": "dd1aadf9-1a32-401c-acfd-b26c2b1ca1d2",
+      "id": "2da844f4-9973-4b5f-8554-478cef662f32",
       "name": "Angel Menu Q6-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3301,15 +2818,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        2400
+        600,
+        3040
       ],
-      "id": "f0999766-6add-4151-8893-7e643ae0ed96",
+      "id": "23581ee7-7a8e-4fda-9d0a-edb1a9b1f24d",
       "name": "Question 6-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3322,10 +2839,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        2600
+        -140,
+        3240
       ],
-      "id": "4f16c7b8-2da0-42bc-8855-58e91668da2c",
+      "id": "92e675e5-808b-43a1-a898-26e5cfa81eab",
       "name": "Clean Memory12"
     },
     {
@@ -3336,10 +2853,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        2800
+        -140,
+        3440
       ],
-      "id": "6686b5d8-2fe6-4060-9214-d6650541030f",
+      "id": "30ae46b6-b42b-4923-9381-6c078cbf132a",
       "name": "Clean Memory13"
     },
     {
@@ -3357,10 +2874,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        2600
+        240,
+        3240
       ],
-      "id": "938b2612-8be9-45f3-b551-66b1001d08f5",
+      "id": "4ecdb2ef-4722-4d03-a929-45118a7d90f7",
       "name": "Angel Menu Q6-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3376,15 +2893,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        2600
+        600,
+        3240
       ],
-      "id": "17fdc0f2-0174-446e-ae8d-a584569a8b15",
+      "id": "7207cac5-1c55-410b-987d-49709e1abad1",
       "name": "Question 6-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3404,10 +2921,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        2800
+        240,
+        3440
       ],
-      "id": "c4488950-6642-4144-80fc-cc4b2de48d67",
+      "id": "a0b02a0d-9617-465c-af36-83637a7fb331",
       "name": "Angel Menu Q6-4",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3423,15 +2940,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        2800
+        600,
+        3440
       ],
-      "id": "65ed9987-45d1-4350-9e0c-95856ce790c1",
+      "id": "3897aea6-e60d-4adf-a695-854469f7a6ba",
       "name": "Question 6-4",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3444,10 +2961,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        3000
+        -140,
+        3640
       ],
-      "id": "8b68b251-8637-4101-b7e9-711256440b65",
+      "id": "25f1d473-f927-446d-98de-4cfa3efef5f5",
       "name": "Clean Memory14"
     },
     {
@@ -3458,10 +2975,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        3200
+        -140,
+        3840
       ],
-      "id": "6e672e97-6220-49e4-9b5f-8215f759ef77",
+      "id": "343a23d0-9965-48db-bfe5-c1698e963fc7",
       "name": "Clean Memory15"
     },
     {
@@ -3472,10 +2989,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        3400
+        -140,
+        4040
       ],
-      "id": "b4c53c20-c072-4c54-9c5e-420c3f440b7b",
+      "id": "71412e1c-ac80-432d-a355-331129977876",
       "name": "Clean Memory16"
     },
     {
@@ -3486,10 +3003,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        3600
+        -140,
+        4240
       ],
-      "id": "09fe5470-57b8-4208-9b0a-b1bf3f9f3717",
+      "id": "e5b9ffa5-9301-4ba3-b8ee-c37ffba2728e",
       "name": "Clean Memory17"
     },
     {
@@ -3507,10 +3024,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        3000
+        240,
+        3640
       ],
-      "id": "e0941b1f-8658-454d-916e-f39f8db7f14e",
+      "id": "33a1270b-b3b4-4f3c-a4c2-42e77f8f8df7",
       "name": "Angel Menu Q7-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3526,15 +3043,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        3000
+        600,
+        3640
       ],
-      "id": "7e1d84b9-d0b3-487c-8e2a-51415973e6ab",
+      "id": "57380000-66ea-4489-ab83-c2ad74052888",
       "name": "Question 7-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3554,10 +3071,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        3200
+        220,
+        3840
       ],
-      "id": "625d32fe-c0e7-4fcc-ab91-e4f433ee4f0c",
+      "id": "4a3e3712-e6d9-4087-92f4-37bcf21cc9ec",
       "name": "Angel Menu Q7-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3573,15 +3090,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        3200
+        600,
+        3840
       ],
-      "id": "286a7b11-a177-4a9f-8b0e-415254a64139",
+      "id": "2b0fee01-1d8e-40f4-966f-73758eb63619",
       "name": "Question 7-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3601,10 +3118,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        3400
+        240,
+        4040
       ],
-      "id": "9b3208e4-5326-4c30-8b37-8c8a41332b89",
+      "id": "72bbcac9-f11e-4d74-a8af-7c7f4e5fd72d",
       "name": "Angel Menu Q7-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3620,15 +3137,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        3400
+        600,
+        4040
       ],
-      "id": "4df11376-c85e-4a9e-9ade-f1858e241bd2",
+      "id": "2139a7a8-2877-4c75-8e4f-e75b8217be96",
       "name": "Question 7-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3648,10 +3165,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        3600
+        220,
+        4240
       ],
-      "id": "d49ce168-1c9b-4e3c-beec-c129df90be12",
+      "id": "be721154-63e1-4f02-acbd-e95786a8eff3",
       "name": "Angel Menu Q7-4",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3667,15 +3184,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        3600
+        600,
+        4240
       ],
-      "id": "e4a522ba-781c-44e8-9470-4ba539f8c9a8",
+      "id": "249a5abe-bf67-4ca0-ba97-0decdfde15f2",
       "name": "Question 7-4",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3688,10 +3205,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        3800
+        -140,
+        4440
       ],
-      "id": "4a43bde2-bb1c-43b9-ab32-b7fc78570a10",
+      "id": "b92654eb-84f2-4e60-8059-28e2e62ab95a",
       "name": "Clean Memory18"
     },
     {
@@ -3702,10 +3219,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        4000
+        -140,
+        4640
       ],
-      "id": "b096c2e3-bdf4-4477-a6b8-c3266dc9bcda",
+      "id": "f73c303a-39d0-42d4-831b-2d945a6e51b3",
       "name": "Clean Memory19"
     },
     {
@@ -3716,10 +3233,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        4200
+        -140,
+        4840
       ],
-      "id": "7362c80c-632a-46dc-ad4e-05c8f19666db",
+      "id": "738b806c-296d-4f2b-85e9-6aec44945b68",
       "name": "Clean Memory20"
     },
     {
@@ -3737,10 +3254,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        3800
+        240,
+        4440
       ],
-      "id": "42794a7f-c12a-4076-89cf-f40c4bd3c0fa",
+      "id": "91346b7c-f3c4-466c-a952-d627cff346f5",
       "name": "Angel Menu Q8",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3760,10 +3277,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        4000
+        240,
+        4640
       ],
-      "id": "2ff9cdf0-20fe-41b0-b8ca-cbdf5803745e",
+      "id": "89f172ec-0567-40c2-bee4-74cf678b2c86",
       "name": "Angel Menu Q9",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3783,10 +3300,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        4200
+        240,
+        4840
       ],
-      "id": "4c6b57ba-c8f3-4ca7-bf64-58147c60e32c",
+      "id": "706b76b2-4800-4eed-bda3-c91bacfa4eb1",
       "name": "Angel Menu Q10",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3802,15 +3319,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        3800
+        600,
+        4440
       ],
-      "id": "0737fcb5-b9b1-48c8-acfb-736ceca35650",
+      "id": "ae9b2b7c-aa02-4297-a1b2-396e4e65f3fd",
       "name": "Question 8",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3826,15 +3343,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        4000
+        600,
+        4640
       ],
-      "id": "ed351961-aa38-4808-bf0f-5419db528988",
+      "id": "0625648c-d095-4045-9fc8-62819c3a7404",
       "name": "Question 9",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3850,15 +3367,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        4200
+        600,
+        4840
       ],
-      "id": "f55b79e6-57aa-485e-89ed-b23ed68f43c6",
+      "id": "551bb273-06b8-4031-a3cf-b39311eafd47",
       "name": "Question 10",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3871,10 +3388,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        4400
+        -140,
+        5040
       ],
-      "id": "55fe205f-5d24-444c-b42f-37297ac27f9d",
+      "id": "0e2c90e4-0df2-446a-9160-248b4014ff82",
       "name": "Clean Memory21"
     },
     {
@@ -3885,10 +3402,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        4600
+        -140,
+        5240
       ],
-      "id": "d26f65cc-7b6a-46e1-870f-8a6a82bd9b08",
+      "id": "bea82cb1-9a50-4469-b8bf-7c557263fec5",
       "name": "Clean Memory23"
     },
     {
@@ -3906,10 +3423,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1448,
-        4600
+        240,
+        5240
       ],
-      "id": "2833f5d2-641a-47d6-81c5-624f19719d76",
+      "id": "57b64855-2fe5-4496-828c-a34116cb292c",
       "name": "Angel Menu Q12",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3925,15 +3442,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        4600
+        600,
+        5240
       ],
-      "id": "16362e96-22ff-4dec-abcd-c5c784768f7f",
+      "id": "d064acba-01dd-448f-87a2-517279905895",
       "name": "Question 12",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -3946,10 +3463,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        4800
+        -140,
+        5440
       ],
-      "id": "319bcfd8-8397-4155-9541-c380dd06d67d",
+      "id": "476752be-79da-4d61-a049-3e5092fc6c38",
       "name": "Clean Memory25"
     },
     {
@@ -3967,10 +3484,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        4800
+        220,
+        5440
       ],
-      "id": "26750683-47d0-4470-b659-76a45f8e4819",
+      "id": "6a6b184e-371a-48e0-9b93-7c457341e0b0",
       "name": "Angel Menu Q13",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3986,15 +3503,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        4800
+        600,
+        5440
       ],
-      "id": "e6c35354-d45d-4c58-9e5a-f6572ee7f279",
+      "id": "0f8eca66-3151-4c60-a33f-38d954495c10",
       "name": "Question 13",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4007,10 +3524,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        5000
+        -140,
+        5640
       ],
-      "id": "e870024b-838f-4178-b6eb-b6c7fa36a526",
+      "id": "9557975d-da83-4908-b994-770698420d4a",
       "name": "Clean Memory26"
     },
     {
@@ -4028,10 +3545,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        5000
+        220,
+        5640
       ],
-      "id": "d56dcf5d-eb4b-4365-b97f-c74c89f706ce",
+      "id": "846bd895-e7ad-4b3e-96dd-d3e8ae65b9c8",
       "name": "Angel Menu Q14",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4047,15 +3564,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        5000
+        600,
+        5640
       ],
-      "id": "57bf68fc-4852-4115-b94e-c4ad55b4fafa",
+      "id": "dc33d4e5-5692-4428-a2be-40e1ed275d5d",
       "name": "Question 14",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4068,10 +3585,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1820,
-        5200
+        -140,
+        5840
       ],
-      "id": "6f837274-aadc-45dc-948e-dd897832e3ac",
+      "id": "04969990-bd0b-497e-b3bf-01f005556b2a",
       "name": "Clean Memory28"
     },
     {
@@ -4089,10 +3606,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        5200
+        220,
+        5840
       ],
-      "id": "a2ee4c9f-3750-4851-ae70-aed92a1727d7",
+      "id": "381f51e2-1ef5-4c71-8ab4-14ab0032ce0c",
       "name": "Angel Menu Q15",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4108,15 +3625,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        5200
+        600,
+        5840
       ],
-      "id": "302562a8-0944-46d4-ba64-9a8fdcef5e5f",
+      "id": "68ea66de-2d8f-4b11-8692-d77530ca31e6",
       "name": "Question 15",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4129,10 +3646,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        5400
+        -140,
+        6040
       ],
-      "id": "fba72a05-d4d1-4bc7-a03c-86497b7aa4d9",
+      "id": "e9c41728-260a-4ab5-9e57-8ecb7e1e771a",
       "name": "Clean Memory29"
     },
     {
@@ -4150,10 +3667,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        5400
+        220,
+        6040
       ],
-      "id": "91768030-2c89-4546-b448-feae2151dbec",
+      "id": "5e085033-f8d2-415f-929a-3dcb1b0305c8",
       "name": "Angel Menu Q16",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4169,15 +3686,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        5400
+        600,
+        6040
       ],
-      "id": "dfc0d9fc-4404-4dd6-b582-68f8c87a7f80",
+      "id": "22365701-da28-40f8-b3fa-e1ce738ea1d9",
       "name": "Question 16",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4190,10 +3707,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        5600
+        -140,
+        6240
       ],
-      "id": "ccb55d6f-ace3-4455-b29e-9ca90b538949",
+      "id": "e1fc1a80-c798-4b94-af19-50e59a28644d",
       "name": "Clean Memory31"
     },
     {
@@ -4211,10 +3728,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        5600
+        220,
+        6240
       ],
-      "id": "bc4c798a-2295-4c37-8f7d-86d93ee39935",
+      "id": "0350efc4-0481-43b2-97a0-d0780433dbbf",
       "name": "Angel Menu Q17",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4230,15 +3747,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        5600
+        600,
+        6240
       ],
-      "id": "16398ec1-61c8-44b3-9328-97361249c98f",
+      "id": "bca4b6a4-9d9e-4d54-a8a7-b7efcb5433c8",
       "name": "Question 17",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4258,10 +3775,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1440,
-        4400
+        240,
+        5040
       ],
-      "id": "24a091b9-5e34-47f5-b4f5-e6d51ea4005d",
+      "id": "7b9ada2f-7770-4b61-b0d1-e620a68d16dd",
       "name": "Angel Menu Q11",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4277,15 +3794,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        4400
+        600,
+        5040
       ],
-      "id": "dd65d41d-01b3-48f0-aeb9-2106c62e5489",
+      "id": "d71a8312-4e28-4681-ab4e-5974176c3946",
       "name": "Question 11",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4298,10 +3815,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        5800
+        -140,
+        6440
       ],
-      "id": "8109d5f6-40d8-4445-b74e-0ab7dfa27b8f",
+      "id": "6a075a3c-b31c-4c0f-a342-8a99cbe3c777",
       "name": "Clean Memory33"
     },
     {
@@ -4319,10 +3836,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        5800
+        220,
+        6440
       ],
-      "id": "2c4e2f21-869a-4bed-9c16-4546d95db9d5",
+      "id": "fd671475-17ba-447c-9328-c1738187af61",
       "name": "Angel Menu Q18",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4338,15 +3855,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        5800
+        600,
+        6440
       ],
-      "id": "473aaa80-2cc9-4260-bbce-7f4d3da78af1",
+      "id": "6334272a-6ee0-4200-88a7-c0ec36456577",
       "name": "Question 18",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4359,10 +3876,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        6000
+        -140,
+        6640
       ],
-      "id": "2be201b1-2545-43a7-9cba-3268c32bbb7b",
+      "id": "d4e6fba3-6c9f-4e67-acb7-666f33fdbc82",
       "name": "Clean Memory35"
     },
     {
@@ -4380,10 +3897,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1460,
-        6000
+        220,
+        6640
       ],
-      "id": "8e2ac7e9-e57e-42a1-be9d-80137bf8f5ad",
+      "id": "f6157928-04f4-44d8-b072-93e54d89421f",
       "name": "Angel Menu Q19",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4399,15 +3916,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        6000
+        600,
+        6640
       ],
-      "id": "c9db4b2a-4a7c-484d-9404-aadda25f9bf3",
+      "id": "6544b37a-7b61-4e7a-ad3a-b636f2895028",
       "name": "Question 19",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4420,10 +3937,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        6200
+        -140,
+        6840
       ],
-      "id": "0b57b254-db43-4e8e-b381-433f49963c79",
+      "id": "4190f1fc-4840-4663-9602-80f1027220c8",
       "name": "Clean Memory36"
     },
     {
@@ -4441,10 +3958,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1480,
-        6200
+        200,
+        6840
       ],
-      "id": "c0afccbb-797d-4f19-acd1-a8117b44b42a",
+      "id": "a8f23fe5-066b-4ba8-810c-b9486eb37cc9",
       "name": "Angel Menu Q20",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4460,15 +3977,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        6200
+        600,
+        6840
       ],
-      "id": "0508c7e4-24e1-4d14-81ba-42ab37a66ad5",
+      "id": "efa48612-c52e-4117-9568-c841b7992d08",
       "name": "Question 20",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4481,10 +3998,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        6400
+        -140,
+        7040
       ],
-      "id": "aac34db3-d6d2-4133-b693-70209ca8237f",
+      "id": "e10d3e68-4fbd-4ef9-bdd5-13437144b587",
       "name": "Clean Memory37"
     },
     {
@@ -4502,10 +4019,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1480,
-        6400
+        200,
+        7040
       ],
-      "id": "3ee33dae-e43d-4c10-a4bf-ee97c46e3aae",
+      "id": "fec1a480-56ed-4fd3-8e42-6284a2706b40",
       "name": "Angel Menu Q21",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4521,15 +4038,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        6400
+        600,
+        7040
       ],
-      "id": "f825f88d-569e-4446-a431-5ce66ede521d",
+      "id": "42ac7ad8-aaac-488c-9bcd-e9c17debbc6c",
       "name": "Question 21",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4542,10 +4059,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1824,
-        6600
+        -140,
+        7240
       ],
-      "id": "66dbe1ca-5649-4d58-9b43-b1a8e44c4e63",
+      "id": "b7d60046-c264-4373-bfbd-14d539e88674",
       "name": "Clean Memory38"
     },
     {
@@ -4563,10 +4080,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1480,
-        6600
+        200,
+        7240
       ],
-      "id": "c068b0e8-0636-44f5-b6b0-c403fb26b01e",
+      "id": "3bff6657-c394-4cba-a710-5b908c4c30fb",
       "name": "Angel Menu Email",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4582,15 +4099,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1080,
-        6600
+        600,
+        7240
       ],
-      "id": "0edcc062-b905-4b1e-b277-afbfcbb57044",
+      "id": "f2e6d37b-ccf4-4be6-b1b1-a57676838a5b",
       "name": "Question Email",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -4606,15 +4123,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1820,
-        6800
+        -140,
+        7440
       ],
-      "id": "bea5cfef-182d-47fd-a6d4-d15543381a4a",
+      "id": "ca49d1b1-5006-40c9-8a23-64d73133eb96",
       "name": "Confirmation",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -5106,14 +4623,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        600
+        820,
+        1240
       ],
-      "id": "6e7529de-d2a3-4007-bdd3-a1a153d84106",
+      "id": "79057876-273a-479b-9d3b-e7b330c013aa",
       "name": "Google Sheets - Add Q2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -5605,14 +5122,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        800
+        820,
+        1440
       ],
-      "id": "a36a206a-77c4-4d51-b6bc-85d132c63ed3",
+      "id": "11bce8fa-a546-4568-869b-1fe6ca92f115",
       "name": "Google Sheets - Add Q3-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -6104,14 +5621,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        1000
+        820,
+        1640
       ],
-      "id": "8f493adf-0674-4669-ad0f-7df11a82c871",
+      "id": "40582362-f89e-4d04-9fd6-80a8eca0db27",
       "name": "Google Sheets - Add Q3-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -6603,14 +6120,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        1200
+        820,
+        1840
       ],
-      "id": "34e43019-bf69-449d-8355-23d50bee126e",
+      "id": "15508b2e-f241-474a-8e8a-c4528dc964cc",
       "name": "Google Sheets - Add Q3-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -7102,14 +6619,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        1400
+        820,
+        2040
       ],
-      "id": "c24f5b44-7b62-4cfb-97db-e71e9358d906",
+      "id": "e5944c4d-4b9f-4b6d-9da5-106f11750c84",
       "name": "Google Sheets - Add Q4-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -7601,14 +7118,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        1600
+        820,
+        2240
       ],
-      "id": "045ae956-ee3d-4fa6-a73b-ad2edfd0cccd",
+      "id": "315c82ce-fada-404f-b605-506c92e53704",
       "name": "Google Sheets - Add Q4-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -8100,14 +7617,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        1800
+        820,
+        2440
       ],
-      "id": "efe38f28-8217-49f6-8193-356008da6a9d",
+      "id": "b51324fb-7b08-47a3-9680-16b731c26f39",
       "name": "Google Sheets - Add Q5-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -8599,14 +8116,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        2000
+        820,
+        2640
       ],
-      "id": "43cd0823-0a95-4565-8f11-54f1c6194ee9",
+      "id": "48000f23-1257-40e8-ac94-a5890f8e6b1c",
       "name": "Google Sheets - Add Q5-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -9098,14 +8615,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        2200
+        820,
+        2840
       ],
-      "id": "0eca617f-1072-4335-960e-580c1209af3f",
+      "id": "cd717e06-a6d5-4905-902d-e7c37b4486b6",
       "name": "Google Sheets - Add Q5-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -9597,14 +9114,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        2400
+        820,
+        3040
       ],
-      "id": "c0e440f4-b02a-47d5-974a-e5df9d692685",
+      "id": "b11968e9-f08c-417b-8956-4f70c9074670",
       "name": "Google Sheets - Add Q6-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -10096,14 +9613,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        2600
+        820,
+        3240
       ],
-      "id": "8b91cde3-8233-4721-a111-0bca278bf7c7",
+      "id": "7ce497fe-8bba-4697-95d0-fb98aa1a308a",
       "name": "Google Sheets - Add Q6-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -10595,14 +10112,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        2800
+        820,
+        3440
       ],
-      "id": "88469212-a009-4201-bdbb-e95f1e969447",
+      "id": "ff59fe82-be95-497e-96aa-65184c8d532c",
       "name": "Google Sheets - Add Q6-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -11094,14 +10611,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        3000
+        820,
+        3640
       ],
-      "id": "609b9915-6f29-4908-adcf-4f1f0979352f",
+      "id": "62701ee5-2164-4a48-a0e2-9c2e166f36fd",
       "name": "Google Sheets - Add Q6-4",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -11593,14 +11110,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        3200
+        820,
+        3840
       ],
-      "id": "e0363910-ebd5-44ce-b579-49c8e0131264",
+      "id": "1f7ba903-d05b-47ec-8095-2e205bedccd5",
       "name": "Google Sheets - Add Q7-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -12092,14 +11609,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        3400
+        820,
+        4040
       ],
-      "id": "f8fec66d-21ab-4226-86df-70c054cadc42",
+      "id": "d7242e62-de02-4e06-9939-cd80f6bcc420",
       "name": "Google Sheets - Add Q7-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -12591,14 +12108,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        3600
+        820,
+        4240
       ],
-      "id": "bf3084a3-1cfb-4be5-83bc-f451cf912b50",
+      "id": "296fe044-8811-4142-877a-68f07ab77436",
       "name": "Google Sheets - Add Q7-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -13090,14 +12607,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        3800
+        820,
+        4440
       ],
-      "id": "2e59db52-4efc-4c5f-8853-52d436334d84",
+      "id": "d7e727cf-fcd7-4263-9337-943efd9e645e",
       "name": "Google Sheets - Add Q7-4",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -13589,14 +13106,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        4000
+        820,
+        4640
       ],
-      "id": "6e17f3dd-5ee0-4d37-acd5-8b17110bd215",
+      "id": "bd3276ca-ad4c-4a9d-b92c-90937dbc7372",
       "name": "Google Sheets - Add Q8",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -14088,14 +13605,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        4200
+        820,
+        4840
       ],
-      "id": "56e0bc6c-ee56-49aa-8e20-104902290b5f",
+      "id": "c9b4bd5d-73f1-41b6-9592-3a93be7f781a",
       "name": "Google Sheets - Add Q9",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -14587,14 +14104,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        4400
+        820,
+        5040
       ],
-      "id": "1d8aa531-2d70-4c48-9591-f5609c440b9c",
+      "id": "768220dc-c3b7-404e-a946-0f10a37668ad",
       "name": "Google Sheets - Add Q10",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -15086,14 +14603,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        4600
+        820,
+        5240
       ],
-      "id": "ce254e0f-3534-422a-9900-dc8088b96707",
+      "id": "a6431364-6086-49ce-9ce8-c1ec89ca3d82",
       "name": "Google Sheets - Add Q11",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -15585,14 +15102,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        4800
+        820,
+        5440
       ],
-      "id": "ad0de4d0-eeaa-42fc-8f00-6b4977a8ad5b",
+      "id": "d363f5b9-e90b-440e-b70d-2ae436971110",
       "name": "Google Sheets - Add Q12",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -16084,14 +15601,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        5000
+        820,
+        5640
       ],
-      "id": "c142ccff-4877-490a-91d3-93585624a218",
+      "id": "99a1e9dc-b7fb-45b4-82be-5c180aedd6e6",
       "name": "Google Sheets - Add Q13",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -16583,14 +16100,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        5200
+        820,
+        5840
       ],
-      "id": "f36ab931-c241-4ab6-8456-7f4310f088bb",
+      "id": "ac102c4a-ce45-457d-9143-d11bac37955b",
       "name": "Google Sheets - Add Q14",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -17082,14 +16599,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        5400
+        820,
+        6040
       ],
-      "id": "4cb1a402-2638-42d8-9909-90a5d9180885",
+      "id": "45bd4da7-5820-44ce-aebc-b9f39644fdce",
       "name": "Google Sheets - Add Q15",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -17581,14 +17098,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        5600
+        820,
+        6240
       ],
-      "id": "594c2f55-1efd-4dd3-a124-7b4bc696f52f",
+      "id": "aee0cdf3-b3a4-49bc-8ae8-28508019fbe3",
       "name": "Google Sheets - Add Q16",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -18080,14 +17597,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        5800
+        820,
+        6440
       ],
-      "id": "a97991e3-51e7-4181-959e-a43ed081f7c4",
+      "id": "7b6fed29-e2e4-43ec-bf3f-5de5b2bb519e",
       "name": "Google Sheets - Add Q17",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -18579,14 +18096,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        6000
+        820,
+        6640
       ],
-      "id": "df9a0334-7eb7-4d0b-bd99-3143adb9ce90",
+      "id": "17313aa8-12c3-4ab0-ab9c-f24a56d0aae7",
       "name": "Google Sheets - Add Q18",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -19078,14 +18595,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        6200
+        820,
+        6840
       ],
-      "id": "c4138c42-2895-4234-bc09-43d2bacd96cb",
+      "id": "523f52d5-b8a3-4244-a555-b622990c5119",
       "name": "Google Sheets - Add Q19",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -19577,14 +19094,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        6400
+        820,
+        7040
       ],
-      "id": "6b56b80f-c2a6-4758-bbbe-f6f7c4d0d093",
+      "id": "ff4cd97c-7599-490b-9437-27e80eef1c4e",
       "name": "Google Sheets - Add Q20",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -20076,14 +19593,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -860,
-        6600
+        820,
+        7240
       ],
-      "id": "061449e9-dbdb-423c-bfb7-8e26eaa4b337",
+      "id": "daf25aad-103b-4139-a101-687eaaa22a3e",
       "name": "Google Sheets - Add Q21",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -20575,14 +20092,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1620,
-        6800
+        60,
+        7440
       ],
-      "id": "95557b03-1239-46eb-92de-268c821403b7",
+      "id": "16f1be06-4990-4950-9595-46385f0ec416",
       "name": "Google Sheets - Add Email",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -20615,14 +20132,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3700,
-        440
+        -2020,
+        1080
       ],
-      "id": "9d91f70b-f6df-4f9e-9bf7-33cd047f2caa",
+      "id": "24042448-20da-4349-8898-b06a4108bfd1",
       "name": "Get Reminder List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -20636,15 +20153,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -3260,
-        440
+        -1580,
+        1080
       ],
-      "id": "dd9baa1c-5822-44b5-84b4-a2bc2073c167",
+      "id": "e5b3022f-9d5c-4e34-b093-ee162fffd15d",
       "name": "Send Canvas Reminder",
       "webhookId": "8cfdfcf3-1867-4a33-95df-dce0cf8cc984",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -20726,14 +20243,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3040,
-        440
+        -1360,
+        1080
       ],
-      "id": "0f7d8223-efa9-4ca6-aa28-49a803495cb4",
+      "id": "6abfd1a5-7240-4450-aada-040ef40d4ac5",
       "name": "Update Reminder Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -20751,10 +20268,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -3900,
-        440
+        -2220,
+        1080
       ],
-      "id": "767646fa-aea8-41b9-bbac-4c9943cc7088",
+      "id": "7ff2ce63-0490-44ac-9839-8f41eb5dc6d6",
       "name": "Schedule Trigger Canvas Reminder"
     },
     {
@@ -20796,11 +20313,1064 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -3480,
-        440
+        -1800,
+        1080
       ],
-      "id": "ec76589c-21cd-4472-9111-45b8324be7bb",
+      "id": "092b9e01-92f0-4f90-9ec9-1f386c01a38d",
       "name": "Filter based on reminder date"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "lookupValue": "={{ $('Chat start').item.json.messages[0].from }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        820,
+        840
+      ],
+      "id": "bf713358-fb66-4601-a39a-0e8ee78b7527",
+      "name": "Search number in registry",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "pFwYrVF1BLuQ7jcl",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
+            "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}",
+            "Processed": "={{ \"\" }}",
+            "Drive URL": "={{ \"\" }}",
+            "Phase": "={{ \"\" }}",
+            "Last sent": "={{ \"\" }}",
+            "Investment type": "={{ \"\" }}",
+            "AI Tunning": "={{ \"\" }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do I perceive my role as an angel investor?",
+              "displayName": "(2/21) How do I perceive my role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Investment type",
+              "displayName": "Investment type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "AI Tunning",
+              "displayName": "AI Tunning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1340,
+        740
+      ],
+      "id": "8c0ceb8a-d0d8-4749-8688-b18b5ea427ed",
+      "name": "Google Sheets - Update Registry",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "pFwYrVF1BLuQ7jcl",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Submission ID": "={{ (() => {\n  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n  let result = '';\n  for (let i = 0; i < 7; i++) {\n    result += chars.charAt(Math.floor(Math.random() * chars.length));\n  }\n  return result;\n})() }}",
+            "Respondent ID": "={{ (() => {   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';   let result = '';   for (let i = 0; i < 7; i++) {     result += chars.charAt(Math.floor(Math.random() * chars.length));   }   return result; })() }}",
+            "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
+            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
+            "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Submission ID",
+              "displayName": "Submission ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Respondent ID",
+              "displayName": "Respondent ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "What’s your name?",
+              "displayName": "What’s your name?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(2/21) How do I perceive my role as an angel investor?",
+              "displayName": "(2/21) How do I perceive my role as an angel investor?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a great way to earn money\"",
+              "displayName": "\"Angel investing is a great way to earn money\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an efficient way to diversify investments\"",
+              "displayName": "\"Angel investing is an efficient way to diversify investments\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "displayName": "\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is an easy way to invest\"",
+              "displayName": "\"Angel investing is an easy way to invest\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is not unnecessarily time-consuming\"",
+              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing is a way to give back to society\"",
+              "displayName": "\"Angel investing is a way to give back to society\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "displayName": "\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "displayName": "\"Angel investing encourages me to have a life with a higher purpose\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing boosts my self-esteem\"",
+              "displayName": "\"Angel investing boosts my self-esteem\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me sheer joy\"",
+              "displayName": "\"Angel investing gives me sheer joy\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing makes me feel valuable\"",
+              "displayName": "\"Angel investing makes me feel valuable\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing increases my self-confidence\"",
+              "displayName": "\"Angel investing increases my self-confidence\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "displayName": "\"Angel investing allows me to be part of entrepreneurship\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "displayName": "\"Angel investing gives me the pleasure to begin something from scratch\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "displayName": "\"Angel investing gives me the opportunity for involvement with startups\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "displayName": "\"Angel investing allows me to mentor entrepreneurs\"",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "displayName": "(8/21) What future changes in the world do I foresee and would love to be part of?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "displayName": "(9/21) Which are the main challenges in the world that startups can solve?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(10/21) How much time do I want to dedicate to angel investing?",
+              "displayName": "(10/21) How much time do I want to dedicate to angel investing?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "displayName": "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "displayName": "(12/21) What do I want founders to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "displayName": "(13/21) What do I want other angels to say about me? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "displayName": "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(15/21) How many startups would I like to invest on?",
+              "displayName": "(15/21) How many startups would I like to invest on?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "displayName": "(16/21) What types of startups will I invest in? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(17/21) What’s my investment return time frame?",
+              "displayName": "(17/21) What’s my investment return time frame?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "displayName": "(18/21) In which geographies will I invest? (Pick Max. 3)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "displayName": "(19/21) What types of business models will I back? (Pick Max. 5)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "displayName": "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "displayName": "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Where should I email it to?",
+              "displayName": "Where should I email it to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Processed",
+              "displayName": "Processed",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Investment type",
+              "displayName": "Investment type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "AI Tunning",
+              "displayName": "AI Tunning",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1340,
+        960
+      ],
+      "id": "3f9543fa-d15a-428b-ae7a-3f73c032c26f",
+      "name": "Google Sheets - Add Registry",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "pFwYrVF1BLuQ7jcl",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8358e1fa-7e87-490a-a2e4-a973ce70f74d",
+              "leftValue": "={{ $json['What\\'s your phone number?(Add your country code without spaces nor symbols)']}}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1060,
+        840
+      ],
+      "id": "c9966263-99ef-4a1b-bd9e-4a60bbfb2c50",
+      "name": "Number already exists?"
     }
   ],
   "pinData": {},
@@ -21569,7 +22139,7 @@
       "main": [
         [
           {
-            "node": "Google Sheets - Add Name",
+            "node": "Search number in registry",
             "type": "main",
             "index": 0
           }
@@ -22698,9 +23268,38 @@
         ]
       ]
     },
-    "Google Sheets - Add Name": {
+    "Search number in registry": {
+      "main": [
+        [
+          {
+            "node": "Number already exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Add Registry": {
       "main": [
         []
+      ]
+    },
+    "Number already exists?": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Update Registry",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Add Registry",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -22708,11 +23307,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d6a64fdc-bf78-4bd1-af5a-80c0ed4f4dc0",
+  "versionId": "328f9585-f1f1-41e0-a793-f9ada6f7557a",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+    "instanceId": "4c2eb01a24bbfdbbf7bab3f4ae01285b9360d27ba5c6164de99b2e9c55e2a0e3"
   },
-  "id": "KXNXxRgCDByruTjR",
+  "id": "pdoYqzcGwgZyRTpt",
   "tags": []
 }

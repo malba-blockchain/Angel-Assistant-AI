@@ -1,0 +1,962 @@
+{
+  "name": "Angel Canvas Agent v2",
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f76129ac-554b-46c6-881a-ce9cf6026395",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+              "rightValue": "Access Angel Canvas",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "668580a4-38dc-4039-acde-2e83b0f07808",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+              "rightValue": "Canvas",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "a8d3aad6-b8f7-40c0-be62-515a519d9dfe",
+              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
+              "rightValue": "canvas",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3260,
+        1000
+      ],
+      "id": "8d7029de-b43a-4342-a00c-71b96b3f6d5c",
+      "name": "Check message type"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -3920,
+        1000
+      ],
+      "id": "9b4bcbb5-9608-4bd7-b97f-b0cab9da338b",
+      "name": "Chat start",
+      "webhookId": "c454b994-7598-4173-abcd-a375e427c332",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "BLGKchr9yb6Gx4Vm",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0f1514e2-21cb-4b84-8bd2-dfb23f52c6cd",
+              "leftValue": "={{ $json.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "97ea097b-1705-4a42-9e73-eac8be9aca9e",
+              "leftValue": "={{ $json.messages[0].button.text }}",
+              "rightValue": "={{ $json.messages[0].button.text }}",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3700,
+        1000
+      ],
+      "id": "a3b118d9-8417-4706-8047-d5ed513fedfa",
+      "name": "Validate there is a message"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4",
+          "mode": "list",
+          "cachedResultName": "Chat History Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Phase 1 Flow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Message": "={{ $('Chat start').item.json.messages[0].text?.body || $('Chat start').item.json.messages[0].button?.text || '' }}",
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Name": "={{ $json['What’s your name?'] }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -3480,
+        1000
+      ],
+      "id": "19ae085f-073d-44f9-b2b4-59365da43afe",
+      "name": "Log Chat History",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QRYTTZ7H4dhhDtA5",
+          "name": "Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Send Reminder to Respond",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -4320,
+        420
+      ],
+      "typeVersion": 1,
+      "id": "eb894fa6-025c-4bd3-9198-f145b1bbe868",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Register Angel Answers\n",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -4340,
+        960
+      ],
+      "typeVersion": 1,
+      "id": "d649afbf-624d-4cf4-81b0-e4635ff3bbd9",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Last sent"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -3700,
+        440
+      ],
+      "id": "ebda0802-92a3-432d-8066-48f786a38b98",
+      "name": "Get Reminder List",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QRYTTZ7H4dhhDtA5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Filter based on reminder date').item.json.Number.toString() }}",
+        "template": "canvas_reminder_v1|en"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -3260,
+        440
+      ],
+      "id": "66929509-098a-4a5f-9a36-714c15147c15",
+      "name": "Send Canvas Reminder",
+      "webhookId": "f2ee0252-20d3-49bf-9f13-b3c19afd8875",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "JBQii1HjELCZzFgq",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Get Reminder List').item.json.Number }}",
+            "Last sent": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -3040,
+        440
+      ],
+      "id": "dfb348d2-0913-45fc-a19b-f6b0b1c5c3a6",
+      "name": "Update Reminder Status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QRYTTZ7H4dhhDtA5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -3900,
+        440
+      ],
+      "id": "0f8a5b1a-638b-427d-b017-59c6afe076a4",
+      "name": "Schedule Trigger Canvas Reminder"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ $('Schedule Trigger Canvas Reminder').item.json.timestamp > $json.Reminder}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b8c6ecb9-a43b-4662-89a9-59f323faa0ea",
+              "leftValue": "={{  $('Schedule Trigger Canvas Reminder').item.json.Hour > 8 && $('Schedule Trigger Canvas Reminder').item.json.Hour < 21 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -3480,
+        440
+      ],
+      "id": "743d1654-74b2-488c-b241-22d51d295d26",
+      "name": "Filter based on reminder date"
+    },
+    {
+      "parameters": {
+        "operation": "sendAndWait",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
+        "message": "Your Angel Canvas will take around 10–15 minutes to complete.\n\nWould you like to start now, or should I send you a reminder for later?\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
+        "responseType": "freeText",
+        "options": {
+          "limitWaitTime": {
+            "values": {
+              "resumeUnit": "minutes"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -3020,
+        1000
+      ],
+      "id": "cf68c73b-5e77-4ce2-b2ba-0563c8a9f807",
+      "name": "Default MSG",
+      "webhookId": "5b9611ef-de85-44e6-b7fa-4ee57a659f4a",
+      "alwaysOutputData": true,
+      "credentials": {
+        "whatsAppApi": {
+          "id": "JBQii1HjELCZzFgq",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Let's do it! What's your full name?",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -2520,
+        1220
+      ],
+      "id": "f0ca5160-98d2-4efd-84d3-89111c80183f",
+      "name": "Ask Angel Name",
+      "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "JBQii1HjELCZzFgq",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Reminder": "={{ $now.plus({hours: 24}).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -2520,
+        800
+      ],
+      "id": "30545cbf-cd24-4f18-a6d9-b774973d6ee0",
+      "name": "Google Sheets - Save Reminder Tomorrow",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QRYTTZ7H4dhhDtA5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Reminder": "={{ $now.plus({hours: 48}).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -2520,
+        1000
+      ],
+      "id": "634a4351-f297-4cec-9782-1f8de9479ca4",
+      "name": "Google Sheets - Save Reminder Two Days",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QRYTTZ7H4dhhDtA5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "23c52286-146b-4345-9e29-cc4b55030a7b",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"2\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2-Remind me tomorrow"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "17a48ff8-ca54-4c67-86a8-48a7d5ec534a",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"3\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3-Remind me in 2 days"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"1\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "44c23064-f3a2-48b8-9533-c96757038ea1"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1-Start now"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2820,
+        1000
+      ],
+      "id": "9ac8028e-57c3-4cde-8607-13c93a46356c",
+      "name": "Main Menu Switch"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Noted. I’ll remind you in two days. \n\nTalk soon!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -2280,
+        1000
+      ],
+      "id": "8cd79966-c005-405a-a2c7-a7df84383c6c",
+      "name": "Reminder set 2 days",
+      "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "JBQii1HjELCZzFgq",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "661969530322547",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Noted. I’ll remind you tomorrow. \n\nTalk soon!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -2280,
+        800
+      ],
+      "id": "7c600025-a061-4ded-8b31-dcd76559cc1b",
+      "name": "Reminder set tomorrow",
+      "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "JBQii1HjELCZzFgq",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Check message type": {
+      "main": [
+        [
+          {
+            "node": "Default MSG",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Chat start": {
+      "main": [
+        [
+          {
+            "node": "Validate there is a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate there is a message": {
+      "main": [
+        [
+          {
+            "node": "Log Chat History",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Chat History": {
+      "main": [
+        [
+          {
+            "node": "Check message type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Reminder List": {
+      "main": [
+        [
+          {
+            "node": "Filter based on reminder date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Canvas Reminder": {
+      "main": [
+        [
+          {
+            "node": "Update Reminder Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Canvas Reminder": {
+      "main": [
+        [
+          {
+            "node": "Get Reminder List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter based on reminder date": {
+      "main": [
+        [
+          {
+            "node": "Send Canvas Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default MSG": {
+      "main": [
+        [
+          {
+            "node": "Main Menu Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu Switch": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Save Reminder Tomorrow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Save Reminder Two Days",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ask Angel Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Save Reminder Tomorrow": {
+      "main": [
+        [
+          {
+            "node": "Reminder set tomorrow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Save Reminder Two Days": {
+      "main": [
+        [
+          {
+            "node": "Reminder set 2 days",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b746573f-12b4-4c1e-a999-0e8d1415e2e7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+  },
+  "id": "z6EGoMwQmFveeJME",
+  "tags": []
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Angel Assistant v2",
+  "name": "Angel_Assistant_v2",
   "nodes": [
     {
       "parameters": {
@@ -51,7 +51,7 @@
         -1160,
         500
       ],
-      "id": "f7ff4b9f-d31e-43c5-99e6-746e60a22280",
+      "id": "99437eb0-bb2e-43ba-a5dc-139dca3206a3",
       "name": "Regenerate variables"
     },
     {
@@ -68,15 +68,9 @@
         -1760,
         880
       ],
-      "id": "e3fdf723-8300-4e89-9ac4-a3eca72003f9",
+      "id": "9c48cfb4-b284-4c8f-bb11-fbedd6de424a",
       "name": "Angel not registered",
-      "webhookId": "bf5006fe-44eb-44d3-84e0-36970d93e82e",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "bf5006fe-44eb-44d3-84e0-36970d93e82e"
     },
     {
       "parameters": {
@@ -109,7 +103,7 @@
         -2460,
         760
       ],
-      "id": "bbf33704-4dcf-4d7e-bdcb-7d990b7cc624",
+      "id": "93343b0c-26ed-4f5e-b154-7a82ec4e3b98",
       "name": "Validate there is a message"
     },
     {
@@ -144,15 +138,9 @@
         -2240,
         760
       ],
-      "id": "ebc1878a-1e0e-490e-8e21-ef3248a1363e",
+      "id": "28d76553-2770-4cfb-b312-be5cd1fcf48d",
       "name": "Google Sheets - Authenticate user",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -185,7 +173,7 @@
         -2040,
         760
       ],
-      "id": "6fa6feae-6c88-4dce-999f-f7f9b9addd42",
+      "id": "f6bced13-ed5a-4a9e-844e-ccd7dc10dcef",
       "name": "Validate user registration"
     },
     {
@@ -219,7 +207,7 @@
         -1760,
         680
       ],
-      "id": "b3c16bfb-9dd7-4f56-859d-de82e8315a35",
+      "id": "7e449327-cd8d-4ea6-92f5-9f04c7652966",
       "name": "Angel Registered: Starting message vs number option"
     },
     {
@@ -234,7 +222,7 @@
         -1160,
         1600
       ],
-      "id": "be135cad-5637-4ee8-ba89-de2ec1f26d67",
+      "id": "5b9d1ef0-5b5c-4806-bb70-e99278023fbe",
       "name": "Simple Memory"
     },
     {
@@ -251,15 +239,9 @@
         740,
         0
       ],
-      "id": "9b297508-3c0f-4967-bd01-b03c07feedb0",
+      "id": "c7f2c2d3-1bbf-40dd-94b8-97941e727765",
       "name": "Bounty Board Menu",
-      "webhookId": "45a05406-d96b-4e09-851f-91c25d665617",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "45a05406-d96b-4e09-851f-91c25d665617"
     },
     {
       "parameters": {
@@ -275,15 +257,9 @@
         680,
         220
       ],
-      "id": "7ae61044-03e1-4e97-a6e8-635dd797b3a9",
+      "id": "471adbf7-61e8-4b74-9587-6451fc95ca9b",
       "name": "On-going Quests Menu",
-      "webhookId": "3db456ef-768a-45cd-bd00-dcda4247aa54",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "3db456ef-768a-45cd-bd00-dcda4247aa54"
     },
     {
       "parameters": {
@@ -299,15 +275,9 @@
         400,
         420
       ],
-      "id": "18ec34cd-7f98-4964-a576-47bf9e4e8ec3",
+      "id": "a95fce0e-b5a4-4164-9487-6bd3ffaa5f33",
       "name": "My Points Menu",
-      "webhookId": "fc1ef9ec-f7c6-46a9-8370-f419ce0f8671",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "fc1ef9ec-f7c6-46a9-8370-f419ce0f8671"
     },
     {
       "parameters": {
@@ -523,7 +493,7 @@
         -920,
         400
       ],
-      "id": "724b62c2-857d-40d6-be4d-b9dee387dba0",
+      "id": "e8896a8c-c608-4b86-b7f7-c4aa5be7b589",
       "name": "Main menu switch",
       "alwaysOutputData": false
     },
@@ -641,7 +611,7 @@
         -500,
         360
       ],
-      "id": "161e59ce-9565-4f2b-b4db-c389df27cb91",
+      "id": "a2374cbe-6a46-4a71-a717-6e3c44b2ab03",
       "name": "Main Menu Options"
     },
     {
@@ -681,15 +651,9 @@
         540,
         0
       ],
-      "id": "326ae99a-4c84-4688-bccc-81c2e2c5889d",
+      "id": "129179dc-8ce7-4d98-aae4-4e7f8f9b2927",
       "name": "Google Sheets - Bounty Board",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -705,16 +669,10 @@
         340,
         0
       ],
-      "id": "98445e38-ba82-4a4b-a543-40eae7db4798",
+      "id": "0da809ac-6cd7-4384-85dc-e1333d4eb95c",
       "name": "Bounty Board MSG1",
       "webhookId": "53d39985-79e9-4eac-aea1-a8440830903b",
-      "executeOnce": false,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": false
     },
     {
       "parameters": {
@@ -734,7 +692,7 @@
         -1120,
         780
       ],
-      "id": "0f6336dd-801c-4eac-86b0-46399b9f1572",
+      "id": "eaef3f0e-3040-4dd6-b0e3-1f904b79cd0b",
       "name": "Main Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -757,7 +715,7 @@
         0,
         0
       ],
-      "id": "9cd3e01e-888f-48ca-819a-4dac84473374",
+      "id": "f5066e05-e2e3-43c8-8d90-85d48ac10d48",
       "name": "Quest Board Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -775,15 +733,9 @@
         -2640,
         760
       ],
-      "id": "270ed7c6-d108-47fa-9bd9-ac23cd051632",
+      "id": "5165af4d-2a66-4cf0-af88-c28169bff74f",
       "name": "Chat start",
-      "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
-      "credentials": {
-        "whatsAppTriggerApi": {
-          "id": "BLGKchr9yb6Gx4Vm",
-          "name": "WhatsApp OAuth account"
-        }
-      }
+      "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db"
     },
     {
       "parameters": {
@@ -795,7 +747,7 @@
         -1520,
         500
       ],
-      "id": "ad967fa7-a6f7-46e1-b7df-5330bef7ef22",
+      "id": "66d4ef43-1f92-4ba2-8582-f097162deef0",
       "name": "Main Menu Out"
     },
     {
@@ -830,15 +782,9 @@
         -220,
         1600
       ],
-      "id": "03bf0b51-925d-4241-b297-253e8cd8646c",
+      "id": "2af36397-0e03-4c18-8c6f-43e3bfa93295",
       "name": "Google Sheets - Bounty Board1",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -854,16 +800,10 @@
         480,
         1540
       ],
-      "id": "7c338ec8-0dc5-4e85-9298-0b46b944004b",
+      "id": "3098c7c0-957f-4b28-8a59-04f84da69f2b",
       "name": "Quest Details",
       "webhookId": "0ea74097-b688-451f-b4a6-34c45f37fbbb",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -879,16 +819,10 @@
         160,
         1680
       ],
-      "id": "4e7b0b64-209d-4c94-bbbf-bf7f1e37c241",
+      "id": "3ff10a28-387f-4327-ab44-eb1b1b51bc04",
       "name": "Non-available Quest",
       "webhookId": "ae64e5a4-87eb-4b1c-a624-7ebe4290c504",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -901,7 +835,7 @@
         -820,
         780
       ],
-      "id": "3ef3cb58-977c-495f-a6ca-f3f36581ec5b",
+      "id": "5e424a13-4a04-4800-b205-44ff7c611190",
       "name": "Clean Memory",
       "disabled": true
     },
@@ -919,15 +853,9 @@
         -1280,
         780
       ],
-      "id": "7481e443-665b-4ab8-b020-bfb5a7515516",
+      "id": "ff22cecc-d7b5-48e6-a155-4044823ec12c",
       "name": "Main Menu1",
-      "webhookId": "57208573-7e3b-4bf7-83b6-0c11529634ed",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "57208573-7e3b-4bf7-83b6-0c11529634ed"
     },
     {
       "parameters": {
@@ -943,15 +871,9 @@
         -1500,
         780
       ],
-      "id": "0fe1bb81-b6c7-4372-ae64-b847ba32a073",
+      "id": "7e455791-6dd9-40e5-bc0b-a0e8c3d76e7f",
       "name": "Initial Greeting",
-      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22"
     },
     {
       "parameters": {
@@ -967,16 +889,10 @@
         1080,
         0
       ],
-      "id": "b766e49f-aedf-4e28-bdce-8d15dd6c4f82",
+      "id": "b7691134-ba26-430f-8eaf-56c9db01ac6d",
       "name": "Choose a Quest MSG",
       "webhookId": "d0304467-3db0-4e78-a13e-d4f0f4970b40",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -992,16 +908,10 @@
         900,
         0
       ],
-      "id": "f8154710-6fc0-4359-b853-d8507fd0f9b9",
+      "id": "e9d5440d-d9ef-4b64-b939-7cd9f73a6dab",
       "name": "Go Back MSG1",
       "webhookId": "1533b422-f951-47d4-bf75-bd4695fb69af",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1017,16 +927,10 @@
         800,
         1540
       ],
-      "id": "3baf6252-fbc3-4d57-91bf-a98f41c88189",
+      "id": "28c0e697-8ccf-4d48-8fd9-f2b761510d8a",
       "name": "Go Back MSG2",
       "webhookId": "9a309e52-9191-4fd4-9c49-c96783f40879",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1069,7 +973,7 @@
         -40,
         1600
       ],
-      "id": "e6ed6096-f62d-4588-8f15-f91cb9fb9f30",
+      "id": "f8d7d50f-585e-4087-bf0e-ec9afbf7835b",
       "name": "If"
     },
     {
@@ -1090,7 +994,7 @@
         160,
         1540
       ],
-      "id": "5b2d07ab-0b2f-47a0-b4ef-0f3a31a90139",
+      "id": "14bf9d35-79d6-4458-abc2-f263128fe605",
       "name": "Quest Detail In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1109,16 +1013,10 @@
         640,
         1540
       ],
-      "id": "649a45eb-ca36-4714-8bc9-b3ac2dead5fe",
+      "id": "fa19585c-a41b-4848-ae62-be26c85b0bbe",
       "name": "Quest Contact",
       "webhookId": "a5bc6212-8006-4081-9aa0-b484d34ae978",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1156,15 +1054,9 @@
         0,
         220
       ],
-      "id": "fdc976f4-909f-465c-b05e-90033978873e",
+      "id": "42f03bfb-e1be-499a-88b7-ee1fc27b7ba0",
       "name": "Google Sheets - On-going Quests",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -1180,16 +1072,10 @@
         680,
         440
       ],
-      "id": "d2d5a7dd-50cb-4a41-bb67-0297aa55dcae",
+      "id": "81adff58-aeaa-4baf-91eb-188a647f7074",
       "name": "No On-going Quests",
       "webhookId": "d9b5ab13-5ecd-406e-8de3-550960fe74ab",
-      "executeOnce": true,
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1222,7 +1108,7 @@
         220,
         220
       ],
-      "id": "1c3139b0-fe6b-48bb-924b-64ff6f339ac7",
+      "id": "361c000c-6ef5-4458-8f7d-08af29996757",
       "name": "Check quests existence"
     },
     {
@@ -1239,15 +1125,9 @@
         460,
         220
       ],
-      "id": "83d94d62-3a8c-4ca1-b9dd-05d6adfe5fab",
+      "id": "e4ecacbc-b4f4-4100-8db2-a6101409ee91",
       "name": "On-going Quests MGS1",
-      "webhookId": "1021bad4-5319-4ce7-93b1-d174d36b5472",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "1021bad4-5319-4ce7-93b1-d174d36b5472"
     },
     {
       "parameters": {
@@ -1281,16 +1161,10 @@
         220,
         420
       ],
-      "id": "7afb6b9b-bf28-49de-8b6d-e6e0b8b5a0da",
+      "id": "fba4a87e-c32c-4cfb-9540-edfc1fdbee64",
       "name": "Google Sheets - Points Menu",
       "alwaysOutputData": true,
-      "executeOnce": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -1306,15 +1180,9 @@
         0,
         640
       ],
-      "id": "fcba077c-73f8-4023-b0f1-6026192e382f",
+      "id": "12a62a5b-478a-4ee8-ba73-a3303bdd0dd1",
       "name": "Frequency MSG",
-      "webhookId": "6d6a54b4-6f71-40e7-8f42-673c7e249049",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "6d6a54b4-6f71-40e7-8f42-673c7e249049"
     },
     {
       "parameters": {
@@ -1334,7 +1202,7 @@
         160,
         640
       ],
-      "id": "d1a54aaa-e4b9-43aa-a524-d68865d7e361",
+      "id": "835e5891-ddc8-4a57-be67-57f4f4438681",
       "name": "Frequency Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1353,15 +1221,9 @@
         0,
         820
       ],
-      "id": "da9b1b57-d59e-49ad-a5e1-08ad394590f2",
+      "id": "3c0ca1d5-0bef-4080-8ba3-4702eef10263",
       "name": "Day MSG",
-      "webhookId": "c0501025-1f72-452a-921a-ec073c216f61",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "c0501025-1f72-452a-921a-ec073c216f61"
     },
     {
       "parameters": {
@@ -1381,7 +1243,7 @@
         160,
         820
       ],
-      "id": "3b95528d-01b7-4b84-854c-71aa9b1b1a14",
+      "id": "20ec1afa-3369-4773-a1e4-a6b14ea83b1e",
       "name": "Day Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1575,14 +1437,8 @@
         -220,
         820
       ],
-      "id": "6d077949-bd3e-4df1-bdd7-69901f0a898e",
-      "name": "Save Frequency",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "e2bf34c6-d56a-460b-bf54-e0ab27a25fc7",
+      "name": "Save Frequency"
     },
     {
       "parameters": {
@@ -1773,14 +1629,8 @@
         -220,
         1000
       ],
-      "id": "3ffd50b7-0e78-4a02-950a-139e6ee68deb",
-      "name": "Save Day",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "12b5e1e3-44b0-4a86-b4c1-9a46feb14e1f",
+      "name": "Save Day"
     },
     {
       "parameters": {
@@ -1971,14 +1821,8 @@
         -220,
         1160
       ],
-      "id": "8191e477-ae31-48c2-adc6-811a56d80514",
-      "name": "Save Period",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "4a70265e-3145-46a6-81f3-a1a78f6abf92",
+      "name": "Save Period"
     },
     {
       "parameters": {
@@ -1994,15 +1838,9 @@
         0,
         1000
       ],
-      "id": "62bb8417-de0f-42e2-851e-a7ee7c5cb9f6",
+      "id": "39186f2b-eb4d-41ff-acb6-9d01824d57b1",
       "name": "Period MSG",
-      "webhookId": "a2ac5871-657b-40b4-9592-2db661e63d4f",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "a2ac5871-657b-40b4-9592-2db661e63d4f"
     },
     {
       "parameters": {
@@ -2022,7 +1860,7 @@
         160,
         1000
       ],
-      "id": "b99d4f75-b5d3-430b-8980-bda5b2618912",
+      "id": "9baeb75c-f134-4025-afea-a66f2f604212",
       "name": "Period Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2215,14 +2053,8 @@
         -220,
         1340
       ],
-      "id": "be408f6d-6f22-4e16-b96e-9bf90323a17a",
-      "name": "Save Hour",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "c1c73a6a-0511-487b-b36d-76ca6967769f",
+      "name": "Save Hour"
     },
     {
       "parameters": {
@@ -2238,15 +2070,9 @@
         0,
         1340
       ],
-      "id": "e614177f-3d16-4cb2-a4dd-dba9211fe706",
+      "id": "5c9b7233-54bf-43cc-952b-3d3a605e5b75",
       "name": "Settings Saved MSG",
-      "webhookId": "92b50337-629a-425c-a82e-0cb5692220f9",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "92b50337-629a-425c-a82e-0cb5692220f9"
     },
     {
       "parameters": {
@@ -2262,15 +2088,9 @@
         0,
         1160
       ],
-      "id": "1bd465bb-8fb9-4c3f-b554-94e04fbbdb80",
+      "id": "4fea7bf4-60ab-48dc-b4c9-efcefa33fbb3",
       "name": "Hour MSG",
-      "webhookId": "17693fb5-7992-409f-9f95-0f0776a466a7",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "17693fb5-7992-409f-9f95-0f0776a466a7"
     },
     {
       "parameters": {
@@ -2290,7 +2110,7 @@
         160,
         1160
       ],
-      "id": "fd8b3802-8089-493f-b9f0-e1c95ee0f211",
+      "id": "7cc58611-7e1f-4186-a8f0-c499e8d669e6",
       "name": "Hour Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2327,15 +2147,9 @@
         160,
         1340
       ],
-      "id": "c7c74332-580e-4013-8f57-d9cf1312550f",
+      "id": "c717c8cc-8e4b-4b52-8e7d-ee4a177d2a6c",
       "name": "Signals Settings",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2351,15 +2165,9 @@
         300,
         1340
       ],
-      "id": "89ffd297-f680-4918-82bd-dfc30bb6b41a",
+      "id": "2cbd7fbf-9662-46f8-a6d9-18f10ced7b55",
       "name": "Signals Settings MSG",
-      "webhookId": "e9adfde7-b6e2-4a2e-8a46-5b4040911620",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "e9adfde7-b6e2-4a2e-8a46-5b4040911620"
     },
     {
       "parameters": {
@@ -2393,15 +2201,9 @@
         -1500,
         1900
       ],
-      "id": "277f15b2-e4c5-4932-9ad7-414888c6273f",
+      "id": "7bc52633-5fa7-4c1d-87d6-73b6c50c46cf",
       "name": "Google Sheets - Bounty Data",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2420,7 +2222,7 @@
         -2640,
         1900
       ],
-      "id": "9c5f8cc4-ecc7-4447-a67c-7a46c225ed1d",
+      "id": "7c2a63a0-9755-43dc-a624-38d221ea7cd8",
       "name": "Daily Checker"
     },
     {
@@ -2447,15 +2249,9 @@
         -2460,
         1900
       ],
-      "id": "6c6fb2ef-cc30-44b4-92a1-b6ac51b9d6f0",
+      "id": "c416422c-8741-48f9-b901-9782b1ca1b9e",
       "name": "Google Sheets Node - Get Contacts",
-      "alwaysOutputData": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "alwaysOutputData": true
     },
     {
       "parameters": {
@@ -2467,7 +2263,7 @@
         -2020,
         1900
       ],
-      "id": "007a5dee-9c7d-4df4-9459-c529393aca12",
+      "id": "77e6f3dd-5c96-41f3-8dca-67dabd5e6cea",
       "name": "Function Node - Calculate Next Reminder Dates",
       "alwaysOutputData": false
     },
@@ -2512,7 +2308,7 @@
         -2240,
         1900
       ],
-      "id": "33434832-e42b-4870-8995-217edc0723f3",
+      "id": "ce4ef53b-1bd6-4231-bf70-d6fa97cf27d9",
       "name": "Only users with reminders"
     },
     {
@@ -2526,7 +2322,7 @@
         -1680,
         1900
       ],
-      "id": "2f09892a-f436-474d-9c2b-509348404392",
+      "id": "b31910d1-c565-4414-af69-4526157d25f6",
       "name": "Check Hour",
       "alwaysOutputData": false
     },
@@ -2543,7 +2339,7 @@
         -1840,
         1900
       ],
-      "id": "be861a30-e059-4982-b389-e39eba37f5d6",
+      "id": "29a45330-5ab4-4a47-bc1f-442bb35a5511",
       "name": "Split By Hour",
       "alwaysOutputData": false
     },
@@ -2735,14 +2531,8 @@
         -760,
         1900
       ],
-      "id": "d0543672-5370-4ff9-95cd-5363d6199e48",
-      "name": "Google Sheets - Update Last Sent",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "id": "be0e4e48-692e-4e81-9016-d1e7dd0bd319",
+      "name": "Google Sheets - Update Last Sent"
     },
     {
       "parameters": {},
@@ -2752,7 +2542,7 @@
         -1120,
         1900
       ],
-      "id": "19121afb-2ae1-4941-8d77-71a596e56712",
+      "id": "af264db3-061e-455d-a3f7-a48f59c59180",
       "name": "Wait",
       "webhookId": "dc7c5ccb-1ba0-4ad4-9cf5-ee49270daa71"
     },
@@ -2805,15 +2595,9 @@
         -1300,
         1900
       ],
-      "id": "11f6a5b1-fdb2-41b4-80c0-3422846c396a",
+      "id": "0e53f0aa-e28f-41a1-afb8-fd2084e232be",
       "name": "Send Mission Detail",
-      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a"
     },
     {
       "parameters": {
@@ -2840,15 +2624,9 @@
         -960,
         1900
       ],
-      "id": "c9257bd4-40c5-4395-adb5-b78ca621f550",
+      "id": "ebc59120-5b6b-4426-9960-d1bcee43b160",
       "name": "Send Mission Call",
-      "webhookId": "5d2d195e-ff8c-405a-9910-117b98177a9c",
-      "credentials": {
-        "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
-        }
-      }
+      "webhookId": "5d2d195e-ff8c-405a-9910-117b98177a9c"
     },
     {
       "parameters": {
@@ -2861,7 +2639,7 @@
         740
       ],
       "typeVersion": 1,
-      "id": "e56882ea-7ac8-42ab-86aa-2e70c8eb90f1",
+      "id": "e0e4e46d-7d92-4f08-9db9-c0fb1a3450a8",
       "name": "Sticky Note"
     },
     {
@@ -2875,7 +2653,7 @@
         1880
       ],
       "typeVersion": 1,
-      "id": "2cfbc0b7-9941-407b-98c6-b61d61ad06c4",
+      "id": "25b34e80-8cb9-48f7-b648-815717ebb05d",
       "name": "Sticky Note1"
     },
     {
@@ -2902,15 +2680,9 @@
         0,
         420
       ],
-      "id": "d41119a7-0c66-4f5a-b888-0da75953dad6",
+      "id": "19a7f9ec-43e8-4165-8e8e-dfb4a06190a2",
       "name": "Google Sheets - Get total issued points",
-      "executeOnce": true,
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      }
+      "executeOnce": true
     }
   ],
   "pinData": {},
@@ -3630,11 +3402,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1f5b8ccd-0b3a-4efe-a23a-d1b04180b7d6",
+  "versionId": "fa430b39-2c12-4c98-9fec-bd3b24d370ea",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+    "instanceId": "4c2eb01a24bbfdbbf7bab3f4ae01285b9360d27ba5c6164de99b2e9c55e2a0e3"
   },
-  "id": "e40lWbfVXOWAMJWz",
+  "id": "8GgLEUVAzhl1fB0P",
   "tags": []
 }

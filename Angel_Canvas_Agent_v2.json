@@ -1,5 +1,5 @@
 {
-  "name": "Angel Canvas Agent v2",
+  "name": "Angel_Canvas_Agent_v2",
   "nodes": [
     {
       "parameters": {
@@ -48,10 +48,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -3260,
-        1000
+        1160,
+        480
       ],
-      "id": "8d7029de-b43a-4342-a00c-71b96b3f6d5c",
+      "id": "9be57e96-aeb0-4f5b-931a-cbf29cc39fd2",
       "name": "Check message type"
     },
     {
@@ -64,15 +64,15 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -3920,
-        1000
+        580,
+        480
       ],
-      "id": "9b4bcbb5-9608-4bd7-b97f-b0cab9da338b",
+      "id": "c986def9-e283-44f6-a429-2f258f41fe93",
       "name": "Chat start",
       "webhookId": "c454b994-7598-4173-abcd-a375e427c332",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "BLGKchr9yb6Gx4Vm",
+          "id": "CeayfzYamfHJ4xVo",
           "name": "WhatsApp OAuth account"
         }
       }
@@ -115,10 +115,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -3700,
-        1000
+        760,
+        480
       ],
-      "id": "a3b118d9-8417-4706-8047-d5ed513fedfa",
+      "id": "eab0d531-5932-4501-ad8f-c666c5bf80ad",
       "name": "Validate there is a message"
     },
     {
@@ -199,17 +199,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3480,
-        1000
+        980,
+        480
       ],
-      "id": "19ae085f-073d-44f9-b2b4-59365da43afe",
+      "id": "4fecb538-8f2d-4319-b57a-7ab5fa443914",
       "name": "Log Chat History",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
-          "name": "Google Sheets account"
-        }
-      },
       "disabled": true
     },
     {
@@ -219,11 +213,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4320,
-        420
+        160,
+        -100
       ],
       "typeVersion": 1,
-      "id": "eb894fa6-025c-4bd3-9198-f145b1bbe868",
+      "id": "0c1a9b21-3870-4e12-b822-e7c20ea8bfc8",
       "name": "Sticky Note"
     },
     {
@@ -233,11 +227,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -4340,
-        960
+        140,
+        440
       ],
       "typeVersion": 1,
-      "id": "d649afbf-624d-4cf4-81b0-e4635ff3bbd9",
+      "id": "798dd436-4404-43f8-9850-1dee2d0c7d02",
       "name": "Sticky Note2"
     },
     {
@@ -268,14 +262,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3700,
-        440
+        780,
+        -80
       ],
-      "id": "ebda0802-92a3-432d-8066-48f786a38b98",
+      "id": "eab8b55d-42f5-474f-95fb-cf840a8bdfac",
       "name": "Get Reminder List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -289,15 +283,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -3260,
-        440
+        1220,
+        -80
       ],
-      "id": "66929509-098a-4a5f-9a36-714c15147c15",
+      "id": "76fb4891-1a83-49e4-8fb6-980ea74162d0",
       "name": "Send Canvas Reminder",
       "webhookId": "f2ee0252-20d3-49bf-9f13-b3c19afd8875",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -379,14 +373,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -3040,
-        440
+        1440,
+        -80
       ],
-      "id": "dfb348d2-0913-45fc-a19b-f6b0b1c5c3a6",
+      "id": "c3b76e1a-053c-4ef3-a256-e17dec3149e6",
       "name": "Update Reminder Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -404,10 +398,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -3900,
-        440
+        580,
+        -80
       ],
-      "id": "0f8a5b1a-638b-427d-b017-59c6afe076a4",
+      "id": "ea945453-5a7d-4b1b-b3f1-181cddc19a57",
       "name": "Schedule Trigger Canvas Reminder"
     },
     {
@@ -449,10 +443,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -3480,
-        440
+        1000,
+        -80
       ],
-      "id": "743d1654-74b2-488c-b241-22d51d295d26",
+      "id": "d59a5c2d-88aa-4f86-ad8b-bb38c67a5d1f",
       "name": "Filter based on reminder date"
     },
     {
@@ -460,29 +454,23 @@
         "operation": "sendAndWait",
         "phoneNumberId": "661969530322547",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
-        "message": "Your Angel Canvas will take around 10–15 minutes to complete.\n\nWould you like to start now, or should I send you a reminder for later?\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
+        "message": "=Your Angel Canvas will take around 10–15 minutes to complete.\n\nWould you like to start now, or should I send you a reminder for later?\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
         "responseType": "freeText",
-        "options": {
-          "limitWaitTime": {
-            "values": {
-              "resumeUnit": "minutes"
-            }
-          }
-        }
+        "options": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -3020,
-        1000
+        1400,
+        480
       ],
-      "id": "cf68c73b-5e77-4ce2-b2ba-0563c8a9f807",
+      "id": "527a4f78-b215-403c-854d-89df050349b8",
       "name": "Default MSG",
       "webhookId": "5b9611ef-de85-44e6-b7fa-4ee57a659f4a",
       "alwaysOutputData": true,
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -498,15 +486,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -2520,
-        1220
+        2640,
+        680
       ],
-      "id": "f0ca5160-98d2-4efd-84d3-89111c80183f",
+      "id": "3de83eea-649e-44bb-8e9f-4b4d643818ae",
       "name": "Ask Angel Name",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -572,14 +560,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -2520,
-        800
+        2640,
+        260
       ],
-      "id": "30545cbf-cd24-4f18-a6d9-b774973d6ee0",
+      "id": "f85efde6-e2bb-426b-9f44-1a7f10407c91",
       "name": "Google Sheets - Save Reminder Tomorrow",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -645,14 +633,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -2520,
-        1000
+        2640,
+        460
       ],
-      "id": "634a4351-f297-4cec-9782-1f8de9479ca4",
+      "id": "03113059-9ab0-489c-89ec-3e69809b5a6c",
       "name": "Google Sheets - Save Reminder Two Days",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "pFwYrVF1BLuQ7jcl",
           "name": "Google Sheets account"
         }
       }
@@ -743,10 +731,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -2820,
-        1000
+        1800,
+        480
       ],
-      "id": "9ac8028e-57c3-4cde-8607-13c93a46356c",
+      "id": "1a4e627f-a48d-476e-ab6e-cf9eaaeb6b10",
       "name": "Main Menu Switch"
     },
     {
@@ -760,15 +748,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -2280,
-        1000
+        2880,
+        460
       ],
-      "id": "8cd79966-c005-405a-a2c7-a7df84383c6c",
+      "id": "38206165-21ee-4c4a-915a-68f88cd0d335",
       "name": "Reminder set 2 days",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -784,15 +772,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -2280,
-        800
+        2880,
+        260
       ],
-      "id": "7c600025-a061-4ded-8b31-dcd76559cc1b",
+      "id": "7a02216f-52a1-4926-8483-bcac83b8e68d",
       "name": "Reminder set tomorrow",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
+          "id": "msGVJiNEynYWB3bs",
           "name": "WhatsApp account"
         }
       }
@@ -808,8 +796,7 @@
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
     "Chat start": {
@@ -952,11 +939,10 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b746573f-12b4-4c1e-a999-0e8d1415e2e7",
+  "versionId": "d28f0d93-b33c-461c-89e2-18819bfce3e0",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+    "instanceId": "4c2eb01a24bbfdbbf7bab3f4ae01285b9360d27ba5c6164de99b2e9c55e2a0e3"
   },
-  "id": "z6EGoMwQmFveeJME",
+  "id": "AZailfKGiV2m7nc6",
   "tags": []
 }

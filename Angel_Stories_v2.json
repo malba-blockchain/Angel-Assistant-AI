@@ -1,5 +1,5 @@
 {
-  "name": "Angel Stories v2",
+  "name": "Angel_Stories_v2",
   "nodes": [
     {
       "parameters": {
@@ -25,18 +25,18 @@
         -1660,
         1000
       ],
-      "id": "41483c64-a3ff-4cf5-b9cb-50b9527a337f",
+      "id": "76026ad0-da08-44db-a71b-62d7a76d3e6d",
       "name": "Get Angel List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
         "template": "angel_story_v12|en",
         "components": {
@@ -74,13 +74,13 @@
         -780,
         1000
       ],
-      "id": "22133bfa-4532-45ba-8714-3358ed02adea",
+      "id": "84f02ecc-8cc1-4491-84eb-c0007742fc96",
       "name": "Send Angel Story Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -116,11 +116,11 @@
         -980,
         1000
       ],
-      "id": "504bcc6a-9fe0-42b5-92c2-659598e047c6",
+      "id": "c5ee2339-8ea2-4a00-a0b3-f5b32406035d",
       "name": "Get Story Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -175,7 +175,7 @@
         -1260,
         180
       ],
-      "id": "3fbae0c8-8f50-4522-ac8d-7188e02c07c5",
+      "id": "5b8f0225-03af-4d10-a329-0d96f6dfeedd",
       "name": "Check message type"
     },
     {
@@ -190,7 +190,7 @@
         -700,
         560
       ],
-      "id": "24766182-4af4-42dd-951c-ef7d8f0d2bef",
+      "id": "77719b63-081e-4a12-b7cb-f9fbbf2bde95",
       "name": "Simple Memory"
     },
     {
@@ -237,7 +237,7 @@
         -620,
         300
       ],
-      "id": "a0454338-5cb2-4dd6-a8d0-e432a1a28069",
+      "id": "1fffc141-2711-4f14-84b3-f1b4f089f177",
       "name": "Regenerate variables sender"
     },
     {
@@ -253,13 +253,13 @@
         -1840,
         180
       ],
-      "id": "2784a920-2daf-4327-bd53-f1b6cd1e5aae",
+      "id": "631203cb-9437-4510-91de-f65c714a4530",
       "name": "Chat start",
       "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "BLGKchr9yb6Gx4Vm",
-          "name": "WhatsApp OAuth account"
+          "id": "0asdMUFkHO8X88DN",
+          "name": "WhatsApp OAuth Assistant"
         }
       }
     },
@@ -304,7 +304,7 @@
         -1660,
         180
       ],
-      "id": "4928c96f-cb7d-416d-bd09-e026706e4fe4",
+      "id": "bb40e089-4f6a-40dc-b0a3-b093947990c9",
       "name": "Validate there is a message"
     },
     {
@@ -388,11 +388,11 @@
         -1460,
         180
       ],
-      "id": "14a75d1f-1757-4ba2-a8b6-750522530e4b",
+      "id": "1d3fe0bd-b5a2-476d-ba5b-4a2eb365acba",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -509,14 +509,14 @@
         -400,
         260
       ],
-      "id": "85b88938-889c-44f9-9437-9fe563043d4a",
+      "id": "f6a5cf7c-ddb2-4fce-bb4b-783f41637d34",
       "name": "Main Registration menu switch",
       "alwaysOutputData": false
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "To get access to Angel Stories, just type \"Access\"",
         "additionalFields": {}
@@ -527,13 +527,13 @@
         0,
         0
       ],
-      "id": "1faaaad4-8899-48c0-a524-9469af821254",
+      "id": "adec97f7-a5dc-4583-9d9a-e11d56895d4e",
       "name": "Default MSG",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -548,7 +548,7 @@
         0,
         180
       ],
-      "id": "69bda07f-69bd-4dca-bb5b-85a7643c10a8",
+      "id": "2e2acffe-40e2-4778-878f-9fb7db6b224a",
       "name": "Clean Memory1"
     },
     {
@@ -657,11 +657,11 @@
         0,
         500
       ],
-      "id": "ce476cd9-2812-4ebc-ad95-8efd6974462b",
+      "id": "1f4ee459-a23f-4b43-a989-d7bab2c15a3c",
       "name": "Register Angel Experience Database",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -669,7 +669,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Hello, I will grant you access to Angel Stories (mini podcasts from 3 to 5 min long).\n\n(1/3) What's your full name?",
         "additionalFields": {}
@@ -680,20 +680,20 @@
         -960,
         60
       ],
-      "id": "7079fe1c-9d42-46dd-8aa8-e158383d9b9b",
+      "id": "e4f6b4ab-5988-4b78-9cd7-5a44f16c2ec2",
       "name": "Ask Angel Name",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=✅ Success. You have been granted access to Angel Stories.",
         "additionalFields": {}
@@ -704,13 +704,13 @@
         200,
         500
       ],
-      "id": "f66aab89-a49e-466f-bf5c-b90ad6709ee8",
+      "id": "0d4aef8f-20d6-4f80-837d-11d8318f2994",
       "name": "Registration success",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -746,11 +746,11 @@
         380,
         500
       ],
-      "id": "a9bc1b1e-5baa-423f-ad1e-7d8c6ccf9994",
+      "id": "1f4f659c-f822-4961-8fa0-c1ba40fae0d9",
       "name": "Get First Story Data1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -758,7 +758,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "messageType": "audio",
         "mediaPath": "useMedian8n",
@@ -770,13 +770,13 @@
         720,
         500
       ],
-      "id": "8fb511d1-6b3a-4ab2-901f-58145fc316f0",
+      "id": "0f06c769-634a-4c11-944f-c8ace3e49c95",
       "name": "Send First Angel Story",
       "webhookId": "ead5d192-052c-4e92-a91e-e5868950f08e",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -798,11 +798,11 @@
         560,
         500
       ],
-      "id": "4a135bce-076f-4f50-a1a5-5c3a3b343c26",
+      "id": "fd113148-563a-488f-a334-8676fc289cfb",
       "name": "Google Drive",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -818,13 +818,13 @@
         0,
         340
       ],
-      "id": "91c4298c-6e08-427b-bb97-790b6481b26b",
+      "id": "1b6c17bb-8d40-4497-99a1-c07ad81b1e52",
       "name": "Clean Memory2"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: “{{ $('Get First Story Data1').item.json.Title }}” ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nIf there's a concept or story you'd like to propose, just let me know.",
         "additionalFields": {}
@@ -835,13 +835,13 @@
         1080,
         500
       ],
-      "id": "15943fb9-e740-4f84-b76c-b2f11bf227cc",
+      "id": "64107dc1-6caa-4a44-a999-33335ffbd696",
       "name": "First Angel Story message",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -853,7 +853,7 @@
         900,
         500
       ],
-      "id": "f7cf90f7-1a17-4165-b5d6-9523c8d0c6de",
+      "id": "4d73926e-fbdc-42af-bbc9-1b2ce8f66417",
       "name": "Wait",
       "webhookId": "de682aa7-c533-4afe-996f-0d3ebeb212a8"
     },
@@ -889,11 +889,11 @@
         -980,
         1180
       ],
-      "id": "7a44260a-b74a-4b5a-8790-e3a7ebfeeb40",
+      "id": "5a88593b-51cb-4d18-82e8-c6e5b254390c",
       "name": "Get Concept Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -914,12 +914,12 @@
         -1840,
         1000
       ],
-      "id": "7b6d6fea-b03b-417b-80d5-f61c4da655fd",
+      "id": "f0a909de-7050-4f56-bdb3-05b43641dd46",
       "name": "Schedule Trigger Angel Story"
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
         "template": "angel_story_v12|en",
         "components": {
@@ -957,20 +957,20 @@
         -780,
         1180
       ],
-      "id": "e81af179-d447-4824-8def-772e6f713bc6",
+      "id": "001b27f3-650a-44fc-bae4-7888fc4bd926",
       "name": "Send Angel Concept Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "(3/3) How often would you like to have access to Angel Stories?\n\n3. Every 3 days\n4. Every 4 days\n5. Every 5 days\n6. Every 6 days\n7. Every 7 days",
         "additionalFields": {}
@@ -981,20 +981,20 @@
         680,
         340
       ],
-      "id": "2e29cd4f-2ab4-46f5-a5f6-7f1660b40d8a",
+      "id": "3e0b6399-44d8-4c97-991b-4938d079018b",
       "name": "Angel Frequency",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(2/3) What's your experience as an angel?\n\n1. Base (None to 3 years)\n2. Intermediate (3 to 10 years)\n3. Advanced (10+ years)",
         "additionalFields": {}
@@ -1005,13 +1005,13 @@
         680,
         180
       ],
-      "id": "be6fc879-3d25-4ee3-a4e2-95766433d1fc",
+      "id": "6adb71ae-2312-4beb-bdbe-87bc40e6218f",
       "name": "Angel Level",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1033,7 +1033,7 @@
         340,
         340
       ],
-      "id": "6f9f6e35-f666-428d-b2b1-04fde30773a1",
+      "id": "0417751d-72c4-4b05-9648-352087e5fdf1",
       "name": "Angel Frequency Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1056,7 +1056,7 @@
         340,
         180
       ],
-      "id": "def76f26-bc04-441d-a61f-4ed624a30788",
+      "id": "c28b3566-2600-48fc-9c42-76619b1bcb4a",
       "name": "Angel Level Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1072,7 +1072,7 @@
         980
       ],
       "typeVersion": 1,
-      "id": "123d72ec-c4a5-4816-b9cc-1d6fe885b930",
+      "id": "e790d595-be70-4739-bdbd-50f48a69cbf9",
       "name": "Sticky Note"
     },
     {
@@ -1086,7 +1086,7 @@
         180
       ],
       "typeVersion": 1,
-      "id": "2b38453a-d7d2-424a-bcbb-62214dfe18a7",
+      "id": "da4f808a-12ce-4b5b-a4db-e4e43e1c18e9",
       "name": "Sticky Note2"
     },
     {
@@ -1121,7 +1121,7 @@
         -1480,
         1000
       ],
-      "id": "d4f7a82b-83b1-4097-b371-6bafe914ac5a",
+      "id": "673f5d05-923c-447d-b614-7a16e735cb77",
       "name": "Filter based on frequency"
     },
     {
@@ -1213,7 +1213,7 @@
         -1300,
         1000
       ],
-      "id": "0bfe10ca-fb8c-4b42-b201-f41b181e282d",
+      "id": "50ca34fa-a4f9-4a55-ad32-cdf10c52b059",
       "name": "Switch"
     },
     {
@@ -1248,11 +1248,11 @@
         -980,
         840
       ],
-      "id": "104c110c-3e63-4cc8-b14c-2467f9d61041",
+      "id": "57bf82c1-172e-4082-9ef3-ba8d0fd3133a",
       "name": "Get First Story Data",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1386,11 +1386,11 @@
         -580,
         840
       ],
-      "id": "ad92d8fc-2379-4102-8572-a89992c64da9",
+      "id": "6b46dc69-b096-463c-809d-1d9908dcb235",
       "name": "Update First Angel Experience Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1514,11 +1514,11 @@
         -580,
         1000
       ],
-      "id": "6ee4ca8b-7693-4b8d-bbc7-260acc8e2f21",
+      "id": "ba0d3d3f-e99f-46af-80e6-42c600ca234b",
       "name": "Update Angel Experience Status Story",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1642,18 +1642,18 @@
         -580,
         1180
       ],
-      "id": "1b77b4b2-282f-42c7-a474-fb5f2585ad29",
+      "id": "a89d4aad-774a-4dee-bbbc-d0256b5eeeba",
       "name": "Update Angel Experience Status Concept",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
         "template": "angel_story_v12|en",
         "components": {
@@ -1691,13 +1691,13 @@
         -780,
         840
       ],
-      "id": "c40ffc9b-c6d0-4287-8576-d43695f42811",
+      "id": "a2c44743-6cab-451d-b58c-1a89906559b0",
       "name": "Send Angel Story #1",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1719,7 +1719,7 @@
         -720,
         60
       ],
-      "id": "8831640c-a518-4106-b58c-e2acbce9dffe",
+      "id": "90ba1e15-bebd-4aff-83cd-670f5b2b5f9b",
       "name": "Angel Name Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1734,7 +1734,7 @@
         -960,
         300
       ],
-      "id": "c7f0ef43-2631-4bcf-a52c-965aed297b23",
+      "id": "95be4525-7090-44b8-981e-d4f0d28c0f79",
       "name": "Angel Story Menu Out"
     }
   ],
@@ -2131,11 +2131,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "995962a2-90c8-4267-959f-c6b964691dac",
+  "versionId": "499ec3ba-0dbd-4693-ae40-f9d7811af3fe",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+    "instanceId": "84bfbda17b22864ea6ccd752293914723bde22279881e22d1ec9f8ed802a2a43"
   },
-  "id": "154l0GKl9Brp0gMp",
+  "id": "FBSKDTrYi7WOfI66",
   "tags": []
 }

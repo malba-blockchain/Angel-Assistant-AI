@@ -48,10 +48,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1560,
-        1940
+        -1260,
+        1920
       ],
-      "id": "f31e45ba-b7ae-4cb5-9c6a-b8953c8f48cf",
+      "id": "777df18a-ea92-4781-9a73-8acf0fb273ad",
       "name": "Check message type"
     },
     {
@@ -63,10 +63,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -1380,
-        4120
+        -1080,
+        4100
       ],
-      "id": "16839d2a-a534-4a80-9b6a-5da4331c3b95",
+      "id": "3c2303f2-09dc-44ae-acad-95cc20ad868d",
       "name": "Simple Memory"
     },
     {
@@ -98,10 +98,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -780,
-        2840
+        -480,
+        2820
       ],
-      "id": "537dc699-786d-4b95-a5ed-0a491b4f6559",
+      "id": "44a9ef8a-0741-4a20-8a01-b1a98a0f6268",
       "name": "Regenerate variables sender"
     },
     {
@@ -114,16 +114,16 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -2220,
+        -2080,
         1940
       ],
-      "id": "d0cc0fb4-ee93-4ba0-bcae-73ab7cb48874",
+      "id": "1ae47834-f8ce-4697-9134-b9c89df38182",
       "name": "Chat start",
       "webhookId": "334032b9-81a6-41bc-a26f-7110da4a01ee",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "CeayfzYamfHJ4xVo",
-          "name": "WhatsApp OAuth account"
+          "id": "0asdMUFkHO8X88DN",
+          "name": "WhatsApp OAuth Assistant"
         }
       }
     },
@@ -165,10 +165,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2000,
-        1940
+        -1900,
+        1920
       ],
-      "id": "1f03981a-5ea7-4b28-87e2-e771048887ee",
+      "id": "c20ae438-ed54-477d-8985-0c5d2d81ec8a",
       "name": "Validate there is a message"
     },
     {
@@ -193,8 +193,7 @@
           "value": {
             "Date": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
             "Message": "={{ $('Chat start').item.json.messages[0].text?.body || $('Chat start').item.json.messages[0].button?.text || '' }}",
-            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
-            "Name": "={{ $json['What’s your name?'] }}"
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -228,7 +227,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Message",
@@ -249,14 +248,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1780,
-        1940
+        -1480,
+        1920
       ],
-      "id": "f3a588e9-fe75-4a3b-a862-97b916483a4f",
+      "id": "281c4ab9-12e3-4a43-b362-bf7958a89996",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1172,17 +1171,17 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -580,
-        2140
+        -280,
+        2120
       ],
-      "id": "1f5c99eb-8f9a-404d-8fe8-3efe56d0a7cf",
+      "id": "3659e989-7ea4-463d-8a3a-cb1bbcb8303d",
       "name": "Main Registration menu switch",
       "alwaysOutputData": false
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Let's do it! What's your full name?",
         "additionalFields": {}
@@ -1190,16 +1189,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        220,
-        640
+        520,
+        620
       ],
-      "id": "f3a331bc-2b3a-4670-9411-5fffa6811415",
+      "id": "da774272-079e-45ff-9027-45d0b13d5334",
       "name": "Ask Angel Name",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1211,10 +1210,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        1040
+        160,
+        1020
       ],
-      "id": "f5fc79fd-b77c-4663-820a-0984a72f965a",
+      "id": "6f5ae30b-2ce3-47de-8e69-0ef318c927c6",
       "name": "Clean Memory2"
     },
     {
@@ -1224,11 +1223,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2640,
-        1060
+        -2560,
+        1040
       ],
       "typeVersion": 1,
-      "id": "87ab3a58-7566-4d73-9fa6-dd2c6a0f1856",
+      "id": "7ef0545a-0331-4508-b1d3-e34d01c462ae",
       "name": "Sticky Note"
     },
     {
@@ -1238,17 +1237,17 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -2640,
-        1900
+        -2740,
+        1880
       ],
       "typeVersion": 1,
-      "id": "3e6fbd55-5a54-4971-a545-d7c92761d3b5",
+      "id": "48c6eeec-eb5c-4f03-8c9a-648ddcbc0c55",
       "name": "Sticky Note2"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=Your Angel Canvas will take around 10–15 minutes to complete. \n\nWould you like to start now, or should I send you a reminder for later?\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
         "additionalFields": {}
@@ -1256,23 +1255,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -80,
-        20
+        220,
+        0
       ],
-      "id": "06275775-3d44-4aa0-9ebf-6bf53beffdc7",
+      "id": "9b8d26cd-5d16-4681-8c42-74076377851d",
       "name": "Default MSG 1",
       "webhookId": "9d666963-4356-43ba-81ae-5197f2335ce1",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=*Alright {{ $('Chat start').item.json.contacts[0].profile.name.split(\" \")[0] }}, let's customize your canvas.*\n\n(1/21) What's your previous experience investing in startups?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. I've never invested in startups\nB. I invested through crowdfunding or VC funds\nC. I invested as solo angel\nD. I invested through an investment vehicle with few people\nE. I invested through an angel syndicate\nF. I invested through an angel fund\nG. I've been an angel for 1 to 3 years\nH. I've been an angel for 3 to 5 years\nI. I've been an angel for 5 to 10 years\nJ. I've been an angel for more than 10 years",
         "additionalFields": {}
@@ -1280,23 +1279,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        840
+        900,
+        820
       ],
-      "id": "0f6840fd-be55-45e9-96e5-0e3d672fccf3",
+      "id": "9bf5ff67-2c81-4ef1-8444-0ddf735ce7e5",
       "name": "Question 1",
       "webhookId": "821ef378-bf66-4052-b071-356063e3d57c",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(2/21) How do you perceive your role as an angel investor?\n\nA. As a hobby – I invest primarily for enjoyment and personal interest.\nB. As a remunerated job – I see it as a professional activity with financial returns.\nC. As an entrepreneurial career – I approach it as a long-term business venture.\nD. As a calling to contribute – I invest to support entrepreneurs and create impact.",
         "additionalFields": {}
@@ -1304,16 +1303,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        1040
+        900,
+        1020
       ],
-      "id": "ed4c8286-3086-47f1-8e3c-444f7c1f103f",
+      "id": "e0f89c58-7220-448e-9dda-c711d9f76f89",
       "name": "Question 2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1403,10 +1402,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -80,
-        420
+        220,
+        400
       ],
-      "id": "87a52e54-e8da-4d5b-80f0-d3a392cd3481",
+      "id": "9c4ad0ca-810f-425d-a040-b9ee9a1c2834",
       "name": "Main Menu Switch"
     },
     {
@@ -1470,14 +1469,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        220,
-        220
+        520,
+        200
       ],
-      "id": "d35f2fcc-2f84-42a7-8913-69bd24a9a353",
+      "id": "40696575-3c8b-4eea-9c93-8294b1e888af",
       "name": "Google Sheets - Save Reminder Tomorrow",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1544,14 +1543,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        220,
-        420
+        520,
+        400
       ],
-      "id": "1f67423d-cfdc-44ef-b93b-49a8eed7b293",
+      "id": "49396b1a-b894-4016-a3d1-0de32565fb38",
       "name": "Google Sheets - Save Reminder Two Days",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1571,10 +1570,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        420,
-        640
+        720,
+        620
       ],
-      "id": "7ce63c93-762b-435c-baac-92c0c7e9bf90",
+      "id": "7fc57c45-c5e1-47e5-96aa-b34fea075466",
       "name": "Angel Name Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1586,10 +1585,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1080,
-        2840
+        -780,
+        2820
       ],
-      "id": "ce617bd9-b624-4db8-a787-4dc62bcb34f9",
+      "id": "402656e3-600f-4f40-a5a6-94bc45e87317",
       "name": "Angel Canvas Menu Out"
     },
     {
@@ -1607,10 +1606,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        480,
-        20
+        780,
+        0
       ],
-      "id": "e69a6a16-3d03-4c4b-afc0-3393b32bef2d",
+      "id": "0aac302d-fdff-422d-ada7-98ee49459ab8",
       "name": "Angel Canvas Main Menu",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -1618,7 +1617,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Noted. I’ll remind you in two days. \n\nTalk soon!",
         "additionalFields": {}
@@ -1626,23 +1625,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        420,
-        420
+        720,
+        400
       ],
-      "id": "de596bd0-2e32-40e9-b1f0-33a0c07ce2e1",
+      "id": "b374707a-3bed-4872-9b4a-a6eeea66341c",
       "name": "Reminder set 2 days",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=Noted. I’ll remind you tomorrow. \n\nTalk soon!",
         "additionalFields": {}
@@ -1650,16 +1649,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        420,
-        220
+        720,
+        200
       ],
-      "id": "142e8aaa-aedd-4f79-8daa-53cc65c4cd3d",
+      "id": "17280d0b-41c2-4f48-a672-f91056aec68c",
       "name": "Reminder set tomorrow",
       "webhookId": "fc500e71-1110-4f8b-9dc5-693be1706e4e",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2149,14 +2148,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1040
+        1120,
+        1020
       ],
-      "id": "3f43604c-af3d-4cdc-b1c3-d01799016d4e",
+      "id": "fc701f25-5554-4fed-8a0b-6f93c012301d",
       "name": "Google Sheets - Add Q1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -2169,10 +2168,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        840
+        160,
+        820
       ],
-      "id": "107ee3cd-1aa7-41c9-9d19-3c75f84c5b5f",
+      "id": "d1a9c802-a211-405a-a2a5-00576fd8f8e5",
       "name": "Clean Memory1"
     },
     {
@@ -2183,10 +2182,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        1240
+        160,
+        1220
       ],
-      "id": "bcbd480a-601d-4f32-843c-5f4bdb698a4c",
+      "id": "8c8e1d89-43cd-4f54-8e31-553ae8eba864",
       "name": "Clean Memory3"
     },
     {
@@ -2204,10 +2203,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        840
+        540,
+        820
       ],
-      "id": "618545da-95a4-412b-bbb1-f6172f4ba528",
+      "id": "a85ad84a-1baa-4951-98bd-57c325ff0291",
       "name": "Angel Menu Q1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2227,10 +2226,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        1040
+        540,
+        1020
       ],
-      "id": "bb70bd33-b9a2-48e5-ae67-cd5f49deed83",
+      "id": "54aeba9f-077a-416c-af5a-8ceb686e2d67",
       "name": "Angel Menu Q2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2238,7 +2237,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(3A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is a great way to earn money\"",
         "additionalFields": {}
@@ -2246,16 +2245,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        1240
+        900,
+        1220
       ],
-      "id": "8ac1bdd2-de43-4dbb-b548-c7b5719a2124",
+      "id": "c7a39eac-210f-4899-ac77-8e2988f592e9",
       "name": "Question 3-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2267,16 +2266,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        1440
+        160,
+        1420
       ],
-      "id": "eca32264-38e1-468a-bb08-c4b72d767c75",
+      "id": "81b7eccb-86cd-48a8-8179-089ec0c80f78",
       "name": "Clean Memory4"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(3B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is an efficient way to diversify investments\"",
         "additionalFields": {}
@@ -2284,16 +2283,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        1440
+        900,
+        1420
       ],
-      "id": "8a8bc85a-99e2-4f29-98e6-0ad59f2d46a6",
+      "id": "4344568d-8470-44cf-ba68-9a5420de3e99",
       "name": "Question 3-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2312,10 +2311,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        1240
+        540,
+        1220
       ],
-      "id": "150a08ea-9e57-4fd9-a77c-64d470d3bb30",
+      "id": "12413ac0-3d8f-464d-a92b-677e482b6d16",
       "name": "Angel Menu Q3-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2335,10 +2334,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        1440
+        540,
+        1420
       ],
-      "id": "26c23057-a303-45e9-a356-9a9303e04964",
+      "id": "8a7d62fa-a864-4dd0-9102-34895db13c3d",
       "name": "Angel Menu Q3-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2351,16 +2350,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        1640
+        160,
+        1620
       ],
-      "id": "424ef66b-80bd-42a7-a095-5c54e02ddc51",
+      "id": "2c9bfd86-29d6-4371-aedb-8d2482fdc194",
       "name": "Clean Memory5"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(3C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing increases my wealth adequately in view of the risk I bear\"",
         "additionalFields": {}
@@ -2368,16 +2367,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        1640
+        900,
+        1620
       ],
-      "id": "d469b2f2-c416-4f5a-9d44-6bccce9dddf4",
+      "id": "469ed427-ee25-4446-b8d5-959a325be1f3",
       "name": "Question 3-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "Fy4klDxstGsDEnsQ",
+          "name": "WhatsApp account Assistant"
         }
       }
     },
@@ -2396,10 +2395,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        1640
+        540,
+        1620
       ],
-      "id": "6d6f74e3-cd89-43a3-bc12-57f049b2a7fb",
+      "id": "e4e8b8ea-c4e2-4337-a6ef-1d130e8196cf",
       "name": "Angel Menu Q3-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2412,10 +2411,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        1840
+        160,
+        1820
       ],
-      "id": "3342ba63-210a-481a-9984-ed3e5376dd52",
+      "id": "8270c0bf-6c5a-478e-95cb-80ff14311aa7",
       "name": "Clean Memory"
     },
     {
@@ -2433,10 +2432,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        1840
+        540,
+        1820
       ],
-      "id": "cdb906af-6e8f-4a77-ac1e-a94cba44955a",
+      "id": "a7893f51-892b-4d66-981c-e549c4a8abbc",
       "name": "Angel Menu Q4-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2444,7 +2443,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(4A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is an easy way to invest\"",
         "additionalFields": {}
@@ -2452,16 +2451,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        1840
+        900,
+        1820
       ],
-      "id": "d3798b0e-1844-46bc-9327-b0aa512b3e66",
+      "id": "35a7d1c1-76de-471b-a0de-40566d282f76",
       "name": "Question 4-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2473,10 +2472,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        2040
+        160,
+        2020
       ],
-      "id": "06c392d1-5d3f-42f0-90c1-6e60352bf75d",
+      "id": "53085281-4d1e-4a2b-9dbe-e784caa12e04",
       "name": "Clean Memory6"
     },
     {
@@ -2494,10 +2493,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        2040
+        540,
+        2020
       ],
-      "id": "29c8dec9-3a84-4a7c-8b35-52e343266823",
+      "id": "58214d17-6683-4415-b00d-906dfdeb9850",
       "name": "Angel Menu Q4-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2505,7 +2504,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(4B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is not unnecessarily time-consuming\"",
         "additionalFields": {}
@@ -2513,16 +2512,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        2040
+        900,
+        2020
       ],
-      "id": "3872bcba-70f8-4f0c-af05-3e822ef1dd5e",
+      "id": "42d6abb8-2716-4e55-8943-4468c530d1f8",
       "name": "Question 4-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2534,16 +2533,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        2240
+        160,
+        2220
       ],
-      "id": "e727813a-c174-4d8d-aa26-5b11dd94c1d3",
+      "id": "7462ff08-c7b0-4572-8cb9-6ed7b81a6d67",
       "name": "Clean Memory7"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(5A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is a way to give back to society\"",
         "additionalFields": {}
@@ -2551,16 +2550,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        2240
+        900,
+        2220
       ],
-      "id": "54affd20-3bc4-4e5b-8f2c-d199a000ab78",
+      "id": "cd4e08ff-066d-4e57-aefa-8b29924e41f1",
       "name": "Question 5-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "Fy4klDxstGsDEnsQ",
+          "name": "WhatsApp account Assistant"
         }
       }
     },
@@ -2579,10 +2578,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        2240
+        520,
+        2220
       ],
-      "id": "4fd700ac-336f-4c3c-8e9c-e63c0d154a1d",
+      "id": "a80c3805-e11a-4ced-b616-775dc396190c",
       "name": "Angel Menu Q5-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2595,16 +2594,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        2440
+        160,
+        2420
       ],
-      "id": "b2255cb9-b817-4caa-9d35-d5810cb11623",
+      "id": "b00d72a8-7db3-4436-a33f-e76698a90e83",
       "name": "Clean Memory8"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(5B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the opportunity to express benevolence toward other people\"",
         "additionalFields": {}
@@ -2612,16 +2611,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        2440
+        900,
+        2420
       ],
-      "id": "e3db21e9-107e-4539-9e3c-e33a4d098c11",
+      "id": "8544a5fd-14ae-4e98-8d1e-5271c4575ec0",
       "name": "Question 5-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2640,10 +2639,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        2440
+        540,
+        2420
       ],
-      "id": "a374d101-0b88-409d-afcf-930b9c84dd4a",
+      "id": "0d298bd8-bdef-44a3-a778-d7365a2f8300",
       "name": "Angel Menu Q5-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2656,10 +2655,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        2640
+        160,
+        2620
       ],
-      "id": "358c07cc-a23e-4ce4-bc3c-dde4f6e73de6",
+      "id": "310158e0-2824-41b7-a204-9d41591fec02",
       "name": "Clean Memory9"
     },
     {
@@ -2677,10 +2676,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        2640
+        540,
+        2620
       ],
-      "id": "c3654547-6b33-48f4-95d0-b712219c92b4",
+      "id": "1fde1ad5-c720-4108-afdc-ccefdb9b6a27",
       "name": "Angel Menu Q5-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2688,7 +2687,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(5C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing encourages me to have a life with a higher purpose\"",
         "additionalFields": {}
@@ -2696,16 +2695,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        2640
+        900,
+        2620
       ],
-      "id": "61bdfd04-5b24-4355-9895-afe349b1e090",
+      "id": "d8320d2a-69af-4617-a073-f11f0894cd54",
       "name": "Question 5-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2717,10 +2716,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        2840
+        160,
+        2820
       ],
-      "id": "36c9fa47-1a8c-4ab7-8ab9-621e5ac2db3c",
+      "id": "8e081912-d1fb-4a6d-820c-50d60cc25ce1",
       "name": "Clean Memory10"
     },
     {
@@ -2738,10 +2737,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        2840
+        540,
+        2820
       ],
-      "id": "24e988ac-03aa-4c65-8540-627ab2179ba1",
+      "id": "1feb89b0-bf9b-48a4-b5b1-c81ac34d9b89",
       "name": "Angel Menu Q6-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2749,7 +2748,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(6A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing boosts my self-esteem\"",
         "additionalFields": {}
@@ -2757,16 +2756,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        2840
+        900,
+        2820
       ],
-      "id": "297b0209-928b-4cd1-9607-a69a83df26f6",
+      "id": "5d96a254-1ac1-4b06-881b-fd73150e374e",
       "name": "Question 6-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2778,10 +2777,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        3040
+        160,
+        3020
       ],
-      "id": "c0a24a2b-f345-4652-a4d3-e4e8579bf709",
+      "id": "d7706d0f-7ddd-420f-9ec0-59c772d28933",
       "name": "Clean Memory11"
     },
     {
@@ -2799,10 +2798,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        3040
+        540,
+        3020
       ],
-      "id": "2da844f4-9973-4b5f-8554-478cef662f32",
+      "id": "cec31b16-7186-4e0b-9407-f997743f0489",
       "name": "Angel Menu Q6-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2810,7 +2809,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(6B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me sheer joy\"",
         "additionalFields": {}
@@ -2818,16 +2817,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        3040
+        900,
+        3020
       ],
-      "id": "23581ee7-7a8e-4fda-9d0a-edb1a9b1f24d",
+      "id": "981231b3-aab2-41b8-8519-97e754e20f39",
       "name": "Question 6-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2839,10 +2838,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        3240
+        160,
+        3220
       ],
-      "id": "92e675e5-808b-43a1-a898-26e5cfa81eab",
+      "id": "a2361f9d-eae4-47ff-848b-2af8c63643c0",
       "name": "Clean Memory12"
     },
     {
@@ -2853,10 +2852,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        3440
+        160,
+        3420
       ],
-      "id": "30ae46b6-b42b-4923-9381-6c078cbf132a",
+      "id": "9b9eac19-37d6-465d-b3d8-9c3c4c6b69c2",
       "name": "Clean Memory13"
     },
     {
@@ -2874,10 +2873,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        3240
+        540,
+        3220
       ],
-      "id": "4ecdb2ef-4722-4d03-a929-45118a7d90f7",
+      "id": "ade5209d-503b-4fc4-8e4e-ba4f421737ce",
       "name": "Angel Menu Q6-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2885,7 +2884,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(6C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing makes me feel valuable\"",
         "additionalFields": {}
@@ -2893,16 +2892,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        3240
+        900,
+        3220
       ],
-      "id": "7207cac5-1c55-410b-987d-49709e1abad1",
+      "id": "fe7e802a-3784-4ee2-958d-b69bb2203ff6",
       "name": "Question 6-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2921,10 +2920,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        3440
+        540,
+        3420
       ],
-      "id": "a0b02a0d-9617-465c-af36-83637a7fb331",
+      "id": "34666007-39dd-4a1c-a6db-c1edf68a9166",
       "name": "Angel Menu Q6-4",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -2932,7 +2931,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(6D/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing increases my self-confidence\"",
         "additionalFields": {}
@@ -2940,16 +2939,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        3440
+        900,
+        3420
       ],
-      "id": "3897aea6-e60d-4adf-a695-854469f7a6ba",
+      "id": "02508ece-7ac3-4570-b8e1-85986c8fe61d",
       "name": "Question 6-4",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2961,10 +2960,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        3640
+        160,
+        3620
       ],
-      "id": "25f1d473-f927-446d-98de-4cfa3efef5f5",
+      "id": "1a33c637-ad63-4473-b97c-7e6470039e79",
       "name": "Clean Memory14"
     },
     {
@@ -2975,10 +2974,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        3840
+        160,
+        3820
       ],
-      "id": "343a23d0-9965-48db-bfe5-c1698e963fc7",
+      "id": "92da5bef-5f5a-444c-a8c3-5841fa77fe4b",
       "name": "Clean Memory15"
     },
     {
@@ -2989,10 +2988,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        4040
+        160,
+        4020
       ],
-      "id": "71412e1c-ac80-432d-a355-331129977876",
+      "id": "5664d611-b72b-4d27-8bba-f65591fd22ee",
       "name": "Clean Memory16"
     },
     {
@@ -3003,10 +3002,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        4240
+        160,
+        4220
       ],
-      "id": "e5b9ffa5-9301-4ba3-b8ee-c37ffba2728e",
+      "id": "f3a2833e-8159-4950-bc13-501d435a23d1",
       "name": "Clean Memory17"
     },
     {
@@ -3024,10 +3023,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        3640
+        540,
+        3620
       ],
-      "id": "33a1270b-b3b4-4f3c-a4c2-42e77f8f8df7",
+      "id": "046bcfa5-3522-40bb-8447-d0f065f165ba",
       "name": "Angel Menu Q7-1",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3035,7 +3034,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(7A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing allows me to be part of entrepreneurship\"",
         "additionalFields": {}
@@ -3043,16 +3042,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        3640
+        900,
+        3620
       ],
-      "id": "57380000-66ea-4489-ab83-c2ad74052888",
+      "id": "9f9d6098-302f-4c55-93a1-df60d40c4e65",
       "name": "Question 7-1",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3071,10 +3070,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        3840
+        520,
+        3820
       ],
-      "id": "4a3e3712-e6d9-4087-92f4-37bcf21cc9ec",
+      "id": "26eaa760-8790-4190-861a-267abaf7446c",
       "name": "Angel Menu Q7-2",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3082,7 +3081,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(7B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the pleasure to begin something from scratch\"",
         "additionalFields": {}
@@ -3090,16 +3089,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        3840
+        900,
+        3820
       ],
-      "id": "2b0fee01-1d8e-40f4-966f-73758eb63619",
+      "id": "8c8918fc-0899-4512-b410-2eede2b5218a",
       "name": "Question 7-2",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3118,10 +3117,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        4040
+        540,
+        4020
       ],
-      "id": "72bbcac9-f11e-4d74-a8af-7c7f4e5fd72d",
+      "id": "006b7fb1-6ad8-4bcf-bd24-bedd902dade8",
       "name": "Angel Menu Q7-3",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3129,7 +3128,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(7C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the opportunity for involvement with startups\"",
         "additionalFields": {}
@@ -3137,16 +3136,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        4040
+        900,
+        4020
       ],
-      "id": "2139a7a8-2877-4c75-8e4f-e75b8217be96",
+      "id": "935bc073-9c41-4023-a6df-81ed81d328d6",
       "name": "Question 7-3",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3165,10 +3164,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        4240
+        520,
+        4220
       ],
-      "id": "be721154-63e1-4f02-acbd-e95786a8eff3",
+      "id": "0c3b88ea-ff5b-4d7f-b96b-96b6d8fc5a38",
       "name": "Angel Menu Q7-4",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3176,7 +3175,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(7D/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing allows me to mentor entrepreneurs\"",
         "additionalFields": {}
@@ -3184,16 +3183,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        4240
+        900,
+        4220
       ],
-      "id": "249a5abe-bf67-4ca0-ba97-0decdfde15f2",
+      "id": "ef1ce183-2e1d-4ae8-8e3c-c9bb4dd2370d",
       "name": "Question 7-4",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3205,10 +3204,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        4440
+        160,
+        4420
       ],
-      "id": "b92654eb-84f2-4e60-8059-28e2e62ab95a",
+      "id": "dda35402-06bf-4376-a810-9edf5953eaad",
       "name": "Clean Memory18"
     },
     {
@@ -3219,10 +3218,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        4640
+        160,
+        4620
       ],
-      "id": "f73c303a-39d0-42d4-831b-2d945a6e51b3",
+      "id": "89d00895-4a28-4948-b8aa-8270dd2ff8c2",
       "name": "Clean Memory19"
     },
     {
@@ -3233,10 +3232,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        4840
+        160,
+        4820
       ],
-      "id": "738b806c-296d-4f2b-85e9-6aec44945b68",
+      "id": "4112e71f-e9a3-4d05-9719-a980518c9c1c",
       "name": "Clean Memory20"
     },
     {
@@ -3254,10 +3253,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        4440
+        540,
+        4420
       ],
-      "id": "91346b7c-f3c4-466c-a952-d627cff346f5",
+      "id": "bc69d9ab-1981-4da5-a1da-4cfed900bc2d",
       "name": "Angel Menu Q8",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3277,10 +3276,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        4640
+        540,
+        4620
       ],
-      "id": "89f172ec-0567-40c2-bee4-74cf678b2c86",
+      "id": "efa83c9e-dde0-4b2e-b980-609b4bb3dd51",
       "name": "Angel Menu Q9",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3300,10 +3299,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        4840
+        540,
+        4820
       ],
-      "id": "706b76b2-4800-4eed-bda3-c91bacfa4eb1",
+      "id": "f7125f03-300f-49a9-a867-b7e25dfd1807",
       "name": "Angel Menu Q10",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3311,7 +3310,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(8/21) What future changes in the world do you foresee and would love to be part of?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. AI (Artificial Intelligence)\nB. Longevity & Health\nC. Space & Interplanetary Life\nD. New Energy Sources\nE. Decentralized Finance & Power\nF. Green Revolution & Sustainability\nG. Future of Work\nH. Consumer Tech and E-commerce\nI. Personalized Learning & Human Potential\nJ. A More Inclusive & Equal World\nK. A More Meritocratic & Productive World\nL. Not sure\nM. Other",
         "additionalFields": {}
@@ -3319,23 +3318,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        4440
+        900,
+        4420
       ],
-      "id": "ae9b2b7c-aa02-4297-a1b2-396e4e65f3fd",
+      "id": "dbb6af3b-affd-497e-98d6-abe71d88180b",
       "name": "Question 8",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(9/21) Which are the main challenges in the world that startups can solve?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. Climate & Sustainability\nB. Healthcare & Well-being\nC. Financial Innovation\nD. Education & Future of Work\nE. Food & Agriculture\nF. Urbanization & Mobility\nG. Cybersecurity & Privacy\nH. Aging & Accessibility\nI. Democracy & Human Rights\nJ. Space & Exploration\nK. Defense & Security\nL. Leisure & Lifestyle\nM. Big Data & Productivity\nN. Spirituality & Self-Growth\nO. Not sure\nP. Other",
         "additionalFields": {}
@@ -3343,23 +3342,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        4640
+        900,
+        4620
       ],
-      "id": "0625648c-d095-4045-9fc8-62819c3a7404",
+      "id": "d1da8821-7a5d-44bf-9de9-1f6d8139a787",
       "name": "Question 9",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(10/21) How much time do you want to dedicate to angel investing?\n\nA. Hands-On Partner (20 plus hours per week)\nB. Engaged Investor (10 to 20 hours per week)\nC. Active Part Time (5 to 10 hours per week)\nD. Advisor and Mentor (2 to 5 hours per week)\nE. Part Hands-On (1 hour per week)\nF. Regular Check-Ins (30 min per week)\nG. As low as possible (1 hour per month)\nH. Hands-Off Investor\nI. Not sure\nJ. Other",
         "additionalFields": {}
@@ -3367,16 +3366,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        4840
+        900,
+        4820
       ],
-      "id": "551bb273-06b8-4031-a3cf-b39311eafd47",
+      "id": "f16213b7-73b0-4576-b3f5-01b7fd14304c",
       "name": "Question 10",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3388,10 +3387,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        5040
+        160,
+        5020
       ],
-      "id": "0e2c90e4-0df2-446a-9160-248b4014ff82",
+      "id": "978893a1-b520-4db2-a83e-fdc537fe419b",
       "name": "Clean Memory21"
     },
     {
@@ -3402,10 +3401,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        5240
+        160,
+        5220
       ],
-      "id": "bea82cb1-9a50-4469-b8bf-7c557263fec5",
+      "id": "b3a8dfe9-01ab-481c-9869-ef5a07aa7d95",
       "name": "Clean Memory23"
     },
     {
@@ -3423,10 +3422,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        5240
+        540,
+        5220
       ],
-      "id": "57b64855-2fe5-4496-828c-a34116cb292c",
+      "id": "bb233af5-ab83-4ca3-8978-dfdf94c19b6a",
       "name": "Angel Menu Q12",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3434,7 +3433,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(12/21) What do you want founders to say about me? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. \"You guided us through every challenge with wisdom and support\"\nB. \"You provided us game changing insights and guidance\"\nC. \"Your backing elevated our reputation in the industry\"\nD. \"Thanks to your support, we scaled faster than we ever imagined\"\nE. \"You empowered us to think bigger and move bolder\"\nF. \"You believed in us before anyone else did\"\nG. \"Your connections opened doors we never thought possible\"\nH. \"Having you as an investor gave us the credibility we needed to attract others\"\nI. \"You backed us with capital and trust, letting us build our vision\"\nJ. Not sure\nK. Other",
         "additionalFields": {}
@@ -3442,16 +3441,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        5240
+        900,
+        5220
       ],
-      "id": "d064acba-01dd-448f-87a2-517279905895",
+      "id": "a33a648f-0fe3-461c-a22d-ff029aaaed97",
       "name": "Question 12",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3463,10 +3462,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        5440
+        160,
+        5420
       ],
-      "id": "476752be-79da-4d61-a049-3e5092fc6c38",
+      "id": "683edcd3-bcf1-48e4-98c6-74887f38c87c",
       "name": "Clean Memory25"
     },
     {
@@ -3484,10 +3483,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        5440
+        520,
+        5420
       ],
-      "id": "6a6b184e-371a-48e0-9b93-7c457341e0b0",
+      "id": "edbec84d-105e-463d-8f48-99b8964646c3",
       "name": "Angel Menu Q13",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3495,7 +3494,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(13/21) What do you want other angels to say about you? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. \"You spot game-changing opportunities before they go mainstream\"\nB. \"You actively contribute to growing the angel and startup community\"\nC. \"You bride startups with the right people, resources, and investors\"\nD. \"Your track record of successful exits speaks for itself\"\nE. \"You are willing to take calculated risks on groundbreaking ideas\"\nF. \"You provide valuable guidance and support to both founders and fellow investors\"\nG. \"You bring deep insights and data-driven decision-making to the table\"\nH. \"You are known for your fairness, transparency, and long-term commitment\"\nI. Not sure\nJ. Other",
         "additionalFields": {}
@@ -3503,16 +3502,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        5440
+        900,
+        5420
       ],
-      "id": "0f8eca66-3151-4c60-a33f-38d954495c10",
+      "id": "4b32ea89-93f0-4a21-b914-889248b2485c",
       "name": "Question 13",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3524,10 +3523,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        5640
+        160,
+        5620
       ],
-      "id": "9557975d-da83-4908-b994-770698420d4a",
+      "id": "3bc82dba-15b3-486b-b246-dedad9ae794b",
       "name": "Clean Memory26"
     },
     {
@@ -3545,10 +3544,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        5640
+        520,
+        5620
       ],
-      "id": "846bd895-e7ad-4b3e-96dd-d3e8ae65b9c8",
+      "id": "d3d2399c-2e60-4afa-a885-b142543b1451",
       "name": "Angel Menu Q14",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3556,7 +3555,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(14/21) How much would you be comfortable investing? \n\n(Strike a balance between making meaningful investments in startups and protecting your financial security)\n\nA. $500K or more in total\nB. $250K to $500K in total\nC. $100K to $250K in total\nD. $50K to $100K in total\nE. $20K to $50K in total\nF. Less than $20K in total\nG. $250K or more per year\nH. $100K to $250K per year\nI. $50K to $100K per year\nJ. $20K to 50K per year\nK. $10K to $20K per year\nL. Not sure\nM. Other",
         "additionalFields": {}
@@ -3564,16 +3563,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        5640
+        900,
+        5620
       ],
-      "id": "dc33d4e5-5692-4428-a2be-40e1ed275d5d",
+      "id": "fd1680c4-aedd-46be-9bdf-3271999b0f97",
       "name": "Question 14",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3585,10 +3584,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        5840
+        160,
+        5820
       ],
-      "id": "04969990-bd0b-497e-b3bf-01f005556b2a",
+      "id": "18eb8869-a323-46ca-995d-a5ca2953ef33",
       "name": "Clean Memory28"
     },
     {
@@ -3606,10 +3605,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        5840
+        520,
+        5820
       ],
-      "id": "381f51e2-1ef5-4c71-8ab4-14ab0032ce0c",
+      "id": "5fdd4cc4-1408-4cc0-b4ea-f127b2c46988",
       "name": "Angel Menu Q15",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3617,7 +3616,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(15/21) How many startups would you like to invest on?\n\nA. 50 plus startups – Super-angel strategy, spreading risk across many ventures\nB. 20 to 50 startups – Aggressive diversification\nC. 10 to 20 startups – Balanced risk across multiple bets\nD. 5 to 10 startups – Focused portfolio with calculated risk\nE. 1 to 5 startups – Selective, high-conviction\nF. Not sure\nG. Other",
         "additionalFields": {}
@@ -3625,16 +3624,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        5840
+        900,
+        5820
       ],
-      "id": "68ea66de-2d8f-4b11-8692-d77530ca31e6",
+      "id": "5444cf0a-3175-4a5a-8e0a-7754cc3b42ae",
       "name": "Question 15",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3646,10 +3645,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        6040
+        160,
+        6020
       ],
-      "id": "e9c41728-260a-4ab5-9e57-8ecb7e1e771a",
+      "id": "105dbd5e-4ad7-4e69-baff-d26bae040983",
       "name": "Clean Memory29"
     },
     {
@@ -3667,10 +3666,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        6040
+        520,
+        6020
       ],
-      "id": "5e085033-f8d2-415f-929a-3dcb1b0305c8",
+      "id": "31c41b8d-85ff-4c8f-85c6-f1472641f20d",
       "name": "Angel Menu Q16",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3678,7 +3677,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(16/21) What types of startups will you invest in? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Idea Stage\nB. MVP Stage\nC. Early Revenue\nD. Series A\nE. Post-Series A+\nF. Not sure\nG. Other",
         "additionalFields": {}
@@ -3686,16 +3685,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        6040
+        900,
+        6020
       ],
-      "id": "22365701-da28-40f8-b3fa-e1ce738ea1d9",
+      "id": "1707680f-1e8f-4406-ae73-4f7ecfebda0a",
       "name": "Question 16",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3707,10 +3706,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        6240
+        160,
+        6220
       ],
-      "id": "e1fc1a80-c798-4b94-af19-50e59a28644d",
+      "id": "0294b8f2-c684-42fc-8807-fbc8d03d5615",
       "name": "Clean Memory31"
     },
     {
@@ -3728,10 +3727,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        6240
+        520,
+        6220
       ],
-      "id": "0350efc4-0481-43b2-97a0-d0780433dbbf",
+      "id": "904ca9f6-1632-4e52-a8f0-bf27c3275b5b",
       "name": "Angel Menu Q17",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3739,7 +3738,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(17/21) What’s your investment return time frame?\n\nA. I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)\nB. I'm looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)\nC. Not sure\nD. Other",
         "additionalFields": {}
@@ -3747,16 +3746,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        6240
+        900,
+        6220
       ],
-      "id": "bca4b6a4-9d9e-4d54-a8a7-b7efcb5433c8",
+      "id": "9cb16d47-c349-4eb2-adf0-8a0919f7ec7e",
       "name": "Question 17",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "Fy4klDxstGsDEnsQ",
+          "name": "WhatsApp account Assistant"
         }
       }
     },
@@ -3775,10 +3774,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        240,
-        5040
+        540,
+        5020
       ],
-      "id": "7b9ada2f-7770-4b61-b0d1-e620a68d16dd",
+      "id": "7fc9fa11-f962-4002-8042-6e39882a76e2",
       "name": "Angel Menu Q11",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3786,7 +3785,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(11/21) What can be your key contributions beyond capital? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Industry Expertise\nB. Operational Experience\nC. Network & Connections\nD. Fundraising Support\nE. Crisis Counselor/Trusted Confidant\nF. Clients Introductions\nG. Go-to-Market Strategy\nH. Product Development\nI. Hiring & Talent Support\nJ. Hands-On Advisory\nK. Not sure\nL. Other",
         "additionalFields": {}
@@ -3794,16 +3793,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        5040
+        900,
+        5020
       ],
-      "id": "d71a8312-4e28-4681-ab4e-5974176c3946",
+      "id": "78a81638-42b3-4229-a752-66af779605ea",
       "name": "Question 11",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3815,10 +3814,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        6440
+        160,
+        6420
       ],
-      "id": "6a075a3c-b31c-4c0f-a342-8a99cbe3c777",
+      "id": "c919ec00-7c44-439c-b95c-c6c5ee3241dd",
       "name": "Clean Memory33"
     },
     {
@@ -3836,10 +3835,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        6440
+        520,
+        6420
       ],
-      "id": "fd671475-17ba-447c-9328-c1738187af61",
+      "id": "51e1c0d5-c1bc-488f-88bf-47e2f04b20a1",
       "name": "Angel Menu Q18",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3847,7 +3846,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(18/21) In which geographies will you invest? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Local Market – Startups within a 1 hour reach by car.\nB. Regional Market – Startups within a 2 hour reach by car.\nC. Continental Market - Startups within a 2 hour reach by plane.\nD. Global Approach – Open to investing anywhere in the world.\nE. Remote-First Startups – I invest in globally distributed teams.\nF. Emerging Markets\nG. Top Tier Startup Hubs\nH. Other",
         "additionalFields": {}
@@ -3855,16 +3854,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        6440
+        900,
+        6420
       ],
-      "id": "6334272a-6ee0-4200-88a7-c0ec36456577",
+      "id": "007a7c7c-ff92-4649-aec4-a07808e6eba7",
       "name": "Question 18",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3876,10 +3875,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        6640
+        160,
+        6620
       ],
-      "id": "d4e6fba3-6c9f-4e67-acb7-666f33fdbc82",
+      "id": "a12256ff-7296-4345-9f51-ec00538e2a05",
       "name": "Clean Memory35"
     },
     {
@@ -3897,10 +3896,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        220,
-        6640
+        520,
+        6620
       ],
-      "id": "f6157928-04f4-44d8-b072-93e54d89421f",
+      "id": "0c848369-e9bd-4499-9746-c3d2a28244ef",
       "name": "Angel Menu Q19",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3908,7 +3907,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(19/21) What types of business models will you back? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. I'm agnostic\nB. B2B (Business-to-Business)\nC. B2C (Business-to-Consumer)\nD. DTC (Direct-to-Consumer)\nE. SaaS (Service-as-a-Software/Digital Agents)\nF. SaaS (Software-as-a-Service)\nG. E-Commerce\nH. Marketplace Models\nI. Tokenized & Web3 Models\nJ. Not sure\nK. Other",
         "additionalFields": {}
@@ -3916,16 +3915,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        6640
+        900,
+        6620
       ],
-      "id": "6544b37a-7b61-4e7a-ad3a-b636f2895028",
+      "id": "0b6e0e6a-f828-44fa-bf1e-350c74d6df2b",
       "name": "Question 19",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3937,10 +3936,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        6840
+        160,
+        6820
       ],
-      "id": "4190f1fc-4840-4663-9602-80f1027220c8",
+      "id": "d24dbe06-7fba-4559-8b78-cc1c83523caa",
       "name": "Clean Memory36"
     },
     {
@@ -3958,10 +3957,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        200,
-        6840
+        500,
+        6820
       ],
-      "id": "a8f23fe5-066b-4ba8-810c-b9486eb37cc9",
+      "id": "a34ce0e3-66a5-4a1d-9796-d5979c2a9546",
       "name": "Angel Menu Q20",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -3969,7 +3968,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(20/21) What are the key reasons that have kept you from angel investing in the past? (Optional)",
         "additionalFields": {}
@@ -3977,16 +3976,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        6840
+        900,
+        6820
       ],
-      "id": "efa48612-c52e-4117-9568-c841b7992d08",
+      "id": "e84c3e7e-d5fe-4686-8eb8-da53439afed3",
       "name": "Question 20",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3998,10 +3997,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        7040
+        160,
+        7020
       ],
-      "id": "e10d3e68-4fbd-4ef9-bdd5-13437144b587",
+      "id": "0005397a-7a74-453b-ae1e-05c16b6f864f",
       "name": "Clean Memory37"
     },
     {
@@ -4019,10 +4018,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        200,
-        7040
+        500,
+        7020
       ],
-      "id": "fec1a480-56ed-4fd3-8e42-6284a2706b40",
+      "id": "5af530c4-ba56-43d1-8628-df0e64b8686d",
       "name": "Angel Menu Q21",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4030,7 +4029,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=(21/21) Which tasks would you delegate to an assistant in my angel investing activities? (Optional)",
         "additionalFields": {}
@@ -4038,16 +4037,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        7040
+        900,
+        7020
       ],
-      "id": "42ac7ad8-aaac-488c-9bcd-e9c17debbc6c",
+      "id": "51dc3cf8-10d3-4e2f-9391-42aa7cc8cbef",
       "name": "Question 21",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -4059,10 +4058,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -140,
-        7240
+        160,
+        7220
       ],
-      "id": "b7d60046-c264-4373-bfbd-14d539e88674",
+      "id": "832c9c97-8534-4246-ad93-15cbc1a4aa6b",
       "name": "Clean Memory38"
     },
     {
@@ -4080,10 +4079,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        200,
-        7240
+        500,
+        7220
       ],
-      "id": "3bff6657-c394-4cba-a710-5b908c4c30fb",
+      "id": "0e83b798-246d-40fd-ba42-29f82fb0b834",
       "name": "Angel Menu Email",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -4091,7 +4090,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=Perfect! We’re crafting your customized canvas. \n\nNow we only need a way to send it to you.\n\nWhere should I email it to?",
         "additionalFields": {}
@@ -4099,23 +4098,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        600,
-        7240
+        900,
+        7220
       ],
-      "id": "f2e6d37b-ccf4-4be6-b1b1-a57676838a5b",
+      "id": "e7e26fe2-fef0-4c2f-996c-7bc2e1adb77f",
       "name": "Question Email",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=✅We are done! Your Angel Canvas *will arrive in your inbox within 24 hours*. \n\nStay tuned!\n\nLooking for more?\n\nVisit this source of articles about angel investing for first-time and experienced angels.\n\nhttps://www.coreangels.com/blog",
         "additionalFields": {}
@@ -4123,16 +4122,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -140,
-        7440
+        160,
+        7420
       ],
-      "id": "ca49d1b1-5006-40c9-8a23-64d73133eb96",
+      "id": "d0169591-1fea-4502-9117-b25dab142066",
       "name": "Confirmation",
       "webhookId": "95f9839a-7afd-4804-8ca2-3088c33dd647",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -4623,14 +4622,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1240
+        1120,
+        1220
       ],
-      "id": "79057876-273a-479b-9d3b-e7b330c013aa",
+      "id": "fab4a343-7a3d-43ea-835a-0d7a006d4835",
       "name": "Google Sheets - Add Q2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -5122,14 +5121,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1440
+        1120,
+        1420
       ],
-      "id": "11bce8fa-a546-4568-869b-1fe6ca92f115",
+      "id": "c1f126b3-b6c1-4e00-a889-aedc184ee962",
       "name": "Google Sheets - Add Q3-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -5621,14 +5620,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1640
+        1120,
+        1620
       ],
-      "id": "40582362-f89e-4d04-9fd6-80a8eca0db27",
+      "id": "94586a81-9f20-4379-9e63-6845ce061b5b",
       "name": "Google Sheets - Add Q3-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -6120,14 +6119,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1840
+        1120,
+        1820
       ],
-      "id": "15508b2e-f241-474a-8e8a-c4528dc964cc",
+      "id": "94aecdb1-2153-4627-ae61-4d0e8727db3a",
       "name": "Google Sheets - Add Q3-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -6619,14 +6618,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        2040
+        1120,
+        2020
       ],
-      "id": "e5944c4d-4b9f-4b6d-9da5-106f11750c84",
+      "id": "aaf98b38-8199-4ca4-9d5c-21d484ff90e1",
       "name": "Google Sheets - Add Q4-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -7118,14 +7117,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        2240
+        1120,
+        2220
       ],
-      "id": "315c82ce-fada-404f-b605-506c92e53704",
+      "id": "22eca28c-1207-4eb3-b066-46e88b275388",
       "name": "Google Sheets - Add Q4-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -7617,14 +7616,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        2440
+        1120,
+        2420
       ],
-      "id": "b51324fb-7b08-47a3-9680-16b731c26f39",
+      "id": "170deb5f-ca04-42de-9810-dbc264aeede2",
       "name": "Google Sheets - Add Q5-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -8116,14 +8115,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        2640
+        1120,
+        2620
       ],
-      "id": "48000f23-1257-40e8-ac94-a5890f8e6b1c",
+      "id": "83eb0eef-7336-45b6-8974-70ee2a462620",
       "name": "Google Sheets - Add Q5-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -8615,14 +8614,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        2840
+        1120,
+        2820
       ],
-      "id": "cd717e06-a6d5-4905-902d-e7c37b4486b6",
+      "id": "79050693-ec10-40f7-8e8b-1326cfdf2c5e",
       "name": "Google Sheets - Add Q5-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -9114,14 +9113,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        3040
+        1120,
+        3020
       ],
-      "id": "b11968e9-f08c-417b-8956-4f70c9074670",
+      "id": "432bb86e-8559-46e9-aeae-a5e7181ebe32",
       "name": "Google Sheets - Add Q6-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -9613,14 +9612,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        3240
+        1120,
+        3220
       ],
-      "id": "7ce497fe-8bba-4697-95d0-fb98aa1a308a",
+      "id": "eb71aace-1ae3-4d17-8e66-cee62993771c",
       "name": "Google Sheets - Add Q6-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -10112,14 +10111,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        3440
+        1120,
+        3420
       ],
-      "id": "ff59fe82-be95-497e-96aa-65184c8d532c",
+      "id": "d8a0466d-443d-4958-98c7-4ae382b192bc",
       "name": "Google Sheets - Add Q6-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -10611,14 +10610,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        3640
+        1120,
+        3620
       ],
-      "id": "62701ee5-2164-4a48-a0e2-9c2e166f36fd",
+      "id": "d10a0213-bcbd-4bc9-9ead-c1259743120e",
       "name": "Google Sheets - Add Q6-4",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -11110,14 +11109,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        3840
+        1120,
+        3820
       ],
-      "id": "1f7ba903-d05b-47ec-8095-2e205bedccd5",
+      "id": "0423360c-c733-4c52-82fd-eb2a9d8a77cc",
       "name": "Google Sheets - Add Q7-1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -11609,14 +11608,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        4040
+        1120,
+        4020
       ],
-      "id": "d7242e62-de02-4e06-9939-cd80f6bcc420",
+      "id": "704809eb-b37d-45e6-a90d-f68075354197",
       "name": "Google Sheets - Add Q7-2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -12108,14 +12107,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        4240
+        1120,
+        4220
       ],
-      "id": "296fe044-8811-4142-877a-68f07ab77436",
+      "id": "8d13b518-5fbe-4cd5-9d49-eb4d70fc2edc",
       "name": "Google Sheets - Add Q7-3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -12607,14 +12606,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        4440
+        1120,
+        4420
       ],
-      "id": "d7e727cf-fcd7-4263-9337-943efd9e645e",
+      "id": "728f6c67-abbb-40d9-8cbf-f185cc66cd49",
       "name": "Google Sheets - Add Q7-4",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -13106,14 +13105,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        4640
+        1120,
+        4620
       ],
-      "id": "bd3276ca-ad4c-4a9d-b92c-90937dbc7372",
+      "id": "b4c463b8-46a4-41f1-94f0-abdef3d31c7a",
       "name": "Google Sheets - Add Q8",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -13605,14 +13604,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        4840
+        1120,
+        4820
       ],
-      "id": "c9b4bd5d-73f1-41b6-9592-3a93be7f781a",
+      "id": "2611922a-1cc4-4ac9-95be-6c9d59b2501f",
       "name": "Google Sheets - Add Q9",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -14104,14 +14103,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        5040
+        1120,
+        5020
       ],
-      "id": "768220dc-c3b7-404e-a946-0f10a37668ad",
+      "id": "ec15f797-ff5f-4226-8fd5-fd71c06dddc9",
       "name": "Google Sheets - Add Q10",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -14603,14 +14602,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        5240
+        1120,
+        5220
       ],
-      "id": "a6431364-6086-49ce-9ce8-c1ec89ca3d82",
+      "id": "cdda07d6-6e99-4c6f-ab78-e9014b2d36db",
       "name": "Google Sheets - Add Q11",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -15102,14 +15101,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        5440
+        1120,
+        5420
       ],
-      "id": "d363f5b9-e90b-440e-b70d-2ae436971110",
+      "id": "2fcb0347-4f13-4d93-a5f6-0dd6f42b4d8b",
       "name": "Google Sheets - Add Q12",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -15601,14 +15600,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        5640
+        1120,
+        5620
       ],
-      "id": "99a1e9dc-b7fb-45b4-82be-5c180aedd6e6",
+      "id": "a3eede7a-9890-4e4d-beae-fbd0be0e7db6",
       "name": "Google Sheets - Add Q13",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -16100,14 +16099,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        5840
+        1120,
+        5820
       ],
-      "id": "ac102c4a-ce45-457d-9143-d11bac37955b",
+      "id": "d88e8895-2d3e-4962-936e-14cfb97be6ef",
       "name": "Google Sheets - Add Q14",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -16599,14 +16598,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        6040
+        1120,
+        6020
       ],
-      "id": "45bd4da7-5820-44ce-aebc-b9f39644fdce",
+      "id": "5076e700-3e97-443a-acda-43830d585d9b",
       "name": "Google Sheets - Add Q15",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -17098,14 +17097,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        6240
+        1120,
+        6220
       ],
-      "id": "aee0cdf3-b3a4-49bc-8ae8-28508019fbe3",
+      "id": "30b44ed1-6785-454e-a20c-22ad359c2c64",
       "name": "Google Sheets - Add Q16",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -17597,14 +17596,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        6440
+        1120,
+        6420
       ],
-      "id": "7b6fed29-e2e4-43ec-bf3f-5de5b2bb519e",
+      "id": "afb17512-af43-4bc1-b778-4eda54905359",
       "name": "Google Sheets - Add Q17",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -18096,14 +18095,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        6640
+        1120,
+        6620
       ],
-      "id": "17313aa8-12c3-4ab0-ab9c-f24a56d0aae7",
+      "id": "0e44a7d0-b2a9-4f5d-950f-b62a26de3fc0",
       "name": "Google Sheets - Add Q18",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -18595,14 +18594,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        6840
+        1120,
+        6820
       ],
-      "id": "523f52d5-b8a3-4244-a555-b622990c5119",
+      "id": "a378d8c5-3240-44ab-ab03-182ca83ed7bf",
       "name": "Google Sheets - Add Q19",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -19094,14 +19093,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        7040
+        1120,
+        7020
       ],
-      "id": "ff4cd97c-7599-490b-9437-27e80eef1c4e",
+      "id": "4333e8ef-b40a-406a-841f-d01aa62f58eb",
       "name": "Google Sheets - Add Q20",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -19593,14 +19592,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        7240
+        1120,
+        7220
       ],
-      "id": "daf25aad-103b-4139-a101-687eaaa22a3e",
+      "id": "e0f3c523-bec3-4cd0-869f-bfa05221c602",
       "name": "Google Sheets - Add Q21",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -20092,14 +20091,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        60,
-        7440
+        360,
+        7420
       ],
-      "id": "16f1be06-4990-4950-9595-46385f0ec416",
+      "id": "082bf332-f935-401d-a776-6afeaa9861cd",
       "name": "Google Sheets - Add Email",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -20132,37 +20131,37 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -2020,
-        1080
+        -1940,
+        1060
       ],
-      "id": "24042448-20da-4349-8898-b06a4108bfd1",
+      "id": "b4f01e88-4542-4040-8229-74811a8fd9ff",
       "name": "Get Reminder List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on reminder date').item.json.Number.toString() }}",
         "template": "canvas_reminder_v1|en"
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -1580,
-        1080
+        -1500,
+        1060
       ],
-      "id": "e5b3022f-9d5c-4e34-b093-ee162fffd15d",
+      "id": "13343740-0766-4cda-939c-551492aa4c39",
       "name": "Send Canvas Reminder",
       "webhookId": "8cfdfcf3-1867-4a33-95df-dce0cf8cc984",
       "credentials": {
         "whatsAppApi": {
-          "id": "msGVJiNEynYWB3bs",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -20243,14 +20242,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1360,
-        1080
+        -1280,
+        1060
       ],
-      "id": "6abfd1a5-7240-4450-aada-040ef40d4ac5",
+      "id": "a175c983-1fca-4f4d-98d0-81a70e5272f4",
       "name": "Update Reminder Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -20260,7 +20259,8 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "minutes",
+              "minutesInterval": 1
             }
           ]
         }
@@ -20268,10 +20268,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2220,
-        1080
+        -2140,
+        1060
       ],
-      "id": "7ff2ce63-0490-44ac-9839-8f41eb5dc6d6",
+      "id": "0a6e15d9-6434-4369-8f89-525b3edc2b1e",
       "name": "Schedule Trigger Canvas Reminder"
     },
     {
@@ -20313,10 +20313,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        -1800,
-        1080
+        -1720,
+        1060
       ],
-      "id": "092b9e01-92f0-4f90-9ec9-1f386c01a38d",
+      "id": "8f996a5e-c28b-4cf1-97da-102f6f63d9b0",
       "name": "Filter based on reminder date"
     },
     {
@@ -20348,15 +20348,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        840
+        1120,
+        820
       ],
-      "id": "bf713358-fb66-4601-a39a-0e8ee78b7527",
+      "id": "c2c8c297-bd66-490f-81e3-c13fb9040ea0",
       "name": "Search number in registry",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -20842,14 +20842,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1340,
-        740
+        1640,
+        720
       ],
-      "id": "8c0ceb8a-d0d8-4749-8688-b18b5ea427ed",
+      "id": "1d4e7d00-5d9d-411e-9039-1f7109e7f768",
       "name": "Google Sheets - Update Registry",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -21326,14 +21326,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1340,
-        960
+        1640,
+        940
       ],
-      "id": "3f9543fa-d15a-428b-ae7a-3f73c032c26f",
+      "id": "5a02faa7-41ff-4c45-abc1-560293093bc6",
       "name": "Google Sheets - Add Registry",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "pFwYrVF1BLuQ7jcl",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -21366,11 +21366,45 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1060,
-        840
+        1360,
+        820
       ],
-      "id": "c9966263-99ef-4a1b-bd9e-4a60bbfb2c50",
+      "id": "0ef04411-ac69-4962-a1bd-bf7a157ec3f4",
       "name": "Number already exists?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a92fba63-dd67-487c-aabb-bb3d43cc34fa",
+              "leftValue": "={{ $json.metadata.display_phone_number }}",
+              "rightValue": "351913339704",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1680,
+        1920
+      ],
+      "id": "c7b42c4d-ebdf-49e3-bea9-99e34e135a25",
+      "name": "Validate right routing"
     }
   ],
   "pinData": {},
@@ -21770,7 +21804,7 @@
       "main": [
         [
           {
-            "node": "Log Chat History",
+            "node": "Validate right routing",
             "type": "main",
             "index": 0
           }
@@ -23279,11 +23313,6 @@
         ]
       ]
     },
-    "Google Sheets - Add Registry": {
-      "main": [
-        []
-      ]
-    },
     "Number already exists?": {
       "main": [
         [
@@ -23301,17 +23330,28 @@
           }
         ]
       ]
+    },
+    "Validate right routing": {
+      "main": [
+        [
+          {
+            "node": "Log Chat History",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "328f9585-f1f1-41e0-a793-f9ada6f7557a",
+  "versionId": "749a90b5-d79a-449a-bbea-fbfba36ceae7",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "4c2eb01a24bbfdbbf7bab3f4ae01285b9360d27ba5c6164de99b2e9c55e2a0e3"
+    "instanceId": "84bfbda17b22864ea6ccd752293914723bde22279881e22d1ec9f8ed802a2a43"
   },
-  "id": "pdoYqzcGwgZyRTpt",
+  "id": "5h5tTgtVoBDiADgf",
   "tags": []
 }

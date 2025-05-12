@@ -1,9 +1,9 @@
 {
-  "name": "Angel Canvas Generator and Gift Card v5",
+  "name": "Angel_Canvas_Generator_and_Gift_Card_v5",
   "nodes": [
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
         "template": "gift_card_message_v10|en",
         "components": {
@@ -23,16 +23,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1060,
-        1060
+        780,
+        340
       ],
-      "id": "2a82923c-9bb6-4240-95cf-012ece506e8d",
+      "id": "c819f1d1-f68b-4492-952f-19f182ab22ce",
       "name": "Gift Card Message",
       "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -84,10 +84,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        860,
-        1060
+        580,
+        340
       ],
-      "id": "10113bcf-aef8-4e77-89ae-fe0c4a5f5f78",
+      "id": "1d618413-a87e-46e5-8200-29155c0a90bd",
       "name": "Filter only processed & a day older"
     },
     {
@@ -102,15 +102,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1260,
-        1060
+        980,
+        340
       ],
-      "id": "83ed31cc-f533-4791-9d87-fc73bfd9ec86",
+      "id": "4ca20871-e4bb-4f84-815b-1e89ebea802e",
       "name": "Send Gift Card Email",
       "webhookId": "35a80676-5222-4c22-9af7-fbfdf99cce4f",
       "credentials": {
         "gmailOAuth2": {
-          "id": "j04bNzg85Grm8UH9",
+          "id": "3i8yUaNeV2Z99Alf",
           "name": "Gmail account"
         }
       }
@@ -184,8 +184,8 @@
               "removed": true
             },
             {
-              "id": "(1/21) What's my previous experience investing in startups",
-              "displayName": "(1/21) What's my previous experience investing in startups",
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -562,14 +562,14 @@
               "canBeUsedToMatch": true
             },
             {
-              "id": "Investment Type",
-              "displayName": "Investment Type",
+              "id": "Investment type",
+              "displayName": "Investment type",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "AI Tunning",
@@ -601,14 +601,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1460,
-        1060
+        1180,
+        340
       ],
-      "id": "9cf9caba-19c6-4fe0-ac42-459a8a5102ec",
+      "id": "ef65e191-c4fe-421b-8099-eeb6fe7c06fb",
       "name": "Update Angel Registry Status1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -626,10 +626,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        500,
-        1060
+        220,
+        340
       ],
-      "id": "f0f91198-24e7-4a2e-84cf-4e8aeea77fca",
+      "id": "59ac9a51-3a90-4d54-b9c4-423e7d3b7fa6",
       "name": "Schedule Trigger Gift Card",
       "disabled": true
     },
@@ -690,16 +690,16 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1160,
-        1580
+        880,
+        860
       ],
-      "id": "f243feb0-657f-460b-b545-3484116a6e21",
+      "id": "a845c29e-b698-4f12-bc56-9875fd150643",
       "name": "Check message type"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "messageType": "image",
         "mediaLink": "https://drive.usercontent.google.com/download?id=1YUXLQbrpkVu2vUnBQoILulgwW_6ecSv8&export=download&authuser=3&confirm=t&uuid=0379da93-e62d-469f-8638-2f195dea36be&at=APcmpoy0Wx0AsSeRFjTOObIg3Ozs:1744306838874",
@@ -708,16 +708,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
-        1500
+        1120,
+        780
       ],
-      "id": "1b1e4b9e-a46e-4a29-a6ef-15bc522b90f2",
+      "id": "124c08a0-9bdd-4b2a-97e9-b551aa4924f6",
       "name": "Gift Card Example",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -730,16 +730,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1820,
-        2120
+        1540,
+        1400
       ],
-      "id": "aa03a844-765f-4fc9-8648-10001e813a7f",
+      "id": "bf38dd74-7262-444b-bcb0-e274195a2bc6",
       "name": "Simple Memory"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "✨Easter Egg Discovered✨\nType \"Gift\" to get a custom Gift Card.",
         "additionalFields": {}
@@ -747,16 +747,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2240,
-        1500
+        1960,
+        780
       ],
-      "id": "774cdf8c-795c-4021-af93-7c46823924dd",
+      "id": "ec3aff07-290a-474b-b83a-800ae2f30abb",
       "name": "Gift Card Default MSG",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -844,17 +844,17 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1920,
-        1680
+        1640,
+        960
       ],
-      "id": "f8f3a641-e1db-427e-ac70-fc117e6b2dc8",
+      "id": "9cd7a8d7-c7a9-4cdc-94c9-003f71fe00c1",
       "name": "Main Gift Card menu switch",
       "alwaysOutputData": false
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Got it. What’s the name of the person or group you want to gift it to?\n\nExample:\n-Simon Sinek\n-Stanford MBA Alumni\n",
         "additionalFields": {}
@@ -862,23 +862,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2920,
-        1680
+        2640,
+        960
       ],
-      "id": "e5c2b6f8-f583-489f-b92d-b82f63314f6d",
+      "id": "a91b3268-36ae-468f-a952-8b1b1055067d",
       "name": "Gift Card Recipient",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "I will help you create your own Angel Canvas Gift Card, like this one. \n\nTell me your first and last name.",
         "additionalFields": {}
@@ -886,16 +886,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1620,
-        1500
+        1340,
+        780
       ],
-      "id": "85f99119-f644-4964-8604-39b0ddd6f6db",
+      "id": "28001f74-384e-4122-9c6a-401e410bcb3e",
       "name": "Gift Card Sender",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -914,10 +914,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1800,
-        1500
+        1520,
+        780
       ],
-      "id": "8b413b71-f008-4d3f-afe0-037cdb683ee3",
+      "id": "39ddcebf-bada-431c-9533-515d149d03f6",
       "name": "Gift Card Sender Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -937,10 +937,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2580,
-        1680
+        2300,
+        960
       ],
-      "id": "cb9376e8-4aac-413c-90cc-01d38d93306e",
+      "id": "4cf143e6-36b4-4437-a226-ddb508642bb0",
       "name": "Gift Card Recipient Menu In",
       "alwaysOutputData": true,
       "executeOnce": false
@@ -980,10 +980,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1700,
-        1680
+        1420,
+        960
       ],
-      "id": "b9110ab5-d93c-41aa-aa3c-577b88b10d8a",
+      "id": "059cafa6-f5ce-4fc6-ac25-f4dbad736872",
       "name": "Regenerate variables sender"
     },
     {
@@ -993,16 +993,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1380,
-        1680
+        1100,
+        960
       ],
-      "id": "00791efa-0d2b-4fac-960e-dbef82160e11",
+      "id": "fa210182-6672-46af-8f9c-e030a9ad0a23",
       "name": "Gift Card Menu Out"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Ok, I'm creating it. Hold on 20 sec.",
         "additionalFields": {}
@@ -1010,16 +1010,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2220,
-        1980
+        1940,
+        1260
       ],
-      "id": "5779779b-3df3-4321-a2f3-3abe7718ce2e",
+      "id": "7bf79286-da1e-4bb6-973c-e48dc4fc4646",
       "name": "Gift Card is being processed",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1040,10 +1040,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
-        1880
+        2920,
+        1160
       ],
-      "id": "b63dc93b-4c10-440e-91ae-223619e39d80",
+      "id": "a2c2c4e6-e60b-4580-9acb-e5fc410ef982",
       "name": "Get the status of the gift card request (Job) sent1"
     },
     {
@@ -1051,10 +1051,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3020,
-        1880
+        2740,
+        1160
       ],
-      "id": "61336326-a172-4e5a-80f7-15e645dbc482",
+      "id": "98bc1a93-7564-441d-993e-9e331a5e1aeb",
       "name": "Wait8",
       "webhookId": "1ba9038c-52db-48a5-a11d-5350e0ac5161"
     },
@@ -1079,10 +1079,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2600,
-        1980
+        2320,
+        1260
       ],
-      "id": "53b7fe4d-34d2-4a1f-9959-84376778235c",
+      "id": "0ed6e8a2-7e97-471f-8bc7-b80f77701ff9",
       "name": "Request (Job) to generate the customized gift card1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -1090,7 +1090,7 @@
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "Feel free to use the gift card or the message template if you find it useful.  Please always share the link.",
         "additionalFields": {}
@@ -1098,23 +1098,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4100,
-        1880
+        3820,
+        1160
       ],
-      "id": "51d35a46-7e83-4c99-b850-e969a5d80b20",
+      "id": "613d528b-cf00-4084-a0e6-c312de3ceca8",
       "name": "Gift Card is done",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "messageType": "image",
         "mediaPath": "useMedian8n",
@@ -1123,16 +1123,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4480,
-        1880
+        4200,
+        1160
       ],
-      "id": "d96fb74a-c330-4b4a-b568-52938ead3066",
+      "id": "30580007-2e00-4c14-9ea1-5aa49d859174",
       "name": "Gift Card Customized",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -1144,10 +1144,10 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2240,
-        1680
+        1960,
+        960
       ],
-      "id": "1ead69da-45bb-4c95-8b6b-f1c9ffacb685",
+      "id": "bcc3ca03-c605-46a0-9908-2dcf57d025ec",
       "name": "Clean Memory"
     },
     {
@@ -1171,10 +1171,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3560,
-        1880
+        3280,
+        1160
       ],
-      "id": "07add0cc-0ec0-4dc7-9020-890f601ce36a",
+      "id": "85bf4464-4ef4-4539-89be-aca8494065a8",
       "name": "Request (Job) Export the gift card design JPG"
     },
     {
@@ -1194,10 +1194,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3920,
-        1880
+        3640,
+        1160
       ],
-      "id": "7e517c0e-ae43-4687-a747-63ba3cc98364",
+      "id": "c8767f38-418d-4621-b485-06f490d009bb",
       "name": "Request to get the gift card JPG"
     },
     {
@@ -1208,10 +1208,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4280,
-        1880
+        4000,
+        1160
       ],
-      "id": "f87dea47-6057-4d57-8318-19c2de0b0156",
+      "id": "3ca5737a-dc77-45f7-887c-03ca327b2d13",
       "name": "Download the gift card JPG"
     },
     {
@@ -1303,14 +1303,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5220,
-        1880
+        4940,
+        1160
       ],
-      "id": "1d6fe251-a44d-4a39-a932-c62e18ed2115",
+      "id": "3952a5ba-129f-4d13-93bc-f4eb357f9140",
       "name": "Update Gift Card Status",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1369,10 +1369,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3580,
-        2080
+        3300,
+        1360
       ],
-      "id": "edfdf7ec-f2c0-4d6c-b2b0-56fc2f4bb0ec",
+      "id": "7813167a-a85e-473c-bacf-6cf83aad884b",
       "name": "Refresh Canva Token1",
       "executeOnce": true
     },
@@ -1435,10 +1435,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3380,
-        2080
+        3100,
+        1360
       ],
-      "id": "4ef0f2f0-b2b9-4242-a9c7-d1b087ec7c46",
+      "id": "6b9352a7-3a42-4664-be14-2e2b80d08720",
       "name": "Set canva variables1",
       "executeOnce": false
     },
@@ -1459,10 +1459,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3200,
-        2080
+        2920,
+        1360
       ],
-      "id": "c4b015dc-5b89-400b-8cd8-40b31f1eaeed",
+      "id": "eef242b1-030a-4888-ae55-3f3e01af2d29",
       "name": "Aggregate1"
     },
     {
@@ -1472,10 +1472,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3780,
-        2080
+        3500,
+        1360
       ],
-      "id": "588ec920-a1ce-4e7f-941f-6d822ecc9dac",
+      "id": "02e12bba-5b2d-4730-a564-3ccd0606e000",
       "name": "Process New Tokens1"
     },
     {
@@ -1486,10 +1486,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3980,
-        2080
+        3700,
+        1360
       ],
-      "id": "66803072-8512-4a0b-b088-688ab8edc680",
+      "id": "19c604bb-f693-4681-ad0c-e683c281edaa",
       "name": "Turn tokens into items to store1"
     },
     {
@@ -1568,14 +1568,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4180,
-        2080
+        3900,
+        1360
       ],
-      "id": "022a7464-bb33-4ac0-a9ad-326c9d7d09ef",
+      "id": "53eed0a9-c784-430e-95fb-bb24016e592c",
       "name": "Update Canva Tokens in Sheet1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1585,10 +1585,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3740,
-        1880
+        3460,
+        1160
       ],
-      "id": "d765ab4f-1fb5-4b09-a01e-3d37f6c33fa6",
+      "id": "cc521884-2a95-4f6d-a0e5-74c74add94e3",
       "name": "Wait4",
       "webhookId": "d61916e1-b90f-43e5-bb9e-c4fc74247908"
     },
@@ -1621,15 +1621,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2400,
-        1980
+        2120,
+        1260
       ],
-      "id": "d721bae7-d11f-4d2b-9522-1c33d5ab5e82",
+      "id": "d804614b-85c6-46bc-a631-24c16d5b8456",
       "name": "Get Canva Tokens2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1661,10 +1661,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2780,
-        1980
+        2500,
+        1260
       ],
-      "id": "2953fb6e-a7c7-48b8-a32e-d59c72597659",
+      "id": "eef2a715-b8fc-4eae-8525-a3e632042674",
       "name": "If1"
     },
     {
@@ -1688,15 +1688,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3020,
-        2080
+        2740,
+        1360
       ],
-      "id": "ab7f4ecf-793c-4909-90d5-502aca33cc33",
+      "id": "b193cdf0-647b-4378-922a-4d7fbf1fe8ef",
       "name": "Get Current Canva Tokens1",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1708,10 +1708,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4640,
-        1880
+        4360,
+        1160
       ],
-      "id": "c67584e9-156d-4954-9717-c26f2c91c7aa",
+      "id": "52c33229-3fae-49cf-959c-e6e32bffc6ce",
       "name": "Wait5",
       "webhookId": "7b8b0806-53fa-4a28-9ec1-b3c7a25eea42"
     },
@@ -1722,10 +1722,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3380,
-        1880
+        3100,
+        1160
       ],
-      "id": "15e9c7f4-0c8c-480c-a6a9-d59ef7e57929",
+      "id": "32a6d10b-b1ff-48e6-a1d4-978f7ff985fb",
       "name": "Wait6",
       "webhookId": "69caee66-9583-4a20-a408-08d2f217542a"
     },
@@ -1758,14 +1758,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        680,
-        1060
+        400,
+        340
       ],
-      "id": "38be68fc-5819-4541-ac28-8d716d7bf744",
+      "id": "413fe8b8-1e0d-4f34-a733-e3197986f7b6",
       "name": "Get Angel List",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1780,16 +1780,16 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        480,
-        1580
+        200,
+        860
       ],
-      "id": "80a95900-ad2a-421b-8dc1-9908e787736d",
+      "id": "40842e64-60f2-4138-b8c8-c8ca47a830b7",
       "name": "Chat start",
       "webhookId": "7d19a2f2-0b40-4183-8882-2f13466fd8db",
       "credentials": {
         "whatsAppTriggerApi": {
-          "id": "BLGKchr9yb6Gx4Vm",
-          "name": "WhatsApp OAuth account"
+          "id": "0asdMUFkHO8X88DN",
+          "name": "WhatsApp OAuth Assistant"
         }
       }
     },
@@ -1831,10 +1831,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        640,
-        1580
+        360,
+        860
       ],
-      "id": "0594ec00-0d77-4b68-9cf2-ad68c0b79b6b",
+      "id": "814d3ceb-b7d1-4616-af90-632b6cb7b3ea",
       "name": "Validate there is a message"
     },
     {
@@ -1866,14 +1866,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        820,
-        1580
+        540,
+        860
       ],
-      "id": "f8afba7f-45d3-4515-ad4b-4f6d86aee2bf",
+      "id": "c6637b5d-caca-46fa-8bea-3a73dc0255e9",
       "name": "Get sender name",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1956,14 +1956,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        980,
-        1580
+        700,
+        860
       ],
-      "id": "0ef44fa0-e834-41e3-b1f6-2fd95fadd273",
+      "id": "1f963d72-3401-432f-b7b7-6b37f3dfc118",
       "name": "Log Chat History",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -1976,16 +1976,16 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        5420,
-        1880
+        5140,
+        1160
       ],
-      "id": "14b1a704-113a-4cf3-9c25-5d1b918d1a4e",
+      "id": "e9a1efaa-e2fe-481a-a36b-07ed2028597d",
       "name": "Clean Memory1"
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=Want another one? Just type \"Gift\"",
         "additionalFields": {}
@@ -1993,23 +1993,23 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        5020,
-        1880
+        4740,
+        1160
       ],
-      "id": "f20a87a2-25b0-420b-b990-6250fa4eeaf5",
+      "id": "a37530bd-95e1-44f8-a0d7-b1a575205683",
       "name": "Gift Card Another One",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
     {
       "parameters": {
         "operation": "send",
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
         "textBody": "=I found this tool very useful to understand my angel profile and plan the way I invest.\n\nI believe you will find it useful too.\n\nAngel Canvas Gift Link\nhttps://tally.so/r/n9MY2V",
         "additionalFields": {}
@@ -2017,16 +2017,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4820,
-        1880
+        4540,
+        1160
       ],
-      "id": "a4beefd1-d9d2-4753-83e9-bf90eb6c9e1b",
+      "id": "d2d896d0-11e4-4905-90bd-db7b9b9461d7",
       "name": "Gift Card Template",
       "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -2037,11 +2037,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        80,
-        1040
+        -200,
+        320
       ],
       "typeVersion": 1,
-      "id": "99642336-e6e6-43a7-a597-fb366ad4bfaf",
+      "id": "8d1156ee-f953-451e-918f-f60194d53d47",
       "name": "Sticky Note1"
     },
     {
@@ -2051,11 +2051,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        60,
-        1560
+        -220,
+        840
       ],
       "typeVersion": 1,
-      "id": "9cb8b0c2-1562-4232-900d-60775cd84378",
+      "id": "c25789a4-a65a-44fe-a61e-7f4230cfa4b5",
       "name": "Sticky Note2"
     },
     {
@@ -2066,14 +2066,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1680,
-        760
+        1400,
+        -380
       ],
-      "id": "23a3554a-534e-422c-9507-8ea2ad5c5b5b",
+      "id": "13a02ab0-6748-4778-b825-66304f404280",
       "name": "Google Gemini Chat Model4",
       "credentials": {
         "googlePalmApi": {
-          "id": "AJfgCz89WsWbb925",
+          "id": "BXBUiJ0GOtl7vWsF",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -2095,10 +2095,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1120,
-        580
+        840,
+        -560
       ],
-      "id": "4b416c4d-820d-4b75-a3bd-c1aac274d8ef",
+      "id": "b4b8c975-6722-4a17-b334-f20ca4e96e1f",
       "name": "Text with angel responses1"
     },
     {
@@ -2108,10 +2108,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2760,
-        580
+        2420,
+        -560
       ],
-      "id": "74625e4a-b1be-4510-b422-d1d97ece861e",
+      "id": "a2504e88-eff0-4243-934b-b4ca09943361",
       "name": "Wait7",
       "webhookId": "dafeb747-2308-4af7-8436-2e3a8d202021"
     },
@@ -2120,10 +2120,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3340,
-        580
+        3220,
+        -560
       ],
-      "id": "6d33d8b5-9f82-4a0b-b2df-efe62a6aa352",
+      "id": "771f41f7-5cc7-4996-8681-cdb2b2b3112c",
       "name": "Wait9",
       "webhookId": "c2ed91c0-4244-4422-a6a2-4d09b877619f"
     },
@@ -2150,14 +2150,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3720,
-        580
+        3660,
+        -560
       ],
-      "id": "aea7c4e0-8a60-4d20-968d-5bbce2227e50",
+      "id": "1563c128-8589-454e-ad9f-6a61709c05f8",
       "name": "Create Folder: NAME - Angel Investor Journey1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -2181,14 +2181,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4160,
-        580
+        4080,
+        -560
       ],
-      "id": "9f7890ef-9def-406c-804d-41b9929e309d",
+      "id": "dfa6bc8f-a155-400e-bb40-6dc675c81fdf",
       "name": "Upload the canvas file to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -2247,10 +2247,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3280,
-        800
+        2600,
+        -360
       ],
-      "id": "ab4bed5b-c07e-4738-8137-d8c5bece59ee",
+      "id": "916586e9-5271-47d5-95c0-7032ebf9b108",
       "name": "Refresh Canva Token2",
       "executeOnce": true
     },
@@ -2313,10 +2313,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3100,
-        800
+        2420,
+        -360
       ],
-      "id": "67dae718-6231-4e3f-b439-e239a1abc502",
+      "id": "f7d3c76a-900e-4f1c-a2b7-98798255751f",
       "name": "Set canva variables2",
       "executeOnce": false
     },
@@ -2337,10 +2337,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2940,
-        800
+        2260,
+        -360
       ],
-      "id": "dd3dde16-e808-41d4-b12d-b6bebeddb73c",
+      "id": "af9b2e45-bbbf-4100-acfb-6013c4681dce",
       "name": "Aggregate2"
     },
     {
@@ -2350,10 +2350,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3480,
-        800
+        2800,
+        -360
       ],
-      "id": "b45323ad-b627-4ee4-a2e5-b57539df2b25",
+      "id": "6e783488-0d50-4043-b3b3-bdd5405b3cfb",
       "name": "Process New Tokens2"
     },
     {
@@ -2364,10 +2364,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3680,
-        800
+        3000,
+        -360
       ],
-      "id": "9e99e488-ab00-4a09-b564-953f92d38f4d",
+      "id": "d741b236-b8c0-4545-b53f-b459a2e51e0b",
       "name": "Turn tokens into items to store2"
     },
     {
@@ -2399,15 +2399,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2160,
-        580
+        1880,
+        -560
       ],
-      "id": "5f88820c-c929-41d9-a6d6-a1b7a0afbdec",
+      "id": "a46667f7-d36f-4b02-846d-058f908a1900",
       "name": "Get Canva Tokens3",
       "executeOnce": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -2433,15 +2435,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2760,
-        800
+        2080,
+        -360
       ],
-      "id": "30a251c0-bf5f-446b-a608-dd2792bd384f",
+      "id": "2baeed46-1610-4942-a052-615f7f493bea",
       "name": "Get Current Canva Tokens2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -2522,14 +2524,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3900,
-        800
+        3220,
+        -360
       ],
-      "id": "bae0051e-7dda-4a22-b40b-5c92fa74d676",
+      "id": "f87586e0-3095-4d46-a701-32b07e7a5afe",
       "name": "Update Canva Tokens in Sheet2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -2543,10 +2545,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1660,
-        580
+        1380,
+        -560
       ],
-      "id": "6d5fefe5-cf8a-4713-95cb-da7fa882f943",
+      "id": "47fa2f78-8262-4032-b9f2-aba7776571b0",
       "name": "Canvas Keyword Agent1",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2573,10 +2575,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2360,
-        580
+        2080,
+        -560
       ],
-      "id": "b90a42b2-6bd5-40c8-8ba5-6c7d18ed6e24",
+      "id": "f35ccb5e-63b8-4e59-a9e2-8644e3f211cd",
       "name": "Request (Job) to generate the customized canvas1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2598,11 +2600,13 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2940,
-        580
+        2600,
+        -560
       ],
-      "id": "a8134b89-4c54-4d42-92d5-619e4772c36d",
-      "name": "Get the status of the canvas request (Job) sent1"
+      "id": "0e287528-cb2b-4b82-b58c-6351d55d83c5",
+      "name": "Get the status of the canvas request (Job) sent1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -2619,17 +2623,19 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"png\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1\n    ],\n    \"export_quality\":\"pro\"\n  }\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3160,
-        580
+        3020,
+        -560
       ],
-      "id": "08968005-e2cb-4755-a4f3-251d7f8bda55",
-      "name": "Request (Job) Export the canvas design in PDF1"
+      "id": "287387a7-499a-4607-b448-dcfd790155c1",
+      "name": "Request (Job) Export the canvas design in PDF1",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000
     },
     {
       "parameters": {
@@ -2648,10 +2654,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3520,
-        580
+        3440,
+        -560
       ],
-      "id": "42b34b12-f13f-4921-869b-9fca388e3650",
+      "id": "e970af15-29b9-42ef-815a-f23a1f0f0c92",
       "name": "Request to get the canvas PDF version1"
     },
     {
@@ -2662,10 +2668,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3940,
-        580
+        3860,
+        -560
       ],
-      "id": "fa7e8b0d-24a9-4dda-b31a-0058f703fc8d",
+      "id": "20f2fad3-cfb5-48d1-b064-ee8d40420a27",
       "name": "Download the canvas PDF1"
     },
     {
@@ -2681,14 +2687,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4160,
-        800
+        4080,
+        -340
       ],
-      "id": "7fa39dbd-5605-43ce-94c9-14e22736581f",
+      "id": "2dfa020c-aabb-4204-b69a-b848ac1ce200",
       "name": "Download the mistakes PDF1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -2714,14 +2720,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4360,
-        800
+        4280,
+        -340
       ],
-      "id": "094b1b91-8e3a-466f-8146-89fbcfa7d56c",
+      "id": "155b2322-1b53-4d9c-bebd-03b0f883db22",
       "name": "Upload the mistakes PDF to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -2747,15 +2753,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1320,
-        580
+        1040,
+        -560
       ],
-      "id": "fc2af21e-3385-4f30-8773-e04c75a718b4",
+      "id": "7778313d-70a0-4149-863f-adf1a63fbe56",
       "name": "Get Canvas Prompts1",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -2774,10 +2780,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1500,
-        580
+        1220,
+        -560
       ],
-      "id": "f43f6f40-84cc-40db-ba08-e53b7de261b1",
+      "id": "8d2a9479-25ce-48df-be88-4757ab7113c8",
       "name": "Aggregated Canvas Prompts1"
     },
     {
@@ -2893,10 +2899,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1980,
-        580
+        1700,
+        -560
       ],
-      "id": "be977418-2160-4f06-8845-f225c198a5a0",
+      "id": "65510223-9e12-4ff6-85e5-0919c85018bf",
       "name": "Set Fields1"
     },
     {
@@ -2911,15 +2917,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4360,
-        580
+        4280,
+        -560
       ],
-      "id": "67cdc19f-700d-4890-9449-a17c9b329048",
+      "id": "86d503f4-026f-4979-ad5a-5dc965ef97e3",
       "name": "Send canvas email1",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "j04bNzg85Grm8UH9",
+          "id": "3i8yUaNeV2Z99Alf",
           "name": "Gmail account"
         }
       }
@@ -2952,15 +2958,15 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2540,
-        580
+        2260,
+        -560
       ],
-      "id": "1f8f0d72-7c46-4961-a6e0-45e445af798d",
+      "id": "5e452fd6-e5dd-4f6b-ab02-14bdf18f38d0",
       "name": "If2"
     },
     {
       "parameters": {
-        "phoneNumberId": "661969530322547",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Get Angel Responses1').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
         "template": "send_canvas_v8|en",
         "components": {
@@ -2983,16 +2989,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4540,
-        580
+        4460,
+        -560
       ],
-      "id": "62a51b6a-288c-4b02-aa4c-5f0b5ac4c0ab",
+      "id": "39b85312-4471-4481-9324-2dc66df61d23",
       "name": "Send Canvas1",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -3068,8 +3074,8 @@
               "removed": true
             },
             {
-              "id": "(1/21) What's my previous experience investing in startups",
-              "displayName": "(1/21) What's my previous experience investing in startups",
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3487,15 +3493,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4580,
-        800
+        4480,
+        -340
       ],
-      "id": "f179c1f1-4566-4126-afcf-e20add74fd6a",
+      "id": "4e5f8f26-89fc-490c-b5bc-d628f75f0308",
       "name": "Update Angel Registry Status2",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -3521,14 +3527,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        700,
-        580
+        420,
+        -560
       ],
-      "id": "7d7fe446-70e8-4443-b887-80f9d1b32941",
+      "id": "a4b66333-feb9-490d-976b-6c5821ed1d6a",
       "name": "Get Angel Responses1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -3545,7 +3551,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 21 }}",
+              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -3581,10 +3587,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        900,
-        580
+        620,
+        -560
       ],
-      "id": "c735bf12-a640-46cd-96a3-2f37861fe377",
+      "id": "e6a6fbd8-82d7-4bc7-a442-e270a82a9621",
       "name": "Filter only non processed and schedule rules1",
       "alwaysOutputData": false
     },
@@ -3593,7 +3599,8 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "minutes",
+              "minutesInterval": 1
             }
           ]
         }
@@ -3601,10 +3608,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        500,
-        580
+        220,
+        -560
       ],
-      "id": "544e759e-9ffb-407d-bb78-3fc6ea986c4c",
+      "id": "5f9bac06-ec62-4e4f-8edc-01cf85aed93d",
       "name": "Schedule Trigger Angel Canvas1"
     },
     {
@@ -3614,11 +3621,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        80,
-        560
+        -200,
+        -580
       ],
       "typeVersion": 1,
-      "id": "ef29f2aa-9503-400d-a2b9-d2c8f4a40c16",
+      "id": "e6455bda-7929-4151-ab0a-5180f74c0388",
       "name": "Sticky Note3"
     },
     {
@@ -3629,14 +3636,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        2120,
-        120
+        1840,
+        80
       ],
-      "id": "236d19f7-43e0-49cc-a233-aac1d4a6ccc6",
+      "id": "81d07401-25e3-4440-ae96-d43945bfb615",
       "name": "Google Gemini Chat Model5",
       "credentials": {
         "googlePalmApi": {
-          "id": "AJfgCz89WsWbb925",
+          "id": "BXBUiJ0GOtl7vWsF",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -3658,10 +3665,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1540,
-        -60
+        1260,
+        -100
       ],
-      "id": "cde96738-985f-4732-aef2-9e1175d0ca5a",
+      "id": "6b947c6b-dec3-4202-9085-c485af22b47e",
       "name": "Text with angel responses2"
     },
     {
@@ -3718,10 +3725,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4760,
-        160
+        4480,
+        120
       ],
-      "id": "09f7b3dd-27e4-46f7-b7a1-bc233c9b993f",
+      "id": "980c7eca-955e-4ecc-9898-af5b51958f57",
       "name": "Refresh Canva Token3",
       "executeOnce": true
     },
@@ -3784,10 +3791,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4580,
-        160
+        4300,
+        120
       ],
-      "id": "a64902b8-6822-4d05-b655-ddf891f62777",
+      "id": "584768c0-7a6a-4baa-bf32-158d87fb8d4e",
       "name": "Set canva variables3",
       "executeOnce": false
     },
@@ -3808,10 +3815,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4420,
-        160
+        4140,
+        120
       ],
-      "id": "87145cfd-6031-417b-a965-321419aee98b",
+      "id": "a87e8e50-58d2-4325-9c66-ba3857695e02",
       "name": "Aggregate3"
     },
     {
@@ -3821,10 +3828,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4960,
-        160
+        4680,
+        120
       ],
-      "id": "5fe24ced-1544-4334-91b9-3b54ebc041b3",
+      "id": "87aca616-224f-45ea-908e-8cd3823ce6ef",
       "name": "Process New Tokens3"
     },
     {
@@ -3835,10 +3842,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        5160,
-        160
+        4880,
+        120
       ],
-      "id": "7d2f3f9e-444b-4ec7-a220-8b4fb1b5c218",
+      "id": "0b03247f-0ca2-419b-9344-5ea41bba7fd4",
       "name": "Turn tokens into items to store3"
     },
     {
@@ -3870,15 +3877,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4040,
-        -60
+        3760,
+        -100
       ],
-      "id": "93c08f58-0f6b-4057-a37f-6f2ddd28b748",
+      "id": "23874f0b-46c2-4abe-9493-4863460ca50d",
       "name": "Get Canva Tokens4",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -3904,15 +3911,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4240,
-        160
+        3960,
+        120
       ],
-      "id": "52f13661-f27b-485f-ab45-3c91e965c4bd",
+      "id": "4496e817-cb5e-4570-ab55-315384a1a8f3",
       "name": "Get Current Canva Tokens3",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -3993,14 +4000,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5360,
-        160
+        5080,
+        120
       ],
-      "id": "ea8cfbf0-5be2-4f68-8f5a-d5f88dda419c",
+      "id": "d1293330-8980-4782-9dc5-588e1c34f8ae",
       "name": "Update Canva Tokens in Sheet3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -4014,10 +4021,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        2100,
-        -60
+        1820,
+        -100
       ],
-      "id": "0bc4daa1-46d6-40ac-befb-066a089eadca",
+      "id": "9edb6ba9-0ae2-4710-b8ed-213e799c810d",
       "name": "Canvas Keyword Agent2",
       "retryOnFail": true,
       "maxTries": 5,
@@ -4032,10 +4039,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3340,
-        -60
+        3060,
+        -100
       ],
-      "id": "ea9e25eb-df4b-4031-aede-4a2321bb585a",
+      "id": "f12ff20a-9107-4310-b3fa-1d61d68bd7e1",
       "name": "Advice Letter Agent1",
       "retryOnFail": true,
       "maxTries": 5,
@@ -4049,14 +4056,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        3380,
-        120
+        3100,
+        80
       ],
-      "id": "78675748-2873-45b7-b075-6170a22d8b3a",
+      "id": "072987a1-bb27-42f4-aab5-4df60c091a13",
       "name": "Google Gemini Chat Model6",
       "credentials": {
         "googlePalmApi": {
-          "id": "XWYqs1As6Ma5pJOh",
+          "id": "3DrzhLPAntiMtLwF",
           "name": "Google Gemini(PaLM) Api account 2"
         }
       }
@@ -4082,10 +4089,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4240,
-        -60
+        3960,
+        -100
       ],
-      "id": "4d7366dd-5d9c-4502-81c7-40e9f24f218e",
+      "id": "035b4f48-a52f-484f-8030-5d65ed458d77",
       "name": "Request (Job) to generate the customized letter1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -4107,10 +4114,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4760,
-        -60
+        4480,
+        -100
       ],
-      "id": "e848f25e-545e-420a-aa4b-7c9c69955dd9",
+      "id": "73c59928-ed03-45d2-a217-8a7e5fd0f3a7",
       "name": "Get the status of the letter request (Job) sent1",
       "retryOnFail": true,
       "waitBetweenTries": 5000
@@ -4136,10 +4143,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4960,
-        -60
+        4680,
+        -100
       ],
-      "id": "b3c5f7f3-ec94-4e9f-8490-bd3c7f05131b",
+      "id": "9d7b4705-da1a-4f0b-bfe6-4bde57af24d9",
       "name": "Request (Job) Export the letter design in PDF1"
     },
     {
@@ -4147,10 +4154,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        5160,
-        -60
+        4860,
+        -100
       ],
-      "id": "14a9cab0-11f3-4a7e-8c6a-b58973be6202",
+      "id": "cf9e277c-62b5-4951-b9c4-081bec84ea2b",
       "name": "Wait13",
       "webhookId": "46a6fb47-41d2-495d-8bd8-0f692eb658e0"
     },
@@ -4171,10 +4178,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5360,
-        -60
+        5040,
+        -100
       ],
-      "id": "fcfdfc8f-c7b1-4432-bee4-b3ca9be7e04c",
+      "id": "90a3376d-27ac-4f3a-bb26-10dd53b2a16b",
       "name": "Request to get the letter PDF version1"
     },
     {
@@ -4185,10 +4192,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5580,
-        -60
+        5260,
+        -100
       ],
-      "id": "ca0fd913-5ab2-465b-b31e-7bcf3244d062",
+      "id": "a7c67653-7e17-44fc-8cb8-56f13d60cf8c",
       "name": "Download the letter PDF1"
     },
     {
@@ -4212,14 +4219,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        5780,
-        -60
+        5460,
+        -100
       ],
-      "id": "de38766e-fd27-4880-9f6d-2f5bb285adf5",
+      "id": "65dbfb5d-4e67-43d5-955b-0f8d5df35e30",
       "name": "Upload the letter file to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "WsIWp6Ta19kEn2RD",
+          "id": "ucBLEeZsztVtjIOb",
           "name": "Google Drive account"
         }
       }
@@ -4245,14 +4252,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2600,
-        -60
+        2320,
+        -100
       ],
-      "id": "f8776c53-2366-4b3a-bf0c-59f6e2523cae",
+      "id": "415dfbf0-2de1-453d-8567-be882b80b4f2",
       "name": "Get Matrix Advice1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -4267,10 +4274,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2800,
-        -60
+        2520,
+        -100
       ],
-      "id": "4a204b05-5a13-42d6-b2af-77556a9d717c",
+      "id": "16fbd259-13d0-4f5c-a7c3-bb364660c4e4",
       "name": "Aggregated Matrix Advice1"
     },
     {
@@ -4287,10 +4294,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        3160,
-        -60
+        2880,
+        -100
       ],
-      "id": "2902e8ae-107b-4636-a1e6-97d78a89007d",
+      "id": "315fd14e-2c9b-4682-bad1-74fdb45d07b1",
       "name": "Aggregated Matrix Prompts1"
     },
     {
@@ -4314,14 +4321,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2980,
-        -60
+        2700,
+        -100
       ],
-      "id": "25417e66-9a42-4b0d-adc2-eb06584a6e60",
+      "id": "99856bb0-1cbf-4efb-863e-7af7a709df93",
       "name": "Get Advice Prompts1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -4347,15 +4354,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1720,
-        -60
+        1440,
+        -100
       ],
-      "id": "0a084bf0-4f46-4d34-aa85-3cf05bc40269",
+      "id": "f2b60122-046e-427d-8596-0710aff1ff4b",
       "name": "Get Canvas Prompts2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -4374,10 +4381,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1920,
-        -60
+        1640,
+        -100
       ],
-      "id": "6288161f-80ae-42d3-a837-97eca4c942b8",
+      "id": "5352e6f1-bf6b-47c3-8206-7d4ecc1ac514",
       "name": "Aggregated Canvas Prompts2"
     },
     {
@@ -4493,10 +4500,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2420,
-        -60
+        2140,
+        -100
       ],
-      "id": "bdeef9ba-f8f0-4fc3-aad5-cfd78371e5f7",
+      "id": "adda1a30-f375-4795-a4b0-a03f6dbabcc5",
       "name": "Set Fields2"
     },
     {
@@ -4511,15 +4518,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        6140,
-        -60
+        5820,
+        -100
       ],
-      "id": "c3b3d4b6-f18b-4b08-8841-353e82576dff",
+      "id": "92e345c0-167e-4ca9-b3c9-09becf313103",
       "name": "Send canvas email2",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "j04bNzg85Grm8UH9",
+          "id": "3i8yUaNeV2Z99Alf",
           "name": "Gmail account"
         }
       }
@@ -4552,10 +4559,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        4420,
-        -60
+        4140,
+        -100
       ],
-      "id": "b52d5dd0-3e53-4881-81e7-094227d81059",
+      "id": "76503230-164e-4195-9c28-5085c09a8d5b",
       "name": "If3"
     },
     {
@@ -4566,14 +4573,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        3700,
-        120
+        3420,
+        80
       ],
-      "id": "7ac60235-3f1f-48fe-9277-c565181bdd1e",
+      "id": "39e8a9a1-fa26-404d-ae61-724acdb09e87",
       "name": "Google Gemini Chat Model7",
       "credentials": {
         "googlePalmApi": {
-          "id": "9zoxjLnytbU9CinX",
+          "id": "vzE4cvZosuI9DZHT",
           "name": "Google Gemini(PaLM) Api account 3"
         }
       }
@@ -4587,10 +4594,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3660,
-        -60
+        3380,
+        -100
       ],
-      "id": "7f933948-337f-4269-8031-b512d3a1a82b",
+      "id": "790484e3-37c2-4d30-95dd-e308a6422a10",
       "name": "Advice Letter Agent P",
       "retryOnFail": true,
       "maxTries": 5,
@@ -4604,14 +4611,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        6360,
-        140
+        6020,
+        100
       ],
-      "id": "2689d144-5f3a-4f4f-a161-4fba08231e7d",
+      "id": "c2028d47-cfcc-453c-84c2-5e9e044872e0",
       "name": "Google Gemini Chat Model8",
       "credentials": {
         "googlePalmApi": {
-          "id": "WkEtYOjlCOlEd3kG",
+          "id": "dxdFNu1rGbII2eUC",
           "name": "Google Gemini(PaLM) Api account 4"
         }
       }
@@ -4625,10 +4632,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        6320,
-        -60
+        5980,
+        -100
       ],
-      "id": "ee8a123c-cdc4-4d87-8901-3f7691d6ff04",
+      "id": "75531cf1-ca3e-48e1-9fce-ffd6ebdbe536",
       "name": "Investor type extractor1",
       "retryOnFail": true,
       "maxTries": 5,
@@ -4704,8 +4711,8 @@
               "removed": true
             },
             {
-              "id": "(1/21) What's my previous experience investing in startups",
-              "displayName": "(1/21) What's my previous experience investing in startups",
+              "id": "(1/21) What's my previous experience investing in startups?",
+              "displayName": "(1/21) What's my previous experience investing in startups?",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5123,15 +5130,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        6660,
-        -60
+        6300,
+        -100
       ],
-      "id": "3e4cf788-363a-4e29-92fd-70d81878fdf3",
+      "id": "fa005b2c-9231-4672-b784-f15228dc33eb",
       "name": "Update Angel Registry Status3",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -5157,14 +5164,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        700,
-        -60
+        420,
+        -100
       ],
-      "id": "cc8f2c30-cb19-45d2-96d1-2ecb9d2e4237",
+      "id": "cb949f0e-83fe-4c5f-8d32-db5abc0eaee6",
       "name": "Get Angel Responses2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -5181,7 +5188,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 21 }}",
+              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -5217,10 +5224,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        920,
-        -60
+        640,
+        -100
       ],
-      "id": "a6e75b30-5c51-4c74-99fd-8c0995e76d2a",
+      "id": "5a970175-d57e-4b6d-8db4-205384e5375d",
       "name": "Filter only non processed and schedule rules2",
       "alwaysOutputData": false
     },
@@ -5229,7 +5236,8 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "minutes",
+              "minutesInterval": 1
             }
           ]
         }
@@ -5237,10 +5245,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        480,
-        -60
+        200,
+        -100
       ],
-      "id": "0e29d635-329a-44fa-83ed-67d2e110dd7b",
+      "id": "04e93b5c-099d-4b96-9696-1b43e81d14b2",
       "name": "Schedule Trigger Angel Canvas2"
     },
     {
@@ -5250,11 +5258,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        80,
-        -80
+        -200,
+        -120
       ],
       "typeVersion": 1,
-      "id": "6689bac4-426e-48fc-aef0-b89b16c060e3",
+      "id": "7c33fc80-cb81-453f-b1ee-dd52aca7cf15",
       "name": "Sticky Note4"
     },
     {
@@ -5262,16 +5270,16 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4580,
-        -60
+        4300,
+        -100
       ],
-      "id": "17a75bed-198d-4640-838c-35d408472b8a",
+      "id": "e13f85c5-1f17-4e79-95a3-42ada9d19638",
       "name": "Wait10",
       "webhookId": "579cbc43-e941-4c47-a8a3-ec8eb7b7624e"
     },
     {
       "parameters": {
-        "phoneNumberId": "670549546137615",
+        "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Get Angel Responses2').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
         "template": "letter_notifier_v1|en",
         "components": {
@@ -5294,16 +5302,16 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        5960,
-        -60
+        5640,
+        -100
       ],
-      "id": "b1dbe654-3c57-4507-ab77-644bdcac6929",
+      "id": "e4050560-b0e6-453a-b2f8-784aa5ac85c2",
       "name": "Send Canvas",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "JBQii1HjELCZzFgq",
-          "name": "WhatsApp account"
+          "id": "uqML0bcdThDkfYSB",
+          "name": "WhatsApp account Agent"
         }
       }
     },
@@ -5344,14 +5352,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1140,
-        -60
+        860,
+        -100
       ],
-      "id": "c3c27d44-f190-4baf-a89a-17c691f711b3",
+      "id": "5f94b8ef-0472-4337-88d2-dd85f2e4c2cc",
       "name": "Google Sheets - Continue only if advice has been added",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "QRYTTZ7H4dhhDtA5",
+          "id": "g6X4Gl2mfskcXzQh",
           "name": "Google Sheets account"
         }
       }
@@ -5384,11 +5392,23 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        1360,
-        -60
+        1080,
+        -100
       ],
-      "id": "a76a5def-07cf-4bcf-9f04-282379a8af7d",
+      "id": "ba7a12e2-e537-4fb0-bffc-fd72d8c62e6a",
       "name": "Continue only with advice provided"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2820,
+        -560
+      ],
+      "id": "1e2cddd0-7164-493e-a3bb-1c66f6ee3bb2",
+      "name": "Wait",
+      "webhookId": "2ead0739-33aa-4757-a837-d51d9cba11ed"
     }
   ],
   "pinData": {},
@@ -6083,7 +6103,7 @@
       "main": [
         [
           {
-            "node": "Request (Job) Export the canvas design in PDF1",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -6691,17 +6711,28 @@
           }
         ]
       ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the canvas design in PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ecd0f605-fb12-4b66-8aa0-edd8346a341b",
+  "versionId": "9ebf16d3-99ac-4d98-9a43-a333489349ba",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "5cefb9caa9630448cd0c3b4730a0c1bcd694fed964525c6fc0ccc5b4fd77ceb5"
+    "instanceId": "84bfbda17b22864ea6ccd752293914723bde22279881e22d1ec9f8ed802a2a43"
   },
-  "id": "YxYErSySuyMiwHq2",
+  "id": "pzAGf30Dnff6BgEG",
   "tags": []
 }

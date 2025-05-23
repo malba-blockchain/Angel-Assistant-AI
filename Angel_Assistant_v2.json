@@ -116,10 +116,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -242,7 +242,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.contacts[0].wa_id }}",
-        "textBody": "=*{{ $('Google Sheets - Bounty Board').item.json.row_number }}. {{ $('Google Sheets - Bounty Board').item.json['Quest:'] }}*\n\n*Reward:* {{ $('Google Sheets - Bounty Board').item.json['Reward:'] }}\n*Start date:* {{ $('Google Sheets - Bounty Board').item.json['Start Date:'] }}",
+        "textBody": "=*{{ $json['Quest ID:'] }}. {{ $('Google Sheets - Bounty Board').item.json['Quest:'] }}*\n\n*Reward:* {{ $('Google Sheets - Bounty Board').item.json['Reward:'] }}\n*Start date:* {{ $('Google Sheets - Bounty Board').item.json['Start Date:'] }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -266,7 +266,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=*{{ $('Google Sheets - On-going Quests').item.json['Quest ID:'] }}*.  *{{ $('Google Sheets - On-going Quests').item.json['Quest:'] }}*\n\n*The quest:* {{ $('Google Sheets - On-going Quests').item.json['The Quest:'] }}\n\n*The choosen one:* {{ $('Google Sheets - On-going Quests').item.json['The Chosen One:'] }}\n\n*Impact:* {{ $('Google Sheets - On-going Quests').item.json['Impact:'] }}\n\n*Mission duration:* {{ $('Google Sheets - On-going Quests').item.json['Mission Duration:'] }}\n\n*Reward:* {{ $('Google Sheets - On-going Quests').item.json['Reward:'] }}\n\n*Time is of the essence:* {{ $('Google Sheets - On-going Quests').item.json['Time is of the Essence:'] }}\n\n*Start date:* {{ $('Google Sheets - On-going Quests').item.json['Start Date:'] }}",
+        "textBody": "=*{{ $('Google Sheets - On-going Quests').item.json['Quest ID:'] }}*.  *{{ $('Google Sheets - On-going Quests').item.json['Quest:'] }}*\n\n*The quest:* {{ $('Google Sheets - On-going Quests').item.json['The Quest:'] }}\n\n*The choosen one:* {{ $('Google Sheets - On-going Quests').item.json['The Chosen One:'] }}\n\n*Impact:* {{ $('Google Sheets - On-going Quests').item.json['Impact:'] }}\n\n*Mission duration:* {{ $('Google Sheets - On-going Quests').item.json['Mission Duration:'] }}\n\n*Reward:* {{ $('Google Sheets - On-going Quests').item.json['Reward:'] }}\n\n*Execution Time:* {{ $('Google Sheets - On-going Quests').item.json['Execution Time:'] }}\n\n*Start date:* {{ $('Google Sheets - On-going Quests').item.json['Start Date:'] }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -290,7 +290,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=🪙You currently have {{ $json['Total points'] }} points, that's {{ ($json.Percentage * 100).toFixed(2)  }}% of a total of {{ $('Google Sheets - Get total issued points').item.json['Total issued Points'] }} issued points.\n\n📈That's a planned potential treasure of €{{ $json['Planned Potential Value From'] }} – €{{ $json['Planned Potential Value To'] }} at fund culmination, which you can cash out or donate to a charity close to your heart.",
+        "textBody": "=🪙You currently have {{ $json['Total points'] }} points, that's {{ ($json.Percentage * 100).toFixed(2)  }}% of a total of {{ $('Google Sheets - Get total issued points').item.json['Total issued Points'] }} issued points.\n\n📈That's a planned potential treasure of €{{ $json['Planned Potential Value From'].toFixed(2) }} – €{{ $json['Planned Potential Value To'].toFixed(2) }} at fund culmination, which you can cash out or donate to a charity close to your heart.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -673,17 +673,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": 568225123,
           "mode": "list",
           "cachedResultName": "Quest Board",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit#gid=568225123"
         },
         "filtersUI": {
           "values": [
@@ -827,10 +827,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -920,7 +920,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=*How may I assist you?*\n\n1. Show me the bounty board\n2. Show me my on-going quests\n3. Show me my points\n4. Setup quest signals",
+        "textBody": "=*How may I assist you?*\n\n1. Show me the bounty board\n2. Show me my on-going quests\n3. Show me my points\n4. Setup quest reminders",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -1084,10 +1084,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -1213,10 +1213,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -1351,10 +1351,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -1549,10 +1549,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -1747,10 +1747,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -1992,10 +1992,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -2190,7 +2190,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=🏹Well done. Your settings are now locked and ready.",
+        "textBody": "=✅Well done. Your settings are now locked and ready.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -2260,10 +2260,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -2303,7 +2303,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=A call to action shall reach you on a {{ $json['Reminder freq.'] }} basis.\nEvery {{ $json['Reminder day'] }} at {{ $json['Reminder hour'] }} {{ $json['Reminder period'] }}",
+        "textBody": "=A call to action shall reach you on a {{ $json['Reminder freq.'] }} basis.\nEvery {{ $json['Reminder day'] }} at {{ $json['Reminder hour'] }} {{ $json['Reminder period'] }} UTC.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -2326,17 +2326,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": 568225123,
           "mode": "list",
           "cachedResultName": "Quest Board",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=568225123"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit#gid=568225123"
         },
         "filtersUI": {
           "values": [
@@ -2388,17 +2388,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "Whitelist",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit#gid=0"
         },
         "options": {}
       },
@@ -2513,10 +2513,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -2843,17 +2843,17 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": 1983467328,
           "mode": "list",
           "cachedResultName": "Portfolio value",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit#gid=1983467328"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit#gid=1983467328"
         },
         "options": {}
       },
@@ -2878,10 +2878,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -3076,7 +3076,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Your settings are locked in. The reminders have been silenced.",
+        "textBody": "=🔕The reminders have been silenced.\n\nYour settings are locked in. \n\n",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -3192,10 +3192,10 @@
         "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -3207,7 +3207,7 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Interested": "={{ $json.Interested ? $json.Interested + \" - \" + $('Chat start').item.json.contacts[0].wa_id : $('Chat start').item.json.contacts[0].wa_id }}",
+            "Interested": "={{ $json.Interested \n? \n$json.Interested + \" - \" + $('Google Sheets - Authenticate user').item.json['Angel full name'] + \" (\" + $('Chat start').item.json.contacts[0].wa_id +\")\"\n:\n$('Google Sheets - Authenticate user').item.json['Angel full name'] + \" (\" + $('Chat start').item.json.contacts[0].wa_id +\")\" }}",
             "Quest ID:": "={{ $('Main menu switch').item.json.Option }}"
           },
           "matchingColumns": [
@@ -3439,7 +3439,7 @@
         "operation": "send",
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=🏹 Your interest has been shared with the fund leader and the involvement board coordinator. \n\nWe’ll be in touch to explore how we can build together.",
+        "textBody": "=✨ Your interest has been shared with the fund leader and the involvement board coordinator. \n\nWe’ll be in touch to explore how we can build together.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -3463,10 +3463,10 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI",
+          "value": "1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8",
           "mode": "list",
           "cachedResultName": "Digital Involvement Points Registry",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1swXBZNhcAgFq0gXJ5fr82moBRjBedZ2YwLzXaTz_rSI/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dzN11vbTG-9LZ1JqqEl5bagAba1ir_1Soaw0NMFmqt8/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
@@ -4272,7 +4272,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "7ad76cea-5db1-4043-8046-9ce488967d91",
+  "versionId": "7869ef13-66ac-44c3-815a-788b1c15a75f",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

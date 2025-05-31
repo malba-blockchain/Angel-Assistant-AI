@@ -60,17 +60,17 @@ From Investment Regret to Real Angel Wins.
 
 ---------------------------------------------------------------
 
-angel_story_v12
+angel_story_v13
 
-Hey {{1}}, today's angel story: “{{2}}”. ({{3}} min)
+Hey {{1}}, today's angel story: {{2}}. ({{3}} min)
 
 I'm turning Angel Stories into something your network could really appreciate.
 
-If there's a concept or story you'd like to propose, just let me know.
+Rate this story from 1 to 5 to improve your stories experience.
 
 Carlos
 
-From Investment Regret to Real Angel Wins
+We Believed When No One Did - By Pedro Bandeira (COREangels Co-founder)
 
 3
 
@@ -181,3 +181,25 @@ canvas_reminder_v1
 
 To get started just type "Canvas"
 
+------------------------------------------------------
+
+
+send_gift_card_v2
+
+Dear {{1}}, feel free to use the angel canvas gift card or the message template if you find it useful.  Please always share the link.
+
+"I found this tool very useful to understand my angel profile and plan the way I invest.
+
+I believe you will find it useful too."
+
+Carlos
+------------------------------------------------------
+
+send_gift_card_msg_v1
+
+Gift Card to {{1}}
+
+{{2}}
+
+Angel Canvas Gift Link
+https://tally.so/r/n9MY2V

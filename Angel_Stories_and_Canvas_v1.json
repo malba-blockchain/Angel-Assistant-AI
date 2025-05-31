@@ -3,74 +3,6 @@
   "nodes": [
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "f76129ac-554b-46c6-881a-ce9cf6026395",
-              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
-              "rightValue": "Access Angel Canvas",
-              "operator": {
-                "type": "string",
-                "operation": "equals"
-              }
-            },
-            {
-              "id": "668580a4-38dc-4039-acde-2e83b0f07808",
-              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
-              "rightValue": "Canvas",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            },
-            {
-              "id": "a8d3aad6-b8f7-40c0-be62-515a519d9dfe",
-              "leftValue": "={{ $('Chat start').item.json.messages[0].text.body }}",
-              "rightValue": "canvas",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "or"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -760,
-        3340
-      ],
-      "id": "b258693a-52ff-40d0-b53a-ebd289313ea8",
-      "name": "Check message type"
-    },
-    {
-      "parameters": {
-        "sessionIdType": "customKey",
-        "sessionKey": "={{ $('Chat start').item.json.messages[0].from }}",
-        "contextWindowLength": 1
-      },
-      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
-      "typeVersion": 1.3,
-      "position": [
-        -580,
-        5520
-      ],
-      "id": "1c72fcbd-c7d2-4a67-a414-97d1f50db6e0",
-      "name": "Simple Memory"
-    },
-    {
-      "parameters": {
         "assignments": {
           "assignments": [
             {
@@ -114,8 +46,8 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        -2560,
-        540
+        -3660,
+        1600
       ],
       "id": "f1d46f36-2375-4ea4-8dea-a10105b614ec",
       "name": "Chat start",
@@ -165,8 +97,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2380,
-        540
+        -3480,
+        1600
       ],
       "id": "b9e3e3ec-51f0-436d-a214-29718c1d9de4",
       "name": "Validate there is a message"
@@ -248,8 +180,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        -1960,
-        540
+        -3060,
+        1600
       ],
       "id": "3398f008-861b-433e-833a-df2f3e2e2fcc",
       "name": "Log Chat History",
@@ -1190,7 +1122,7 @@
       "typeVersion": 1,
       "position": [
         1020,
-        2040
+        2020
       ],
       "id": "eddde6a8-9820-4ab8-9a2a-c71ddf33c5a6",
       "name": "Ask Angel Name",
@@ -1237,8 +1169,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -820,
-        3080
+        -1280,
+        3780
       ],
       "typeVersion": 1,
       "id": "6f7ca6e3-90f7-40ee-9bb2-25f05c296a38",
@@ -1249,13 +1181,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Your Angel Canvas will take around 10–15 minutes to complete. \n\nWould you like to start now, or should I send you a reminder for later?\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
+        "textBody": "=Your Angel Canvas will take around 10–15 minutes to complete. \n\nWould you like to start now, or should I send you a reminder for later?\n\n_(Type a number)_\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        720,
+        740,
         1420
       ],
       "id": "9ba4662c-9eda-4efd-971f-9a8af30c5ffb",
@@ -1273,13 +1205,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=*Alright {{ $('Chat start').item.json.contacts[0].profile.name.split(\" \")[0] }}, let's customize your canvas.*\n\n(1/21) What's your previous experience investing in startups?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. I've never invested in startups\nB. I invested through crowdfunding or VC funds\nC. I invested as solo angel\nD. I invested through an investment vehicle with few people\nE. I invested through an angel syndicate\nF. I invested through an angel fund\nG. I've been an angel for 1 to 3 years\nH. I've been an angel for 3 to 5 years\nI. I've been an angel for 5 to 10 years\nJ. I've been an angel for more than 10 years",
+        "textBody": "=*Alright {{ $('Chat start').item.json.contacts[0].profile.name.split(\" \")[0] }}, let's customize your canvas.*\n\n(1/21) What's your previous experience investing in startups?\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. I've never invested in startups\nB. I invested through crowdfunding or VC funds\nC. I invested as solo angel\nD. I invested through an investment vehicle with few people\nE. I invested through an angel syndicate\nF. I invested through an angel fund\nG. I've been an angel for 1 to 3 years\nH. I've been an angel for 3 to 5 years\nI. I've been an angel for 5 to 10 years\nJ. I've been an angel for more than 10 years",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         2240
       ],
       "id": "fc3719ee-2072-4118-803a-d20f4801aba2",
@@ -1297,13 +1229,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(2/21) How do you perceive your role as an angel investor?\n\nA. As a hobby – I invest primarily for enjoyment and personal interest.\nB. As a remunerated job – I see it as a professional activity with financial returns.\nC. As an entrepreneurial career – I approach it as a long-term business venture.\nD. As a calling to contribute – I invest to support entrepreneurs and create impact.",
+        "textBody": "=(2/21) How do you perceive your role as an angel investor?\n\n_(Type a letter)_\n\nA. As a hobby – I invest primarily for enjoyment and personal interest.\nB. As a remunerated job – I see it as a professional activity with financial returns.\nC. As an entrepreneurial career – I approach it as a long-term business venture.\nD. As a calling to contribute – I invest to support entrepreneurs and create impact.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         2440
       ],
       "id": "c85639a0-432b-4985-a423-39b1550779e0",
@@ -1571,7 +1503,7 @@
       "typeVersion": 1.1,
       "position": [
         1220,
-        2040
+        2020
       ],
       "id": "a4afef36-00ed-4dd4-8d88-33e681825ed3",
       "name": "Angel Name Menu In",
@@ -1606,7 +1538,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1280,
+        940,
         1420
       ],
       "id": "ccde5e08-47c6-4179-9ed8-4360b7988056",
@@ -1683,7 +1615,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(1/21) What's my previous experience investing in startups?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I\\'ve never invested in startups',\n    'B': 'I invested through crowdfunding or VC funds',\n    'C': 'I invested as solo angel',\n    'D': 'I invested through an investment vehicle with few people',\n    'E': 'I invested through an angel syndicate',\n    'F': 'I invested through an angel fund',\n    'G': 'I\\'ve been an angel for 1 to 3 years',\n    'H': 'I\\'ve been an angel for 3 to 5 years',\n    'I': 'I\\'ve been an angel for 5 to 10 years',\n    'J': 'I\\'ve been an angel for more than 10 years'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
+            "(1/21) What's my previous experience investing in startups?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'ve never invested in startups',\n    'B': 'I invested through crowdfunding or VC funds',\n    'C': 'I invested as solo angel',\n    'D': 'I invested through an investment vehicle with few people',\n    'E': 'I invested through an angel syndicate',\n    'F': 'I invested through an angel fund',\n    'G': 'I\\'ve been an angel for 1 to 3 years',\n    'H': 'I\\'ve been an angel for 3 to 5 years',\n    'I': 'I\\'ve been an angel for 5 to 10 years',\n    'J': 'I\\'ve been an angel for more than 10 years'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -2148,7 +2080,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         2440
       ],
       "id": "fe23a3de-9c6a-465c-9ba1-b4cf0f004bd4",
@@ -2203,7 +2135,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         2240
       ],
       "id": "fb1924b7-8a2b-4fb1-9a77-714bb14a46d7",
@@ -2226,7 +2158,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         2440
       ],
       "id": "71fc28e6-925d-419c-8fdf-fa325c1f3468",
@@ -2239,13 +2171,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(3A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is a great way to earn money\"",
+        "textBody": "=(3A/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is a great way to earn money\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         2640
       ],
       "id": "6e5713eb-7600-402e-ac41-c8a89cf48853",
@@ -2277,13 +2209,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(3B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is an efficient way to diversify investments\"",
+        "textBody": "=(3B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_\n\n\"Angel investing is an efficient way to diversify investments\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         2840
       ],
       "id": "71638d5e-72dd-480e-990f-fa8dd5b99e60",
@@ -2311,7 +2243,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         2640
       ],
       "id": "6d4862ed-0eef-491d-88ed-c9e059e8e5c6",
@@ -2334,7 +2266,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         2840
       ],
       "id": "ddc5b292-8810-4190-acd5-272fc0f1a2db",
@@ -2361,13 +2293,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(3C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing increases my wealth adequately in view of the risk I bear\"",
+        "textBody": "=(3C/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing increases my wealth adequately in view of the risk I bear\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         3040
       ],
       "id": "6170b461-14fb-44e3-aeee-adc9623c79aa",
@@ -2395,7 +2327,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         3040
       ],
       "id": "eda44a8d-8131-4f5a-8e3f-760efb43f87d",
@@ -2432,7 +2364,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         3240
       ],
       "id": "e6aafa57-d596-4ef7-ba98-94d466086444",
@@ -2445,13 +2377,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(4A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is an easy way to invest\"",
+        "textBody": "=(4A/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is an easy way to invest\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         3240
       ],
       "id": "d1ce0b50-5c3f-444e-a30f-2a0cc7bc8653",
@@ -2493,7 +2425,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         3440
       ],
       "id": "3fc3c6c6-c409-489f-b959-774bc1ff1ba3",
@@ -2506,13 +2438,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(4B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is not unnecessarily time-consuming\"",
+        "textBody": "=(4B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is not unnecessarily time-consuming\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         3440
       ],
       "id": "f7b451d0-7a38-4cf4-a36a-254787755f11",
@@ -2544,13 +2476,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(5A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing is a way to give back to society\"",
+        "textBody": "=(5A/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is a way to give back to society\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         3640
       ],
       "id": "f8dbcd5e-411a-4c84-a225-9426d203d47b",
@@ -2605,13 +2537,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(5B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the opportunity to express benevolence toward other people\"",
+        "textBody": "=(5B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing gives me the opportunity to express benevolence toward other people\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         3840
       ],
       "id": "79be2871-3e5c-4f03-a40e-f4d49337c98c",
@@ -2639,7 +2571,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         3840
       ],
       "id": "918c32ed-a4b7-49fa-9ce6-6edb5babee06",
@@ -2676,7 +2608,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         4040
       ],
       "id": "90f49b1a-e72f-4942-af38-d2b84191e5d9",
@@ -2689,13 +2621,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(5C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing encourages me to have a life with a higher purpose\"",
+        "textBody": "=(5C/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing encourages me to have a life with a higher purpose\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         4040
       ],
       "id": "98d18efd-d79a-43ea-8609-5e2b615f0060",
@@ -2737,7 +2669,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         4240
       ],
       "id": "6d688a49-4a02-4ae1-9623-64acb51502dd",
@@ -2750,13 +2682,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(6A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing boosts my self-esteem\"",
+        "textBody": "=(6A/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing boosts my self-esteem\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         4240
       ],
       "id": "85b45cfb-2852-464e-aa1b-ec3d776a0557",
@@ -2798,7 +2730,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         4440
       ],
       "id": "4abfa215-32f9-4d9d-a6f7-3bb6f0b8ea17",
@@ -2811,13 +2743,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(6B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me sheer joy\"",
+        "textBody": "=(6B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing gives me sheer joy\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         4440
       ],
       "id": "ae4821fc-1ad4-4e07-b7c3-a950543e892a",
@@ -2873,7 +2805,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         4640
       ],
       "id": "b88793d1-6e17-4e2a-a7ad-ac27be27d218",
@@ -2886,13 +2818,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(6C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing makes me feel valuable\"",
+        "textBody": "=(6C/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing makes me feel valuable\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         4640
       ],
       "id": "a5977827-871f-437f-a2bd-b56f4beb77be",
@@ -2920,7 +2852,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         4840
       ],
       "id": "5b171a16-d79a-4b9c-924f-a0d844160687",
@@ -2933,13 +2865,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(6D/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing increases my self-confidence\"",
+        "textBody": "=(6D/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing increases my self-confidence\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         4840
       ],
       "id": "e172faba-e454-40ba-9137-bbb7f959ef3e",
@@ -3023,7 +2955,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         5040
       ],
       "id": "f71b15ae-6e54-43f1-94ad-c1fac73579b2",
@@ -3036,13 +2968,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(7A/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing allows me to be part of entrepreneurship\"",
+        "textBody": "=(7A/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing allows me to be part of entrepreneurship\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         5040
       ],
       "id": "426e5cc0-775a-458e-8e09-c21ef1ea8748",
@@ -3083,13 +3015,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(7B/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the pleasure to begin something from scratch\"",
+        "textBody": "=(7B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing gives me the pleasure to begin something from scratch\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         5240
       ],
       "id": "78fde0af-cd9e-49b6-9b9d-d60942af8d1a",
@@ -3117,7 +3049,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         5440
       ],
       "id": "c583ccde-144a-494c-bbb4-3cdc6fd92031",
@@ -3130,13 +3062,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(7C/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing gives me the opportunity for involvement with startups\"",
+        "textBody": "=(7C/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing gives me the opportunity for involvement with startups\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         5440
       ],
       "id": "37696891-7982-4681-b912-27e30c4b6194",
@@ -3177,13 +3109,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(7D/21) How much do you agree with the following phrases (Rate from 1 to 5):\n\n\"Angel investing allows me to mentor entrepreneurs\"",
+        "textBody": "=(7D/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing allows me to mentor entrepreneurs\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         5640
       ],
       "id": "34e914b7-ff91-4ce2-aafd-3b533d7ffea9",
@@ -3253,7 +3185,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         5840
       ],
       "id": "2a908664-8da5-40ef-b862-ce5949122078",
@@ -3276,7 +3208,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         6040
       ],
       "id": "d55250fa-e317-4eb9-a49f-68bd68549a13",
@@ -3299,7 +3231,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         6240
       ],
       "id": "cd09c6f2-ed34-44b9-9190-601815b80363",
@@ -3312,13 +3244,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(8/21) What future changes in the world do you foresee and would love to be part of?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. AI (Artificial Intelligence)\nB. Longevity & Health\nC. Space & Interplanetary Life\nD. New Energy Sources\nE. Decentralized Finance & Power\nF. Green Revolution & Sustainability\nG. Future of Work\nH. Consumer Tech and E-commerce\nI. Personalized Learning & Human Potential\nJ. A More Inclusive & Equal World\nK. A More Meritocratic & Productive World\nL. Not sure\nM. Other",
+        "textBody": "=(8/21) What future changes in the world do you foresee and would love to be part of?\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. AI (Artificial Intelligence)\nB. Longevity & Health\nC. Space & Interplanetary Life\nD. New Energy Sources\nE. Decentralized Finance & Power\nF. Green Revolution & Sustainability\nG. Future of Work\nH. Consumer Tech and E-commerce\nI. Personalized Learning & Human Potential\nJ. A More Inclusive & Equal World\nK. A More Meritocratic & Productive World\nL. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         5840
       ],
       "id": "269bcddf-e077-4134-a802-871131f190b3",
@@ -3336,13 +3268,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(9/21) Which are the main challenges in the world that startups can solve?\n\n(If multiple, enter your answers separated by a space e.g. A B C)\n\nA. Climate & Sustainability\nB. Healthcare & Well-being\nC. Financial Innovation\nD. Education & Future of Work\nE. Food & Agriculture\nF. Urbanization & Mobility\nG. Cybersecurity & Privacy\nH. Aging & Accessibility\nI. Democracy & Human Rights\nJ. Space & Exploration\nK. Defense & Security\nL. Leisure & Lifestyle\nM. Big Data & Productivity\nN. Spirituality & Self-Growth\nO. Not sure\nP. Other",
+        "textBody": "=(9/21) Which are the main challenges in the world that startups can solve?\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. Climate & Sustainability\nB. Healthcare & Well-being\nC. Financial Innovation\nD. Education & Future of Work\nE. Food & Agriculture\nF. Urbanization & Mobility\nG. Cybersecurity & Privacy\nH. Aging & Accessibility\nI. Democracy & Human Rights\nJ. Space & Exploration\nK. Defense & Security\nL. Leisure & Lifestyle\nM. Big Data & Productivity\nN. Spirituality & Self-Growth\nO. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         6040
       ],
       "id": "5951dac4-d0ef-461b-9f9d-49eed57a67dd",
@@ -3360,13 +3292,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(10/21) How much time do you want to dedicate to angel investing?\n\nA. Hands-On Partner (20 plus hours per week)\nB. Engaged Investor (10 to 20 hours per week)\nC. Active Part Time (5 to 10 hours per week)\nD. Advisor and Mentor (2 to 5 hours per week)\nE. Part Hands-On (1 hour per week)\nF. Regular Check-Ins (30 min per week)\nG. As low as possible (1 hour per month)\nH. Hands-Off Investor\nI. Not sure\nJ. Other",
+        "textBody": "=(10/21) How much time do you want to dedicate to angel investing?\n\n_(Type a letter)_\n\nA. Hands-On Partner (20 plus hours per week)\nB. Engaged Investor (10 to 20 hours per week)\nC. Active Part Time (5 to 10 hours per week)\nD. Advisor and Mentor (2 to 5 hours per week)\nE. Part Hands-On (1 hour per week)\nF. Regular Check-Ins (30 min per week)\nG. As low as possible (1 hour per month)\nH. Hands-Off Investor\nI. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         6240
       ],
       "id": "18919565-94cd-493c-9b36-4075039d247f",
@@ -3422,7 +3354,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         6640
       ],
       "id": "ebb4b9c9-982d-43c6-b910-ff296c294632",
@@ -3435,13 +3367,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(12/21) What do you want founders to say about me? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. \"You guided us through every challenge with wisdom and support\"\nB. \"You provided us game changing insights and guidance\"\nC. \"Your backing elevated our reputation in the industry\"\nD. \"Thanks to your support, we scaled faster than we ever imagined\"\nE. \"You empowered us to think bigger and move bolder\"\nF. \"You believed in us before anyone else did\"\nG. \"Your connections opened doors we never thought possible\"\nH. \"Having you as an investor gave us the credibility we needed to attract others\"\nI. \"You backed us with capital and trust, letting us build our vision\"\nJ. Not sure\nK. Other",
+        "textBody": "=(12/21) What do you want founders to say about me? (Pick Max. 5)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. \"You guided us through every challenge with wisdom and support\"\nB. \"You provided us game changing insights and guidance\"\nC. \"Your backing elevated our reputation in the industry\"\nD. \"Thanks to your support, we scaled faster than we ever imagined\"\nE. \"You empowered us to think bigger and move bolder\"\nF. \"You believed in us before anyone else did\"\nG. \"Your connections opened doors we never thought possible\"\nH. \"Having you as an investor gave us the credibility we needed to attract others\"\nI. \"You backed us with capital and trust, letting us build our vision\"\nJ. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         6640
       ],
       "id": "959056d7-ff29-4eb3-8d39-0f3c08d6f86e",
@@ -3496,13 +3428,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(13/21) What do you want other angels to say about you? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. \"You spot game-changing opportunities before they go mainstream\"\nB. \"You actively contribute to growing the angel and startup community\"\nC. \"You bride startups with the right people, resources, and investors\"\nD. \"Your track record of successful exits speaks for itself\"\nE. \"You are willing to take calculated risks on groundbreaking ideas\"\nF. \"You provide valuable guidance and support to both founders and fellow investors\"\nG. \"You bring deep insights and data-driven decision-making to the table\"\nH. \"You are known for your fairness, transparency, and long-term commitment\"\nI. Not sure\nJ. Other",
+        "textBody": "=(13/21) What do you want other angels to say about you? (Pick Max. 5)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. \"You spot game-changing opportunities before they go mainstream\"\nB. \"You actively contribute to growing the angel and startup community\"\nC. \"You bride startups with the right people, resources, and investors\"\nD. \"Your track record of successful exits speaks for itself\"\nE. \"You are willing to take calculated risks on groundbreaking ideas\"\nF. \"You provide valuable guidance and support to both founders and fellow investors\"\nG. \"You bring deep insights and data-driven decision-making to the table\"\nH. \"You are known for your fairness, transparency, and long-term commitment\"\nI. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         6840
       ],
       "id": "20191a6e-7e26-4887-9cc5-04c9d929e8e9",
@@ -3557,13 +3489,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(14/21) How much would you be comfortable investing? \n\n(Strike a balance between making meaningful investments in startups and protecting your financial security)\n\nA. $500K or more in total\nB. $250K to $500K in total\nC. $100K to $250K in total\nD. $50K to $100K in total\nE. $20K to $50K in total\nF. Less than $20K in total\nG. $250K or more per year\nH. $100K to $250K per year\nI. $50K to $100K per year\nJ. $20K to 50K per year\nK. $10K to $20K per year\nL. Not sure\nM. Other",
+        "textBody": "=(14/21) How much would you be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)\n\n_(Type a letter)_\n\nA. $500K or more in total\nB. $250K to $500K in total\nC. $100K to $250K in total\nD. $50K to $100K in total\nE. $20K to $50K in total\nF. Less than $20K in total\nG. $250K or more per year\nH. $100K to $250K per year\nI. $50K to $100K per year\nJ. $20K to 50K per year\nK. $10K to $20K per year\nL. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         7040
       ],
       "id": "b7b27426-b2c1-45f9-85be-1f31d7090718",
@@ -3618,13 +3550,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(15/21) How many startups would you like to invest on?\n\nA. 50 plus startups – Super-angel strategy, spreading risk across many ventures\nB. 20 to 50 startups – Aggressive diversification\nC. 10 to 20 startups – Balanced risk across multiple bets\nD. 5 to 10 startups – Focused portfolio with calculated risk\nE. 1 to 5 startups – Selective, high-conviction\nF. Not sure\nG. Other",
+        "textBody": "=(15/21) How many startups would you like to invest on?\n\n_(Type a letter)_\n\nA. 50 plus startups – Super-angel strategy, spreading risk across many ventures\nB. 20 to 50 startups – Aggressive diversification\nC. 10 to 20 startups – Balanced risk across multiple bets\nD. 5 to 10 startups – Focused portfolio with calculated risk\nE. 1 to 5 startups – Selective, high-conviction\nF. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         7240
       ],
       "id": "d070e86e-e4b7-4dbc-ac05-1b5acee9d22f",
@@ -3679,13 +3611,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(16/21) What types of startups will you invest in? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Idea Stage\nB. MVP Stage\nC. Early Revenue\nD. Series A\nE. Post-Series A+\nF. Not sure\nG. Other",
+        "textBody": "=(16/21) What types of startups will you invest in? (Pick Max. 3)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. Idea Stage\nB. MVP Stage\nC. Early Revenue\nD. Series A\nE. Post-Series A+\nF. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         7440
       ],
       "id": "20148bee-a87b-4525-a524-871a6dc216af",
@@ -3740,13 +3672,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(17/21) What’s your investment return time frame?\n\nA. I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)\nB. I'm looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)\nC. Not sure\nD. Other",
+        "textBody": "=(17/21) What’s your investment return time frame?\n\n_(Type a letter)_\n\nA. I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)\nB. I'm looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)\nC. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         7640
       ],
       "id": "29e36485-72c6-47d9-b617-d65f54914d22",
@@ -3774,7 +3706,7 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1040,
+        1020,
         6440
       ],
       "id": "34d7b865-0719-4665-85a8-a8926a379ede",
@@ -3787,13 +3719,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(11/21) What can be your key contributions beyond capital? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Industry Expertise\nB. Operational Experience\nC. Network & Connections\nD. Fundraising Support\nE. Crisis Counselor/Trusted Confidant\nF. Clients Introductions\nG. Go-to-Market Strategy\nH. Product Development\nI. Hiring & Talent Support\nJ. Hands-On Advisory\nK. Not sure\nL. Other",
+        "textBody": "=(11/21) What can be your key contributions beyond capital? (Pick Max. 3)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. Industry Expertise\nB. Operational Experience\nC. Network & Connections\nD. Fundraising Support\nE. Crisis Counselor/Trusted Confidant\nF. Clients Introductions\nG. Go-to-Market Strategy\nH. Product Development\nI. Hiring & Talent Support\nJ. Hands-On Advisory\nK. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         6440
       ],
       "id": "9aedc081-53b5-414f-b3f4-823e582bbb26",
@@ -3848,13 +3780,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(18/21) In which geographies will you invest? (Pick Max. 3)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. Local Market – Startups within a 1 hour reach by car.\nB. Regional Market – Startups within a 2 hour reach by car.\nC. Continental Market - Startups within a 2 hour reach by plane.\nD. Global Approach – Open to investing anywhere in the world.\nE. Remote-First Startups – I invest in globally distributed teams.\nF. Emerging Markets\nG. Top Tier Startup Hubs\nH. Other",
+        "textBody": "=(18/21) In which geographies will you invest? (Pick Max. 3)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. Local Market – Startups within a 1 hour reach by car.\nB. Regional Market – Startups within a 2 hour reach by car.\nC. Continental Market - Startups within a 2 hour reach by plane.\nD. Global Approach – Open to investing anywhere in the world.\nE. Remote-First Startups – I invest in globally distributed teams.\nF. Emerging Markets\nG. Top Tier Startup Hubs\nH. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         7840
       ],
       "id": "8453f1c2-8199-4763-a616-15fd7df9eb29",
@@ -3909,13 +3841,13 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(19/21) What types of business models will you back? (Pick Max. 5)\n\n(If multiple, enter your answers separated by commas e.g. A, B, C)\n\nA. I'm agnostic\nB. B2B (Business-to-Business)\nC. B2C (Business-to-Consumer)\nD. DTC (Direct-to-Consumer)\nE. SaaS (Service-as-a-Software/Digital Agents)\nF. SaaS (Software-as-a-Service)\nG. E-Commerce\nH. Marketplace Models\nI. Tokenized & Web3 Models\nJ. Not sure\nK. Other",
+        "textBody": "=(19/21) What types of business models will you back? (Pick Max. 5)\n\n_(Type a letter. If multiple, enter your answers separated by a space e.g. A B C)_\n\nA. I'm agnostic\nB. B2B (Business-to-Business)\nC. B2C (Business-to-Consumer)\nD. DTC (Direct-to-Consumer)\nE. SaaS (Service-as-a-Software/Digital Agents)\nF. SaaS (Software-as-a-Service)\nG. E-Commerce\nH. Marketplace Models\nI. Tokenized & Web3 Models\nJ. Other",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         8040
       ],
       "id": "e07573a5-f457-4448-bbda-17c3834c6975",
@@ -3976,7 +3908,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         8240
       ],
       "id": "0f084226-8e00-4ec1-a5cd-38b0070856fd",
@@ -4010,7 +3942,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nMenu: Q21\nName: {{ $('Regenerate variables sender').item.json.Name }}"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTool: Canvas\nMenu: Q21\nName: {{ $('Regenerate variables sender').item.json.Name }}"
             }
           ]
         }
@@ -4037,7 +3969,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         8440
       ],
       "id": "a1af1947-de92-47dd-bccb-3e3adc387a1b",
@@ -4098,7 +4030,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1400,
+        1360,
         8640
       ],
       "id": "ddc973b7-5eb6-4ca3-a78e-e226b5d0f7d1",
@@ -4156,7 +4088,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(2/21) How do I perceive my role as an angel investor?": "={{\n(function() {\n  switch($('Chat start').item.json.messages[0].text.body.trim().toUpperCase()) {\n    case 'A': return 'As a hobby – I invest primarily for enjoyment and personal interest';\n    case 'B': return 'As a remunerated job – I see it as a professional activity with financial returns';\n    case 'C': return 'As an entrepreneurial career – I approach it as a long-term business venture';\n    case 'D': return 'As a calling to contribute – I invest to support entrepreneurs and create impact';\n    default: return 'Unknown option: ' + $('Chat start').item.json.messages[0].text.body;\n  }\n  })()\n}}"
+            "(2/21) How do I perceive my role as an angel investor?": "={{\n(function() {\n  switch($('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0]) {\n    case 'A': return 'As a hobby – I invest primarily for enjoyment and personal interest';\n    case 'B': return 'As a remunerated job – I see it as a professional activity with financial returns';\n    case 'C': return 'As an entrepreneurial career – I approach it as a long-term business venture';\n    case 'D': return 'As a calling to contribute – I invest to support entrepreneurs and create impact';\n    default: return '';\n  }\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -4622,7 +4554,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         2640
       ],
       "id": "85214d04-0532-4340-833f-4fcdb0d046d6",
@@ -4655,7 +4587,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is a great way to earn money\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing is a great way to earn money\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -5121,7 +5053,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         2840
       ],
       "id": "b15ec8c8-a961-494b-ac4a-8e27b6d208cc",
@@ -5154,7 +5086,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is an efficient way to diversify investments\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing is an efficient way to diversify investments\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -5620,7 +5552,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         3040
       ],
       "id": "10ea4dda-ac49-47d0-b9f8-83a35c58b356",
@@ -5653,7 +5585,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing increases my wealth adequately in view of the risk I bear\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing increases my wealth adequately in view of the risk I bear\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -6119,7 +6051,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         3240
       ],
       "id": "fac50e49-c014-40c4-9f3f-fd6e7d2770b2",
@@ -6152,7 +6084,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is an easy way to invest\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing is an easy way to invest\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -6618,7 +6550,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         3440
       ],
       "id": "fa9ead03-6b75-4a90-a7ef-8183ea49fb93",
@@ -6651,7 +6583,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is not unnecessarily time-consuming\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing is not unnecessarily time-consuming\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -7117,7 +7049,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         3640
       ],
       "id": "b7f596f1-fb04-4b42-b5d5-956d6f2bf707",
@@ -7150,7 +7082,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is a way to give back to society\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing is a way to give back to society\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -7616,7 +7548,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         3840
       ],
       "id": "9731cc84-497f-45d7-b614-c87f6e39634d",
@@ -7649,7 +7581,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the opportunity to express benevolence toward other people\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing gives me the opportunity to express benevolence toward other people\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -8115,7 +8047,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         4040
       ],
       "id": "44a1461c-7219-4f7c-aa57-37e78d11b583",
@@ -8148,7 +8080,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing encourages me to have a life with a higher purpose\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing encourages me to have a life with a higher purpose\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -8614,7 +8546,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         4240
       ],
       "id": "a36de0aa-a778-4507-85a0-6110d51b5c45",
@@ -8647,7 +8579,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing boosts my self-esteem\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing boosts my self-esteem\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -9113,7 +9045,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         4440
       ],
       "id": "8aa33c32-7015-445c-9bc6-49ab540cc5c7",
@@ -9146,7 +9078,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me sheer joy\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing gives me sheer joy\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -9612,7 +9544,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         4640
       ],
       "id": "096a9fe5-aff4-41de-8fa5-1e46fa3ff6ad",
@@ -9645,7 +9577,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing makes me feel valuable\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing makes me feel valuable\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -10111,7 +10043,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         4840
       ],
       "id": "f5ed9580-55ef-460c-8743-41e159be5261",
@@ -10144,7 +10076,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing increases my self-confidence\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing increases my self-confidence\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -10610,7 +10542,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         5040
       ],
       "id": "69413fe4-7155-4dee-9e2f-8bdd25109257",
@@ -10643,7 +10575,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing allows me to be part of entrepreneurship\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing allows me to be part of entrepreneurship\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -11109,7 +11041,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         5240
       ],
       "id": "b1fc857b-fa03-47e6-a850-416a73b7d01a",
@@ -11142,7 +11074,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the pleasure to begin something from scratch\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing gives me the pleasure to begin something from scratch\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -11608,7 +11540,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         5440
       ],
       "id": "fac0f493-3b75-4c14-b79c-f318871cdae1",
@@ -11641,7 +11573,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the opportunity for involvement with startups\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing gives me the opportunity for involvement with startups\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -12107,7 +12039,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         5640
       ],
       "id": "b134a9f4-823a-4d5a-a877-7e98fd6671e7",
@@ -12140,7 +12072,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing allows me to mentor entrepreneurs\"": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "\"Angel investing allows me to mentor entrepreneurs\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -12606,7 +12538,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         5840
       ],
       "id": "60b8e377-1243-4e13-89d2-8a92b9836fe4",
@@ -12639,7 +12571,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(8/21) What future changes in the world do I foresee and would love to be part of?": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': 'AI (Artificial Intelligence)',\n      'B': 'Longevity & Health',\n      'C': 'Space & Interplanetary Life',\n      'D': 'New Energy Sources',\n      'E': 'Decentralized Finance & Power',\n      'F': 'Green Revolution & Sustainability',\n      'G': 'Future of Work',\n      'H': 'Consumer Tech and E-commerce',\n      'I': 'Personalized Learning & Human Potential',\n      'J': 'A More Inclusive & Equal World',\n      'K': 'A More Meritocratic & Productive World',\n      'L': 'Not sure',\n      'M': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(8/21) What future changes in the world do I foresee and would love to be part of?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'AI (Artificial Intelligence)',\n      'B': 'Longevity & Health',\n      'C': 'Space & Interplanetary Life',\n      'D': 'New Energy Sources',\n      'E': 'Decentralized Finance & Power',\n      'F': 'Green Revolution & Sustainability',\n      'G': 'Future of Work',\n      'H': 'Consumer Tech and E-commerce',\n      'I': 'Personalized Learning & Human Potential',\n      'J': 'A More Inclusive & Equal World',\n      'K': 'A More Meritocratic & Productive World',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter]\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -13105,7 +13037,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         6040
       ],
       "id": "630181f7-ce8e-4fd8-81d0-c55c43481881",
@@ -13138,7 +13070,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(9/21) Which are the main challenges in the world that startups can solve?": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': 'Climate & Sustainability',\n      'B': 'Healthcare & Well-being',\n      'C': 'Financial Innovation',\n      'D': 'Education & Future of Work',\n      'E': 'Food & Agriculture',\n      'F': 'Urbanization & Mobility',\n      'G': 'Cybersecurity & Privacy',\n      'H': 'Aging & Accessibility',\n      'I': 'Democracy & Human Rights',\n      'J': 'Space & Exploration',\n      'K': 'Defense & Security',\n      'L': 'Leisure & Lifestyle',\n      'M': 'Big Data & Productivity',\n      'N': 'Spirituality & Self-Growth',\n      'O': 'Not sure',\n      'P': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(9/21) Which are the main challenges in the world that startups can solve?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Climate & Sustainability',\n      'B': 'Healthcare & Well-being',\n      'C': 'Financial Innovation',\n      'D': 'Education & Future of Work',\n      'E': 'Food & Agriculture',\n      'F': 'Urbanization & Mobility',\n      'G': 'Cybersecurity & Privacy',\n      'H': 'Aging & Accessibility',\n      'I': 'Democracy & Human Rights',\n      'J': 'Space & Exploration',\n      'K': 'Defense & Security',\n      'L': 'Leisure & Lifestyle',\n      'M': 'Big Data & Productivity',\n      'N': 'Spirituality & Self-Growth',\n      'O': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -13604,7 +13536,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         6240
       ],
       "id": "653225b2-a243-403f-b50e-09dea391d2f5",
@@ -13637,7 +13569,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(10/21) How much time do I want to dedicate to angel investing?": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': 'Hands-On Partner (20 plus hours per week)',\n      'B': 'Engaged Investor (10 to 20 hours per week)',\n      'C': 'Active Part Time (5 to 10 hours per week)',\n      'D': 'Advisor and Mentor (2 to 5 hours per week)',\n      'E': 'Part Hands-On (1 hour per week)',\n      'F': 'Regular Check-Ins (30 min per week)',\n      'G': 'As low as possible (1 hour per month)',\n      'H': 'Hands-Off Investor',\n      'I': 'Not sure',\n      'J': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(10/21) How much time do I want to dedicate to angel investing?": "={{ \n  (function() {\n    const letter = $('Chat start').item.json.messages[0].text.body.split('')[0].toUpperCase();\n\n    \n    const mappings = {\n      'A': 'Hands-On Partner (20 plus hours per week)',\n      'B': 'Engaged Investor (10 to 20 hours per week)',\n      'C': 'Active Part Time (5 to 10 hours per week)',\n      'D': 'Advisor and Mentor (2 to 5 hours per week)',\n      'E': 'Part Hands-On (1 hour per week)',\n      'F': 'Regular Check-Ins (30 min per week)',\n      'G': 'As low as possible (1 hour per month)',\n      'H': 'Hands-Off Investor',\n      'I': 'Other'\n    };\n    \n    return mappings[letter] || '';\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -14103,7 +14035,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         6440
       ],
       "id": "9ae3c430-7591-41ec-a2dd-65bd37979360",
@@ -14136,7 +14068,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': 'Industry Expertise',\n      'B': 'Operational Experience',\n      'C': 'Network & Connections',\n      'D': 'Fundraising Support',\n      'E': 'Crisis Counselor/Trusted Confidant',\n      'F': 'Clients Introductions',\n      'G': 'Go-to-Market Strategy',\n      'H': 'Product Development',\n      'I': 'Hiring & Talent Support',\n      'J': 'Hands-On Advisory',\n      'K': 'Not sure',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Industry Expertise',\n      'B': 'Operational Experience',\n      'C': 'Network & Connections',\n      'D': 'Fundraising Support',\n      'E': 'Crisis Counselor/Trusted Confidant',\n      'F': 'Clients Introductions',\n      'G': 'Go-to-Market Strategy',\n      'H': 'Product Development',\n      'I': 'Hiring & Talent Support',\n      'J': 'Hands-On Advisory',\n      'K': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -14602,7 +14534,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         6640
       ],
       "id": "757fcf7a-d078-4a8e-b454-25e229f00670",
@@ -14635,7 +14567,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(12/21) What do I want founders to say about me? (Pick Max. 5)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '\"You guided us through every challenge with wisdom and support\"',\n      'B': '\"You provided us game changing insights and guidance\"',\n      'C': '\"Your backing elevated our reputation in the industry\"',\n      'D': '\"Thanks to your support, we scaled faster than we ever imagined\"',\n      'E': '\"You empowered us to think bigger and move bolder\"',\n      'F': '\"You believed in us before anyone else did\"',\n      'G': '\"Your connections opened doors we never thought possible\"',\n      'H': '\"Having you as an investor gave us the credibility we needed to attract others\"',\n      'I': '\"You backed us with capital and trust, letting us build our vision\"',\n      'J': 'Not sure',\n      'K': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(12/21) What do I want founders to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You guided us through every challenge with wisdom and support\"',\n      'B': '\"You provided us game changing insights and guidance\"',\n      'C': '\"Your backing elevated our reputation in the industry\"',\n      'D': '\"Thanks to your support, we scaled faster than we ever imagined\"',\n      'E': '\"You empowered us to think bigger and move bolder\"',\n      'F': '\"You believed in us before anyone else did\"',\n      'G': '\"Your connections opened doors we never thought possible\"',\n      'H': '\"Having you as an investor gave us the credibility we needed to attract others\"',\n      'I': '\"You backed us with capital and trust, letting us build our vision\"',\n      'J': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -15101,7 +15033,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         6840
       ],
       "id": "43df27a3-a97a-4aee-9342-3ecfab84c1b9",
@@ -15134,7 +15066,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(13/21) What do I want other angels to say about me? (Pick Max. 5)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '\"You spot game-changing opportunities before they go mainstream\"',\n      'B': '\"You actively contribute to growing the angel and startup community\"',\n      'C': '\"You bride startups with the right people, resources, and investors\"',\n      'D': '\"Your track record of successful exits speaks for itself\"',\n      'E': '\"You are willing to take calculated risks on groundbreaking ideas\"',\n      'F': '\"You provide valuable guidance and support to both founders and fellow investors\"',\n      'G': '\"You bring deep insights and data-driven decision-making to the table\"',\n      'H': '\"You are known for your fairness, transparency, and long-term commitment\"',\n      'I': 'Not sure',\n      'J': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(13/21) What do I want other angels to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You spot game-changing opportunities before they go mainstream\"',\n      'B': '\"You actively contribute to growing the angel and startup community\"',\n      'C': '\"You bride startups with the right people, resources, and investors\"',\n      'D': '\"Your track record of successful exits speaks for itself\"',\n      'E': '\"You are willing to take calculated risks on groundbreaking ideas\"',\n      'F': '\"You provide valuable guidance and support to both founders and fellow investors\"',\n      'G': '\"You bring deep insights and data-driven decision-making to the table\"',\n      'H': '\"You are known for your fairness, transparency, and long-term commitment\"',\n      'I': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -15600,7 +15532,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         7040
       ],
       "id": "50ac7c03-51c6-4c8b-96be-68ee495e9357",
@@ -15633,7 +15565,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '$500K or more in total',\n      'B': '$250K to $500K in total',\n      'C': '$100K to $250K in total',\n      'D': '$50K to $100K in total',\n      'E': '$20K to $50K in total',\n      'F': 'Less than $20K in total',\n      'G': '$250K or more per year',\n      'H': '$100K to $250K per year',\n      'I': '$50K to $100K per year',\n      'J': '$20K to 50K per year',\n      'K': '$10K to $20K per year',\n      'L': 'Not sure',\n      'M': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter] || 'Unknown option: ' + letter;\n    });\n    \n    return results.join(', ');\n  })()\n}}"
+            "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '$500K or more in total',\n      'B': '$250K to $500K in total',\n      'C': '$100K to $250K in total',\n      'D': '$50K to $100K in total',\n      'E': '$20K to $50K in total',\n      'F': 'Less than $20K in total',\n      'G': '$250K or more per year',\n      'H': '$100K to $250K per year',\n      'I': '$50K to $100K per year',\n      'J': '$20K to 50K per year',\n      'K': '$10K to $20K per year',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -16099,7 +16031,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         7240
       ],
       "id": "146f2b45-7d1c-411e-a59d-7c2b5c5ed803",
@@ -16132,7 +16064,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(15/21) How many startups would I like to invest on?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': '50 plus startups – Super-angel strategy, spreading risk across many ventures',\n    'B': '20 to 50 startups – Aggressive diversification',\n    'C': '10 to 20 startups – Balanced risk across multiple bets',\n    'D': '5 to 10 startups – Focused portfolio with calculated risk',\n    'E': '1 to 5 startups – Selective, high-conviction',\n    'F': 'Not sure',\n    'G': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
+            "(15/21) How many startups would I like to invest on?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': '50 plus startups – Super-angel strategy, spreading risk across many ventures',\n    'B': '20 to 50 startups – Aggressive diversification',\n    'C': '10 to 20 startups – Balanced risk across multiple bets',\n    'D': '5 to 10 startups – Focused portfolio with calculated risk',\n    'E': '1 to 5 startups – Selective, high-conviction',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -16598,7 +16530,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         7440
       ],
       "id": "3e49131c-3c97-45b4-918f-b7468e1b6ea5",
@@ -16631,7 +16563,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(16/21) What types of startups will I invest in? (Pick Max. 3)": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'Idea Stage',\n    'B': 'MVP Stage',\n    'C': 'Early Revenue',\n    'D': 'Series A',\n    'E': 'Post-Series A+',\n    'F': 'Not sure',\n    'G': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
+            "(16/21) What types of startups will I invest in? (Pick Max. 3)": "={{(function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Idea Stage',\n    'B': 'MVP Stage',\n    'C': 'Early Revenue',\n    'D': 'Series A',\n    'E': 'Post-Series A+',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -17097,7 +17029,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         7640
       ],
       "id": "874f2bc3-db16-4f01-a5d6-3478348300f5",
@@ -17130,7 +17062,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(17/21) What’s my investment return time frame?": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)',\n    'B': 'I\\'m looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)',\n    'C': 'Not sure',\n    'D': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
+            "(17/21) What’s my investment return time frame?": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)',\n    'B': 'I\\'m looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)',\n    'C': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -17596,7 +17528,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         7840
       ],
       "id": "0871459f-ceeb-4afc-91ac-a5384c9c22c1",
@@ -17629,7 +17561,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(18/21) In which geographies will I invest? (Pick Max. 3)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'Local Market – Startups within a 1 hour reach by car.',\n    'B': 'Regional Market – Startups within a 2 hour reach by car.',\n    'C': 'Continental Market - Startups within a 2 hour reach by plane.',\n    'D': 'Global Approach – Open to investing anywhere in the world.',\n    'E': 'Remote-First Startups – I invest in globally distributed teams.',\n    'F': 'Emerging Markets',\n    'G': 'Top Tier Startup Hubs',\n    'H': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})()}}"
+            "(18/21) In which geographies will I invest? (Pick Max. 3)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Local Market – Startups within a 1 hour reach by car.',\n    'B': 'Regional Market – Startups within a 2 hour reach by car.',\n    'C': 'Continental Market - Startups within a 2 hour reach by plane.',\n    'D': 'Global Approach – Open to investing anywhere in the world.',\n    'E': 'Remote-First Startups – I invest in globally distributed teams.',\n    'F': 'Emerging Markets',\n    'G': 'Top Tier Startup Hubs',\n    'H': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -18095,7 +18027,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         8040
       ],
       "id": "b5fa2be9-ed16-452b-8eec-76694f18f341",
@@ -18128,7 +18060,7 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(19/21) What types of business models will I back? (Pick Max. 5)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase();\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I\\'m agnostic',\n    'B': 'B2B (Business-to-Business)',\n    'C': 'B2C (Business-to-Consumer)',\n    'D': 'DTC (Direct-to-Consumer)',\n    'E': 'SaaS (Service-as-a-Software/Digital Agents)',\n    'F': 'SaaS (Software-as-a-Service)',\n    'G': 'E-Commerce',\n    'H': 'Marketplace Models',\n    'I': 'Tokenized & Web3 Models',\n    'J': 'Not sure',\n    'K': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter] || 'Unknown option: ' + letter;\n  });\n  \n  return results.join(', ');\n})() }}"
+            "(19/21) What types of business models will I back? (Pick Max. 5)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'m agnostic',\n    'B': 'B2B (Business-to-Business)',\n    'C': 'B2C (Business-to-Consumer)',\n    'D': 'DTC (Direct-to-Consumer)',\n    'E': 'SaaS (Service-as-a-Software/Digital Agents)',\n    'F': 'SaaS (Software-as-a-Service)',\n    'G': 'E-Commerce',\n    'H': 'Marketplace Models',\n    'I': 'Tokenized & Web3 Models',\n    'J': 'Not sure',\n    'K': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})() }}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -18594,7 +18526,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         8240
       ],
       "id": "911395db-5187-481a-8c91-7710c71fc3a0",
@@ -19093,7 +19025,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         8440
       ],
       "id": "134109de-9a91-4fa3-af75-c75c81f6705d",
@@ -19592,7 +19524,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         8640
       ],
       "id": "2573433c-0a53-44af-b1e6-356b8b164e41",
@@ -20091,7 +20023,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        860,
+        820,
         8840
       ],
       "id": "c24e8c3a-8958-43af-b4e6-8bdc021edee0",
@@ -20259,7 +20191,9 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "hours",
+              "hoursInterval": 2,
+              "triggerAtMinute": 10
             }
           ]
         }
@@ -20347,7 +20281,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1620,
+        1580,
         2240
       ],
       "id": "65e2cd01-da05-4cba-a044-b368d10782ba",
@@ -20841,7 +20775,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2140,
+        2100,
         2140
       ],
       "id": "6a7d18c0-ee3c-4403-984b-a59577447a53",
@@ -21325,7 +21259,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2140,
+        2100,
         2360
       ],
       "id": "5e4ef068-7a2e-405a-9405-f222c0b3c2a6",
@@ -21365,7 +21299,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1860,
+        1820,
         2240
       ],
       "id": "1af40d8a-9bcf-4c9d-9041-16f1ac4a37fc",
@@ -21399,8 +21333,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2160,
-        540
+        -3260,
+        1600
       ],
       "id": "a43e2fa2-5007-434a-b8a2-e018f5c300a3",
       "name": "Validate right routing"
@@ -21421,12 +21355,20 @@
           "cachedResultName": "Experience Responses",
           "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
         },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Access",
+              "lookupValue": "On"
+            }
+          ]
+        },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3460,
+        3420,
         2620
       ],
       "id": "6a2bf2e8-b6f8-4fbc-8223-a6014046d2bf",
@@ -21442,7 +21384,7 @@
       "parameters": {
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
-        "template": "angel_story_v12|en",
+        "template": "angel_story_v14|en",
         "components": {
           "component": [
             {
@@ -21475,7 +21417,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4340,
+        4300,
         2620
       ],
       "id": "887f9959-b648-4af0-b726-d4076d9edc51",
@@ -21517,7 +21459,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4140,
+        4100,
         2620
       ],
       "id": "08740764-150f-4730-aac4-5a41d3c01c4a",
@@ -21534,14 +21476,14 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "Welcome, I'm your Angel Agent.\n\nTo access the Angel Stories type \"Story\"\nTo access the Angel Canvas type \"Canvas\"",
+        "textBody": "Welcome, I'm your Angel Agent.\n\nTo access Angel Stories type \"Story\"\nTo access Angel Canvas type \"Canvas\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        -860,
-        700
+        -1680,
+        1720
       ],
       "id": "4dd7b4ff-8492-464c-9815-89c1b362c396",
       "name": "Default MSG",
@@ -21555,7 +21497,7 @@
     },
     {
       "parameters": {
-        "operation": "append",
+        "operation": "appendOrUpdate",
         "documentId": {
           "__rl": true,
           "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
@@ -21579,9 +21521,13 @@
             "Frequency": "={{ $('Chat start').item.json.messages[0].text.body }}",
             "Phase": "0-Angel Story 0",
             "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
-            "Level": "={{ \n  ($('Regenerate variables').item.json.Level == 1) \n    ? \"Base\" \n    : ($('Regenerate variables').item.json.Level == 2) \n      ? \"Intermediate\" \n      : ($('Regenerate variables').item.json.Level == 3) \n        ? \"Advanced\" \n        : $('Regenerate variables').item.json.Level \n}}"
+            "Level": "={{ \n  ($('Regenerate variables').item.json.Level == 1) \n    ? \"Base\" \n    : ($('Regenerate variables').item.json.Level == 2) \n      ? \"Intermediate\" \n      : ($('Regenerate variables').item.json.Level == 3) \n        ? \"Advanced\" \n        : $('Regenerate variables').item.json.Level \n}}",
+            "Source": "={{ $('Regenerate variables').item.json.Source }}",
+            "Access": "On"
           },
-          "matchingColumns": [],
+          "matchingColumns": [
+            "Number"
+          ],
           "schema": [
             {
               "id": "Submitted at",
@@ -21608,7 +21554,8 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": false
             },
             {
               "id": "Frequency",
@@ -21646,6 +21593,26 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Access",
+              "displayName": "Access",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
             }
           ],
           "attemptToConvertTypes": false,
@@ -21656,8 +21623,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        420,
-        960
+        280,
+        1020
       ],
       "id": "7b48d530-46db-4ec1-b250-a0467ae2e97e",
       "name": "Register Angel Experience Database",
@@ -21679,8 +21646,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        620,
-        960
+        480,
+        1020
       ],
       "id": "f5acda26-8aec-4274-aa10-e5f6950b3547",
       "name": "Registration success",
@@ -21721,8 +21688,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        800,
-        960
+        660,
+        1020
       ],
       "id": "eedd6b62-fafe-4810-971a-493f74a95612",
       "name": "Get First Story Data1",
@@ -21745,8 +21712,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1140,
-        960
+        1000,
+        1020
       ],
       "id": "1dfebf88-204e-4b45-8c00-9ca82701a7d1",
       "name": "Send First Angel Story",
@@ -21773,8 +21740,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        980,
-        960
+        840,
+        1020
       ],
       "id": "51afc05f-6dd9-4766-8db1-892ed98b37e9",
       "name": "Google Drive",
@@ -21790,14 +21757,14 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: “{{ $('Get First Story Data1').item.json.Title }}” ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nIf there's a concept or story you'd like to propose, just let me know.",
+        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: {{ $('Get First Story Data1').item.json.Title }} ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nRate this story from 1 to 5 to improve your stories experience.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1500,
-        960
+        1360,
+        1020
       ],
       "id": "00ca9804-ccf0-4ea5-99c9-213fd1bef720",
       "name": "First Angel Story message",
@@ -21814,8 +21781,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1320,
-        960
+        1180,
+        1020
       ],
       "id": "2dfd3890-b9cf-425a-8e31-0779bd970988",
       "name": "Wait",
@@ -21850,7 +21817,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4140,
+        4100,
         2800
       ],
       "id": "34be3770-164e-4d0d-b06b-246f9cb64341",
@@ -21867,7 +21834,9 @@
         "rule": {
           "interval": [
             {
-              "field": "hours"
+              "field": "hours",
+              "hoursInterval": 2,
+              "triggerAtMinute": 20
             }
           ]
         }
@@ -21875,7 +21844,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        3280,
+        3240,
         2620
       ],
       "id": "bf9ebaa4-ea64-48ca-b75d-f0737e77fa80",
@@ -21885,7 +21854,7 @@
       "parameters": {
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
-        "template": "angel_story_v12|en",
+        "template": "angel_story_v14|en",
         "components": {
           "component": [
             {
@@ -21918,7 +21887,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4340,
+        4300,
         2800
       ],
       "id": "480bbd35-1b4f-4571-8400-8b3aa17604bc",
@@ -21936,14 +21905,14 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "(3/3) How often would you like to have access to Angel Stories?\n\n3. Every 3 days\n4. Every 4 days\n5. Every 5 days\n6. Every 6 days\n7. Every 7 days",
+        "textBody": "(3/3) How often would you like to have access to Angel Stories? _(Type a number)_\n\n3. Every 3 days\n4. Every 4 days\n5. Every 5 days\n6. Every 6 days\n7. Every 7 days",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1100,
-        800
+        960,
+        860
       ],
       "id": "3c0bdf55-846d-4d9d-afa8-321b79f43e2b",
       "name": "Angel Frequency",
@@ -21960,14 +21929,14 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(2/3) What's your experience as an angel?\n\n1. Base (None to 3 years)\n2. Intermediate (3 to 10 years)\n3. Advanced (10+ years)",
+        "textBody": "=(2/3) What's your experience as an angel? _(Type a number)_\n\n1. Base (None to 3 years)\n2. Intermediate (3 to 10 years)\n3. Advanced (10+ years)",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1100,
-        640
+        960,
+        700
       ],
       "id": "ea437718-49ff-4f8e-8aa4-a40d0e40df08",
       "name": "Angel Level",
@@ -21986,7 +21955,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Frequency\nName: {{ $('Regenerate variables').item.json.Name }}\nLevel: {{ $('Chat start').item.json.messages[0].text.body }}"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Frequency\nName: {{ $('Regenerate variables').item.json.Name }}\nLevel: {{ $('Chat start').item.json.messages[0].text.body }}\nSource: {{ $('Regenerate variables').item.json.Source }}"
             }
           ]
         }
@@ -21994,8 +21963,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        760,
-        800
+        620,
+        860
       ],
       "id": "594aba99-5f8a-4c87-849b-a946f476c772",
       "name": "Angel Frequency Menu In",
@@ -22009,7 +21978,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Level\nName: {{ $('Chat start').item.json.messages[0].text.body }}"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Level\nName: {{ $('Chat start').item.json.messages[0].text.body }}\nSource: {{ $('Regenerate variables').item.json.Source }}"
             }
           ]
         }
@@ -22017,8 +21986,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        760,
-        640
+        620,
+        700
       ],
       "id": "82d408e5-6215-485d-b679-6373cad70ce9",
       "name": "Angel Level Menu In",
@@ -22054,7 +22023,7 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        3640,
+        3600,
         2620
       ],
       "id": "311000fa-79f6-4da9-ae31-4a34bc1d6cd0",
@@ -22146,7 +22115,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        3820,
+        3780,
         2620
       ],
       "id": "e63c1836-1a62-4ef7-b3d1-b89e327091c3",
@@ -22181,7 +22150,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4140,
+        4100,
         2460
       ],
       "id": "f2b948b8-e7c3-4df9-a92f-b9b073f571d8",
@@ -22319,7 +22288,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4540,
+        4500,
         2460
       ],
       "id": "2a987abd-0671-4796-b46a-f241da4c0137",
@@ -22447,7 +22416,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4540,
+        4500,
         2620
       ],
       "id": "3a841727-d3bb-4ac4-8414-43c0e3f1b706",
@@ -22575,7 +22544,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4540,
+        4500,
         2800
       ],
       "id": "42c15f0e-8e4a-4365-ab7d-831fb20dc028",
@@ -22591,7 +22560,7 @@
       "parameters": {
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
-        "template": "angel_story_v12|en",
+        "template": "angel_story_v14|en",
         "components": {
           "component": [
             {
@@ -22624,7 +22593,7 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4340,
+        4300,
         2460
       ],
       "id": "8bba1f3e-be5c-43d0-8791-0e8c29f4771a",
@@ -22646,8 +22615,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        -300,
-        1060
+        -860,
+        5180
       ],
       "id": "89ee32bc-f77c-4f65-8788-c051f8ce4137",
       "name": "Simple Memory1"
@@ -22761,8 +22730,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        20,
-        720
+        -120,
+        780
       ],
       "id": "4e755f70-2e04-4a5c-9572-93c91633df7c",
       "name": "Main Registration menu switch1",
@@ -22776,8 +22745,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        420,
-        640
+        280,
+        700
       ],
       "id": "8b7fdcd5-8eb8-49d0-bbd0-1e4c16884c1d",
       "name": "Clean Memory22"
@@ -22787,14 +22756,14 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "Hello, I will grant you access to Angel Stories (mini podcasts from 3 to 5 min long).\n\n(1/3) What's your full name?",
+        "textBody": "I will grant you access to Angel Stories (mini podcasts from 3 to 5 min long)\n\n(1/3) What's your full name?",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        0,
-        220
+        -120,
+        460
       ],
       "id": "0a871526-a767-443f-9d06-795c8b95e22a",
       "name": "Ask Angel Name1",
@@ -22814,8 +22783,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        420,
-        800
+        280,
+        860
       ],
       "id": "e0fab849-0ca1-45e8-b97a-c889c5dbd14d",
       "name": "Clean Memory24"
@@ -22827,7 +22796,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2860,
+        2820,
         2600
       ],
       "typeVersion": 1,
@@ -22841,8 +22810,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        0,
-        0
+        -160,
+        180
       ],
       "typeVersion": 1,
       "id": "227aa412-7d4a-4c08-8b4d-dda1cca3f1ad",
@@ -22855,7 +22824,7 @@
           "messageValues": [
             {
               "type": "user",
-              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Name"
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Name\nSource: {{ $('Chat start').item.json.messages[0].text.body.split(\" \")[1]?.toUpperCase() || \"YANGEL\" }}"
             }
           ]
         }
@@ -22863,8 +22832,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        400,
-        220
+        260,
+        460
       ],
       "id": "6b75edf1-ea6c-4d32-9316-21a27db1010a",
       "name": "Angel Name Menu In1",
@@ -22885,7 +22854,32 @@
                 },
                 "conditions": [
                   {
-                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"Story\" || $('Chat start').item.json.messages[0].text.body == \"story\" }}",
+                    "id": "ab3a7c73-5df8-4c26-9519-ba6e51090400",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"Remove Stories Access\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Remove Access"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body.split(\" \")[0].toLowerCase() == \"story\" }}",
                     "rightValue": "",
                     "operator": {
                       "type": "boolean",
@@ -22899,6 +22893,56 @@
               },
               "renameOutput": true,
               "outputKey": "Stories Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e88878ed-f346-4d3a-8225-e95278bc13f3",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body.split(\" \")[0].toLowerCase() == \"canvas\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Canvas Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "939a2049-7f44-4031-beda-26956e9d610f",
+                    "leftValue": "={{ $json.Menu == null && $json.Tool == null && ![\"1\", \"2\", \"3\", \"4\", \"5\"].includes($('Chat start').item.json.messages[0].text.body) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Default Welcome"
             },
             {
               "conditions": {
@@ -22935,8 +22979,8 @@
                 },
                 "conditions": [
                   {
-                    "id": "939a2049-7f44-4031-beda-26956e9d610f",
-                    "leftValue": "={{ $json.Menu == null && $json.Tool == null }}",
+                    "id": "339e2fd1-4f14-486b-ba58-72ccd6cc153e",
+                    "leftValue": "={{ $json.Tool.toLowerCase() == \"canvas\" }}",
                     "rightValue": "",
                     "operator": {
                       "type": "boolean",
@@ -22948,7 +22992,32 @@
                 "combinator": "and"
               },
               "renameOutput": true,
-              "outputKey": "Default Welcome"
+              "outputKey": "Canvas Menu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "47982fa6-d4fe-4374-b079-c418ea63549d",
+                    "leftValue": "={{ [\"1\", \"2\", \"3\", \"4\", \"5\"].includes($('Chat start').item.json.messages[0].text.body) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story Rating"
             }
           ]
         },
@@ -22957,8 +23026,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -1220,
-        540
+        -2320,
+        1560
       ],
       "id": "bf0da452-9689-4358-abe1-320329d7a1a4",
       "name": "Switch Canvas/Stories"
@@ -22970,8 +23039,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        -1780,
-        540
+        -2880,
+        1600
       ],
       "id": "56d38cc6-962d-4524-9496-4106849f5824",
       "name": "Angel Tool Menu Out"
@@ -23015,6 +23084,12 @@
               "name": "Level",
               "value": "={{$json.messages[$json.messagesCount-1].human.match(/Level:\\s*([^\\n]+)/)?.[1] || null}}",
               "type": "string"
+            },
+            {
+              "id": "77b650b8-b835-4864-958d-6ea450e8856a",
+              "name": "Source",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Source:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
             }
           ]
         },
@@ -23023,384 +23098,814 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1440,
-        540
+        -2540,
+        1600
       ],
       "id": "34b78120-99af-424f-8c2b-799c23069b0b",
       "name": "Regenerate variables"
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1540,
+        1020
+      ],
+      "id": "5afaeba0-2e42-4a0e-9646-cb9f9777f190",
+      "name": "Clean Memory27"
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1000,
+        8840
+      ],
+      "id": "45da2588-ffa7-45b0-afac-439a9989599e",
+      "name": "Clean Memory39"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "🛑It's done. Your access to angel stories has been removed.\n\nIf you want to recover it type \"Story\".",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        800
+      ],
+      "id": "df00f7e2-e13b-4368-812e-7827ac462b01",
+      "name": "Remove Access",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Access": "Off"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Access",
+              "displayName": "Access",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1660,
+        800
+      ],
+      "id": "f50ce9ee-92a9-4bf9-ad60-b9cbd980990c",
+      "name": "Remove access",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $('Chat start').item.json.messages[0].from }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -1580,
+        1880
+      ],
+      "id": "938e805c-c86b-4772-8f16-c36dd705204c",
+      "name": "Google Sheets - Get Angel Current Phase",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "81ac3b59-082d-48e1-a9db-42e77ab6913d",
+              "name": "Phase",
+              "value": "={{($json.Phase && $json.Phase.includes(\"Story\")) ? \"Story\" : ($json.Phase && $json.Phase.includes(\"Concept\")) ? \"Concept\" : \"\"}}",
+              "type": "string"
+            },
+            {
+              "id": "1f9c1231-08dc-420f-b0fd-5b2abab9ddb1",
+              "name": "ID",
+              "value": "={{ ($json.Phase && $json.Phase.includes(\"Story\")) ? $json.Phase.slice(-1) : ($json.Phase && $json.Phase.includes(\"Concept\")) ? $json.Phase.slice(-3) : \"\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1360,
+        1880
+      ],
+      "id": "d40e3173-e6c9-45d7-a611-c170eb00cbd9",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "Ratings": "={{ $json.Ratings\n? \n$json.Ratings + \", \" + $('Chat start').item.json.messages[0].text.body\n:\n$('Chat start').item.json.messages[0].text.body\n}}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Original",
+              "displayName": "Original",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Intro",
+              "displayName": "Intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trailer",
+              "displayName": "Trailer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Body",
+              "displayName": "Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Outro",
+              "displayName": "Outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full script",
+              "displayName": "Full script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive ID",
+              "displayName": "Drive ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ratings",
+              "displayName": "Ratings",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -580,
+        1780
+      ],
+      "id": "af322748-72fa-485a-a99f-e173bf87576c",
+      "name": "Rate Story",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "Ratings": "={{ $json.Ratings ?  $json.Ratings + \", \" + $('Chat start').item.json.messages[0].text.body : $('Chat start').item.json.messages[0].text.body }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Concept",
+              "displayName": "Concept",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Intro",
+              "displayName": "Intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trailer",
+              "displayName": "Trailer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Body",
+              "displayName": "Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Outro",
+              "displayName": "Outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full script",
+              "displayName": "Full script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive ID",
+              "displayName": "Drive ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ratings",
+              "displayName": "Ratings",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -580,
+        1980
+      ],
+      "id": "a5cf75b3-a4b6-4d22-8176-3610d754baa8",
+      "name": "Rate Concept",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Phase == \"Story\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "ead9b261-0d90-4e53-9942-61830effa8e6"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a5d6a1a8-a4c0-47d0-8bda-ff4a2c443b60",
+                    "leftValue": "={{ $json.Phase == \"Concept\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Concept"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1140,
+        1880
+      ],
+      "id": "f7c22472-f983-4984-871c-ba1c4997c81f",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.ID }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -840,
+        1780
+      ],
+      "id": "6eee08b4-9db9-4de0-a9ac-7f3a60bfe261",
+      "name": "Get previous story ratings",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $('Edit Fields').item.json.ID }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -840,
+        1980
+      ],
+      "id": "45fa364d-6aa8-4e30-90db-7702b2eb7d3b",
+      "name": "Get previous concept ratings",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Got it. Thanks for your feedback.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        1900
+      ],
+      "id": "3cb25cdd-cd2d-49a2-b696-54701059abbb",
+      "name": "Thanks for rating",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
     }
   ],
   "pinData": {},
   "connections": {
-    "Check message type": {
-      "main": [
-        [
-          {
-            "node": "Default MSG 1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Angel Canvas Menu Out",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Simple Memory": {
-      "ai_memory": [
-        [
-          {
-            "node": "Angel Canvas Menu Out",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Name Menu In",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Canvas Main Menu",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory3",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q3-1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory4",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory5",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q3-3",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q3-2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q4-1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory6",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q4-2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory7",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q5-1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory8",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q5-2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory9",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q5-3",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory10",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q6-1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory11",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q6-2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory12",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q6-3",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory13",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q6-4",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory14",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q7-1",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory15",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q7-2",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory16",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q7-3",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory17",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q7-4",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory18",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q8",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory20",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory19",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q9",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q10",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory21",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q11",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory23",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q12",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory25",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q13",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory26",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q14",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory28",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q15",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory29",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q16",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory31",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q17",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory33",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q18",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory35",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q19",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory36",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q20",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory37",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Q21",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Clean Memory38",
-            "type": "ai_memory",
-            "index": 0
-          },
-          {
-            "node": "Angel Menu Email",
-            "type": "ai_memory",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Regenerate variables sender": {
       "main": [
         [
@@ -25209,6 +25714,361 @@
             "node": "Angel Tool Menu Out",
             "type": "ai_memory",
             "index": 0
+          },
+          {
+            "node": "Angel Canvas Main Menu",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Name Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory3",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q3-1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory4",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q3-2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q3-3",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory5",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q4-1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory6",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q4-2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory7",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q5-1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory8",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q5-2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory9",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q5-3",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory10",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q6-1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory11",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q6-2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory12",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q6-3",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory13",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q6-4",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory14",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q7-1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory15",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q7-2",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory16",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q7-3",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory17",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q7-4",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory18",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q8",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory19",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q9",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory20",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q10",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory21",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q11",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory23",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q12",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory25",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q13",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory26",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q14",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory28",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q15",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory29",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q16",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory31",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q17",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory33",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q18",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory35",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q19",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory36",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q20",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory37",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Q21",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory38",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Menu Email",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory27",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Canvas Menu Out",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory39",
+            "type": "ai_memory",
+            "index": 0
           }
         ]
       ]
@@ -25298,7 +26158,28 @@
       "main": [
         [
           {
+            "node": "Remove access",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "Ask Angel Name1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Default MSG 1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Default MSG",
             "type": "main",
             "index": 0
           }
@@ -25312,7 +26193,136 @@
         ],
         [
           {
-            "node": "Default MSG",
+            "node": "Angel Canvas Menu Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Get Angel Current Phase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "First Angel Story message": {
+      "main": [
+        [
+          {
+            "node": "Clean Memory27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Add Email": {
+      "main": [
+        [
+          {
+            "node": "Clean Memory39",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove access": {
+      "main": [
+        [
+          {
+            "node": "Remove Access",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default MSG": {
+      "main": [
+        []
+      ]
+    },
+    "Google Sheets - Get Angel Current Phase": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Get previous story ratings",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get previous concept ratings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Story": {
+      "main": [
+        [
+          {
+            "node": "Thanks for rating",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Concept": {
+      "main": [
+        [
+          {
+            "node": "Thanks for rating",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get previous story ratings": {
+      "main": [
+        [
+          {
+            "node": "Rate Story",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get previous concept ratings": {
+      "main": [
+        [
+          {
+            "node": "Rate Concept",
             "type": "main",
             "index": 0
           }
@@ -25324,7 +26334,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "9c9fd2b5-055a-4dc9-ba6d-d972b70003d2",
+  "versionId": "098a59ef-db21-4485-ae70-603d6430fbcb",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

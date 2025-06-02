@@ -2382,7 +2382,8 @@
         2520
       ],
       "id": "7938fe6f-cd40-428e-931e-ee94292c9522",
-      "name": "Daily Checker"
+      "name": "Daily Checker",
+      "disabled": true
     },
     {
       "parameters": {
@@ -4272,7 +4273,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "7869ef13-66ac-44c3-815a-788b1c15a75f",
+  "versionId": "e039ce3a-15f7-4056-b930-ae979571c590",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

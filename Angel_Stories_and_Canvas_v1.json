@@ -19557,7 +19557,8 @@
           "mappingMode": "defineBelow",
           "value": {
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "Where should I email it to?": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "Where should I email it to?": "={{$('Chat start').item.json.messages[0].text.body}}",
+            "Processed": "={{ \"\" }}"
           },
           "matchingColumns": [
             "What's your phone number?(Add your country code without spaces nor symbols)"
@@ -19951,7 +19952,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": true
+              "removed": false
             },
             {
               "id": "Drive URL",
@@ -20317,7 +20318,6 @@
             "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
             "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
             "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}",
-            "Processed": "={{ \"\" }}",
             "Drive URL": "={{ \"\" }}",
             "Phase": "={{ \"\" }}",
             "Last sent": "={{ \"\" }}",
@@ -20714,7 +20714,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "Drive URL",
@@ -21757,7 +21757,7 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: {{ $('Get First Story Data1').item.json.Title }} ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something your network could really appreciate.\n\nRate this story from 1 to 5 to improve your stories experience.",
+        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: {{ $('Get First Story Data1').item.json.Title }} ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something you can enjoy with your friends.\n\nRate this story from 1 to 5 to improve your stories experience.",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -26334,7 +26334,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "098a59ef-db21-4485-ae70-603d6430fbcb",
+  "versionId": "2078ba6d-adf6-46fc-a574-f83f33dc3c4c",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

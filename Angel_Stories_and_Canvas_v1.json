@@ -1614,11 +1614,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(1/21) What's my previous experience investing in startups?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'ve never invested in startups',\n    'B': 'I invested through crowdfunding or VC funds',\n    'C': 'I invested as solo angel',\n    'D': 'I invested through an investment vehicle with few people',\n    'E': 'I invested through an angel syndicate',\n    'F': 'I invested through an angel fund',\n    'G': 'I\\'ve been an angel for 1 to 3 years',\n    'H': 'I\\'ve been an angel for 3 to 5 years',\n    'I': 'I\\'ve been an angel for 5 to 10 years',\n    'J': 'I\\'ve been an angel for more than 10 years'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
+            "(1/21) What's my previous experience investing in startups?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'ve never invested in startups',\n    'B': 'I invested through crowdfunding or VC funds',\n    'C': 'I invested as solo angel',\n    'D': 'I invested through an investment vehicle with few people',\n    'E': 'I invested through an angel syndicate',\n    'F': 'I invested through an angel fund',\n    'G': 'I\\'ve been an angel for 1 to 3 years',\n    'H': 'I\\'ve been an angel for 3 to 5 years',\n    'I': 'I\\'ve been an angel for 5 to 10 years',\n    'J': 'I\\'ve been an angel for more than 10 years'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -1721,8 +1721,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -1991,8 +1991,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -2438,7 +2438,7 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=(4B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is not unnecessarily time-consuming\"",
+        "textBody": "=(4B/21) How much do you agree with the following phrases _(Rate from 1 to 5)_:\n\n\"Angel investing is not excessively time-consuming\"",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -4048,7 +4048,7 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "=✅We are done! Your Angel Canvas *will arrive in your inbox within 24 hours*. \n\nStay tuned!\n\nLooking for more?\n\nVisit this source of articles about angel investing for first-time and experienced angels.\n\nhttps://www.coreangels.com/blog",
+        "textBody": "=✅We are done! Your Angel Canvas *will arrive in your inbox within 24 hours*. Stay tuned!\n\n*Angel Canvas*: Feel free to share. \n\nhttps://tinyurl.com/angel-canvas\n\n*Angel Stories*: Personalized mini-podcast where you can learn from other angel's stories (Click and press send).\n\nhttps://tinyurl.com/angel-stories",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -4087,11 +4087,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(2/21) How do I perceive my role as an angel investor?": "={{\n(function() {\n  switch($('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0]) {\n    case 'A': return 'As a hobby – I invest primarily for enjoyment and personal interest';\n    case 'B': return 'As a remunerated job – I see it as a professional activity with financial returns';\n    case 'C': return 'As an entrepreneurial career – I approach it as a long-term business venture';\n    case 'D': return 'As a calling to contribute – I invest to support entrepreneurs and create impact';\n    default: return '';\n  }\n  })()\n}}"
+            "(2/21) How do I perceive my role as an angel investor?": "={{\n(function() {\n  switch($('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0]) {\n    case 'A': return 'As a hobby – I invest primarily for enjoyment and personal interest';\n    case 'B': return 'As a remunerated job – I see it as a professional activity with financial returns';\n    case 'C': return 'As an entrepreneurial career – I approach it as a long-term business venture';\n    case 'D': return 'As a calling to contribute – I invest to support entrepreneurs and create impact';\n    default: return '';\n  }\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -4195,8 +4195,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4465,8 +4465,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4586,11 +4586,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is a great way to earn money\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing is a great way to earn money\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -4694,8 +4694,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -4964,8 +4964,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5085,11 +5085,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is an efficient way to diversify investments\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing is an efficient way to diversify investments\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -5193,8 +5193,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5463,8 +5463,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5584,11 +5584,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing increases my wealth adequately in view of the risk I bear\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing increases my wealth adequately in view of the risk I bear\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -5692,8 +5692,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -5962,8 +5962,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -6083,11 +6083,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is an easy way to invest\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing is an easy way to invest\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -6191,8 +6191,8 @@
               "removed": false
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -6461,8 +6461,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -6582,11 +6582,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is not unnecessarily time-consuming\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing is not excessively time-consuming\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -6690,8 +6690,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -6960,8 +6960,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -7081,11 +7081,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing is a way to give back to society\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing is a way to give back to society\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -7189,8 +7189,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -7459,8 +7459,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -7580,11 +7580,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the opportunity to express benevolence toward other people\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing gives me the opportunity to express benevolence toward other people\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -7688,8 +7688,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -7958,8 +7958,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -8079,11 +8079,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing encourages me to have a life with a higher purpose\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing encourages me to have a life with a higher purpose\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -8187,8 +8187,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -8457,8 +8457,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -8578,11 +8578,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing boosts my self-esteem\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing boosts my self-esteem\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -8686,8 +8686,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -8956,8 +8956,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -9077,11 +9077,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me sheer joy\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing gives me sheer joy\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -9185,8 +9185,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -9455,8 +9455,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -9576,11 +9576,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing makes me feel valuable\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing makes me feel valuable\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -9684,8 +9684,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -9954,8 +9954,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -10075,11 +10075,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing increases my self-confidence\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing increases my self-confidence\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -10183,8 +10183,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -10453,8 +10453,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -10574,11 +10574,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing allows me to be part of entrepreneurship\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing allows me to be part of entrepreneurship\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -10682,8 +10682,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -10952,8 +10952,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -11073,11 +11073,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the pleasure to begin something from scratch\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing gives me the pleasure to begin something from scratch\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -11181,8 +11181,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -11451,8 +11451,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -11572,11 +11572,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing gives me the opportunity for involvement with startups\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing gives me the opportunity for involvement with startups\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -11680,8 +11680,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -11950,8 +11950,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -12071,11 +12071,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "\"Angel investing allows me to mentor entrepreneurs\"": "={{$('Chat start').item.json.messages[0].text.body.split('')[0]}}"
+            "\"Angel investing allows me to mentor entrepreneurs\"": "={{ ['1','2','3','4','5'].includes($('Chat start').item.json.messages[0].text.body.split('')[0]) ? $('Chat start').item.json.messages[0].text.body.split('')[0] : \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -12179,8 +12179,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -12449,8 +12449,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -12570,11 +12570,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(8/21) What future changes in the world do I foresee and would love to be part of?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'AI (Artificial Intelligence)',\n      'B': 'Longevity & Health',\n      'C': 'Space & Interplanetary Life',\n      'D': 'New Energy Sources',\n      'E': 'Decentralized Finance & Power',\n      'F': 'Green Revolution & Sustainability',\n      'G': 'Future of Work',\n      'H': 'Consumer Tech and E-commerce',\n      'I': 'Personalized Learning & Human Potential',\n      'J': 'A More Inclusive & Equal World',\n      'K': 'A More Meritocratic & Productive World',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter]\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(8/21) What future changes in the world do I foresee and would love to be part of?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'AI (Artificial Intelligence)',\n      'B': 'Longevity & Health',\n      'C': 'Space & Interplanetary Life',\n      'D': 'New Energy Sources',\n      'E': 'Decentralized Finance & Power',\n      'F': 'Green Revolution & Sustainability',\n      'G': 'Future of Work',\n      'H': 'Consumer Tech and E-commerce',\n      'I': 'Personalized Learning & Human Potential',\n      'J': 'A More Inclusive & Equal World',\n      'K': 'A More Meritocratic & Productive World',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter]\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -12678,8 +12678,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -12948,8 +12948,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -13069,11 +13069,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(9/21) Which are the main challenges in the world that startups can solve?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Climate & Sustainability',\n      'B': 'Healthcare & Well-being',\n      'C': 'Financial Innovation',\n      'D': 'Education & Future of Work',\n      'E': 'Food & Agriculture',\n      'F': 'Urbanization & Mobility',\n      'G': 'Cybersecurity & Privacy',\n      'H': 'Aging & Accessibility',\n      'I': 'Democracy & Human Rights',\n      'J': 'Space & Exploration',\n      'K': 'Defense & Security',\n      'L': 'Leisure & Lifestyle',\n      'M': 'Big Data & Productivity',\n      'N': 'Spirituality & Self-Growth',\n      'O': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(9/21) Which are the main challenges in the world that startups can solve?": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Climate & Sustainability',\n      'B': 'Healthcare & Well-being',\n      'C': 'Financial Innovation',\n      'D': 'Education & Future of Work',\n      'E': 'Food & Agriculture',\n      'F': 'Urbanization & Mobility',\n      'G': 'Cybersecurity & Privacy',\n      'H': 'Aging & Accessibility',\n      'I': 'Democracy & Human Rights',\n      'J': 'Space & Exploration',\n      'K': 'Defense & Security',\n      'L': 'Leisure & Lifestyle',\n      'M': 'Big Data & Productivity',\n      'N': 'Spirituality & Self-Growth',\n      'O': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -13177,8 +13177,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -13447,8 +13447,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -13568,11 +13568,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(10/21) How much time do I want to dedicate to angel investing?": "={{ \n  (function() {\n    const letter = $('Chat start').item.json.messages[0].text.body.split('')[0].toUpperCase();\n\n    \n    const mappings = {\n      'A': 'Hands-On Partner (20 plus hours per week)',\n      'B': 'Engaged Investor (10 to 20 hours per week)',\n      'C': 'Active Part Time (5 to 10 hours per week)',\n      'D': 'Advisor and Mentor (2 to 5 hours per week)',\n      'E': 'Part Hands-On (1 hour per week)',\n      'F': 'Regular Check-Ins (30 min per week)',\n      'G': 'As low as possible (1 hour per month)',\n      'H': 'Hands-Off Investor',\n      'I': 'Other'\n    };\n    \n    return mappings[letter] || '';\n  })()\n}}"
+            "(10/21) How much time do I want to dedicate to angel investing?": "={{ \n  (function() {\n    const letter = $('Chat start').item.json.messages[0].text.body.split('')[0].toUpperCase();\n\n    \n    const mappings = {\n      'A': 'Hands-On Partner (20 plus hours per week)',\n      'B': 'Engaged Investor (10 to 20 hours per week)',\n      'C': 'Active Part Time (5 to 10 hours per week)',\n      'D': 'Advisor and Mentor (2 to 5 hours per week)',\n      'E': 'Part Hands-On (1 hour per week)',\n      'F': 'Regular Check-Ins (30 min per week)',\n      'G': 'As low as possible (1 hour per month)',\n      'H': 'Hands-Off Investor',\n      'I': 'Other'\n    };\n    \n    return mappings[letter] || '';\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -13676,8 +13676,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -13946,8 +13946,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -14067,11 +14067,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Industry Expertise',\n      'B': 'Operational Experience',\n      'C': 'Network & Connections',\n      'D': 'Fundraising Support',\n      'E': 'Crisis Counselor/Trusted Confidant',\n      'F': 'Clients Introductions',\n      'G': 'Go-to-Market Strategy',\n      'H': 'Product Development',\n      'I': 'Hiring & Talent Support',\n      'J': 'Hands-On Advisory',\n      'K': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(11/21) What can be my key contributions beyond capital? (Pick Max. 3)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': 'Industry Expertise',\n      'B': 'Operational Experience',\n      'C': 'Network & Connections',\n      'D': 'Fundraising Support',\n      'E': 'Crisis Counselor/Trusted Confidant',\n      'F': 'Clients Introductions',\n      'G': 'Go-to-Market Strategy',\n      'H': 'Product Development',\n      'I': 'Hiring & Talent Support',\n      'J': 'Hands-On Advisory',\n      'K': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -14175,8 +14175,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -14445,8 +14445,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -14566,11 +14566,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(12/21) What do I want founders to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You guided us through every challenge with wisdom and support\"',\n      'B': '\"You provided us game changing insights and guidance\"',\n      'C': '\"Your backing elevated our reputation in the industry\"',\n      'D': '\"Thanks to your support, we scaled faster than we ever imagined\"',\n      'E': '\"You empowered us to think bigger and move bolder\"',\n      'F': '\"You believed in us before anyone else did\"',\n      'G': '\"Your connections opened doors we never thought possible\"',\n      'H': '\"Having you as an investor gave us the credibility we needed to attract others\"',\n      'I': '\"You backed us with capital and trust, letting us build our vision\"',\n      'J': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(12/21) What do I want founders to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You guided us through every challenge with wisdom and support\"',\n      'B': '\"You provided us game changing insights and guidance\"',\n      'C': '\"Your backing elevated our reputation in the industry\"',\n      'D': '\"Thanks to your support, we scaled faster than we ever imagined\"',\n      'E': '\"You empowered us to think bigger and move bolder\"',\n      'F': '\"You believed in us before anyone else did\"',\n      'G': '\"Your connections opened doors we never thought possible\"',\n      'H': '\"Having you as an investor gave us the credibility we needed to attract others\"',\n      'I': '\"You backed us with capital and trust, letting us build our vision\"',\n      'J': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -14674,8 +14674,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -14944,8 +14944,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -15065,11 +15065,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(13/21) What do I want other angels to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You spot game-changing opportunities before they go mainstream\"',\n      'B': '\"You actively contribute to growing the angel and startup community\"',\n      'C': '\"You bride startups with the right people, resources, and investors\"',\n      'D': '\"Your track record of successful exits speaks for itself\"',\n      'E': '\"You are willing to take calculated risks on groundbreaking ideas\"',\n      'F': '\"You provide valuable guidance and support to both founders and fellow investors\"',\n      'G': '\"You bring deep insights and data-driven decision-making to the table\"',\n      'H': '\"You are known for your fairness, transparency, and long-term commitment\"',\n      'I': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(13/21) What do I want other angels to say about me? (Pick Max. 5)": "={{ \n  (function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n    const mappings = {\n      'A': '\"You spot game-changing opportunities before they go mainstream\"',\n      'B': '\"You actively contribute to growing the angel and startup community\"',\n      'C': '\"You bride startups with the right people, resources, and investors\"',\n      'D': '\"Your track record of successful exits speaks for itself\"',\n      'E': '\"You are willing to take calculated risks on groundbreaking ideas\"',\n      'F': '\"You provide valuable guidance and support to both founders and fellow investors\"',\n      'G': '\"You bring deep insights and data-driven decision-making to the table\"',\n      'H': '\"You are known for your fairness, transparency, and long-term commitment\"',\n      'I': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -15173,8 +15173,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -15443,8 +15443,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -15564,11 +15564,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '$500K or more in total',\n      'B': '$250K to $500K in total',\n      'C': '$100K to $250K in total',\n      'D': '$50K to $100K in total',\n      'E': '$20K to $50K in total',\n      'F': 'Less than $20K in total',\n      'G': '$250K or more per year',\n      'H': '$100K to $250K per year',\n      'I': '$50K to $100K per year',\n      'J': '$20K to 50K per year',\n      'K': '$10K to $20K per year',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}"
+            "(14/21) How much would I be comfortable investing? (Strike a balance between making meaningful investments in startups and protecting your financial security)": "={{ \n  (function() {\n    const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n    const letters = input.split(' ');\n    const mappings = {\n      'A': '$500K or more in total',\n      'B': '$250K to $500K in total',\n      'C': '$100K to $250K in total',\n      'D': '$50K to $100K in total',\n      'E': '$20K to $50K in total',\n      'F': 'Less than $20K in total',\n      'G': '$250K or more per year',\n      'H': '$100K to $250K per year',\n      'I': '$50K to $100K per year',\n      'J': '$20K to 50K per year',\n      'K': '$10K to $20K per year',\n      'L': 'Other'\n    };\n    \n    const results = letters.map(letter => {\n      return mappings[letter];\n    });\n    \n  return [...new Set(results.filter(Boolean))].join(', ');\n  })()\n}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -15672,8 +15672,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -15942,8 +15942,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -16063,11 +16063,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(15/21) How many startups would I like to invest on?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': '50 plus startups – Super-angel strategy, spreading risk across many ventures',\n    'B': '20 to 50 startups – Aggressive diversification',\n    'C': '10 to 20 startups – Balanced risk across multiple bets',\n    'D': '5 to 10 startups – Focused portfolio with calculated risk',\n    'E': '1 to 5 startups – Selective, high-conviction',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
+            "(15/21) How many startups would I like to invest on?": "={{(function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': '50 plus startups – Super-angel strategy, spreading risk across many ventures',\n    'B': '20 to 50 startups – Aggressive diversification',\n    'C': '10 to 20 startups – Balanced risk across multiple bets',\n    'D': '5 to 10 startups – Focused portfolio with calculated risk',\n    'E': '1 to 5 startups – Selective, high-conviction',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -16171,8 +16171,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -16441,8 +16441,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -16562,11 +16562,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(16/21) What types of startups will I invest in? (Pick Max. 3)": "={{(function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Idea Stage',\n    'B': 'MVP Stage',\n    'C': 'Early Revenue',\n    'D': 'Series A',\n    'E': 'Post-Series A+',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
+            "(16/21) What types of startups will I invest in? (Pick Max. 3)": "={{(function() {\n\tconst input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Idea Stage',\n    'B': 'MVP Stage',\n    'C': 'Early Revenue',\n    'D': 'Series A',\n    'E': 'Post-Series A+',\n    'F': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -16670,8 +16670,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -16940,8 +16940,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -17061,11 +17061,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(17/21) What’s my investment return time frame?": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)',\n    'B': 'I\\'m looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)',\n    'C': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
+            "(17/21) What’s my investment return time frame?": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.trim().toUpperCase().split('')[0];\n  const letters = input.split(' ');\n  const mappings = {\n    'A': 'I prefer to have smaller returns for my investment but exiting sooner (less than 5 years)',\n    'B': 'I\\'m looking to maximize the outcome, looking for big returns even if I need to wait (more than 5 years)',\n    'C': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -17169,8 +17169,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -17439,8 +17439,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -17560,11 +17560,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(18/21) In which geographies will I invest? (Pick Max. 3)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Local Market – Startups within a 1 hour reach by car.',\n    'B': 'Regional Market – Startups within a 2 hour reach by car.',\n    'C': 'Continental Market - Startups within a 2 hour reach by plane.',\n    'D': 'Global Approach – Open to investing anywhere in the world.',\n    'E': 'Remote-First Startups – I invest in globally distributed teams.',\n    'F': 'Emerging Markets',\n    'G': 'Top Tier Startup Hubs',\n    'H': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}"
+            "(18/21) In which geographies will I invest? (Pick Max. 3)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n\tconst letters = input.split('');\n  const mappings = {\n    'A': 'Local Market – Startups within a 1 hour reach by car.',\n    'B': 'Regional Market – Startups within a 2 hour reach by car.',\n    'C': 'Continental Market - Startups within a 2 hour reach by plane.',\n    'D': 'Global Approach – Open to investing anywhere in the world.',\n    'E': 'Remote-First Startups – I invest in globally distributed teams.',\n    'F': 'Emerging Markets',\n    'G': 'Top Tier Startup Hubs',\n    'H': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})()}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -17668,8 +17668,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -17938,8 +17938,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -18059,11 +18059,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(19/21) What types of business models will I back? (Pick Max. 5)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'m agnostic',\n    'B': 'B2B (Business-to-Business)',\n    'C': 'B2C (Business-to-Consumer)',\n    'D': 'DTC (Direct-to-Consumer)',\n    'E': 'SaaS (Service-as-a-Software/Digital Agents)',\n    'F': 'SaaS (Software-as-a-Service)',\n    'G': 'E-Commerce',\n    'H': 'Marketplace Models',\n    'I': 'Tokenized & Web3 Models',\n    'J': 'Not sure',\n    'K': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})() }}"
+            "(19/21) What types of business models will I back? (Pick Max. 5)": "={{ (function() {\n  const input = $('Chat start').item.json.messages[0].text.body.toUpperCase().replace(/[^A-Z]/g, '');\n  const letters = input.split('');\n  const mappings = {\n    'A': 'I\\'m agnostic',\n    'B': 'B2B (Business-to-Business)',\n    'C': 'B2C (Business-to-Consumer)',\n    'D': 'DTC (Direct-to-Consumer)',\n    'E': 'SaaS (Service-as-a-Software/Digital Agents)',\n    'F': 'SaaS (Software-as-a-Service)',\n    'G': 'E-Commerce',\n    'H': 'Marketplace Models',\n    'I': 'Tokenized & Web3 Models',\n    'J': 'Not sure',\n    'K': 'Other'\n  };\n  \n  const results = letters.map(letter => {\n    return mappings[letter];\n  });\n  \n  return [...new Set(results.filter(Boolean))].join(', ');\n})() }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -18167,8 +18167,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -18437,8 +18437,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -18558,11 +18558,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "(20/21) What are the key reasons that have kept me from angel investing in the past? (Optional)": "={{$('Chat start').item.json.messages[0].text.body}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -18666,8 +18666,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -18936,8 +18936,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -19057,11 +19057,11 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)": "={{$('Chat start').item.json.messages[0].text.body}}"
+            "(21/21) Which tasks would I delegate to an assistant in my angel investing activities? (Optional)": "={{$('Chat start').item.json.messages[0].text.body}}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -19165,8 +19165,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -19435,8 +19435,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -19556,12 +19556,12 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
             "Where should I email it to?": "={{$('Chat start').item.json.messages[0].text.body}}",
-            "Processed": "={{ \"\" }}"
+            "Processed": "={{ \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -19665,8 +19665,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -19935,8 +19935,8 @@
               "removed": false
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -20206,7 +20206,8 @@
         1980
       ],
       "id": "40095964-1875-4598-8240-b1fd7f9b5e89",
-      "name": "Schedule Trigger Canvas Reminder"
+      "name": "Schedule Trigger Canvas Reminder",
+      "disabled": true
     },
     {
       "parameters": {
@@ -20272,7 +20273,7 @@
         "filtersUI": {
           "values": [
             {
-              "lookupColumn": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "lookupColumn": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "lookupValue": "={{ $('Chat start').item.json.messages[0].from }}"
             }
           ]
@@ -20316,16 +20317,16 @@
           "mappingMode": "defineBelow",
           "value": {
             "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
             "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}",
             "Drive URL": "={{ \"\" }}",
             "Phase": "={{ \"\" }}",
             "Last sent": "={{ \"\" }}",
             "Investment type": "={{ \"\" }}",
-            "AI Tunning": "={{ \"\" }}"
+            "AI Tunning": "={{ \"\" }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [
-            "What's your phone number?(Add your country code without spaces nor symbols)"
+            "What's your phone number? (Add your country code without spaces nor + symbol)"
           ],
           "schema": [
             {
@@ -20427,8 +20428,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -20697,8 +20698,8 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -20765,6 +20766,17 @@
               "type": "string",
               "canBeUsedToMatch": true,
               "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -20810,8 +20822,8 @@
             "Submission ID": "={{ (() => {\n  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n  let result = '';\n  for (let i = 0; i < 7; i++) {\n    result += chars.charAt(Math.floor(Math.random() * chars.length));\n  }\n  return result;\n})() }}",
             "Respondent ID": "={{ (() => {   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';   let result = '';   for (let i = 0; i < 7; i++) {     result += chars.charAt(Math.floor(Math.random() * chars.length));   }   return result; })() }}",
             "Submitted at": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
-            "What's your phone number?(Add your country code without spaces nor symbols)": "={{ $('Chat start').item.json.messages[0].from }}",
-            "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}"
+            "What’s your name?": "={{ $('Chat start').item.json.messages[0].text.body }}",
+            "What's your phone number? (Add your country code without spaces nor + symbol)": "={{ $('Chat start').item.json.messages[0].from }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -20912,8 +20924,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -21182,13 +21194,14 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true
+              "canBeUsedToMatch": true,
+              "removed": false
             },
             {
               "id": "Processed",
@@ -21848,7 +21861,8 @@
         2620
       ],
       "id": "bf9ebaa4-ea64-48ca-b75d-f0737e77fa80",
-      "name": "Schedule Trigger Angel Story"
+      "name": "Schedule Trigger Angel Story",
+      "disabled": true
     },
     {
       "parameters": {
@@ -26330,11 +26344,11 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "2078ba6d-adf6-46fc-a574-f83f33dc3c4c",
+  "versionId": "fd4ba73e-7c9f-4046-a92a-867f2922413a",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

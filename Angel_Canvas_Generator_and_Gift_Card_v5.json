@@ -4,7 +4,7 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "recipientPhoneNumber": "={{ $('Get Angel List').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
         "template": "gift_card_message_v10|en",
         "components": {
           "component": [
@@ -23,8 +23,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        660,
-        800
+        620,
+        1500
       ],
       "id": "84e72e1e-d7f3-4e61-b8b8-033fcdd1aee3",
       "name": "Gift Card Message",
@@ -84,8 +84,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        460,
-        800
+        420,
+        1500
       ],
       "id": "0f3c80f9-4651-4051-a770-cdf8f48bea48",
       "name": "Filter only processed & a day older"
@@ -102,8 +102,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        860,
-        800
+        820,
+        1500
       ],
       "id": "9c2dd667-233a-4746-936a-d6844d118b42",
       "name": "Send Gift Card Email",
@@ -601,8 +601,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1060,
-        800
+        1020,
+        1500
       ],
       "id": "fe0b1e0c-9435-42ec-b9ee-37a06a2f8c1e",
       "name": "Update Angel Registry Status1",
@@ -626,8 +626,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        100,
-        800
+        60,
+        1500
       ],
       "id": "ce1134a8-f9a7-4ec0-ab16-60f0d9f2601d",
       "name": "Schedule Trigger Gift Card",
@@ -690,8 +690,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        760,
-        1320
+        720,
+        2020
       ],
       "id": "09e1216d-e115-4275-a864-1945d714f78f",
       "name": "Check message type"
@@ -708,8 +708,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1000,
-        1240
+        960,
+        1940
       ],
       "id": "9b4f2d41-b1ce-4d91-b37e-d2d61aa7b4d1",
       "name": "Gift Card Example",
@@ -730,8 +730,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
       "typeVersion": 1.3,
       "position": [
-        1420,
-        1860
+        1380,
+        2560
       ],
       "id": "7d4ad174-0496-4138-b502-1695aa984dc8",
       "name": "Simple Memory"
@@ -747,8 +747,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1840,
-        1240
+        1800,
+        1940
       ],
       "id": "77686aa0-6326-4518-b7e7-ded1eee80f00",
       "name": "Gift Card Default MSG",
@@ -844,8 +844,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1520,
-        1420
+        1480,
+        2120
       ],
       "id": "e0bfee1c-57f5-4c04-93f7-be86c07aba8c",
       "name": "Main Gift Card menu switch",
@@ -862,8 +862,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        2520,
-        1420
+        2480,
+        2120
       ],
       "id": "b180c6b7-4c3e-499f-875c-045ba00f325e",
       "name": "Gift Card Recipient",
@@ -886,8 +886,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1220,
-        1240
+        1180,
+        1940
       ],
       "id": "86b74462-bd10-4722-a090-220a242b900e",
       "name": "Gift Card Sender",
@@ -914,8 +914,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1400,
-        1240
+        1360,
+        1940
       ],
       "id": "e9097899-9c4e-4ca9-a675-e78812485b2f",
       "name": "Gift Card Sender Menu In",
@@ -937,8 +937,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        2180,
-        1420
+        2140,
+        2120
       ],
       "id": "d1bb01e8-b10a-4747-9466-886ac1c967c1",
       "name": "Gift Card Recipient Menu In",
@@ -980,8 +980,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1300,
-        1420
+        1260,
+        2120
       ],
       "id": "b7159d5c-b8fb-421f-bbbc-c750bc5a8b3d",
       "name": "Regenerate variables sender"
@@ -993,8 +993,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        980,
-        1420
+        940,
+        2120
       ],
       "id": "724338b3-0451-443b-a791-ca67a7035024",
       "name": "Gift Card Menu Out"
@@ -1010,8 +1010,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        1820,
-        1720
+        1780,
+        2420
       ],
       "id": "28f301bd-a287-45f4-989d-b8f783073e21",
       "name": "Gift Card is being processed",
@@ -1040,8 +1040,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2800,
-        1620
+        2760,
+        2320
       ],
       "id": "03381365-8c08-4aee-9faa-10504d21b71f",
       "name": "Get the status of the gift card request (Job) sent1"
@@ -1051,8 +1051,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2620,
-        1620
+        2580,
+        2320
       ],
       "id": "43576e99-14f6-41ee-9021-02c1b8d4d58d",
       "name": "Wait8",
@@ -1079,8 +1079,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2200,
-        1720
+        2160,
+        2420
       ],
       "id": "2e03155e-c982-4a03-ba14-fd927a459cc6",
       "name": "Request (Job) to generate the customized gift card1",
@@ -1098,8 +1098,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        3700,
-        1620
+        3660,
+        2320
       ],
       "id": "2c7868a8-02bb-439e-80af-5c5471d62876",
       "name": "Gift Card is done",
@@ -1123,8 +1123,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4080,
-        1620
+        4040,
+        2320
       ],
       "id": "5840639d-eebb-4469-9356-4535e9da4896",
       "name": "Gift Card Customized",
@@ -1144,8 +1144,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        1840,
-        1420
+        1800,
+        2120
       ],
       "id": "f0147875-06a2-43aa-b615-ca208ac3d91d",
       "name": "Clean Memory"
@@ -1171,8 +1171,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3160,
-        1620
+        3120,
+        2320
       ],
       "id": "83d2a473-4b30-47fe-9978-8912ec91c040",
       "name": "Request (Job) Export the gift card design JPG"
@@ -1194,8 +1194,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3520,
-        1620
+        3480,
+        2320
       ],
       "id": "a6333c6b-b11c-4783-a702-1798dadcbe5b",
       "name": "Request to get the gift card JPG"
@@ -1208,8 +1208,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3880,
-        1620
+        3840,
+        2320
       ],
       "id": "30f469d5-9612-4157-9320-6f662309e460",
       "name": "Download the gift card JPG"
@@ -1303,8 +1303,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4820,
-        1620
+        4780,
+        2320
       ],
       "id": "fa54108b-aa7e-403d-b2e3-7dd556d3da4b",
       "name": "Update Gift Card Status",
@@ -1369,8 +1369,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3180,
-        1820
+        3140,
+        2520
       ],
       "id": "d8878534-285c-4213-afbf-f1807c08c655",
       "name": "Refresh Canva Token1",
@@ -1435,8 +1435,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2980,
-        1820
+        2940,
+        2520
       ],
       "id": "088d6c0a-a720-454c-9446-175a251825a1",
       "name": "Set canva variables1",
@@ -1459,8 +1459,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2800,
-        1820
+        2760,
+        2520
       ],
       "id": "f9c26ad6-ce6b-4616-8d3a-8f4268bec06e",
       "name": "Aggregate1"
@@ -1472,8 +1472,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3380,
-        1820
+        3340,
+        2520
       ],
       "id": "0c7d18af-a017-4252-8a7b-54a3abffb7b4",
       "name": "Process New Tokens1"
@@ -1486,8 +1486,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        3580,
-        1820
+        3540,
+        2520
       ],
       "id": "d0952cb5-8182-4365-872a-e0845689c7df",
       "name": "Turn tokens into items to store1"
@@ -1568,8 +1568,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3780,
-        1820
+        3740,
+        2520
       ],
       "id": "a8644bd5-8429-4432-9c72-b605caed1ee4",
       "name": "Update Canva Tokens in Sheet1",
@@ -1585,8 +1585,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3340,
-        1620
+        3300,
+        2320
       ],
       "id": "1f9e4642-c945-42bf-9a7b-693753fbcf79",
       "name": "Wait4",
@@ -1621,8 +1621,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2000,
-        1720
+        1960,
+        2420
       ],
       "id": "47920342-f0f3-44be-b8c6-59dd68fe7465",
       "name": "Get Canva Tokens2",
@@ -1661,8 +1661,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2380,
-        1720
+        2340,
+        2420
       ],
       "id": "eb7b9b3d-1990-4ea8-b215-2cabf3a51d52",
       "name": "If1"
@@ -1688,8 +1688,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2620,
-        1820
+        2580,
+        2520
       ],
       "id": "f1880b3b-a6a6-4de3-87da-21e6f5f7296a",
       "name": "Get Current Canva Tokens1",
@@ -1708,8 +1708,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4240,
-        1620
+        4200,
+        2320
       ],
       "id": "242a5c6b-e554-405f-8e3e-92a5aea9f417",
       "name": "Wait5",
@@ -1722,8 +1722,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2980,
-        1620
+        2940,
+        2320
       ],
       "id": "9565ba6e-6e5c-459f-aa74-79aaa4ad86ad",
       "name": "Wait6",
@@ -1758,8 +1758,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        280,
-        800
+        240,
+        1500
       ],
       "id": "834537dd-6f52-4c14-8bc9-fc3b7182e1d8",
       "name": "Get Angel List",
@@ -1780,8 +1780,8 @@
       "type": "n8n-nodes-base.whatsAppTrigger",
       "typeVersion": 1,
       "position": [
-        80,
-        1320
+        40,
+        2020
       ],
       "id": "e077eed8-4a57-4c6e-a2a9-faee347ee0e9",
       "name": "Chat start",
@@ -1832,8 +1832,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        240,
-        1320
+        200,
+        2020
       ],
       "id": "0eca4920-2bd1-4531-bf1b-f1e7f0e94d48",
       "name": "Validate there is a message"
@@ -1867,8 +1867,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        420,
-        1320
+        380,
+        2020
       ],
       "id": "2bf1123a-a1b7-485e-9ea7-9689001ae462",
       "name": "Get sender name",
@@ -1957,8 +1957,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        580,
-        1320
+        540,
+        2020
       ],
       "id": "8bfe7e4f-d0ec-4e4c-90e5-74c8e33d2035",
       "name": "Log Chat History",
@@ -1977,8 +1977,8 @@
       "type": "@n8n/n8n-nodes-langchain.memoryManager",
       "typeVersion": 1.1,
       "position": [
-        5020,
-        1620
+        4980,
+        2320
       ],
       "id": "a3968705-053f-44b7-abaf-16635c61ac0c",
       "name": "Clean Memory1"
@@ -1994,8 +1994,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4620,
-        1620
+        4580,
+        2320
       ],
       "id": "1b729f62-5f18-4287-a926-c9a34df68a42",
       "name": "Gift Card Another One",
@@ -2018,8 +2018,8 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4420,
-        1620
+        4380,
+        2320
       ],
       "id": "49557e64-398e-4914-bf44-763dcbb609c5",
       "name": "Gift Card Template",
@@ -2038,8 +2038,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -320,
-        780
+        -360,
+        1480
       ],
       "typeVersion": 1,
       "id": "8c80134a-a3e1-4bb8-8a13-91f990b81015",
@@ -2052,8 +2052,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -340,
-        1300
+        -380,
+        2000
       ],
       "typeVersion": 1,
       "id": "794c83f4-59aa-4481-9b14-679aaa66ae72",
@@ -2680,7 +2680,7 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "=1Tb-U0Qlr6Tl2EuEyjAl0S37YPQochOkl",
+          "value": "=1yU4y4epRRJRTnYKd5QcvOH5faj_GDskA",
           "mode": "id"
         },
         "options": {}
@@ -2910,7 +2910,7 @@
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules1').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br> \nWould be great if you share your feedback and ideas to improve, as I’m turning it into something your network could really appreciate.\n<br> \n<br>\nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br> \nWould be great if you share your feedback and ideas to improve, as I’m turning it into something your network could really appreciate.\n<br> \n<br>\nFeel free to share the Angel Canvas Generator https://tally.so/r/n9MY2V\n<br> \n<br>\nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
         "options": {
           "appendAttribution": false
         }
@@ -2968,8 +2968,8 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Get Angel Responses1').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
-        "template": "send_canvas_v8|en",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
+        "template": "send_canvas_v9|en",
         "components": {
           "component": [
             {
@@ -5282,7 +5282,7 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Get Angel Responses2').item.json['What\\'s your phone number?(Add your country code without spaces nor symbols)'].toString() }}",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules2').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
         "template": "letter_notifier_v1|en",
         "components": {
           "component": [
@@ -5420,7 +5420,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         -360,
-        -700
+        980
       ],
       "typeVersion": 1,
       "id": "6cdd92f8-e48b-4615-84b9-9fc5468656ea",
@@ -5455,7 +5455,7 @@
       "typeVersion": 2.2,
       "position": [
         280,
-        -700
+        980
       ],
       "id": "a7378ca9-4184-4656-83d6-fbccefd7fb83",
       "name": "Filter only non processed"
@@ -5490,7 +5490,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        -700
+        980
       ],
       "id": "5ad48bd2-7454-4d01-97e7-aeac4e27fb4e",
       "name": "Giftcard Responses",
@@ -5499,7 +5499,8 @@
           "id": "K11tIQbUHuNqsqWr",
           "name": "Google Sheets Trigger account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -5519,7 +5520,7 @@
       "typeVersion": 4.2,
       "position": [
         1340,
-        -800
+        880
       ],
       "id": "79ef78a6-a2b3-4caf-b6c1-3bf0d7773960",
       "name": "Get the status of the gift card request (Job) sent"
@@ -5530,7 +5531,7 @@
       "typeVersion": 1.1,
       "position": [
         1160,
-        -800
+        880
       ],
       "id": "fcf38e6f-7ac8-4f00-b42d-e90338264b07",
       "name": "Wait11",
@@ -5558,7 +5559,7 @@
       "typeVersion": 4.2,
       "position": [
         740,
-        -700
+        980
       ],
       "id": "dd99739b-188f-4f3c-bf76-4bd2c50706d6",
       "name": "Request (Job) to generate the customized gift card",
@@ -5587,7 +5588,7 @@
       "typeVersion": 4.2,
       "position": [
         1700,
-        -800
+        880
       ],
       "id": "f6b3ee40-5eb1-4ef0-b3b8-45f13d978f83",
       "name": "Request (Job) Export the gift card design JPG1"
@@ -5610,7 +5611,7 @@
       "typeVersion": 4.2,
       "position": [
         2060,
-        -800
+        880
       ],
       "id": "fa03dfc6-0389-400b-af6a-e219a6b3c9a0",
       "name": "Request to get the gift card JPG1"
@@ -5624,7 +5625,7 @@
       "typeVersion": 4.2,
       "position": [
         2280,
-        -800
+        880
       ],
       "id": "236b2f6d-17f5-486b-977b-cf175aad4905",
       "name": "Download the gift card JPG1"
@@ -5684,7 +5685,7 @@
       "typeVersion": 4.2,
       "position": [
         1720,
-        -600
+        1080
       ],
       "id": "3605e626-6b23-4e4d-b25c-c9dc779f8e6a",
       "name": "Refresh Canva Token",
@@ -5750,7 +5751,7 @@
       "typeVersion": 3.4,
       "position": [
         1520,
-        -600
+        1080
       ],
       "id": "59117b5b-5826-44d2-a610-72cb7093724e",
       "name": "Set canva variables",
@@ -5774,7 +5775,7 @@
       "typeVersion": 1,
       "position": [
         1340,
-        -600
+        1080
       ],
       "id": "dcb273d0-b0c7-4a85-8105-e9a15510769a",
       "name": "Aggregate"
@@ -5787,7 +5788,7 @@
       "typeVersion": 2,
       "position": [
         1920,
-        -600
+        1080
       ],
       "id": "62796f02-9868-4fcf-a105-46d079544105",
       "name": "Process New Tokens"
@@ -5801,7 +5802,7 @@
       "typeVersion": 1,
       "position": [
         2120,
-        -600
+        1080
       ],
       "id": "a474427e-74b8-4888-a85c-9ecd907586c8",
       "name": "Turn tokens into items to store"
@@ -5883,7 +5884,7 @@
       "typeVersion": 4.5,
       "position": [
         2320,
-        -600
+        1080
       ],
       "id": "992a9487-08cd-412d-86c6-35fbbc092101",
       "name": "Update Canva Tokens in Sheet",
@@ -5900,7 +5901,7 @@
       "typeVersion": 1.1,
       "position": [
         1880,
-        -800
+        880
       ],
       "id": "4596f1ea-d99e-4b5b-8aff-7441d77b8de3",
       "name": "Wait12",
@@ -5936,7 +5937,7 @@
       "typeVersion": 4.5,
       "position": [
         540,
-        -700
+        980
       ],
       "id": "44f0a218-dca8-463c-8362-5afaa3c3c0ea",
       "name": "Get Canva Tokens",
@@ -5976,7 +5977,7 @@
       "typeVersion": 2.2,
       "position": [
         920,
-        -700
+        980
       ],
       "id": "1950144e-1060-42af-b29a-b4dfd1a14481",
       "name": "If"
@@ -6003,7 +6004,7 @@
       "typeVersion": 4.5,
       "position": [
         1160,
-        -600
+        1080
       ],
       "id": "3e31f1ac-d414-48c5-9396-46a0b47e1de2",
       "name": "Get Current Canva Tokens",
@@ -6023,7 +6024,7 @@
       "typeVersion": 1.1,
       "position": [
         2480,
-        -800
+        880
       ],
       "id": "5c789ce3-aa66-49d0-8991-b6cfa06787df",
       "name": "Wait14",
@@ -6037,7 +6038,7 @@
       "typeVersion": 1.1,
       "position": [
         1520,
-        -800
+        880
       ],
       "id": "de9afd50-7063-43ec-afdd-324cb4c8af65",
       "name": "Wait15",
@@ -6150,7 +6151,7 @@
       "typeVersion": 4.5,
       "position": [
         3280,
-        -800
+        880
       ],
       "id": "5e0757ff-d0f5-42e7-9f2a-f0d4cc10a39f",
       "name": "Update Gift Card Status2",
@@ -6185,7 +6186,7 @@
       "typeVersion": 3,
       "position": [
         2680,
-        -800
+        880
       ],
       "id": "d668e341-33da-4906-a4f3-ae6a6f1a938c",
       "name": "Upload the letter file to the folder",
@@ -6219,7 +6220,7 @@
       "typeVersion": 1,
       "position": [
         2880,
-        -800
+        880
       ],
       "id": "46e58aa5-6ed2-4d76-a75a-abc674748d15",
       "name": "Send Gift Card message",
@@ -6257,10 +6258,32 @@
       "typeVersion": 1,
       "position": [
         3080,
-        -800
+        880
       ],
       "id": "324f5885-a8e3-4adf-8d82-da4ec08e7567",
       "name": "Send Gift Card link",
+      "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
+        "template": "canvas_generator_link_v1|en"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        4520,
+        -160
+      ],
+      "id": "3c1e4041-7533-47cf-aaba-f7b3c6771040",
+      "name": "Send Canvas Generator Link",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
@@ -7841,13 +7864,24 @@
           }
         ]
       ]
+    },
+    "Send Canvas1": {
+      "main": [
+        [
+          {
+            "node": "Send Canvas Generator Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "329d1761-e012-4d28-869b-f648494d0f9f",
+  "versionId": "5977ef24-800b-4846-ab98-8ba252633d82",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

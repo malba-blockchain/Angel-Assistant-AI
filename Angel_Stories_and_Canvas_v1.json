@@ -22770,7 +22770,7 @@
         "operation": "send",
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
-        "textBody": "I will grant you access to Angel Stories (mini podcasts from 3 to 5 min long)\n\n(1/3) What's your full name?",
+        "textBody": "I will grant you access to Angel Stories (business angel's mini podcasts from 5 to 10 min long).\n\n(1/3) What's your full name?",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -26348,7 +26348,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "fd4ba73e-7c9f-4046-a92a-867f2922413a",
+  "versionId": "8f50fa4a-5608-491f-be85-db5571afeb76",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

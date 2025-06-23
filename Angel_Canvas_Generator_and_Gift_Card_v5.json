@@ -2680,7 +2680,7 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "=1yU4y4epRRJRTnYKd5QcvOH5faj_GDskA",
+          "value": "=1TFzPO-k0bhC-xiYr8Mc-8AVGLmgpLLga",
           "mode": "id"
         },
         "options": {}
@@ -2910,7 +2910,7 @@
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules1').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br> \nWould be great if you share your feedback and ideas to improve, as I’m turning it into something your network could really appreciate.\n<br> \n<br>\nFeel free to share the Angel Canvas Generator https://tally.so/r/n9MY2V\n<br> \n<br>\nText me on whatsapp if that’s easier for you \nhttps://wa.me/351916690277\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br> \nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br> \n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
         "options": {
           "appendAttribution": false
         }
@@ -3601,7 +3601,7 @@
           "interval": [
             {
               "field": "minutes",
-              "minutesInterval": 1
+              "minutesInterval": 2
             }
           ]
         }
@@ -3613,7 +3613,8 @@
         -160
       ],
       "id": "4ac78305-417d-40f9-9fd5-8ed7e7015797",
-      "name": "Schedule Trigger Angel Canvas1"
+      "name": "Schedule Trigger Angel Canvas1",
+      "disabled": true
     },
     {
       "parameters": {
@@ -7881,7 +7882,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "5977ef24-800b-4846-ab98-8ba252633d82",
+  "versionId": "b9961788-d6cc-4849-a0b7-067d4318166e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

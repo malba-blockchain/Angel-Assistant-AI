@@ -3601,7 +3601,7 @@
           "interval": [
             {
               "field": "minutes",
-              "minutesInterval": 2
+              "minutesInterval": 200
             }
           ]
         }
@@ -3613,8 +3613,7 @@
         -160
       ],
       "id": "4ac78305-417d-40f9-9fd5-8ed7e7015797",
-      "name": "Schedule Trigger Angel Canvas1",
-      "disabled": true
+      "name": "Schedule Trigger Angel Canvas1"
     },
     {
       "parameters": {
@@ -4531,7 +4530,8 @@
           "id": "xDtNmlS7kyoYgayX",
           "name": "Gmail account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -4641,7 +4641,8 @@
       "name": "Investor type extractor1",
       "retryOnFail": true,
       "maxTries": 5,
-      "waitBetweenTries": 5000
+      "waitBetweenTries": 5000,
+      "disabled": true
     },
     {
       "parameters": {
@@ -5143,7 +5144,8 @@
           "id": "NEGBwfubK3hajIOd",
           "name": "Google Sheets account 2"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -5251,8 +5253,7 @@
         360
       ],
       "id": "1bda1fe9-1dc3-4018-8ab8-2637ce874ef0",
-      "name": "Schedule Trigger Angel Canvas2",
-      "disabled": true
+      "name": "Schedule Trigger Angel Canvas2"
     },
     {
       "parameters": {
@@ -5316,7 +5317,8 @@
           "id": "DpJv506UKiehakav",
           "name": "WhatsApp account Agent"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -7882,7 +7884,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b9961788-d6cc-4849-a0b7-067d4318166e",
+  "versionId": "522c7bed-2ca1-4e88-b988-defbaca8f663",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

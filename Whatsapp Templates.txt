@@ -82,9 +82,9 @@ https://drive.google.com/file/d/13lc6zRR2jPXsiyTFt7IvGewlJASxsJm1
 
 ------------------------------------------------------
 
-mission_reminder_v3
+mission_reminder_v4
 
-🧭 Your call to adventure has arrived. Behold the quest we’ve prepared for you:
+🧭 Here are the details:
 
 {{1}}
 
@@ -150,13 +150,15 @@ https://www.coreangels.com/
 
 ------------------------------------------------------
 
-mission_call_v2
+mission_call_v4
 
-{{1}}, are you ready for your next adventure?
+Dear {{1}}, based on the availability you shared, the COREangels team would like to count on you for this quest. 
+
+Are you open to helping?
 
 You can also see the full bounty board by typing "Go"
 
-Carlos
+_If you want to change the frequency of your quest reminders, type "Go" and select option 4 in the menu._
 
 
 ------------------------------------------------------

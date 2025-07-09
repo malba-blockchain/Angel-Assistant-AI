@@ -90,5 +90,4 @@ Fix the format. DONE
 4.1. Add template sender to the Gift Card Generator v2 to search the list of people who was sent 1 day ago, and update phase at the end DONE
 
 
-
 ------------------ToDo------------------

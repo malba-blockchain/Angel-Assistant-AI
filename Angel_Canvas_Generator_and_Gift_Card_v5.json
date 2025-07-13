@@ -2910,7 +2910,7 @@
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules1').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br> \nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br> \n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br>\nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br>\n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO\n<br>\n<br>\n<em>The Angel Canvas is an educational self‑assessment tool to help you explore your potential startup‑investor profile.<em>\n<br>\n<em>It does not constitute financial advice as this is an educational service offered by YAngel, which is not a regulated investment advisor.<em>",
         "options": {
           "appendAttribution": false
         }
@@ -2968,7 +2968,7 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code. Don\\'t add spaces nor + symbol)'].toString()  }}",
         "template": "send_canvas_v9|en",
         "components": {
           "component": [
@@ -3025,10 +3025,9 @@
           "value": {
             "Respondent ID": "={{ $('Filter only non processed and schedule rules1').item.json['Respondent ID'] }}",
             "Processed": "YES",
-            "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}",
             "Phase": "1-Angel Canvas Sent",
-            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
-            "Investment type": "={{ $json.output.replace(\"\\n\",\"\") }}"
+            "Drive URL": "=https://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}"
           },
           "matchingColumns": [
             "Respondent ID"
@@ -3135,8 +3134,8 @@
               "removed": true
             },
             {
-              "id": "\"Angel investing is not unnecessarily time-consuming\"",
-              "displayName": "\"Angel investing is not unnecessarily time-consuming\"",
+              "id": "\"Angel investing is not excessively time-consuming\"",
+              "displayName": "\"Angel investing is not excessively time-consuming\"",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3405,8 +3404,18 @@
               "removed": true
             },
             {
-              "id": "What's your phone number?(Add your country code without spaces nor symbols)",
-              "displayName": "What's your phone number?(Add your country code without spaces nor symbols)",
+              "id": "Which address should I send the physical copy to?",
+              "displayName": "Which address should I send the physical copy to?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "What's your phone number? (Add your country code without spaces nor + symbol)",
+              "displayName": "What's your phone number? (Add your country code without spaces nor + symbol)",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -3462,7 +3471,7 @@
               "display": true,
               "type": "string",
               "canBeUsedToMatch": true,
-              "removed": false
+              "removed": true
             },
             {
               "id": "AI Tunning",
@@ -3617,7 +3626,7 @@
     },
     {
       "parameters": {
-        "content": "\n\n## Generate and Send Canvas\n",
+        "content": "\n\n## 1. Generate and Send Canvas\n",
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -4530,8 +4539,7 @@
           "id": "xDtNmlS7kyoYgayX",
           "name": "Gmail account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -4641,8 +4649,7 @@
       "name": "Investor type extractor1",
       "retryOnFail": true,
       "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "disabled": true
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -5144,8 +5151,7 @@
           "id": "NEGBwfubK3hajIOd",
           "name": "Google Sheets account 2"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -5241,7 +5247,7 @@
           "interval": [
             {
               "field": "minutes",
-              "minutesInterval": 1
+              "minutesInterval": 2
             }
           ]
         }
@@ -5253,11 +5259,12 @@
         360
       ],
       "id": "1bda1fe9-1dc3-4018-8ab8-2637ce874ef0",
-      "name": "Schedule Trigger Angel Canvas2"
+      "name": "Schedule Trigger Angel Canvas2",
+      "disabled": true
     },
     {
       "parameters": {
-        "content": "\n\n## Generate and send customized letter\n",
+        "content": "\n\n## 2. Generate and send customized letter\n",
         "color": 7
       },
       "type": "n8n-nodes-base.stickyNote",
@@ -5317,8 +5324,7 @@
           "id": "DpJv506UKiehakav",
           "name": "WhatsApp account Agent"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -6276,7 +6282,7 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code. Don\\'t add spaces nor + symbol)'].toString()  }}",
         "template": "canvas_generator_link_v1|en"
       },
       "type": "n8n-nodes-base.whatsApp",
@@ -7884,7 +7890,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "522c7bed-2ca1-4e88-b988-defbaca8f663",
+  "versionId": "79085dc9-c181-4c13-8cad-4d812e761b4d",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

@@ -180,7 +180,6 @@ To get started just type "Canvas"
 
 ------------------------------------------------------
 
-
 send_gift_card_v2
 
 Dear {{1}}, feel free to use the angel canvas gift card or the message template if you find it useful.  Please always share the link.

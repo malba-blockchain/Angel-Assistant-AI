@@ -1,0 +1,5098 @@
+{
+  "name": "Angel_Stories_and_Canvas_v1",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30616b7c-3ff0-4b36-852a-d1aa696d5903",
+              "name": "UserID",
+              "value": "={{ $('Chat start').item.json.messages[0].from }}",
+              "type": "string"
+            },
+            {
+              "id": "f373bbf6-aee6-4ab2-b2e7-a078a0b533ea",
+              "name": "Menu",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Menu:\\s*(\\S+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "a9f25064-9661-43e0-b326-e2cc18a75339",
+              "name": "Name",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Name:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        2800
+      ],
+      "id": "343f4883-ebfc-4261-9ab0-47f2c53890d1",
+      "name": "Regenerate variables sender"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -3660,
+        1600
+      ],
+      "id": "f1d46f36-2375-4ea4-8dea-a10105b614ec",
+      "name": "Chat start",
+      "webhookId": "f4105057-c3ee-4778-8088-ca7318140a90",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "VdMeP76QwcCJiisq",
+          "name": "WhatsApp OAuth account Assistant"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0f1514e2-21cb-4b84-8bd2-dfb23f52c6cd",
+              "leftValue": "={{ $json.messages[0].text.body }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "97ea097b-1705-4a42-9e73-eac8be9aca9e",
+              "leftValue": "={{ $json.messages[0].button.text }}",
+              "rightValue": "={{ $json.messages[0].button.text }}",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3480,
+        1600
+      ],
+      "id": "b9e3e3ec-51f0-436d-a214-29718c1d9de4",
+      "name": "Validate there is a message"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4",
+          "mode": "list",
+          "cachedResultName": "Chat History Logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Phase 1 Flow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VXDHSvPVoh-ENXEFj6XzjFRcVd8hKFONbwGMSWkRwQ4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Message": "={{ $('Chat start').item.json.messages[0].text?.body || $('Chat start').item.json.messages[0].button?.text || '' }}",
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}"
+          },
+          "matchingColumns": [
+            "What's your phone number?(Add your country code without spaces nor symbols)"
+          ],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -3060,
+        1600
+      ],
+      "id": "3398f008-861b-433e-833a-df2f3e2e2fcc",
+      "name": "Log Chat History",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 2000,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9b3318e3-a14a-43de-b256-cd48d6b7a388",
+                    "leftValue": "={{ ($json.Menu == \"Main\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ ($json.Menu == \"Name\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "17931a50-692b-4288-bc4d-927c1967024b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Name"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "80fd97af-b1ca-448e-a4f7-d2c20fe45768",
+                    "leftValue": "={{ ($json.Menu == \"Q1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6a01d974-6785-4755-86a0-c21530c63262",
+                    "leftValue": "={{ ($json.Menu == \"Q2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a9f335b1-e5a4-41e2-b9a3-9c9cb5d2c3e8",
+                    "leftValue": "={{ ($json.Menu == \"Q3-1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q3-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "34651ef6-3736-49a3-8e8e-c48eecb7dbb6",
+                    "leftValue": "={{ ($json.Menu == \"Q3-2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q3-2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e17803b4-deea-4a67-a9a4-1e235a6c9ce1",
+                    "leftValue": "={{ ($json.Menu == \"Q3-3\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q3-3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9fd8a7dd-fd58-42d0-af06-4f0670c69b96",
+                    "leftValue": "={{ ($json.Menu == \"Q4-1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q4-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "da6f748e-ec25-4319-969b-9274ad37a0d6",
+                    "leftValue": "={{ ($json.Menu == \"Q4-2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q4-2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "387e4fca-e658-4f08-aa1c-cc79f90bf96d",
+                    "leftValue": "={{ ($json.Menu == \"Q5-1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q5-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "46a0393b-a02d-4912-927b-8d2b4ce776f2",
+                    "leftValue": "={{ ($json.Menu == \"Q5-2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q5-2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "5313955c-f14c-4343-899f-2a0b7a1130c2",
+                    "leftValue": "={{ ($json.Menu == \"Q5-3\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q5-3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "51829959-6785-4da9-823f-46827e3f2a01",
+                    "leftValue": "={{ ($json.Menu == \"Q6-1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q6-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4209e0c3-8528-4adc-b7ae-1bfb2fb65719",
+                    "leftValue": "={{ ($json.Menu == \"Q6-2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q6-2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "66665ab3-4893-488a-acf2-10fc79049798",
+                    "leftValue": "={{ ($json.Menu == \"Q6-3\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q6-3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c0be628a-4770-4ed3-9631-74aed27c983a",
+                    "leftValue": "={{ ($json.Menu == \"Q6-4\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q6-4"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ba1c1625-c1bb-4447-8a06-82d636ba7430",
+                    "leftValue": "={{ ($json.Menu == \"Q7-1\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q7-1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "875ba9e8-e198-43a8-a5f4-b5f83b56ad74",
+                    "leftValue": "={{ ($json.Menu == \"Q7-2\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q7-2"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "70f75bcf-a84d-4a65-8739-d2fd7b0b5e32",
+                    "leftValue": "={{ ($json.Menu == \"Q7-3\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q7-3"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b9adc6fa-18e2-4d80-a74f-39762d893a3e",
+                    "leftValue": "={{ ($json.Menu == \"Q7-4\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q7-4"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "095be120-f92c-4872-9ca7-a1a41f89b866",
+                    "leftValue": "={{ ($json.Menu == \"Q8\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q8"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "eed044f9-d49e-4d3f-b757-a5ffc1224ae5",
+                    "leftValue": "={{ ($json.Menu == \"Q9\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q9"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f569d370-8130-406e-ad50-f3ce0a12e68e",
+                    "leftValue": "={{ ($json.Menu == \"Q10\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q10"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3565c904-2a54-4876-9dd5-5e9931b5f974",
+                    "leftValue": "={{ ($json.Menu == \"Q11\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q11"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6ff33078-3fef-4d9b-aa8c-1446f5d427cb",
+                    "leftValue": "={{ ($json.Menu == \"Q12\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q12"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ab845119-a85c-4707-bc72-ee0cb287bb93",
+                    "leftValue": "={{ ($json.Menu == \"Q13\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q13"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f1030920-c037-4526-81da-5b73b7558e02",
+                    "leftValue": "={{ ($json.Menu == \"Q14\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q14"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "dd931093-563e-439a-a11a-8d03c0c82d51",
+                    "leftValue": "={{ ($json.Menu == \"Q15\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q15"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b398a0a4-966d-4a2b-963b-f5fee2200410",
+                    "leftValue": "={{ ($json.Menu == \"Q16\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q16"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "099ff314-2e55-4b14-95e6-3a679515e2a5",
+                    "leftValue": "={{ ($json.Menu == \"Q17\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q17"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "317a213d-755d-4996-817e-47c13d3b1dba",
+                    "leftValue": "={{ ($json.Menu == \"Q18\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q18"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2ef595fb-cb0a-41aa-8cd2-ef122ad24bff",
+                    "leftValue": "={{ ($json.Menu == \"Q19\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q19"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a7673c8e-bd26-458a-b9b4-1306dbf8b551",
+                    "leftValue": "={{ ($json.Menu == \"Q20\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q20"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "de75109f-1d06-4fc2-ab66-d9c855fb9abb",
+                    "leftValue": "={{ ($json.Menu == \"Q21\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Q21"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7b56f1fb-a57a-48ca-95e2-f31f4cbef125",
+                    "leftValue": "={{ ($json.Menu == \"Email\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Email"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "54422fd0-31b6-4087-a5dc-f71cb2fc1393",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Empty"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        2100
+      ],
+      "id": "1357bf01-bf48-4a3b-be8d-8332826634dc",
+      "name": "Main Registration menu switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Send Reminder to Respond",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2820,
+        3140
+      ],
+      "typeVersion": 1,
+      "id": "aaab071c-3edd-4418-a78a-bfb136464b43",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Register Angel Answers\n",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1280,
+        2340
+      ],
+      "typeVersion": 1,
+      "id": "6f7ca6e3-90f7-40ee-9bb2-25f05c296a38",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Your Angel Canvas will take around 10–15 minutes to complete. \n\nWould you like to start now, or should I send you a reminder for later?\n\n_(Type a number)_\n\n1. Start now\n2. Remind me tomorrow\n3. Remind me in 2 days",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        740,
+        1420
+      ],
+      "id": "9ba4662c-9eda-4efd-971f-9a8af30c5ffb",
+      "name": "Default MSG 1",
+      "webhookId": "db332682-0b92-411a-834f-92cabac12b38",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "23c52286-146b-4345-9e29-cc4b55030a7b",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"2\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2-Remind me tomorrow"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "17a48ff8-ca54-4c67-86a8-48a7d5ec534a",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"3\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3-Remind me in 2 days"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"1\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "44c23064-f3a2-48b8-9533-c96757038ea1"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1-Start now"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        720,
+        1820
+      ],
+      "id": "9a64a2df-1a28-4b28-86c1-fb26f7585fac",
+      "name": "Main Menu Switch"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Reminder": "={{ $now.plus({hours: 24}).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1020,
+        1620
+      ],
+      "id": "91a7117a-d140-4b00-b8bf-a66dac36a29f",
+      "name": "Google Sheets - Save Reminder Tomorrow",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Reminder": "={{ $now.plus({hours: 48}).toFormat(\"yyyy-MM-dd HH:mm:ss\") }}",
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1020,
+        1820
+      ],
+      "id": "cd0bd966-3962-48b7-b457-ce52e7700bc4",
+      "name": "Google Sheets - Save Reminder Two Days",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Canvas\nMenu: Name"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1220,
+        2020
+      ],
+      "id": "a4afef36-00ed-4dd4-8d88-33e681825ed3",
+      "name": "Angel Name Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        -280,
+        2800
+      ],
+      "id": "167b0534-a65e-4bee-a686-5fcc242e27a2",
+      "name": "Angel Canvas Menu Out"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Canvas\nMenu: Main"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        940,
+        1420
+      ],
+      "id": "ccde5e08-47c6-4179-9ed8-4360b7988056",
+      "name": "Angel Canvas Main Menu",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Noted. I’ll remind you in two days. \n\nTalk soon!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1820
+      ],
+      "id": "ecc41036-852d-4b9b-9890-3d7824a6fde5",
+      "name": "Reminder set 2 days",
+      "webhookId": "7133cefe-ec45-4430-a708-6310b92b85a9",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Noted. I’ll remind you tomorrow. \n\nTalk soon!",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1220,
+        1620
+      ],
+      "id": "9ca7d1ab-9aa4-4368-80d5-c52d82e192dd",
+      "name": "Reminder set tomorrow",
+      "webhookId": "77aae878-f083-4364-ba59-67460e595565",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Last sent"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3440,
+        3160
+      ],
+      "id": "46d0e3ae-4293-4aa8-99dc-c9b1a6c0b584",
+      "name": "Get Reminder List",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Filter based on reminder date').item.json.Number.toString() }}",
+        "template": "canvas_reminder_v1|en"
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3880,
+        3160
+      ],
+      "id": "f4b83248-06c2-402c-9e02-1b6923e75dbf",
+      "name": "Send Canvas Reminder",
+      "webhookId": "85cbdeb8-4cfe-4ee4-83fc-3275e96b181e",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2076955916,
+          "mode": "list",
+          "cachedResultName": "Canvas Reminders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=2076955916"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Get Reminder List').item.json.Number }}",
+            "Last sent": "={{ $now.toFormat(\"yyyy-MM-dd HH:mm:ss\") }}"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Reminder",
+              "displayName": "Reminder",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        4100,
+        3160
+      ],
+      "id": "cd944410-3486-49a2-b28e-35c810b19a92",
+      "name": "Update Reminder Status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2,
+              "triggerAtMinute": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        3240,
+        3160
+      ],
+      "id": "40095964-1875-4598-8240-b1fd7f9b5e89",
+      "name": "Schedule Trigger Canvas Reminder",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ $('Schedule Trigger Canvas Reminder').item.json.timestamp > $json.Reminder}}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "b8c6ecb9-a43b-4662-89a9-59f323faa0ea",
+              "leftValue": "={{  $('Schedule Trigger Canvas Reminder').item.json.Hour > 8 && $('Schedule Trigger Canvas Reminder').item.json.Hour < 21 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        3660,
+        3160
+      ],
+      "id": "46b2a770-d1fb-451a-b219-95af258c1e1f",
+      "name": "Filter based on reminder date"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a92fba63-dd67-487c-aabb-bb3d43cc34fa",
+              "leftValue": "={{ $json.metadata.display_phone_number }}",
+              "rightValue": "351913339704",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3260,
+        1600
+      ],
+      "id": "a43e2fa2-5007-434a-b8a2-e018f5c300a3",
+      "name": "Validate right routing"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Access",
+              "lookupValue": "On"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2840,
+        740
+      ],
+      "id": "6a2bf2e8-b6f8-4fbc-8223-a6014046d2bf",
+      "name": "Get Angel List",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
+        "template": "angel_story_v14|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Filter based on frequency').item.json.Name.split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{ $('Get Story Data').item.json.Title }}"
+                  },
+                  {
+                    "text": "={{ $json.Duration }}"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "button",
+              "sub_type": "url",
+              "buttonParameters": {
+                "parameter": {
+                  "payload": "={{ $json['Drive ID'] }}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        740
+      ],
+      "id": "887f9959-b648-4af0-b726-d4076d9edc51",
+      "name": "Send Angel Story Message",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.Phase.split(\"-\").last().toNumber() +1 }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3520,
+        740
+      ],
+      "id": "08740764-150f-4730-aac4-5a41d3c01c4a",
+      "name": "Get Story Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Welcome, I'm your Angel Agent.\n\nTo access Angel Stories type \"Story\"\nTo access Angel Canvas type \"Canvas\"",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -1680,
+        1720
+      ],
+      "id": "4dd7b4ff-8492-464c-9815-89c1b362c396",
+      "name": "Default MSG",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Submitted at": "={{ \n  (() => {\n    const date = new Date($('Chat start').item.json.messages[0].timestamp * 1000);\n    const day = date.getDate().toString().padStart(2, '0');\n    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];\n    const month = monthNames[date.getMonth()];\n    const year = date.getFullYear();\n    const time = date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', second:'2-digit', hour12: true});\n    \n    return `${day}-${month}-${year}, ${time}`;\n  })()\n}}",
+            "Name": "={{ $('Regenerate variables').item.json.Name }}",
+            "Number": "={{ $('Regenerate variables').item.json.UserID }}",
+            "Frequency": "={{({A: 3, B: 4, C: 5, D: 6, E: 7})[$('Chat start').item.json.messages[0].text.body. toUpperCase()]}}",
+            "Phase": "0-Angel Story 0",
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Level": "={{ \n  ($('Regenerate variables').item.json.Level.toUpperCase() == \"A\") \n    ? \"Base\" \n    : ($('Regenerate variables').item.json.Level.toUpperCase() == \"B\") \n      ? \"Intermediate\" \n      : ($('Regenerate variables').item.json.Level.toUpperCase() == \"C\") \n        ? \"Advanced\" \n        : $('Regenerate variables').item.json.Level \n}}",
+            "Source": "={{ $('Regenerate variables').item.json.Source }}",
+            "Access": "On"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Access",
+              "displayName": "Access",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        280,
+        1020
+      ],
+      "id": "7b48d530-46db-4ec1-b250-a0467ae2e97e",
+      "name": "Register Angel Experience Database",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=✅ Success. You have been granted access to Angel Stories.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1020
+      ],
+      "id": "f5acda26-8aec-4274-aa10-e5f6950b3547",
+      "name": "Registration success",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        660,
+        1020
+      ],
+      "id": "eedd6b62-fafe-4810-971a-493f74a95612",
+      "name": "Get First Story Data1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "messageType": "audio",
+        "mediaPath": "useMedian8n",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        1020
+      ],
+      "id": "1dfebf88-204e-4b45-8c00-9ca82701a7d1",
+      "name": "Send First Angel Story",
+      "webhookId": "ead5d192-052c-4e92-a91e-e5868950f08e",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1W_S9vVREIdUiTsHGj2P92Tn533f5Lg98",
+          "mode": "list",
+          "cachedResultName": "0-We Believed When No One Did.mp3",
+          "cachedResultUrl": "https://drive.google.com/file/d/1W_S9vVREIdUiTsHGj2P92Tn533f5Lg98/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        840,
+        1020
+      ],
+      "id": "51afc05f-6dd9-4766-8db1-892ed98b37e9",
+      "name": "Google Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7XHaUczflWsNgSUz",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=Hey {{ $('Register Angel Experience Database').item.json.Name.split(\" \")[0] }}, today's angel story: {{ $('Get First Story Data1').item.json.Title }} ({{ $('Get First Story Data1').item.json.Duration }} min)\n\nI'm turning Angel Stories into something you can enjoy with your friends.\n\nRate this story from 1 to 5 to improve your stories experience.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        1020
+      ],
+      "id": "00ca9804-ccf0-4ea5-99c9-213fd1bef720",
+      "name": "First Angel Story message",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1180,
+        1020
+      ],
+      "id": "2dfd3890-b9cf-425a-8e31-0779bd970988",
+      "name": "Wait",
+      "webhookId": "de682aa7-c533-4afe-996f-0d3ebeb212a8"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.Level == \"Base\" ? \"B\" : ($json.Level == \"Intermediate\" ? \"I\" : ($json.Level == \"Advanced\" ? \"A\" : $json.Level)) }}-{{ $json.Phase.split(\" \").last().toNumber() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3520,
+        920
+      ],
+      "id": "34be3770-164e-4d0d-b06b-246f9cb64341",
+      "name": "Get Concept Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtMinute": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        2660,
+        740
+      ],
+      "id": "bf9ebaa4-ea64-48ca-b75d-f0737e77fa80",
+      "name": "Schedule Trigger Angel Story"
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
+        "template": "angel_story_v14|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Filter based on frequency').item.json.Name.split(\" \")[0]  }}"
+                  },
+                  {
+                    "text": "={{ $json.Title }}"
+                  },
+                  {
+                    "text": "={{ $json.Duration }}"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "button",
+              "sub_type": "url",
+              "buttonParameters": {
+                "parameter": {
+                  "payload": "={{ $json['Drive ID'] }}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        920
+      ],
+      "id": "480bbd35-1b4f-4571-8400-8b3aa17604bc",
+      "name": "Send Angel Concept Message",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "(3/3) How often would you like to have access to Angel Stories? _(Type a letter)_\n\nA. Every 3 days\nB. Every 4 days\nC. Every 5 days\nD. Every 6 days\nE. Every 7 days",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        860
+      ],
+      "id": "3c0bdf55-846d-4d9d-afa8-321b79f43e2b",
+      "name": "Angel Frequency",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "=(2/3) What's your experience as an angel? _(Type a letter)_\n\nA. Base (None to 3 years)\nB. Intermediate (3 to 10 years)\nC. Advanced (10+ years)",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        960,
+        700
+      ],
+      "id": "ea437718-49ff-4f8e-8aa4-a40d0e40df08",
+      "name": "Angel Level",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Frequency\nName: {{ $('Regenerate variables').item.json.Name }}\nLevel: {{ $('Chat start').item.json.messages[0].text.body }}\nSource: {{ $('Regenerate variables').item.json.Source }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        620,
+        860
+      ],
+      "id": "594aba99-5f8a-4c87-849b-a946f476c772",
+      "name": "Angel Frequency Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Level\nName: {{ $('Chat start').item.json.messages[0].text.body }}\nSource: {{ $('Regenerate variables').item.json.Source }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        620,
+        700
+      ],
+      "id": "82d408e5-6215-485d-b679-6373cad70ce9",
+      "name": "Angel Level Menu In",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "cc0f6b6f-f11f-4e5e-9f31-f9575a852c55",
+              "leftValue": "={{ (() => {\n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  const lastSentStr = $json['Last sent'];\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency \n  const lastSentPlusFrequency = new Date(lastSentDate.getTime() + $json.Frequency*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlusFrequency, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + frequency*24h\n  return currentDate >= lastSentPlusFrequency && (currentDate.getHours() >= 13 && currentDate.getHours() < 20) ;\n})() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "looseTypeValidation": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        3020,
+        740
+      ],
+      "id": "311000fa-79f6-4da9-ae31-4a34bc1d6cd0",
+      "name": "Filter based on frequency"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "30ff28ee-2034-417e-91df-ccd5796153d5",
+                    "leftValue": "={{ $json.Phase == \"0-Angel Story 0\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story Track"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "556ae4d9-fe55-4bbd-8a54-0441f735dce3",
+                    "leftValue": "={{ $json.Phase.includes(\"Concept\") }}",
+                    "rightValue": "Concept",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Phase.includes(\"Story\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "5db360ad-9788-4132-95ab-edf30810ed88"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Concept"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        3200,
+        740
+      ],
+      "id": "e63c1836-1a62-4ef7-b3d1-b89e327091c3",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "=1"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3520,
+        580
+      ],
+      "id": "f2b948b8-e7c3-4df9-a92f-b9b073f571d8",
+      "name": "Get First Story Data",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Number": "={{ $('Get Angel List').item.json.Number }}",
+            "Phase": "1-Angel Story 1"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Experience",
+              "displayName": "Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3920,
+        580
+      ],
+      "id": "2a987abd-0671-4796-b46a-f241da4c0137",
+      "name": "Update First Angel Experience Status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Number": "={{ $('Filter based on frequency').item.json.Number }}",
+            "Phase": "={{ $('Filter based on frequency').item.json.Phase.split(\"-\")[0].toNumber()+1 }}-Angel Story {{ $('Switch').item.json.Phase.split(\"-\").last().toNumber()+1 }}"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3920,
+        740
+      ],
+      "id": "3a841727-d3bb-4ac4-8414-43c0e3f1b706",
+      "name": "Update Angel Experience Status Story",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Number": "={{ $('Filter based on frequency').item.json.Number }}",
+            "Phase": "={{ $('Filter based on frequency').item.json.Phase.split(\"-\")[0].toNumber()+1 }}-Angel Concept {{ $('Switch').item.json.Level.split(\"\")[0] }}-{{ $('Switch').item.json.Phase.split(\" \").last().toNumber() }}"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3920,
+        920
+      ],
+      "id": "42c15f0e-8e4a-4365-ab7d-831fb20dc028",
+      "name": "Update Angel Experience Status Concept",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Filter based on frequency').item.json.Number.toString() }}",
+        "template": "angel_story_v14|en",
+        "components": {
+          "component": [
+            {
+              "bodyParameters": {
+                "parameter": [
+                  {
+                    "text": "={{ $('Filter based on frequency').item.json.Name.split(' ')[0] }}"
+                  },
+                  {
+                    "text": "={{ $('Get First Story Data').item.json.Title }}"
+                  },
+                  {
+                    "text": "={{ $json.Duration }}"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "button",
+              "sub_type": "url",
+              "buttonParameters": {
+                "parameter": {
+                  "payload": "={{ $json['Drive ID'] }}"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        3720,
+        580
+      ],
+      "id": "8bba1f3e-be5c-43d0-8791-0e8c29f4771a",
+      "name": "Send Angel Story #1",
+      "webhookId": "58d2530c-6c01-4a9f-8c62-b4be3b77775a",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Chat start').item.json.messages[0].from }}",
+        "contextWindowLength": 1
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -860,
+        3740
+      ],
+      "id": "89ee32bc-f77c-4f65-8788-c051f8ce4137",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "54422fd0-31b6-4087-a5dc-f71cb2fc1393",
+                    "leftValue": "={{ $json.Menu }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ ($json.Menu == \"Name\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "17931a50-692b-4288-bc4d-927c1967024b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Name"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "80fd97af-b1ca-448e-a4f7-d2c20fe45768",
+                    "leftValue": "={{ ($json.Menu == \"Level\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Level"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6a01d974-6785-4755-86a0-c21530c63262",
+                    "leftValue": "={{ ($json.Menu == \"Frequency\") }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Frequency"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -120,
+        780
+      ],
+      "id": "4e755f70-2e04-4a5c-9572-93c91633df7c",
+      "name": "Main Registration menu switch1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        700
+      ],
+      "id": "8b7fdcd5-8eb8-49d0-bbd0-1e4c16884c1d",
+      "name": "Clean Memory22"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "I will grant you access to Angel Stories (business angel's mini podcasts from 5 to 10 min long).\n\n(1/3) What's your full name?",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        460
+      ],
+      "id": "0a871526-a767-443f-9d06-795c8b95e22a",
+      "name": "Ask Angel Name1",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        860
+      ],
+      "id": "e0fab849-0ca1-45e8-b97a-c889c5dbd14d",
+      "name": "Clean Memory24"
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Send Angel Story or Concept",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2240,
+        720
+      ],
+      "typeVersion": 1,
+      "id": "d02166a0-f876-4b51-87c7-684ac048a319",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "\n\n\n## Register to Angel Experience",
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -160,
+        180
+      ],
+      "typeVersion": 1,
+      "id": "227aa412-7d4a-4c08-8b4d-dda1cca3f1ad",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "messages": {
+          "messageValues": [
+            {
+              "type": "user",
+              "message": "=UserID:{{ $('Chat start').item.json.messages[0].from }}\nTimestamp:{{ $('Chat start').item.json.messages[0].timestamp }}\nTool: Stories\nMenu: Name\nSource: {{ $('Chat start').item.json.messages[0].text.body.split(\" \")[1]?.toUpperCase() || \"YANGEL\" }}"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        260,
+        460
+      ],
+      "id": "6b75edf1-ea6c-4d32-9316-21a27db1010a",
+      "name": "Angel Name Menu In1",
+      "alwaysOutputData": true,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "ab3a7c73-5df8-4c26-9519-ba6e51090400",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body == \"Remove Stories Access\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Remove Access"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body.split(\" \")[0].toLowerCase() == \"story\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "d1f38b9d-d072-4afc-9b79-d81f3a093089"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Stories Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e88878ed-f346-4d3a-8225-e95278bc13f3",
+                    "leftValue": "={{ $('Chat start').item.json.messages[0].text.body.split(\" \")[0].toLowerCase() == \"canvas\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Canvas Main"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "939a2049-7f44-4031-beda-26956e9d610f",
+                    "leftValue": "={{ $json.Menu == null && $json.Tool == null && ![\"1\", \"2\", \"3\", \"4\", \"5\"].includes($('Chat start').item.json.messages[0].text.body) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Default Welcome"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7f622416-acc1-4a5a-bd7f-497ff989a114",
+                    "leftValue": "={{ $json.Tool.toLowerCase() == \"stories\" }}",
+                    "rightValue": "Stories",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Stories Menu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "339e2fd1-4f14-486b-ba58-72ccd6cc153e",
+                    "leftValue": "={{ $json.Tool.toLowerCase() == \"canvas\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Canvas Menu"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "47982fa6-d4fe-4374-b079-c418ea63549d",
+                    "leftValue": "={{ [\"1\", \"2\", \"3\", \"4\", \"5\"].includes($('Chat start').item.json.messages[0].text.body) }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story Rating"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -2320,
+        1560
+      ],
+      "id": "bf0da452-9689-4358-abe1-320329d7a1a4",
+      "name": "Switch Canvas/Stories"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        -2880,
+        1600
+      ],
+      "id": "56d38cc6-962d-4524-9496-4106849f5824",
+      "name": "Angel Tool Menu Out"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "30616b7c-3ff0-4b36-852a-d1aa696d5903",
+              "name": "UserID",
+              "value": "={{ $('Chat start').item.json.messages[0].from }}",
+              "type": "string"
+            },
+            {
+              "id": "4628adec-a111-44e6-b00d-660903978f86",
+              "name": "Tool",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Tool:\\s*(\\S+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "f373bbf6-aee6-4ab2-b2e7-a078a0b533ea",
+              "name": "Menu",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Menu:\\s*(\\S+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "88a3a903-1057-4e35-95db-c4aa9cc5bb33",
+              "name": "=Timestamp",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Timestamp:\\s*(\\d+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "a9f25064-9661-43e0-b326-e2cc18a75339",
+              "name": "Name",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Name:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "1099529c-638f-40cf-81d3-9ca853835ac0",
+              "name": "Level",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Level:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            },
+            {
+              "id": "77b650b8-b835-4864-958d-6ea450e8856a",
+              "name": "Source",
+              "value": "={{$json.messages[$json.messagesCount-1].human.match(/Source:\\s*([^\\n]+)/)?.[1] || null}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2540,
+        1600
+      ],
+      "id": "34b78120-99af-424f-8c2b-799c23069b0b",
+      "name": "Regenerate variables"
+    },
+    {
+      "parameters": {
+        "mode": "delete",
+        "deleteMode": "all"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryManager",
+      "typeVersion": 1.1,
+      "position": [
+        1540,
+        1020
+      ],
+      "id": "5afaeba0-2e42-4a0e-9646-cb9f9777f190",
+      "name": "Clean Memory27"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "🛑It's done. Your access to angel stories has been removed.\n\nIf you want to recover it type \"Story\".",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -1480,
+        800
+      ],
+      "id": "df00f7e2-e13b-4368-812e-7827ac462b01",
+      "name": "Remove Access",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Number": "={{ $('Chat start').item.json.messages[0].from }}",
+            "Access": "Off"
+          },
+          "matchingColumns": [
+            "Number"
+          ],
+          "schema": [
+            {
+              "id": "Submitted at",
+              "displayName": "Submitted at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Number",
+              "displayName": "Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Frequency",
+              "displayName": "Frequency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phase",
+              "displayName": "Phase",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Source",
+              "displayName": "Source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Access",
+              "displayName": "Access",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -1660,
+        800
+      ],
+      "id": "f50ce9ee-92a9-4bf9-ad60-b9cbd980990c",
+      "name": "Remove access",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 230356662,
+          "mode": "list",
+          "cachedResultName": "Experience Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=230356662"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $('Chat start').item.json.messages[0].from }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -1580,
+        1880
+      ],
+      "id": "938e805c-c86b-4772-8f16-c36dd705204c",
+      "name": "Google Sheets - Get Angel Current Phase",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "81ac3b59-082d-48e1-a9db-42e77ab6913d",
+              "name": "Phase",
+              "value": "={{($json.Phase && $json.Phase.includes(\"Story\")) ? \"Story\" : ($json.Phase && $json.Phase.includes(\"Concept\")) ? \"Concept\" : \"\"}}",
+              "type": "string"
+            },
+            {
+              "id": "1f9c1231-08dc-420f-b0fd-5b2abab9ddb1",
+              "name": "ID",
+              "value": "={{ ($json.Phase && $json.Phase.includes(\"Story\")) ? $json.Phase.slice(-1) : ($json.Phase && $json.Phase.includes(\"Concept\")) ? $json.Phase.slice(-3) : \"\" }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1360,
+        1880
+      ],
+      "id": "d40e3173-e6c9-45d7-a611-c170eb00cbd9",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "Ratings": "={{ $json.Ratings\n? \n$json.Ratings + \", \" + $('Chat start').item.json.messages[0].text.body\n:\n$('Chat start').item.json.messages[0].text.body\n}}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Original",
+              "displayName": "Original",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Intro",
+              "displayName": "Intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trailer",
+              "displayName": "Trailer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Body",
+              "displayName": "Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Outro",
+              "displayName": "Outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full script",
+              "displayName": "Full script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive ID",
+              "displayName": "Drive ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ratings",
+              "displayName": "Ratings",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -580,
+        1780
+      ],
+      "id": "af322748-72fa-485a-a99f-e173bf87576c",
+      "name": "Rate Story",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.ID }}",
+            "Ratings": "={{ $json.Ratings ?  $json.Ratings + \", \" + $('Chat start').item.json.messages[0].text.body : $('Chat start').item.json.messages[0].text.body }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Concept",
+              "displayName": "Concept",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Level",
+              "displayName": "Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Title",
+              "displayName": "Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Intro",
+              "displayName": "Intro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Trailer",
+              "displayName": "Trailer",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Body",
+              "displayName": "Body",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Outro",
+              "displayName": "Outro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full script",
+              "displayName": "Full script",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Link",
+              "displayName": "Link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive ID",
+              "displayName": "Drive ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Duration",
+              "displayName": "Duration",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Ratings",
+              "displayName": "Ratings",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -580,
+        1980
+      ],
+      "id": "a5cf75b3-a4b6-4d22-8176-3610d754baa8",
+      "name": "Rate Concept",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.Phase == \"Story\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "ead9b261-0d90-4e53-9942-61830effa8e6"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Story"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a5d6a1a8-a4c0-47d0-8bda-ff4a2c443b60",
+                    "leftValue": "={{ $json.Phase == \"Concept\" }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Concept"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1140,
+        1880
+      ],
+      "id": "f7c22472-f983-4984-871c-ba1c4997c81f",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Angel Stories",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $json.ID }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -840,
+        1780
+      ],
+      "id": "6eee08b4-9db9-4de0-a9ac-7f3a60bfe261",
+      "name": "Get previous story ratings",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo",
+          "mode": "list",
+          "cachedResultName": "Angel Experience",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2062210914,
+          "mode": "list",
+          "cachedResultName": "Angel Concepts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1suPTIdIkSoDxWFtbh_HiKFwGB-ubwEEm6InWte3Ubfo/edit#gid=2062210914"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "ID",
+              "lookupValue": "={{ $('Edit Fields').item.json.ID }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -840,
+        1980
+      ],
+      "id": "45fa364d-6aa8-4e30-90db-7702b2eb7d3b",
+      "name": "Get previous concept ratings",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "NEGBwfubK3hajIOd",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Got it. Thanks for your feedback.",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        1900
+      ],
+      "id": "3cb25cdd-cd2d-49a2-b696-54701059abbb",
+      "name": "Thanks for rating",
+      "webhookId": "7b212c4f-718d-4eae-bbc9-54c53bf80c22",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "674959875694130",
+        "recipientPhoneNumber": "={{ $('Chat start').item.json.messages[0].from }}",
+        "textBody": "Let's do it! Click here https://tally.so/r/n9MY2V",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        2020
+      ],
+      "id": "eddde6a8-9820-4ab8-9a2a-c71ddf33c5a6",
+      "name": "Send Angel Canvas Link",
+      "webhookId": "567a3233-f9c0-4f4b-b186-c1e7f5d080a2",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "DpJv506UKiehakav",
+          "name": "WhatsApp account Agent"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Regenerate variables sender": {
+      "main": [
+        [
+          {
+            "node": "Main Registration menu switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat start": {
+      "main": [
+        [
+          {
+            "node": "Validate there is a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate there is a message": {
+      "main": [
+        [
+          {
+            "node": "Validate right routing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Chat History": {
+      "main": [
+        [
+          {
+            "node": "Angel Tool Menu Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Registration menu switch": {
+      "main": [
+        [
+          {
+            "node": "Main Menu Switch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [
+          {
+            "node": "Default MSG 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default MSG 1": {
+      "main": [
+        [
+          {
+            "node": "Angel Canvas Main Menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Menu Switch": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets - Save Reminder Tomorrow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Save Reminder Two Days",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send Angel Canvas Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Canvas Menu Out": {
+      "main": [
+        [
+          {
+            "node": "Regenerate variables sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Save Reminder Two Days": {
+      "main": [
+        [
+          {
+            "node": "Reminder set 2 days",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets - Save Reminder Tomorrow": {
+      "main": [
+        [
+          {
+            "node": "Reminder set tomorrow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Reminder List": {
+      "main": [
+        [
+          {
+            "node": "Filter based on reminder date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Canvas Reminder": {
+      "main": [
+        [
+          {
+            "node": "Update Reminder Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Canvas Reminder": {
+      "main": [
+        [
+          {
+            "node": "Get Reminder List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter based on reminder date": {
+      "main": [
+        [
+          {
+            "node": "Send Canvas Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate right routing": {
+      "main": [
+        [
+          {
+            "node": "Log Chat History",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Angel List": {
+      "main": [
+        [
+          {
+            "node": "Filter based on frequency",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Story Message": {
+      "main": [
+        [
+          {
+            "node": "Update Angel Experience Status Story",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Story Data": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Story Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Register Angel Experience Database": {
+      "main": [
+        [
+          {
+            "node": "Registration success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registration success": {
+      "main": [
+        [
+          {
+            "node": "Get First Story Data1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get First Story Data1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send First Angel Story": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Send First Angel Story",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "First Angel Story message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Concept Data": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Concept Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger Angel Story": {
+      "main": [
+        [
+          {
+            "node": "Get Angel List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Concept Message": {
+      "main": [
+        [
+          {
+            "node": "Update Angel Experience Status Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Frequency Menu In": {
+      "main": [
+        [
+          {
+            "node": "Angel Frequency",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Level Menu In": {
+      "main": [
+        [
+          {
+            "node": "Angel Level",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter based on frequency": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Get First Story Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Story Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Concept Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get First Story Data": {
+      "main": [
+        [
+          {
+            "node": "Send Angel Story #1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Story #1": {
+      "main": [
+        [
+          {
+            "node": "Update First Angel Experience Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Angel Name Menu In1",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory22",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Level Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Frequency Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory24",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Tool Menu Out",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Canvas Main Menu",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Name Menu In",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Clean Memory27",
+            "type": "ai_memory",
+            "index": 0
+          },
+          {
+            "node": "Angel Canvas Menu Out",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Main Registration menu switch1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Clean Memory22",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clean Memory24",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Register Angel Experience Database",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Memory22": {
+      "main": [
+        [
+          {
+            "node": "Angel Level Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask Angel Name1": {
+      "main": [
+        [
+          {
+            "node": "Angel Name Menu In1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clean Memory24": {
+      "main": [
+        [
+          {
+            "node": "Angel Frequency Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Tool Menu Out": {
+      "main": [
+        [
+          {
+            "node": "Regenerate variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Regenerate variables": {
+      "main": [
+        [
+          {
+            "node": "Switch Canvas/Stories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Canvas/Stories": {
+      "main": [
+        [
+          {
+            "node": "Remove access",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ask Angel Name1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Default MSG 1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Default MSG",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Main Registration menu switch1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Angel Canvas Menu Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Google Sheets - Get Angel Current Phase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "First Angel Story message": {
+      "main": [
+        [
+          {
+            "node": "Clean Memory27",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove access": {
+      "main": [
+        [
+          {
+            "node": "Remove Access",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default MSG": {
+      "main": [
+        []
+      ]
+    },
+    "Google Sheets - Get Angel Current Phase": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Get previous story ratings",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get previous concept ratings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Story": {
+      "main": [
+        [
+          {
+            "node": "Thanks for rating",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Concept": {
+      "main": [
+        [
+          {
+            "node": "Thanks for rating",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get previous story ratings": {
+      "main": [
+        [
+          {
+            "node": "Rate Story",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get previous concept ratings": {
+      "main": [
+        [
+          {
+            "node": "Rate Concept",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Angel Canvas Link": {
+      "main": [
+        [
+          {
+            "node": "Angel Name Menu In",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d8083311-9dfe-43af-9bc3-0a9900e68642",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"
+  },
+  "id": "lz9oSOYxAoCUDI7B",
+  "tags": []
+}

@@ -1,4 +1,4 @@
-send_canvas_v8
+send_canvas_v10
 
 Hi {{1}}, I just sent you an email with your angel canvas as I promised.
 
@@ -6,9 +6,7 @@ Here is the link to your personal Angel Journey folder, so you can bookmark it a
 
 https://drive.google.com/drive/folders/{{2}}
 
-I want to turn it into something your network could really appreciate.
-
-Please tell me at least one thing we can do to improve it.
+Feel free to share it.
 
 Carlos
 
@@ -16,8 +14,6 @@ https://drive.google.com/drive/folders/1M4ZEQObO2LxvbHsy0SaNbw-AukoqgLJW
 
 1M4ZEQObO2LxvbHsy0SaNbw-AukoqgLJW
 
-Validity period
-12 hours
 
 ---------------------------------------------------------------
 

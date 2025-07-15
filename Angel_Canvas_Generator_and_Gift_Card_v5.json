@@ -2969,7 +2969,7 @@
       "parameters": {
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code. Don\\'t add spaces nor + symbol)'].toString()  }}",
-        "template": "send_canvas_v9|en",
+        "template": "send_canvas_v10|en",
         "components": {
           "component": [
             {
@@ -3561,7 +3561,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
+              "leftValue": "={{ new Date().getHours() >= 11 && new Date().getHours() < 18 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -3622,7 +3622,8 @@
         -160
       ],
       "id": "4ac78305-417d-40f9-9fd5-8ed7e7015797",
-      "name": "Schedule Trigger Angel Canvas1"
+      "name": "Schedule Trigger Angel Canvas1",
+      "disabled": true
     },
     {
       "parameters": {
@@ -5259,8 +5260,7 @@
         360
       ],
       "id": "1bda1fe9-1dc3-4018-8ab8-2637ce874ef0",
-      "name": "Schedule Trigger Angel Canvas2",
-      "disabled": true
+      "name": "Schedule Trigger Angel Canvas2"
     },
     {
       "parameters": {
@@ -5291,7 +5291,7 @@
     {
       "parameters": {
         "phoneNumberId": "674959875694130",
-        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules2').item.json['What\\'s your phone number? (Add your country code without spaces nor + symbol)'].toString() }}",
+        "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules2').item.json['What\\'s your phone number? (Add your country code. Don\\'t add spaces nor + symbol)'].toString()  }}",
         "template": "letter_notifier_v1|en",
         "components": {
           "component": [
@@ -6283,7 +6283,7 @@
       "parameters": {
         "phoneNumberId": "674959875694130",
         "recipientPhoneNumber": "={{ $('Filter only non processed and schedule rules1').item.json['What\\'s your phone number? (Add your country code. Don\\'t add spaces nor + symbol)'].toString()  }}",
-        "template": "canvas_generator_link_v1|en"
+        "template": "canvas_generator_link_v2|en"
       },
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
@@ -7890,7 +7890,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "79085dc9-c181-4c13-8cad-4d812e761b4d",
+  "versionId": "07426d70-5ac5-4309-80e5-53f25ec38068",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

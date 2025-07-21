@@ -2370,7 +2370,8 @@
           "interval": [
             {
               "field": "hours",
-              "hoursInterval": 6
+              "hoursInterval": 2,
+              "triggerAtMinute": 10
             }
           ]
         }
@@ -2490,7 +2491,8 @@
       ],
       "id": "1a074199-5e60-4df2-bd35-f3f9e0285362",
       "name": "Check Hour",
-      "alwaysOutputData": false
+      "alwaysOutputData": false,
+      "executeOnce": true
     },
     {
       "parameters": {
@@ -2721,8 +2723,8 @@
     {
       "parameters": {
         "phoneNumberId": "670549546137615",
-        "recipientPhoneNumber": "={{ $('Check Hour').item.json.phone }}",
-        "template": "mission_reminder_v3|en",
+        "recipientPhoneNumber": "={{ $('Check Hour').item.json.originalItem.Phone }}",
+        "template": "mission_reminder_v4|en",
         "components": {
           "component": [
             {
@@ -2781,7 +2783,7 @@
       "parameters": {
         "phoneNumberId": "670549546137615",
         "recipientPhoneNumber": "={{ $('Function Node - Calculate Next Reminder Dates').item.json.phone }}",
-        "template": "mission_call_v3|en",
+        "template": "mission_call_v4|en",
         "components": {
           "component": [
             {
@@ -4273,7 +4275,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e039ce3a-15f7-4056-b930-ae979571c590",
+  "versionId": "2e759cdb-74a3-4db4-992b-bc26bbdec2cf",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

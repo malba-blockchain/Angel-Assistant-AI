@@ -1,0 +1,49 @@
+N8N custom deployment
+
+Tutorial
+https://www.youtube.com/watch?v=-rcjJbUnaFQ
+
+Commands TO ALSO UPDATE N8N
+https://github.com/shehan979/n8nec2/
+
+18.222.190.68
+
+ec2-user
+
+version: '3'
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=SEE PASSWORD MANAGER
+      - WEBHOOK_URL=https://n8n.yangel.co
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  n8n_data:
+
+
+server {
+    listen 80;
+    server_name n8n.yangel.co;
+    location / {
+        proxy_pass http://localhost:5678/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+
+sudo certbot --nginx -d n8n.yangel.co
+
+ecosistemacrypto@gmail.com

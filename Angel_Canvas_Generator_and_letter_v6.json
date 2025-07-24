@@ -1,5 +1,5 @@
 {
-  "name": "Angel_Canvas_Generator_and_Gift_Card_v6",
+  "name": "Angel_Canvas_Generator_and_letter_v6",
   "nodes": [
     {
       "parameters": {
@@ -4229,7 +4229,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1b10d414-5169-42b2-8142-095c387b7dec",
+  "versionId": "d62fad0d-ccf4-44b8-94ec-bd0612189963",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"

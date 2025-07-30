@@ -1,0 +1,1481 @@
+{
+  "name": "Angel Letters v1",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -512,
+        0
+      ],
+      "id": "14b51fb0-4e2b-49f0-8f20-464a5495f9f4",
+      "name": "Schedule Trigger Angel Letters"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1661630492,
+          "mode": "list",
+          "cachedResultName": "Qualify",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=1661630492"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Process",
+              "lookupValue": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -304,
+        0
+      ],
+      "id": "c6395377-db3b-4558-8e6a-254f5eca60f8",
+      "name": "Get Qualified Angels",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "w5M4bsxSWzM5D5aT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
+              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "14709c67-c992-405b-8f28-7b4d03ec4d77",
+              "leftValue": "={{ (() => {\n  // Check if Last sent is null first\n  const lastSentStr = $json['Last sent'];\n  if (lastSentStr === null || lastSentStr === undefined || lastSentStr === '') {\n    return true;\n  }\n  \n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency \n  const lastSentPlusFrequency = new Date(lastSentDate.getTime() + 8*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlusFrequency, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + 8*24h\n  return currentDate >= lastSentPlusFrequency;\n})() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "e2803312-f886-45be-a571-4a6a21356e50",
+      "name": "Filter based on frequency and business hours",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        160
+      ],
+      "id": "c9e1b773-eeb1-4fd4-b7c1-da2e4d80a4e9",
+      "name": "Google Gemini Chat Model4",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "I5m7s9qMBgP9t2CT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6921996-c9c2-4a0c-aa9f-023cc5dac7fa",
+              "name": "Excerpt number",
+              "value": "={{ (parseInt($json.Status.slice(-1)) || 0) + 1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        0
+      ],
+      "id": "1b9aad30-ff79-4000-84f0-53fbfd3b556b",
+      "name": "Set ingredients variables"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Book Excerpts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $json['Excerpt number'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        320,
+        0
+      ],
+      "id": "15afd77a-a533-4cd5-8a57-7c3d58eba563",
+      "name": "Get the book excerpt",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 698423999,
+          "mode": "list",
+          "cachedResultName": "Angel Investor Types",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=698423999"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        512,
+        0
+      ],
+      "id": "2682a076-3ba4-4bbf-8e79-949c37c15d8b",
+      "name": "Get angel types",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Angel Types Details"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        688,
+        0
+      ],
+      "id": "4758bf9f-a3e6-4841-a9e8-7523ba7972e3",
+      "name": "Aggregate Angel Investor Types"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2109120613,
+          "mode": "list",
+          "cachedResultName": "Linkedin Summaries",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=2109120613"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $('Filter based on frequency and business hours').item.json.Phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        864,
+        0
+      ],
+      "id": "f540ded4-ccb3-42fd-9332-e531643a62d6",
+      "name": "Get angel investor linkedin summary",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "What's your phone number? (Add your country code. Don't add spaces nor + symbol)",
+              "lookupValue": "={{ $('Filter based on frequency and business hours').item.json.Phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1072,
+        0
+      ],
+      "id": "168a3ab3-82b3-4545-b797-3eb9eac0ebc2",
+      "name": "Get angel investor details",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 467267262,
+          "mode": "list",
+          "cachedResultName": "Letter Structure",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=467267262"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1264,
+        0
+      ],
+      "id": "ddfe7078-6f93-4b91-aa2d-05e6de91378b",
+      "name": "Get letter structure",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Letter Structure"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        0
+      ],
+      "id": "60a41d89-0e77-4512-bd8e-1c17de11106a",
+      "name": "Aggregate Letter Structure"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1661630492,
+          "mode": "list",
+          "cachedResultName": "Qualify",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=1661630492"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Status": "=Sent letter {{ $('Set ingredients variables').item.json['Excerpt number'] }}",
+            "Phone": "={{ $('Filter based on frequency and business hours').item.json.Phone }}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Already an angel?",
+              "displayName": "Already an angel?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Involvement",
+              "displayName": "Involvement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Investment",
+              "displayName": "Investment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Qualified",
+              "displayName": "Qualified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fund",
+              "displayName": "Fund",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        3952,
+        0
+      ],
+      "id": "8e639414-056f-4480-9c21-9b2d940caa7c",
+      "name": "Update angel letter status and last sent",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/oauth/token",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Basic {{ $json.EncodedBase64 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "grant_type",
+              "value": "refresh_token"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "code_verifier",
+              "value": "P2utVxX9jQvVV1WfcLmNSebBcItMOryOfBLfE8duOweY4uwubzybyKLx_HUnOLufqXSF19bf6I-jO3WX3n4H0yuD6v-D_ZPiJ1LLA7wrCfNTQFshSUiyBRExOmNJxceg"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.canvaAuthToken }}"
+            },
+            {
+              "name": "refresh_token",
+              "value": "={{ $json.canvaRefreshToken }}"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "={{ $json.redirectUri }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        224
+      ],
+      "id": "077d5dcb-ea75-4943-834d-c82ed4c54c34",
+      "name": "Refresh Canva Token3",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ba4ec344-3a6e-4229-8110-cd3ef389bd47",
+              "name": "={{ $json[\"Variable Name\"][0] }}",
+              "value": "={{ $json[\"Variable Value\"][0] }}",
+              "type": "string"
+            },
+            {
+              "id": "b52979bc-f09b-4564-83ae-09ca7c980ffe",
+              "name": "={{ $json[\"Variable Name\"][1] }}",
+              "value": "={{ $json[\"Variable Value\"][1] }}",
+              "type": "string"
+            },
+            {
+              "id": "8092a730-2d5a-4dba-9bcc-5a04fa046a2a",
+              "name": "={{ $json[\"Variable Name\"][2] }}",
+              "value": "={{ $json['Variable Value'][2] }}",
+              "type": "string"
+            },
+            {
+              "id": "6339f9ad-3372-4d94-8d81-3e8cc0c5dd4b",
+              "name": "={{ $json['Variable Name'][3] }}",
+              "value": "={{ $json['Variable Value'][3] }}",
+              "type": "string"
+            },
+            {
+              "id": "12b6e0f6-4a0c-4c60-9347-1da2f0028fb3",
+              "name": "={{ $json['Variable Name'][4] }}",
+              "value": "={{ $json['Variable Value'][4] }}",
+              "type": "string"
+            },
+            {
+              "id": "821e2c39-9927-499c-9862-919b20e2ab34",
+              "name": "={{ $json['Variable Name'][5] }}",
+              "value": "={{ $json['Variable Value'][5] }}",
+              "type": "string"
+            },
+            {
+              "id": "4b83fc29-5bd1-400c-b7d6-067531ea6fca",
+              "name": "={{ $json['Variable Name'][6] }}",
+              "value": "={{ $json['Variable Value'][6] }}",
+              "type": "string"
+            },
+            {
+              "id": "644a4ac7-786d-4c6a-a7f7-a3081c716ac3",
+              "name": "={{ $json['Variable Name'][7] }}",
+              "value": "={{ $json['Variable Value'][7] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2544,
+        224
+      ],
+      "id": "12da816a-4678-40c3-84a0-47e4a2121d50",
+      "name": "Set canva variables3",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Variable Name"
+            },
+            {
+              "fieldToAggregate": "Variable Value"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2384,
+        224
+      ],
+      "id": "1fe4d35f-c348-4035-96a1-02f8bbcfc5bc",
+      "name": "Aggregate3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get current date and time\nconst now = new Date();\n// Calculate expiry time (current time + expires_in seconds)\nconst expiryTime = new Date(now.getTime() + $input.first().json.expires_in * 1000);\n\n// Format the dates\nconst formattedNow = now.toISOString();\nconst formattedExpiry = expiryTime.toISOString();\n\n// Prepare data for spreadsheet update\nconst updateData = [\n  {\n    \"Variable Name\": \"canvaAccessToken\",\n    \"Variable Value\": $input.first().json.access_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canvaRefreshToken\",\n    \"Variable Value\": $input.first().json.refresh_token,\n    \"Last Updated\": formattedNow\n  },\n  {\n    \"Variable Name\": \"canva_token_expiry\",\n    \"Variable Value\": formattedExpiry,\n    \"Last Updated\": formattedNow\n  }\n];\n\nreturn {json: {data: updateData}};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2912,
+        224
+      ],
+      "id": "7dbc360b-ef81-4a28-837a-dd0346c114be",
+      "name": "Process New Tokens3"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3120,
+        224
+      ],
+      "id": "a28d0809-0745-45c5-a414-0eb298748d37",
+      "name": "Turn tokens into items to store3"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Variable Name",
+              "lookupValue": "canvaAccessToken"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2000,
+        0
+      ],
+      "id": "03345e89-b7b0-4b8a-8aab-a33e5c31541d",
+      "name": "Get Canva Tokens4",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "w5M4bsxSWzM5D5aT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        2192,
+        224
+      ],
+      "id": "3fc45f8c-b4d3-4336-aa1c-48c22c67d34d",
+      "name": "Get Current Canva Tokens3",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "w5M4bsxSWzM5D5aT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM",
+          "mode": "list",
+          "cachedResultName": "N8N Variables",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mSKACKlIV3BxDT3y1W_v_nD29D7EfAYEi30PhcdxlPM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Variable Name": "={{ $json['Variable Name'] }}",
+            "Last Updated": "={{ $json['Last Updated'] }}",
+            "Variable Value": "={{ $json['Variable Value'] }}"
+          },
+          "matchingColumns": [
+            "Variable Name"
+          ],
+          "schema": [
+            {
+              "id": "Variable Name",
+              "displayName": "Variable Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Last Updated",
+              "displayName": "Last Updated",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Variable Value",
+              "displayName": "Variable Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3312,
+        224
+      ],
+      "id": "5f51211b-978c-4f6f-80ae-c8b904870484",
+      "name": "Update Canva Tokens in Sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "w5M4bsxSWzM5D5aT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/autofills",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"brand_template_id\": \"EAGumhbJHok\",\n  \"data\": {\n    \"Letter Text\": {\n      \"type\": \"text\",\n      \"text\": \"{{ JSON.stringify($('Angel Letter Agent').item.json.output.replace(/\\*/g, '')).slice(1, -1)}}\"\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2192,
+        0
+      ],
+      "id": "2ae442c2-41b0-4885-99b4-5b136908e5eb",
+      "name": "Request (Job) to generate the customized letter1",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/autofills/{{ $('Request (Job) to generate the customized letter1').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens4').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        0
+      ],
+      "id": "80441fae-b48f-4f51-9aa6-ebc922cb739f",
+      "name": "Get the status of the letter request (Job) sent1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.canva.com/rest/v1/exports",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens4').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"design_id\": \"{{ $json.job.result.design.id }}\",\n  \"format\": {\n    \"type\": \"pdf\",\n    \"size\": \"a4\",\n    \"pages\": [\n      1\n    ]\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2912,
+        0
+      ],
+      "id": "aa882e51-9315-42b3-939f-749e2025e0b8",
+      "name": "Request (Job) Export the letter design in PDF1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3104,
+        0
+      ],
+      "id": "51983e98-72de-4ed4-b4e5-6f1ce0dd9aa7",
+      "name": "Wait13",
+      "webhookId": "46a6fb47-41d2-495d-8bd8-0f692eb658e0"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.canva.com/rest/v1/exports/{{ $('Request (Job) Export the letter design in PDF1').item.json.job.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Get Canva Tokens4').item.json['Variable Value'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3280,
+        0
+      ],
+      "id": "589b60a3-471a-4532-be8d-559f21a578ee",
+      "name": "Request to get the letter PDF version1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Request to get the letter PDF version1').item.json.job.urls[0] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3504,
+        0
+      ],
+      "id": "b2da16bd-59af-4661-995b-2280592a9a56",
+      "name": "Download the letter PDF1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d487c6f6-60ef-4cb8-9fdb-a24880e79260",
+              "leftValue": "={{ $json.job.status }}",
+              "rightValue": "in_progress",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2384,
+        0
+      ],
+      "id": "f2b0fe3a-413b-45dd-8cf6-09b0da380590",
+      "name": "If3"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2544,
+        0
+      ],
+      "id": "55b9f86c-920a-4ae6-a55d-c1b7f032339d",
+      "name": "Wait10",
+      "webhookId": "579cbc43-e941-4c47-a8a3-ec8eb7b7624e"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types').item.json['Angel Types Details'] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Get angel investor linkedin summary').item.json.Summary }}\n\nANGEL INVESTOR DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        1616,
+        0
+      ],
+      "id": "a6ce3cd7-3014-4b62-9f30-0ca8085bd889",
+      "name": "Angel Letter Agent",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=data",
+        "name": "=Angel Letter to {{ $('Get Qualified Angels').item.json.Name.split(' ')[0] }} - {{ $('Get the book excerpt').item.json.Title }}",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('Get Qualified Angels').item.json['Drive URL'] }}",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3728,
+        0
+      ],
+      "id": "a6c11eda-30f7-45c2-b1bd-52257c0af595",
+      "name": "Upload the letter file to the folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger Angel Letters": {
+      "main": [
+        [
+          {
+            "node": "Get Qualified Angels",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Qualified Angels": {
+      "main": [
+        [
+          {
+            "node": "Filter based on frequency and business hours",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Angel Letter Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter based on frequency and business hours": {
+      "main": [
+        [
+          {
+            "node": "Set ingredients variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set ingredients variables": {
+      "main": [
+        [
+          {
+            "node": "Get the book excerpt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the book excerpt": {
+      "main": [
+        [
+          {
+            "node": "Get angel types",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel types": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Angel Investor Types",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Angel Investor Types": {
+      "main": [
+        [
+          {
+            "node": "Get angel investor linkedin summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel investor linkedin summary": {
+      "main": [
+        [
+          {
+            "node": "Get angel investor details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel investor details": {
+      "main": [
+        [
+          {
+            "node": "Get letter structure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get letter structure": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Letter Structure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Letter Structure": {
+      "main": [
+        [
+          {
+            "node": "Angel Letter Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refresh Canva Token3": {
+      "main": [
+        [
+          {
+            "node": "Process New Tokens3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set canva variables3": {
+      "main": [
+        [
+          {
+            "node": "Refresh Canva Token3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate3": {
+      "main": [
+        [
+          {
+            "node": "Set canva variables3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process New Tokens3": {
+      "main": [
+        [
+          {
+            "node": "Turn tokens into items to store3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Turn tokens into items to store3": {
+      "main": [
+        [
+          {
+            "node": "Update Canva Tokens in Sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Canva Tokens4": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) to generate the customized letter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Current Canva Tokens3": {
+      "main": [
+        [
+          {
+            "node": "Aggregate3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Canva Tokens in Sheet3": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) to generate the customized letter1": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the status of the letter request (Job) sent1": {
+      "main": [
+        [
+          {
+            "node": "Request (Job) Export the letter design in PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request (Job) Export the letter design in PDF1": {
+      "main": [
+        [
+          {
+            "node": "Wait13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait13": {
+      "main": [
+        [
+          {
+            "node": "Request to get the letter PDF version1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request to get the letter PDF version1": {
+      "main": [
+        [
+          {
+            "node": "Download the letter PDF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download the letter PDF1": {
+      "main": [
+        [
+          {
+            "node": "Upload the letter file to the folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Wait10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Current Canva Tokens3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait10": {
+      "main": [
+        [
+          {
+            "node": "Get the status of the letter request (Job) sent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Letter Agent": {
+      "main": [
+        [
+          {
+            "node": "Get Canva Tokens4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload the letter file to the folder": {
+      "main": [
+        [
+          {
+            "node": "Update angel letter status and last sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b0ce2d2d-fb07-43eb-bf9f-8f154e148609",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "SxHR9TCV8HIzBt5F",
+  "tags": []
+}

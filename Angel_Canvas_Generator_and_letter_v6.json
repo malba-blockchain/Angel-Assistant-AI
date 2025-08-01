@@ -9,14 +9,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1260,
-        20
+        1600,
+        208
       ],
-      "id": "18f18aa3-4c99-4dfa-9863-e81856e75fd6",
+      "id": "fd3a2348-456a-4273-93e2-7d398bb15a89",
       "name": "Google Gemini Chat Model4",
       "credentials": {
         "googlePalmApi": {
-          "id": "2qsEcaTn7ThqUuaN",
+          "id": "I5m7s9qMBgP9t2CT",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -38,10 +38,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        700,
-        -160
+        1040,
+        32
       ],
-      "id": "26564184-7e93-491b-bcc4-a4e1603ffc6c",
+      "id": "13ef775a-bc28-40af-98d2-a4a23ca28582",
       "name": "Text with angel responses1"
     },
     {
@@ -51,10 +51,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2280,
-        -160
+        2624,
+        32
       ],
-      "id": "e1b08fbd-4ee0-4585-9958-276cccd1c489",
+      "id": "ee213834-f7f3-43de-88dd-1b56d5b25cef",
       "name": "Wait7",
       "webhookId": "dafeb747-2308-4af7-8436-2e3a8d202021"
     },
@@ -63,10 +63,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3080,
-        -160
+        3424,
+        32
       ],
-      "id": "26eb7829-d2a2-42ad-bb97-dc74324662a8",
+      "id": "9b8f3d79-58bd-4584-a085-ab0c4a56e40d",
       "name": "Wait9",
       "webhookId": "c2ed91c0-4244-4422-a6a2-4d09b877619f"
     },
@@ -93,14 +93,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3520,
-        -160
+        3872,
+        32
       ],
-      "id": "fb30d218-ca4e-41a1-b223-b1d59f0edbe0",
+      "id": "3ac277de-6626-4de0-80f0-6b6012d7ccf6",
       "name": "Create Folder: NAME - Angel Investor Journey1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "7XHaUczflWsNgSUz",
+          "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
         }
       }
@@ -124,14 +124,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3940,
-        -160
+        4288,
+        32
       ],
-      "id": "06abd200-b615-4525-af0a-1a0d149bc7ab",
+      "id": "386d920f-992d-41c2-9194-bf9d98caab21",
       "name": "Upload the canvas file to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "7XHaUczflWsNgSUz",
+          "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
         }
       }
@@ -190,10 +190,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2460,
-        40
+        2800,
+        224
       ],
-      "id": "1090a8d8-186e-439c-b3c5-8ec6c1773acd",
+      "id": "fcee039a-9f82-423c-90bc-c7dfa3b73ca7",
       "name": "Refresh Canva Token2",
       "executeOnce": true
     },
@@ -256,10 +256,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2280,
-        40
+        2624,
+        224
       ],
-      "id": "311a0939-3d5a-477e-b670-d98da6a25a92",
+      "id": "c581c891-48f7-456d-a0b9-85970db8c72e",
       "name": "Set canva variables2",
       "executeOnce": false
     },
@@ -280,10 +280,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2120,
-        40
+        2464,
+        224
       ],
-      "id": "ff7d7ce9-0898-4712-9d46-823240690a35",
+      "id": "16537bc5-6c38-473a-8824-06dfb1f7e400",
       "name": "Aggregate2"
     },
     {
@@ -293,10 +293,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2660,
-        40
+        3008,
+        224
       ],
-      "id": "9a58d2bd-3aff-4c1a-9b14-4e06c31c862b",
+      "id": "150ed292-aaa2-4b49-9bdc-58a2b1985886",
       "name": "Process New Tokens2"
     },
     {
@@ -307,10 +307,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        2860,
-        40
+        3200,
+        224
       ],
-      "id": "d356f2c9-9d13-4b03-b1ee-b0e8a8065cab",
+      "id": "81572d5f-f214-4c85-be06-be85aeb8c081",
       "name": "Turn tokens into items to store2"
     },
     {
@@ -342,17 +342,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1740,
-        -160
+        2080,
+        32
       ],
-      "id": "395e0361-ad9e-44ca-a8e8-926ee5ef1dc1",
+      "id": "b858cc40-6d34-4663-a6ac-1b497fe7297f",
       "name": "Get Canva Tokens3",
       "executeOnce": true,
       "retryOnFail": true,
       "waitBetweenTries": 3000,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -378,15 +378,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1940,
-        40
+        2288,
+        224
       ],
-      "id": "5964f96a-77ac-488a-ab9f-36506ea66421",
+      "id": "004f0dce-16e5-40be-b33a-d1fe07f283d3",
       "name": "Get Current Canva Tokens2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -467,14 +467,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3080,
-        40
+        3424,
+        224
       ],
-      "id": "2ffd5eee-bf97-475b-8156-e01e08d476f3",
+      "id": "1f0aecb7-00f5-4e97-b911-51352ba33730",
       "name": "Update Canva Tokens in Sheet2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -488,10 +488,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1240,
-        -160
+        1584,
+        32
       ],
-      "id": "95959033-5b18-45aa-a935-cd283f3e45c0",
+      "id": "cf516eff-2bec-45a9-95f1-ea8e6737e513",
       "name": "Canvas Keyword Agent1",
       "retryOnFail": true,
       "maxTries": 5,
@@ -518,10 +518,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1940,
-        -160
+        2288,
+        32
       ],
-      "id": "14978d8b-eec4-4a91-88ec-3c6e57362c3f",
+      "id": "d864933e-9e22-4c0c-8f1f-f3a88572b407",
       "name": "Request (Job) to generate the customized canvas1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -543,10 +543,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2460,
-        -160
+        2800,
+        32
       ],
-      "id": "c89c6d77-5199-4386-8633-770d3fcc3b0e",
+      "id": "961900af-0f6e-4479-9cb8-0367cdfe5051",
       "name": "Get the status of the canvas request (Job) sent1",
       "retryOnFail": true,
       "waitBetweenTries": 5000
@@ -572,10 +572,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2880,
-        -160
+        3232,
+        32
       ],
-      "id": "0e811f96-5661-4d6c-9d8c-e661472c2c49",
+      "id": "6091e8ba-a90b-4080-aeba-8fd69828f713",
       "name": "Request (Job) Export the canvas design in PDF1",
       "retryOnFail": true,
       "waitBetweenTries": 3000
@@ -597,10 +597,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3300,
-        -160
+        3648,
+        32
       ],
-      "id": "0167851a-672c-412c-b53c-3c1838587150",
+      "id": "8fea4a4c-6bc7-4a35-a02a-9038acadecb2",
       "name": "Request to get the canvas PDF version1"
     },
     {
@@ -611,10 +611,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3720,
-        -160
+        4064,
+        32
       ],
-      "id": "29f185c9-3e7b-4d8f-8b8b-a4edc4dae40a",
+      "id": "087c1a1f-6d16-434b-9520-9af746f4d0a5",
       "name": "Download the canvas PDF1"
     },
     {
@@ -630,14 +630,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        3940,
-        60
+        4288,
+        240
       ],
-      "id": "fca9ca30-9ad1-4675-b065-34f91027fe8f",
+      "id": "876e569a-c47d-438f-95db-be80b45d8c0b",
       "name": "Download the mistakes PDF1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "7XHaUczflWsNgSUz",
+          "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
         }
       }
@@ -663,14 +663,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        4140,
-        60
+        4480,
+        240
       ],
-      "id": "567cf869-d2cd-4d66-b1dc-21bba2cb564c",
+      "id": "39995661-691b-4846-b685-0326359112d4",
       "name": "Upload the mistakes PDF to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "7XHaUczflWsNgSUz",
+          "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
         }
       }
@@ -696,15 +696,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        900,
-        -160
+        1248,
+        32
       ],
-      "id": "411a124d-578a-45b3-85ca-fc8e24f8ef80",
+      "id": "29ea26a6-e2da-42c8-b80f-2abb2bc9e4d5",
       "name": "Get Canvas Prompts1",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -723,10 +723,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1080,
-        -160
+        1424,
+        32
       ],
-      "id": "6ade118d-e21e-46a7-8c9a-5e4bd4d2838c",
+      "id": "aa713ec5-9fc4-4a2b-8c0c-7baf20d149a2",
       "name": "Aggregated Canvas Prompts1"
     },
     {
@@ -842,17 +842,17 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1560,
-        -160
+        1904,
+        32
       ],
-      "id": "abb042b2-d53d-40f2-a1c0-5850d7138695",
+      "id": "ac4631a9-2735-4acb-b726-5f9cba8fe3e7",
       "name": "Set Fields1"
     },
     {
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules1').item.json['Where should I email it to?'] }}",
-        "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas gift as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br>\nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br>\n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO\n<br>\n<br>\n<em>The Angel Canvas is an educational self‑assessment tool to help you explore your potential startup‑investor profile.<em>\n<br>\n<em>It does not constitute financial advice as this is an educational service offered by YAngel, which is not a regulated investment advisor.<em>",
+        "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas as I promised ",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br>\nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br>\n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel Co-Founder\n<br>\n<br>\n<em>The Angel Canvas is an educational self‑assessment tool to help you explore your potential startup‑investor profile.<em>\n<br>\n<em>It does not constitute financial advice as this is an educational service offered by YAngel, which is not a regulated investment advisor.<em>",
         "options": {
           "appendAttribution": false
         }
@@ -860,15 +860,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        4140,
-        -160
+        4480,
+        32
       ],
-      "id": "4a5740ff-a5ec-4f77-96d8-1bd66405f2a1",
+      "id": "6e327290-2971-49ac-985c-91adedd35051",
       "name": "Send canvas email1",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "xDtNmlS7kyoYgayX",
+          "id": "N3opBDaqiYF3vzof",
           "name": "Gmail account"
         }
       }
@@ -901,10 +901,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2120,
-        -160
+        2464,
+        32
       ],
-      "id": "9e4ffd41-b323-4219-824a-ad80cc751ac0",
+      "id": "31fd44bc-d6e6-4e56-a584-ef84d3c8d229",
       "name": "If2"
     },
     {
@@ -932,15 +932,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4320,
-        -160
+        4672,
+        32
       ],
-      "id": "1cc8c536-9379-457d-9306-c4fe5362aee4",
+      "id": "6b107e13-482e-4695-8350-f02f3e478057",
       "name": "Send Canvas1",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "DpJv506UKiehakav",
+          "id": "ZbjK8nXFn17g6HF5",
           "name": "WhatsApp account Agent"
         }
       }
@@ -1445,15 +1445,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        4340,
-        60
+        4688,
+        240
       ],
-      "id": "1ec7dcbf-27cf-42fc-a382-b6ad1cac052a",
+      "id": "9290d867-617e-40cc-9baf-6372822faedc",
       "name": "Update Angel Registry Status2",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -1479,14 +1479,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        280,
-        -160
+        624,
+        32
       ],
-      "id": "ab10d780-d261-4fde-88dc-fb1d55b2b3e6",
+      "id": "dcaffb63-fd65-4682-8508-bda85f75cd1a",
       "name": "Get Angel Responses1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -1503,7 +1503,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 11 && new Date().getHours() < 18 }}",
+              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -1539,10 +1539,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        480,
-        -160
+        832,
+        32
       ],
-      "id": "b69073c6-76c7-4213-b589-d669e66f326b",
+      "id": "74646bfa-f0a5-4a79-ba16-2d8ba3846064",
       "name": "Filter only non processed and schedule rules1",
       "alwaysOutputData": false
     },
@@ -1560,12 +1560,11 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        80,
-        -160
+        432,
+        32
       ],
-      "id": "4ac78305-417d-40f9-9fd5-8ed7e7015797",
-      "name": "Schedule Trigger Angel Canvas1",
-      "disabled": true
+      "id": "a54bf614-72a6-4d89-ad73-ae71138930ff",
+      "name": "Schedule Trigger Angel Canvas1"
     },
     {
       "parameters": {
@@ -1574,11 +1573,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -340,
-        -180
+        0,
+        0
       ],
       "typeVersion": 1,
-      "id": "ad2bc559-31d7-4d75-8465-1deae1bfc1a7",
+      "id": "980e9859-56d3-4e99-adfa-5b4e7206960d",
       "name": "Sticky Note3"
     },
     {
@@ -1589,14 +1588,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1720,
-        540
+        2032,
+        720
       ],
-      "id": "b0a8b143-49b0-4710-9176-1f5388fc4b4a",
+      "id": "6b351409-fd4e-4a02-9685-d2869c59b396",
       "name": "Google Gemini Chat Model5",
       "credentials": {
         "googlePalmApi": {
-          "id": "jOAgWvAIHGPZHHRh",
+          "id": "LuGerEXi8Kk9mkaO",
           "name": "Google Gemini(PaLM) Api account 2"
         }
       }
@@ -1618,10 +1617,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1140,
-        360
+        1456,
+        544
       ],
-      "id": "a00a72db-09dc-4dc3-bd69-439da85ae61e",
+      "id": "e82340c0-7af3-4f1d-867a-181d0364cbeb",
       "name": "Text with angel responses2"
     },
     {
@@ -1678,10 +1677,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4500,
-        580
+        4848,
+        768
       ],
-      "id": "dde73346-d927-47fe-84af-5d1ad2405b96",
+      "id": "a6f23e76-77ac-482a-b6e6-f1290d0fef61",
       "name": "Refresh Canva Token3",
       "executeOnce": true
     },
@@ -1744,10 +1743,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4320,
-        580
+        4672,
+        768
       ],
-      "id": "1701454a-53bb-4a8f-a257-33dab38867b6",
+      "id": "3fb58406-ef79-467b-8db1-f8a3a1f9f75c",
       "name": "Set canva variables3",
       "executeOnce": false
     },
@@ -1768,10 +1767,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        4160,
-        580
+        4512,
+        768
       ],
-      "id": "6b14e349-4da0-45d7-a7f7-0f1418e2ba8e",
+      "id": "2e3b6d78-9252-473f-a0b2-32b6e8cdae5c",
       "name": "Aggregate3"
     },
     {
@@ -1781,10 +1780,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4700,
-        580
+        5040,
+        768
       ],
-      "id": "baefe94f-ca8b-4279-b286-8ecae64309af",
+      "id": "9d9b7e72-ee4e-481b-841e-128e4bad208b",
       "name": "Process New Tokens3"
     },
     {
@@ -1795,10 +1794,10 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        4900,
-        580
+        5248,
+        768
       ],
-      "id": "f56f59da-527e-4bf0-aa4e-2fec4ae1cf9c",
+      "id": "45c7a4b7-5d9d-465f-abe1-a4d056e594e3",
       "name": "Turn tokens into items to store3"
     },
     {
@@ -1830,15 +1829,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3780,
-        360
+        4128,
+        544
       ],
-      "id": "227cc5c7-09bc-40ce-b047-0647da2ea4e7",
+      "id": "d2b4076d-b46b-41d1-aa3e-891b7ddafb30",
       "name": "Get Canva Tokens4",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -1864,15 +1863,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        3980,
-        580
+        4320,
+        768
       ],
-      "id": "f67cebff-1ffa-4f37-9c90-b059bbb40f62",
+      "id": "5bb7cc9f-d2bf-42db-b80a-69464834008c",
       "name": "Get Current Canva Tokens3",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -1953,14 +1952,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        5100,
-        580
+        5440,
+        768
       ],
-      "id": "66b93d14-04b3-495b-93d4-1eb03746bdd4",
+      "id": "f97f988f-fb2e-424a-b08b-beae17a276ac",
       "name": "Update Canva Tokens in Sheet3",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -1974,10 +1973,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1700,
-        360
+        2000,
+        544
       ],
-      "id": "83db4967-d9bf-44b3-b899-c37d7d5b7c40",
+      "id": "925d7a8a-5192-48a1-a287-15bf886723ce",
       "name": "Canvas Keyword Agent2",
       "retryOnFail": true,
       "maxTries": 5,
@@ -1992,34 +1991,14 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        2940,
-        360
+        3280,
+        544
       ],
-      "id": "4fa05d15-bf76-469d-ab44-c8b3f9f7e366",
+      "id": "1c031575-4f21-4385-8b84-277ebabefab9",
       "name": "Advice Letter Agent1",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000
-    },
-    {
-      "parameters": {
-        "modelName": "models/gemini-2.0-flash",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
-      "typeVersion": 1,
-      "position": [
-        2980,
-        540
-      ],
-      "id": "734911d9-ed6d-4e23-9cc5-0ce36f14ff76",
-      "name": "Google Gemini Chat Model6",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "g4cPKvXLgtmYumUg",
-          "name": "Google Gemini(PaLM) Api account 3"
-        }
-      }
     },
     {
       "parameters": {
@@ -2042,10 +2021,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3980,
-        360
+        4320,
+        544
       ],
-      "id": "ba001811-92c3-4c7e-8ce9-99341b901300",
+      "id": "40c4d6fe-5499-48c1-958e-6c07544f8e44",
       "name": "Request (Job) to generate the customized letter1",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -2067,10 +2046,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4500,
-        360
+        4848,
+        544
       ],
-      "id": "039b6b52-cb4c-4800-b264-df6e51c529e1",
+      "id": "d471a358-ef12-44d4-9085-bd122905c090",
       "name": "Get the status of the letter request (Job) sent1",
       "retryOnFail": true,
       "waitBetweenTries": 5000
@@ -2096,10 +2075,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4700,
-        360
+        5040,
+        544
       ],
-      "id": "c4df3f0a-3bdf-4016-8ea4-b7d42afa61e1",
+      "id": "aa2ca922-41e6-4811-aac9-4a93ccdbdf4a",
       "name": "Request (Job) Export the letter design in PDF1"
     },
     {
@@ -2107,10 +2086,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4880,
-        360
+        5232,
+        544
       ],
-      "id": "830fbf77-b088-49f1-8b99-cb01cbe0ca2a",
+      "id": "9647999f-a02d-478b-8112-4ebc7d7810cd",
       "name": "Wait13",
       "webhookId": "46a6fb47-41d2-495d-8bd8-0f692eb658e0"
     },
@@ -2131,10 +2110,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5060,
-        360
+        5408,
+        544
       ],
-      "id": "51c8a81d-a05e-4425-b366-1a214d2c6b11",
+      "id": "c7395cd2-eed2-4c12-a1ec-cd7e9a7d4b2a",
       "name": "Request to get the letter PDF version1"
     },
     {
@@ -2145,10 +2124,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5280,
-        360
+        5632,
+        544
       ],
-      "id": "60082bbc-4e80-4606-bc7e-17edafe927fa",
+      "id": "1b8604b7-2830-4eed-a4db-e90f3e90888c",
       "name": "Download the letter PDF1"
     },
     {
@@ -2172,14 +2151,14 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        5480,
-        360
+        5824,
+        544
       ],
-      "id": "16f1cded-3728-4eaa-8b14-c56d2a4e8087",
+      "id": "0994cbfa-92f6-4e46-8b6f-cf9d560fcf53",
       "name": "Upload the letter file to the folder1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "7XHaUczflWsNgSUz",
+          "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
         }
       }
@@ -2205,14 +2184,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2200,
-        360
+        2544,
+        544
       ],
-      "id": "fc2c6e35-b001-446d-9cbb-8e0fda9b6dbc",
+      "id": "beccc193-3f7c-4e03-9328-770788a7b220",
       "name": "Get Matrix Advice1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -2227,10 +2206,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2400,
-        360
+        2752,
+        544
       ],
-      "id": "498c7e12-f071-4c20-ad27-34ed1171db8d",
+      "id": "8ee8fce9-6140-4904-bf88-c8121c054df2",
       "name": "Aggregated Matrix Advice1"
     },
     {
@@ -2247,10 +2226,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        2760,
-        360
+        3104,
+        544
       ],
-      "id": "505469e3-ebf5-4cff-9f8c-5b9307da7847",
+      "id": "ad295e12-8f3a-41a2-a88c-3bc537d3d4f4",
       "name": "Aggregated Matrix Prompts1"
     },
     {
@@ -2274,14 +2253,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        2580,
-        360
+        2928,
+        544
       ],
-      "id": "2fc08e98-fdd5-46a0-8e35-c3e18cf8bf13",
+      "id": "6796456f-6104-4beb-b34b-6f7ffd48eede",
       "name": "Get Advice Prompts1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -2307,15 +2286,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        1320,
-        360
+        1632,
+        544
       ],
-      "id": "e5a8657e-67d9-4173-b833-d866270e6c7e",
+      "id": "c7912850-aa4c-4c0c-a240-a99e1a1e7297",
       "name": "Get Canvas Prompts2",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -2334,10 +2313,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1520,
-        360
+        1824,
+        544
       ],
-      "id": "ac0bcde8-b191-462c-937c-67659df151ac",
+      "id": "1bc6d496-9149-4883-b6f4-92eb7848faeb",
       "name": "Aggregated Canvas Prompts2"
     },
     {
@@ -2453,17 +2432,17 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2020,
-        360
+        2368,
+        544
       ],
-      "id": "edff9234-4ea8-4519-868e-622e834887a4",
+      "id": "312a8313-e979-4901-a43a-1ecbacb25af6",
       "name": "Set Fields2"
     },
     {
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules2').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields2').item.json.Name.split(' ')[0] }}, I attached a recommendation letter to your angel journey",
-        "message": "=You will find in number 3, how to use the canvas along with my recommendations and an invitation given your business angel interests.\n<br> \n<br>\n{{ $('Get Angel Responses2').item.json['Drive URL'] }}\n<br>\n<br> \nLet me know if it fits what you were initialy thinking.\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel CEO",
+        "message": "=You will find in number 3, how to use the canvas along with my recommendations and an invitation given your business angel interests.\n<br> \n<br>\n{{ $('Get Angel Responses2').item.json['Drive URL'] }}\n<br>\n<br> \nLet me know if it fits what you were initialy thinking.\n<br> \n<br> \nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel Co-Founder",
         "options": {
           "appendAttribution": false
         }
@@ -2471,15 +2450,15 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        5840,
-        360
+        6192,
+        544
       ],
-      "id": "60b80bf9-7bce-43c5-a535-63c70b1317f4",
+      "id": "0746555a-341f-41bc-87b2-d9c33612a93b",
       "name": "Send canvas email2",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "xDtNmlS7kyoYgayX",
+          "id": "N3opBDaqiYF3vzof",
           "name": "Gmail account"
         }
       }
@@ -2512,10 +2491,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        4160,
-        360
+        4512,
+        544
       ],
-      "id": "73a45955-acdd-4e5d-a4c2-355ade950fac",
+      "id": "69938b65-1bc9-4490-9127-b975ac95ed9d",
       "name": "If3"
     },
     {
@@ -2526,14 +2505,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        3440,
-        540
+        3792,
+        720
       ],
-      "id": "4dd6c19d-6f7a-4e72-a9d0-1350f605132f",
+      "id": "ae15d9de-8958-43bf-940e-fda0deafd7d2",
       "name": "Google Gemini Chat Model7",
       "credentials": {
         "googlePalmApi": {
-          "id": "mwIIE8AiuCYpOplR",
+          "id": "vLHuDAiL1YnVmNLW",
           "name": "Google Gemini(PaLM) Api account 4"
         }
       }
@@ -2547,10 +2526,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        3400,
-        360
+        3744,
+        544
       ],
-      "id": "2a69cd7a-62b8-488d-b3ad-7e5ff3c1cd3f",
+      "id": "d3738e3a-4c0a-4206-913f-93a7fc592543",
       "name": "Advice Letter Agent P",
       "retryOnFail": true,
       "maxTries": 5,
@@ -2564,14 +2543,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        6040,
-        560
+        6384,
+        752
       ],
-      "id": "cf6d377a-a2ad-45a9-9aa2-36c17de382e7",
+      "id": "411c9e3b-cf76-44e9-bfc5-d2d3f0894055",
       "name": "Google Gemini Chat Model8",
       "credentials": {
         "googlePalmApi": {
-          "id": "2qsEcaTn7ThqUuaN",
+          "id": "I5m7s9qMBgP9t2CT",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -2585,10 +2564,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        6000,
-        360
+        6352,
+        544
       ],
-      "id": "dd7a3ad8-fe00-49ba-bfdf-8448c1497b45",
+      "id": "ddc29b5d-d647-4637-ab8b-9c199f9d2afc",
       "name": "Investor type extractor1",
       "retryOnFail": true,
       "maxTries": 5,
@@ -3083,15 +3062,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        6320,
-        360
+        6672,
+        544
       ],
-      "id": "fedeed48-5617-44fb-8e53-0ef91b712ab4",
+      "id": "c4e6e6bd-3771-43a9-b80c-e2c95079c897",
       "name": "Update Angel Registry Status3",
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -3117,14 +3096,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        300,
-        360
+        640,
+        544
       ],
-      "id": "304e0582-0dfb-4681-95ec-2b16e52dd844",
+      "id": "cca35f92-62fa-4725-9603-b414a107c09a",
       "name": "Get Angel Responses2",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -3177,10 +3156,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        520,
-        360
+        864,
+        544
       ],
-      "id": "d06b5769-7f17-497a-b877-ce505f91bc8f",
+      "id": "c14184db-4746-4f10-8861-e8b3608af5ce",
       "name": "Filter only non processed and schedule rules2",
       "alwaysOutputData": false
     },
@@ -3198,11 +3177,12 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        80,
-        360
+        432,
+        544
       ],
-      "id": "1bda1fe9-1dc3-4018-8ab8-2637ce874ef0",
-      "name": "Schedule Trigger Angel Canvas2"
+      "id": "4dc3983d-5a85-457a-8191-d75ef61fe616",
+      "name": "Schedule Trigger Angel Canvas2",
+      "disabled": true
     },
     {
       "parameters": {
@@ -3211,11 +3191,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -320,
-        340
+        32,
+        528
       ],
       "typeVersion": 1,
-      "id": "5fd4d50a-adc9-4b5b-a7b6-fcff81a215be",
+      "id": "05c971d5-8c82-4b67-8afc-aa43d470893a",
       "name": "Sticky Note4"
     },
     {
@@ -3223,10 +3203,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4320,
-        360
+        4672,
+        544
       ],
-      "id": "aad3c942-4f50-4322-9f5c-bbf8b7f7bf5a",
+      "id": "82bbe56c-9bf8-4220-9644-f9f9b5296329",
       "name": "Wait10",
       "webhookId": "579cbc43-e941-4c47-a8a3-ec8eb7b7624e"
     },
@@ -3255,15 +3235,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        5660,
-        360
+        6000,
+        544
       ],
-      "id": "2fc57c1b-44f9-4ded-804c-a12a194dc10c",
+      "id": "1c5bb747-cab1-4810-baa5-f25b3fbbb8e2",
       "name": "Send Canvas",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "DpJv506UKiehakav",
+          "id": "ZbjK8nXFn17g6HF5",
           "name": "WhatsApp account Agent"
         }
       }
@@ -3305,14 +3285,14 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        740,
-        360
+        1088,
+        544
       ],
-      "id": "71de90be-a1ae-494b-96dd-7b0c9eb93335",
+      "id": "4109f31b-794d-4b53-9ae6-1f4d82e571f4",
       "name": "Google Sheets - Continue only if advice has been added",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "NEGBwfubK3hajIOd",
+          "id": "w5M4bsxSWzM5D5aT",
           "name": "Google Sheets account 2"
         }
       }
@@ -3345,10 +3325,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
       "position": [
-        960,
-        360
+        1280,
+        544
       ],
-      "id": "a1aa1774-c319-4ec7-aace-add80845ac1c",
+      "id": "bbf7d3ee-2a60-405c-82d5-15a2693060ee",
       "name": "Continue only with advice provided"
     },
     {
@@ -3356,10 +3336,10 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2680,
-        -160
+        3024,
+        32
       ],
-      "id": "cee5283d-08b9-497a-a04b-65285642c168",
+      "id": "f2f66d01-69f1-47f5-8fce-f73cd9818293",
       "name": "Wait",
       "webhookId": "2ead0739-33aa-4757-a837-d51d9cba11ed"
     },
@@ -3372,15 +3352,15 @@
       "type": "n8n-nodes-base.whatsApp",
       "typeVersion": 1,
       "position": [
-        4520,
-        -160
+        4864,
+        32
       ],
-      "id": "3c1e4041-7533-47cf-aaba-f7b3c6771040",
+      "id": "9e22f7b4-bfe2-4930-b8af-341b24a0122e",
       "name": "Send Canvas Generator Link",
       "webhookId": "b87e957e-832c-4cdc-95b3-f8b98939c432",
       "credentials": {
         "whatsAppApi": {
-          "id": "DpJv506UKiehakav",
+          "id": "ZbjK8nXFn17g6HF5",
           "name": "WhatsApp account Agent"
         }
       }
@@ -3392,12 +3372,32 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3240,
-        360
+        3584,
+        544
       ],
-      "id": "8724fe12-4f3a-4980-8aab-a427926d582b",
+      "id": "8a0325bf-6dd1-4337-9a9c-5dce13e55030",
       "name": "Wait1",
       "webhookId": "46d01ea2-7b29-42f1-9ff7-7c0e875beb7b"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        3328,
+        720
+      ],
+      "id": "16a52fba-8664-4b1c-b55f-4c1965362344",
+      "name": "Google Gemini Chat Model6",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DhObqThIg9VnJJCm",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -3876,17 +3876,6 @@
         ]
       ]
     },
-    "Google Gemini Chat Model6": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Advice Letter Agent1",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Request (Job) to generate the customized letter1": {
       "main": [
         [
@@ -4223,17 +4212,28 @@
           }
         ]
       ]
+    },
+    "Google Gemini Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Advice Letter Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d62fad0d-ccf4-44b8-94ec-bd0612189963",
+  "versionId": "4f817edf-60cd-4b2c-bdfa-2d89418fc263",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "a9ac283235e1e05dabd636661297d3f9817031fb1693d52f1cd417d39d2a4546"
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
   },
-  "id": "5xgKpT9jvM3I1Jo1",
+  "id": "Tl1yONG6jFez90R3",
   "tags": []
 }

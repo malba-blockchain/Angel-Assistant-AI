@@ -6,8 +6,8 @@
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 2
+              "field": "seconds",
+              "secondsInterval": 90
             }
           ]
         }
@@ -109,7 +109,7 @@
     },
     {
       "parameters": {
-        "modelName": "models/gemini-2.0-flash",
+        "modelName": "models/gemini-2.5-pro",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
@@ -546,7 +546,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        3952,
+        4144,
         0
       ],
       "id": "8e639414-056f-4480-9c21-9b2d940caa7c",
@@ -1078,7 +1078,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types').item.json['Angel Types Details'] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Get angel investor linkedin summary').item.json.Summary }}\n\nANGEL INVESTOR DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.\nMAKE SURE THE OUTPUT DOESN'T EXCEED 300 CHARACTERS.",
+        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types').item.json['Angel Types Details'] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Get angel investor linkedin summary').item.json.Summary }}\n\nANGEL INVESTOR PROFILE DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -1123,6 +1123,31 @@
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Filter based on frequency and business hours').item.json.Email }}",
+        "subject": "=Dear {{ $('Filter based on frequency and business hours').item.json.Name.split(\" \")[0] }}, {{ $('Get the book excerpt').item.json.Subject }}",
+        "message": "=Dear {{ $('Filter based on frequency and business hours').item.json.Name.split(\" \")[0] }}, {{ $('Get the book excerpt').item.json['Body 1'] }}\n\n{{ $('Filter based on frequency and business hours').item.json['Drive URL'] }}\n\n{{ $('Get the book excerpt').item.json['Body 2'] }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3936,
+        0
+      ],
+      "id": "168738d7-a7a5-4936-a5e6-8a2b1c03109f",
+      "name": "Send letter email",
+      "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account"
         }
       }
     }
@@ -1459,6 +1484,17 @@
       "main": [
         [
           {
+            "node": "Send letter email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send letter email": {
+      "main": [
+        [
+          {
             "node": "Update angel letter status and last sent",
             "type": "main",
             "index": 0
@@ -1471,7 +1507,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b0ce2d2d-fb07-43eb-bf9f-8f154e148609",
+  "versionId": "d4ae41dc-2a3a-4523-8c76-5a9ba8af624e",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

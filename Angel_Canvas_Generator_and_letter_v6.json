@@ -4218,8 +4218,8 @@
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangel"
         }
       }
     },
@@ -4915,7 +4915,8 @@
         448
       ],
       "id": "284c4c92-c8b6-43d9-b4b2-9f22af3f0492",
-      "name": "Schedule Trigger Angel Canvas"
+      "name": "Schedule Trigger Angel Canvas",
+      "disabled": true
     },
     {
       "parameters": {
@@ -5561,7 +5562,7 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "=1Z3vhkGmiROn8BR9j2eGNEc_mJEFuNG5O",
+          "value": "=1qMsx4vVFlXNqPI3o9wOtGHHMIHXgaooE",
           "mode": "id"
         },
         "options": {}
@@ -5586,7 +5587,7 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "=1TFzPO-k0bhC-xiYr8Mc-8AVGLmgpLLga",
+          "value": "=1SlR_bQFGry5lUFCxo1U-WOjfyHgFEEzB",
           "mode": "id"
         },
         "options": {}
@@ -7514,13 +7515,18 @@
           }
         ]
       ]
+    },
+    "Send Canvas Generator Link1": {
+      "main": [
+        []
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "c1dc24d1-a6d2-4800-bcd0-811f22ef1f77",
+  "versionId": "64a455d5-e0b0-4be3-8608-28bfbe473d26",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

@@ -7,7 +7,7 @@
           "interval": [
             {
               "field": "seconds",
-              "secondsInterval": 90
+              "secondsInterval": 210
             }
           ]
         }
@@ -74,7 +74,7 @@
           "conditions": [
             {
               "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
-              "leftValue": "={{ new Date().getHours() >= 0 && new Date().getHours() < 24 }}",
+              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 20 }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -84,7 +84,7 @@
             },
             {
               "id": "14709c67-c992-405b-8f28-7b4d03ec4d77",
-              "leftValue": "={{ (() => {\n  // Check if Last sent is null first\n  const lastSentStr = $json['Last sent'];\n  if (lastSentStr === null || lastSentStr === undefined || lastSentStr === '') {\n    return true;\n  }\n  \n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency \n  const lastSentPlusFrequency = new Date(lastSentDate.getTime() + 8*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlusFrequency, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + 8*24h\n  return currentDate >= lastSentPlusFrequency;\n})() }}",
+              "leftValue": "={{ (() => {\n  // Check if Last sent is null first\n  const lastSentStr = $json['Last sent'];\n  if (lastSentStr === null || lastSentStr === undefined || lastSentStr === '') {\n    return true;\n  }\n  \n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency \n  const lastSentPlusFrequency = new Date(lastSentDate.getTime() + 8*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlusFrequency, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + 14*24h\n  return currentDate >= lastSentPlusFrequency;\n})() }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -122,8 +122,8 @@
       "name": "Google Gemini Chat Model4",
       "credentials": {
         "googlePalmApi": {
-          "id": "I5m7s9qMBgP9t2CT",
-          "name": "Google Gemini(PaLM) Api account"
+          "id": "DhObqThIg9VnJJCm",
+          "name": "Google Gemini(PaLM) Api account 3"
         }
       }
     },
@@ -1078,7 +1078,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types').item.json['Angel Types Details'] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Get angel investor linkedin summary').item.json.Summary }}\n\nANGEL INVESTOR PROFILE DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n",
+        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types').item.json['Angel Types Details'] }}\n\nANGEL NAME:\n{{ $('Get angel investor details').item.json['What’s your name?'].split(\" \")[0] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Set ingredients variables').item.json['Excerpt number'] > 1 ? \"No linkedin information\" : $('Get angel investor linkedin summary').item.json.Summary }}\n\nANGEL INVESTOR PROFILE DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -1507,7 +1507,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d4ae41dc-2a3a-4523-8c76-5a9ba8af624e",
+  "versionId": "645e29e6-9df4-4d67-ad4c-4f9fe8f4af36",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

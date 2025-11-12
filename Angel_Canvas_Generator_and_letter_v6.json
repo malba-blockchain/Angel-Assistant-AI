@@ -827,7 +827,7 @@
       "parameters": {
         "sendTo": "={{ $('Filter only non processed and schedule rules1').item.json['Where should I email it to?'] }}",
         "subject": "=Dear {{ $('Set Fields1').item.json.Name.split(' ')[0] }}, here’s your Angel Canvas as I promised ",
-        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br>\nI’m turning the Angel Canvas project into something your network could really appreciate.\n<br>\n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel Co-Founder\n<br>\n<br>\n<em>The Angel Canvas is an educational self‑assessment tool to help you explore your potential startup‑investor profile.<em>\n<br>\n<em>It does not constitute financial advice as this is an educational service offered by YAngel, which is not a regulated investment advisor.<em>",
+        "message": "=I crafted it based on your unique path and personal preferences to help you on your investor journey.\n<br> \n<br> \nI’ve added it to your personal Angel Journey Folder, along with <b>some of the costly mistakes you must avoid in 2025.</b>\n<br> \n<br>\nhttps://drive.google.com/drive/folders/{{ $('Create Folder: NAME - Angel Investor Journey1').item.json.id }}\n<br>\n<br>\nFeel free to share it https://tally.so/r/n9MY2V\n<br> \n<br>\nBest,\n<br> \nPedro Bandeira\n<br> \nYAngel Co-Founder\n<br>\n<br>",
         "options": {
           "appendAttribution": false
         }
@@ -4014,16 +4014,15 @@
         -480
       ],
       "id": "a54bf614-72a6-4d89-ad73-ae71138930ff",
-      "name": "Workshop mode trigger",
-      "disabled": true
+      "name": "Workshop mode trigger"
     },
     {
       "parameters": {
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 180
+              "field": "hours",
+              "hoursInterval": 4
             }
           ]
         }
@@ -4035,7 +4034,28 @@
         -320
       ],
       "id": "fca2e842-5348-459e-9981-c8f21a14ad61",
-      "name": "Base mode trigger"
+      "name": "Base mode trigger",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "formId": "n9MY2V"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 1,
+      "position": [
+        400,
+        -16
+      ],
+      "id": "0e6d49b2-873d-4c75-9114-781eb89586b1",
+      "name": "Tally Trigger",
+      "webhookId": "59d396d8-b9d9-46a6-b581-c6325c7eee76",
+      "credentials": {
+        "tallyApi": {
+          "id": "l9CQXc1TSYKVMvyi",
+          "name": "Tally account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -4914,11 +4934,11 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "dd1252d7-33a0-423f-b7e8-898d44c5f0fa",
+  "versionId": "c897f3de-8ba5-4270-9c69-818b93e8eda6",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

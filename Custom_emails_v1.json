@@ -1,0 +1,134 @@
+{
+  "name": "Custom_emails_v1",
+  "nodes": [
+    {
+      "parameters": {
+        "formId": "9qGYK5"
+      },
+      "type": "n8n-nodes-tallyforms.tallyTrigger",
+      "typeVersion": 1,
+      "position": [
+        -176,
+        -80
+      ],
+      "id": "e943b71c-06ff-4f0a-9f5e-6dcdb5308e40",
+      "name": "Tally Response Trigger",
+      "webhookId": "59d396d8-b9d9-46a6-b581-c6325c7eee76",
+      "credentials": {
+        "tallyApi": {
+          "id": "l9CQXc1TSYKVMvyi",
+          "name": "Tally account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.0-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        144,
+        112
+      ],
+      "id": "eaa204cd-7339-4470-94c5-eed4d790920a",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "I5m7s9qMBgP9t2CT",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Generate an email based on the following template, and replace the variables {INDUSTRY}, {STAGE} and {MOTIVATION} using the information that the user filled in the form. Make sure to NOT directly copy paste the form information into the email body, but to fill the variables using words that match the email context following the conversational flow in a smooth way. Also use some of the jargon of the industry they mentioned in the paragraph of the {INDUSTRY} variable without adding too much extra text. Do not add extra flattery nor exaggerations. Do not add references to external characters or people they might not know. Instead of saying “Software/tech” say “software and tech”. Do not talk about migrating yet, as they are mostly looking for this investment as a plan B. Only generate the body of the text, not the subject. Keep the HTML tags I added as this will be sent via an email tool. \n\n—FORM INFORMATION—\nName: {{ $json.question_OGg1W8 }}\nWhy do you want to get your European Plan B? {{ $json.question_MRgJpM }}\nWhat’s your industry? {{ $json.question_JzgJvo }}\nWhat’s your current stage? {{ $json.question_gGp76O }}\n\n\n—EMAIL TEMPLATE—\n\nDear {FIRST_NAME},\n<br> \n<br> \nYou are now part of a <b>select group of Californian investors and business owners</b> in {INDUSTRY} who are securing their future beyond borders.\n<br> \n<br> \nI saw you shared that your main goal is {MOTIVATION}, and <b>that is something we hear often</b> from people who decide to take this step. \n<br> \n<br> \nFrom now on <b>my team will craft your Golden Visa Insights</b> based on the specific interests you shared with us.\n<br> \n<br> \nIn the meantime, since you are currently {STAGE}, <b> I would like us to have a call</b> to know more about your situation and answer any questions you may have. \n<br> \n<br> \nDoes next week work for you in the morning?\n<br> \n<br> \nPlease remember that we <b>can only accept five new families each month</b>. To make sure we give priority attention to your case, <b>please let me know your time availability</b> as soon as you receive this message.\n<br>\n<br> \nYou can also access my calendar and schedule a time that works best for you.\n<br>\n<br> \n<a href=\"https://calendar.app.google/kYEFtkdcWQwCsVo86\">Here is my calendar.</a>\n<br> \n<br> \nLooking forward to talk,\n<br> \nCarlos Varela\n<br> \nBiz Group — Private Investments Director\n<br>\n<br>\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        112,
+        -80
+      ],
+      "id": "fa68f7cf-12fe-46c6-ac51-68514a3bea17",
+      "name": "Canvas Keyword Agent",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Tally Response Trigger').item.json.question_1VxJop }}",
+        "subject": "=Welcome Aboard, {{ $('Tally Response Trigger').item.json.question_OGg1W8.split(' ')[0] }} — Golden Visa Minute Next Step",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        -80
+      ],
+      "id": "57fa7c82-9375-417d-851a-c9b6d4bd01ce",
+      "name": "Send canvas email",
+      "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "x37Rft2EXh0Ze73c",
+          "name": "Gmail account VC"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Canvas Keyword Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tally Response Trigger": {
+      "main": [
+        [
+          {
+            "node": "Canvas Keyword Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Canvas Keyword Agent": {
+      "main": [
+        [
+          {
+            "node": "Send canvas email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "6dd4301b-30cb-4bcf-814f-83019eafc947",
+  "meta": {
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "rrIapACQOuzaRQxB",
+  "tags": []
+}

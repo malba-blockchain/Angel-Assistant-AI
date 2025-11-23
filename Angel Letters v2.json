@@ -1,0 +1,773 @@
+{
+  "name": "Angel Letters v1",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -512,
+        592
+      ],
+      "id": "e1ad7671-dcb1-4a0e-8e71-bc6afead2e2f",
+      "name": "Schedule Trigger Angel Letters1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1661630492,
+          "mode": "list",
+          "cachedResultName": "Qualify",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=1661630492"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Process",
+              "lookupValue": "true"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        -304,
+        592
+      ],
+      "id": "42b92239-f5f1-4b1c-a239-177f096991ff",
+      "name": "Get Qualified Angels1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "w5M4bsxSWzM5D5aT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f16b9c65-bb8a-4a89-8d9b-46d93a4e859b",
+              "leftValue": "={{ new Date().getHours() >= 8 && new Date().getHours() < 16 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "14709c67-c992-405b-8f28-7b4d03ec4d77",
+              "leftValue": "={{ (() => {\n  // Check if Last sent is null first\n  const lastSentStr = $json['Last sent'];\n  if (lastSentStr === null || lastSentStr === undefined || lastSentStr === '') {\n    return true;\n  }\n  \n  // Parse the date from $json['Last sent'] (actual format: \"10-April-2025\")\n  // Handle both \"April\" and \"Apr\" formats\n  const monthMap = {\n    \"January\": 0, \"Jan\": 0, \"February\": 1, \"Feb\": 1, \"March\": 2, \"Mar\": 2, \n    \"April\": 3, \"Apr\": 3, \"May\": 4, \"June\": 5, \"Jun\": 5, \"July\": 6, \"Jul\": 6,\n    \"August\": 7, \"Aug\": 7, \"September\": 8, \"Sep\": 8, \"October\": 9, \"Oct\": 9,\n    \"November\": 10, \"Nov\": 10, \"December\": 11, \"Dec\": 11\n  };\n  \n  // Handle potential different date formats\n  let day, month, year;\n  \n  if (lastSentStr.includes('-')) {\n    const parts = lastSentStr.split('-');\n    // Format could be either DD-MMM-YYYY or D-MMM-YYYY\n    day = parseInt(parts[0]);\n    // Find the month string in our map (handles both Apr and April)\n    month = monthMap[parts[1]];\n    year = parseInt(parts[2]);\n  }\n  \n  // Create a date object from last sent\n  const lastSentDate = new Date(year, month, day);\n  \n  // Add frequency \n  const lastSentPlusFrequency = new Date(lastSentDate.getTime() + 16*86400000);\n  \n  // Get current date\n  const currentDate = new Date();\n  \n  // For debugging (would help in real usage)\n  // console.log(\"Last sent:\", lastSentDate, \"Last sent + freq:\", lastSentPlusFrequency, \"Current:\", currentDate);\n  \n  // Compare if current date is greater than or equal to lastSentDate + 16*24h\n  return currentDate >= lastSentPlusFrequency;\n})() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        -96,
+        592
+      ],
+      "id": "3c0cbec4-63f3-4c7b-85f3-623a07366c8e",
+      "name": "Filter based on frequency and business hours1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-pro",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        752
+      ],
+      "id": "251e9e68-ad67-40ae-a535-195096f4428a",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "DhObqThIg9VnJJCm",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c6921996-c9c2-4a0c-aa9f-023cc5dac7fa",
+              "name": "Excerpt number",
+              "value": "={{ (parseInt($json.Status.slice(-1)) || 0) + 1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        592
+      ],
+      "id": "0c08389f-55a4-487b-9a7d-8b5d2ebc4ba1",
+      "name": "Set ingredients variables1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Book Excerpts",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $json['Excerpt number'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        320,
+        592
+      ],
+      "id": "c41930df-c33d-43e7-8189-e69a7926193f",
+      "name": "Get the book excerpt1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 698423999,
+          "mode": "list",
+          "cachedResultName": "Angel Investor Types",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=698423999"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        512,
+        592
+      ],
+      "id": "05d1845f-3da0-4385-8fe7-32834c3629d1",
+      "name": "Get angel types1",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Angel Types Details"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        688,
+        592
+      ],
+      "id": "f84d48e8-11c4-4273-9245-0dd8bf3aee71",
+      "name": "Aggregate Angel Investor Types1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2109120613,
+          "mode": "list",
+          "cachedResultName": "Linkedin Summaries",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=2109120613"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Number",
+              "lookupValue": "={{ $('Filter based on frequency and business hours1').item.json.Phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        864,
+        592
+      ],
+      "id": "c37fa2c5-00ae-4ec9-a2f3-ab163882390c",
+      "name": "Get angel investor linkedin summary1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Canvas Responses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "What's your phone number? (Add your country code. Don't add spaces nor + symbol)",
+              "lookupValue": "={{ $('Filter based on frequency and business hours1').item.json.Phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1072,
+        592
+      ],
+      "id": "f491c104-24bb-4198-808d-03174f54a590",
+      "name": "Get angel investor details1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc",
+          "mode": "list",
+          "cachedResultName": "Letter Ingredients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 467267262,
+          "mode": "list",
+          "cachedResultName": "Letter Structure",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vTXNT85rt8Kgm_-zWNjuaj2WAhHFMWUKH2VbFDm6dQc/edit#gid=467267262"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1264,
+        592
+      ],
+      "id": "0d7a3390-04f4-4686-8475-4f5c83ab928b",
+      "name": "Get letter structure1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "Letter Structure"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        592
+      ],
+      "id": "dc0f8fd4-19af-418a-87f5-02159d58e08b",
+      "name": "Aggregate Letter Structure1"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8",
+          "mode": "list",
+          "cachedResultName": "Angel Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1661630492,
+          "mode": "list",
+          "cachedResultName": "Qualify",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1uDtmeq35UuBhw2PJvTJCCO1yJly6N-_eHwy2TgUUvy8/edit#gid=1661630492"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Last sent": "={{ new Date().getDate() + '-' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][new Date().getMonth()] + '-' + new Date().getFullYear() }}",
+            "Status": "=Sent letter {{ $('Set ingredients variables1').item.json['Excerpt number'] }}",
+            "Phone": "={{ $('Filter based on frequency and business hours1').item.json.Phone }}"
+          },
+          "matchingColumns": [
+            "Phone"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Already an angel?",
+              "displayName": "Already an angel?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Involvement",
+              "displayName": "Involvement",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Investment",
+              "displayName": "Investment",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Qualified",
+              "displayName": "Qualified",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Process",
+              "displayName": "Process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last sent",
+              "displayName": "Last sent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fund",
+              "displayName": "Fund",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Drive URL",
+              "displayName": "Drive URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        2192,
+        592
+      ],
+      "id": "f70714ad-822a-438c-a4a0-8c862a54161b",
+      "name": "Update angel letter status and last sent1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Your task is to take the following excerpt of an angel investing book and create a customized advice letter to the angel investor based on the following information.\n\nBOOK EXCERPT:\n{{ $('Get the book excerpt1').item.json.Text }}\n\nANGEL INVESTOR TYPES:\n{{ $('Aggregate Angel Investor Types1').item.json['Angel Types Details'] }}\n\nANGEL NAME:\n{{ $('Get angel investor details1').item.json['What’s your name?'].split(\" \")[0] }}\n\nLINKEDIN PROFILE SUMMARY:\n{{ $('Set ingredients variables1').item.json['Excerpt number'] > 1 ? \"No linkedin information\" : $('Get angel investor linkedin summary1').item.json.Summary }}\n\nANGEL INVESTOR PROFILE DETAILS:\n(2/21) How do I perceive my role as an angel investor? {{ $('Get angel investor details1').item.json['(2/21) How do I perceive my role as an angel investor?'] }}\n\n(9/21) Which are the main challenges in the world that startups can solve?\n{{ $('Get angel investor details1').item.json['(9/21) Which are the main challenges in the world that startups can solve?'] }}\n\n(11/21) What can be my key contributions beyond capital?\n{{ $('Get angel investor details1').item.json['(11/21) What can be my key contributions beyond capital? (Pick Max. 3)'] }}\n\n(16/21) What types of startups will I invest in?\n{{ $('Get angel investor details1').item.json['(16/21) What types of startups will I invest in? (Pick Max. 3)'] }}\n\n(18/21) In which geographies will I invest?\n{{ $('Get angel investor details1').item.json['(18/21) In which geographies will I invest? (Pick Max. 3)'] }}\n\n(19/21) What types of business models will I back?\n{{ $('Get angel investor details1').item.json['(19/21) What types of business models will I back? (Pick Max. 5)'] }}\n\nLETTER STRUCTURE:\n{{ $json['Letter Structure'] }}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.8,
+      "position": [
+        1616,
+        592
+      ],
+      "id": "703ab69a-808f-477a-9e9a-5fa270cf57d1",
+      "name": "Angel Letter Agent1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Filter based on frequency and business hours1').item.json.Email }}",
+        "subject": "=Dear {{ $('Filter based on frequency and business hours1').item.json.Name.split(\" \")[0] }}, {{ $('Get the book excerpt1').item.json.Subject }}",
+        "message": "={{ $json.output }}\n\n\n{{ $('Get the book excerpt1').item.json['Body 2'] }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1984,
+        592
+      ],
+      "id": "4156d9a8-58ef-4439-851b-2cc18c1b2cd2",
+      "name": "Send letter email1",
+      "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger Angel Letters1": {
+      "main": [
+        [
+          {
+            "node": "Get Qualified Angels1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Qualified Angels1": {
+      "main": [
+        [
+          {
+            "node": "Filter based on frequency and business hours1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter based on frequency and business hours1": {
+      "main": [
+        [
+          {
+            "node": "Set ingredients variables1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Angel Letter Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set ingredients variables1": {
+      "main": [
+        [
+          {
+            "node": "Get the book excerpt1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the book excerpt1": {
+      "main": [
+        [
+          {
+            "node": "Get angel types1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel types1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Angel Investor Types1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Angel Investor Types1": {
+      "main": [
+        [
+          {
+            "node": "Get angel investor linkedin summary1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel investor linkedin summary1": {
+      "main": [
+        [
+          {
+            "node": "Get angel investor details1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get angel investor details1": {
+      "main": [
+        [
+          {
+            "node": "Get letter structure1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get letter structure1": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Letter Structure1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Letter Structure1": {
+      "main": [
+        [
+          {
+            "node": "Angel Letter Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angel Letter Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send letter email1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send letter email1": {
+      "main": [
+        [
+          {
+            "node": "Update angel letter status and last sent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "cb452738-3f39-4735-a2e9-b1d6320a531f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "SxHR9TCV8HIzBt5F",
+  "tags": []
+}

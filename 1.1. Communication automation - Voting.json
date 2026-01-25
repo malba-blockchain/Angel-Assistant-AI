@@ -1,0 +1,530 @@
+{
+  "name": "1.1. Communication automation - Voting",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 4,
+              "triggerAtMinute": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "9d4a9d18-b7ba-4854-a0fc-c122c942d2f7",
+      "name": "Schedule Trigger - Check switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "01f30c0f-ac74-413f-b135-1c9198a7f94d",
+              "leftValue": "={{ $json.VALUE }}",
+              "rightValue": "ON",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        288,
+        0
+      ],
+      "id": "d5b433c2-30ed-494a-acca-ba536e84a342",
+      "name": "Is switch on?"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE",
+          "mode": "list",
+          "cachedResultName": "Communication admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit#gid=808711158"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "VARIABLES",
+              "lookupValue": "SWITCH"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        112,
+        0
+      ],
+      "id": "5692a57b-d899-4e05-8e61-02e4e7c841e3",
+      "name": "Get switch status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE",
+          "mode": "list",
+          "cachedResultName": "Communication admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit#gid=808711158"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        512,
+        0
+      ],
+      "id": "be6eb6b1-5438-44c3-a99e-0f1963f59d04",
+      "name": "Get variables values",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE",
+          "mode": "list",
+          "cachedResultName": "Communication admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Porto",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Already voted"
+            },
+            {
+              "lookupColumn": "Reminder stage"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        880,
+        0
+      ],
+      "id": "a73e17f1-3db1-4efd-ad9e-a3167389fbed",
+      "name": "Get emails to send reminders",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "=Hello {{ $json.Name }}, time to vote on the startups! ",
+        "message": "=Hello {{ $json.Name }},<br><br>\n\nI hope you enjoyed the investment committee yesterday! Now on to the voting on the startups!<br><br>\n\nPlease find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\n<b>*The deadline to vote is {{ $('Aggregate variables values').item.json.data[4].VALUE }}*</b><br><br>\n\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\n\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[8].VALUE }}\">{{ $('Aggregate variables values').item.json.data[7].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[10].VALUE }}\">{{ $('Aggregate variables values').item.json.data[9].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[12].VALUE }}\">{{ $('Aggregate variables values').item.json.data[11].VALUE }}</a><br><br>\n\nThe deadline for asking questions is the <b>{{ $('Aggregate variables values').item.json.data[13].VALUE }}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n\nAs some of us were not able to join the dinner for the discussion, we will host a discussion meeting on <b>{{ $('Aggregate variables values').item.json.data[14].VALUE }}</b> to be able to make an informed decision. You should have received a calendar invite.<br><br>\n\n<b>Notes:</b><br><br>\n\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1072,
+        0
+      ],
+      "id": "78ef8a0e-cf4d-494c-9436-691fac7239b6",
+      "name": "Send email reminder",
+      "webhookId": "1ec61ac2-f247-4dbc-a1cf-01b44391d023",
+      "executeOnce": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
+        "fieldsToInclude": "VARIABLES, VALUE",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        704,
+        0
+      ],
+      "id": "dc211a1d-f1a4-4fd8-8404-0325c10d3072",
+      "name": "Aggregate variables values"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE",
+          "mode": "list",
+          "cachedResultName": "Communication admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Porto",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Get emails to send reminders').item.json.Email }}",
+            "Already voted": "NO",
+            "Reminder stage": "Message 1"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full name",
+              "displayName": "Full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Already voted",
+              "displayName": "Already voted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder stage",
+              "displayName": "Reminder stage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1264,
+        0
+      ],
+      "id": "bfd7267b-1f60-4762-bdde-45e52b91aa6e",
+      "name": "Update reminder stage",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE",
+          "mode": "list",
+          "cachedResultName": "Communication admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gSkKXF2PbqQR75rH0wnAchUzUZuEfA5d_lqj9lbG0jE/edit#gid=808711158"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "VARIABLES": "LAST_AUTOMATION_RUN",
+            "VALUE": "={{ \n  new Date($now).toLocaleString('en-GB', {\n    day: '2-digit',\n    month: 'short',\n    year: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    hour12: false\n  })\n}}"
+          },
+          "matchingColumns": [
+            "VARIABLES"
+          ],
+          "schema": [
+            {
+              "id": "VARIABLES",
+              "displayName": "VARIABLES",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "VALUE",
+              "displayName": "VALUE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "DESCRIPTION",
+              "displayName": "DESCRIPTION",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        1456,
+        0
+      ],
+      "id": "8360c06f-e2ed-4372-8626-158b6063593c",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger - Check switch": {
+      "main": [
+        [
+          {
+            "node": "Get switch status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get switch status": {
+      "main": [
+        [
+          {
+            "node": "Is switch on?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is switch on?": {
+      "main": [
+        [
+          {
+            "node": "Get variables values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get variables values": {
+      "main": [
+        [
+          {
+            "node": "Aggregate variables values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get emails to send reminders": {
+      "main": [
+        [
+          {
+            "node": "Send email reminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate variables values": {
+      "main": [
+        [
+          {
+            "node": "Get emails to send reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email reminder": {
+      "main": [
+        [
+          {
+            "node": "Update reminder stage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update reminder stage": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "355c54c7-0cef-4398-b336-2b75090a2808",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "UMGt8AOe4uVUVX2Y",
+  "tags": []
+}

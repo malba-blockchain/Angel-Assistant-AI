@@ -6,7 +6,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": "={{ 17 - 5 }}",
+              "triggerAtHour": "={{ 18 - 5 }}",
               "triggerAtMinute": 10
             }
           ]
@@ -19,8 +19,7 @@
         -112
       ],
       "id": "9d4a9d18-b7ba-4854-a0fc-c122c942d2f7",
-      "name": "Schedule Trigger - Check switch",
-      "disabled": true
+      "name": "Schedule Trigger - Check switch"
     },
     {
       "parameters": {
@@ -171,6 +170,7 @@
       "id": "a73e17f1-3db1-4efd-ad9e-a3167389fbed",
       "name": "Get emails to send reminders",
       "executeOnce": true,
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -437,6 +437,7 @@
       "id": "6c2335cf-d7fd-4237-bfe1-253963dc1fac",
       "name": "Get emails who already answered",
       "executeOnce": true,
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -575,6 +576,7 @@
       ],
       "id": "446ddee7-ed19-42f3-a594-dba0faeafe91",
       "name": "Update status for emails that already voted",
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -719,16 +721,16 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
     {
       "parameters": {
         "sendTo": "={{ $json.Email }}",
-        "subject": "=Good afternoon {{ $json.Name }}! What to do if you are not sure on your vote",
-        "message": "=You can still ask further questions to the startups until tomorrow. <br><br>\n\nEspecially if you are thinking about voting \"maybe\" - use this chance to clarify your answer. You can still edit your vote until the end of the voting period. <br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[8].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[7].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[10].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[9].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[12].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[11].VALUE }}</a><br><br>\n\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "subject": "=Reminder to vote on the startups",
+        "message": "=Hello {{ $json.Name }}<br><br>\n\nHow are you?<br><br>\n\nI wanted to remind you again to vote on the startups from the last investment committee!<br><br>\n\nHere is the voting form: <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\nHave a great weekend<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -745,8 +747,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -771,8 +773,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -797,8 +799,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -871,7 +873,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": "={{ 17 - 5 }}",
+              "triggerAtHour": "={{ 18 - 5 }}",
               "triggerAtMinute": 10
             }
           ]
@@ -880,11 +882,12 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        400,
-        768
+        416,
+        944
       ],
       "id": "2b1dd6ff-739a-4bdc-8079-c6fdb140e26d",
-      "name": "Schedule Trigger - Check switch1"
+      "name": "Schedule Trigger - Check switch1",
+      "disabled": true
     },
     {
       "parameters": {
@@ -914,8 +917,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        784,
-        768
+        800,
+        944
       ],
       "id": "1ff893d1-1dc4-40b0-b814-9d46bd13872a",
       "name": "Is switch on?1"
@@ -949,8 +952,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        608,
-        768
+        624,
+        944
       ],
       "id": "9a389827-435a-4392-adb9-340157a738a5",
       "name": "Get switch status1",
@@ -982,8 +985,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1008,
-        768
+        1024,
+        944
       ],
       "id": "bbfaafcd-3db3-4bc9-91b2-3920fef5ef9f",
       "name": "Get variables values1",
@@ -1029,12 +1032,13 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1824,
-        768
+        1840,
+        944
       ],
       "id": "cac9031d-69fc-48c2-b2d7-903ff5f44725",
       "name": "Get emails to send reminders1",
       "executeOnce": true,
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -1052,8 +1056,8 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        1200,
-        768
+        1216,
+        944
       ],
       "id": "058c2812-4e95-4982-95d4-4f10628c19c1",
       "name": "Aggregate variables values1"
@@ -1135,8 +1139,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        3088,
-        768
+        3104,
+        944
       ],
       "id": "f8dbf004-2143-4c79-bda7-4ae00ecdfff5",
       "name": "Update last automation run timestamp1",
@@ -1275,8 +1279,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        2880,
-        768
+        2896,
+        944
       ],
       "id": "0859ccb5-8c72-4fae-81b2-6b4d7951d958",
       "name": "Update reminder stage & last message date1",
@@ -1306,12 +1310,13 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1408,
-        768
+        1424,
+        944
       ],
       "id": "cce5f9e7-43cd-4533-85d7-f8fd9734cd9e",
       "name": "Get emails who already answered1",
       "executeOnce": true,
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -1435,11 +1440,12 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1616,
-        768
+        1632,
+        944
       ],
       "id": "89b3c0cd-cf1c-412c-9c3b-d40e9029d74e",
       "name": "Update status for emails that already voted1",
+      "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
@@ -1557,8 +1563,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        2272,
-        736
+        2288,
+        912
       ],
       "id": "024eb33c-32c3-4fce-8fe9-3d281abed66a",
       "name": "Route right message1"
@@ -1575,8 +1581,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2576,
-        496
+        2592,
+        672
       ],
       "id": "b578d3b6-2ac8-4eec-a968-a797a872ceed",
       "name": "Send email reminder #",
@@ -1584,8 +1590,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -1601,8 +1607,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2576,
-        688
+        2592,
+        864
       ],
       "id": "85a071ea-6a79-417d-b0c8-ef4d5ccfcaa9",
       "name": "Send email reminder #5",
@@ -1610,8 +1616,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -1627,8 +1633,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2576,
-        864
+        2592,
+        1040
       ],
       "id": "bbb1a981-6aa5-494e-a887-9eff490e9526",
       "name": "Send email reminder #6",
@@ -1636,8 +1642,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -1653,8 +1659,8 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        2576,
-        1040
+        2592,
+        1216
       ],
       "id": "daecd1fb-36e8-464e-8aec-fddf216cce24",
       "name": "Send email reminder #7",
@@ -1662,8 +1668,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "id": "MRspPXk01klnhsPp",
+          "name": "Gmail account Sarah"
         }
       }
     },
@@ -1725,8 +1731,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2032,
-        768
+        2048,
+        944
       ],
       "id": "e71122cd-5230-4261-8fbe-3ecf5cd18a12",
       "name": "Should email be sent1"
@@ -2107,11 +2113,11 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "a09a3c69-094d-48fd-be3b-aa61bb265ead",
+  "versionId": "7f581693-a31f-4ee9-a54f-4ba5b5c07c58",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

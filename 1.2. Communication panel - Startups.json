@@ -137,7 +137,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        816,
+        784,
         -80
       ],
       "id": "e081c4a3-dbc9-4420-951a-271d6b1b06e2",
@@ -242,7 +242,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1984,
+        1920,
         -80
       ],
       "id": "d2d9ef48-33ef-46f2-9276-3a17afe6bb01",
@@ -358,7 +358,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1776,
+        1680,
         -80
       ],
       "id": "77404711-0d66-446b-9182-3a05818bb295",
@@ -455,7 +455,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1008,
+        976,
         -96
       ],
       "id": "5cddf252-b319-4a17-9efd-ec99a1d1e130",
@@ -466,7 +466,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "={{ $('Get emails to send reminders').item.json['Startup Name'] }} has been approved to pitch with {{ $('Aggregate variables values').item.json.data[2].VALUE }}",
-        "message": "=Dear {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe are excited to invite you to present your startup at the upcoming {{ $('Aggregate variables values').item.json.data[2].VALUE }} Investment Committee, scheduled to take place on:<br><br>\n\n{{ $('Aggregate variables values').item.json.data[3].VALUE }}<br>\n{{ $('Aggregate variables values').item.json.data[4].VALUE }}<br>\n{{ $('Aggregate variables values').item.json.data[5].VALUE }}<br><br>\n\n<b>What to Expect:</b><br><br>\n\nYou’ll be one of three startups pitching to our angel investors during this session. The format is as follows:<br><br>\n\n- 15 minutes for your pitch presentation<br>\n- 30 minutes for Q&A with our investors<br><br>\n\nPlease ensure your presentation is sharp, focused, and includes the core investment information.<br><br>\n\n<b>Logistics & Deadlines:</b><br><br>\n\n- Slide Deck: Please send your final presentation by <b>{{ $('Aggregate variables values').item.json.data[6].VALUE }}</b>, so we can prepare everything on our side.<br>\n- Participation online: Please join the session 5 min prior to your pitch.<br>\n- Participation offline: Please arrive at the location 15 min prior to your pitch.<br><br>\n\n<b>After the IC:</b><br><br>\n\nInvestors will have two weeks to cast their votes. In the first week, they may submit additional questions in a shared document which we’ll forward to you. You can respond at your own pace.<br><br>\n\nWe’re looking forward to your pitch and to facilitating meaningful conversations with our investors.<br><br>\n\nIf you have any questions or need support preparing, don’t hesitate to reach out.<br><br>\n\nHave a great day<br>\n<i>Sarah</i>",
+        "message": "=Dear {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe are excited to invite you to present your startup at the upcoming {{ $('Aggregate variables values').item.json.data[2].VALUE }} Investment Committee, scheduled to take place on:<br><br>\n\n<b>Day:</b> {{ $('Aggregate variables values').item.json.data[3].VALUE }}<br>\n<b>Time:</b> {{ $('Aggregate variables values').item.json.data[4].VALUE }}. Your pitch starting at {{ $('Route right message').item.json['Time of pitching'] }}<br>\n<b>Location:</b> {{ $('Aggregate variables values').item.json.data[5].VALUE }}<br><br>\n\n<b>What to Expect:</b><br><br>\n\nYou’ll be one of the few startups pitching to our angel investors during this session. The format is as follows:<br><br>\n\n- 15 minutes for your pitch presentation<br>\n- 30 minutes for Q&A with our investors<br><br>\n\nPlease ensure your presentation is sharp, focused, and <b>includes the core investment information.</b><br><br>\n\n<b>Logistics & Deadlines:</b><br><br>\n\n- Slide Deck: Please send your final presentation by <b>{{ $('Aggregate variables values').item.json.data[6].VALUE }}</b>, so we can prepare everything on our side.<br>\n- Participation online: Please join the session 5 min prior to your pitch.<br>\n- Participation in person: Please arrive at the location 15 min prior to your pitch.<br><br>\n\n<b>After the IC:</b><br><br>\n\nInvestors will have two weeks to cast their votes. In the first week, they may submit additional questions in a shared document which we’ll forward to you. You can respond at your own pace.<br><br>\n\nWe’re looking forward to your pitch and to facilitating meaningful conversations with our investors.<br><br>\n\nIf you have any questions or need support preparing, don’t hesitate to reach out.<br><br>\n\nHave a great day,<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -474,7 +474,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1472,
+        1408,
         -240
       ],
       "id": "2a3ff8fe-caa0-49ed-94a7-0217965fa09c",
@@ -492,7 +492,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Final details for your pitch with {{ $('Aggregate variables values').item.json.data[2].VALUE }}",
-        "message": "=Dear {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe’re looking forward to your pitch at tomorrow’s {{ $('Aggregate variables values').item.json.data[2].VALUE }} Investment Committee. Here’s a quick reminder of the essential details:<br><br>\n\n{{ $('Aggregate variables values').item.json.data[3].VALUE }}<br>\n{{ $('Aggregate variables values').item.json.data[4].VALUE }}<br>\n{{ $('Aggregate variables values').item.json.data[5].VALUE }}<br><br>\n\nFormat: 15-minute pitch + 30-minute Q&A<br><br>\n\nPlease join 15 minutes early to ensure everything runs smoothly.<br><br>\n\nAlso, if you still want to change anything in your slides, make sure to send us the final slides before the event.<br><br>\n\nBest of luck and speak tomorrow,<br><br>\n<i>Sarah</i>",
+        "message": "=Dear {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe’re looking forward to your pitch at tomorrow’s {{ $('Aggregate variables values').item.json.data[2].VALUE }} Investment Committee. Here’s a quick reminder of the essential details:<br><br>\n\n<b>Day:</b> {{ $('Aggregate variables values').item.json.data[3].VALUE }}<br>\n<b>Time:</b> {{ $('Aggregate variables values').item.json.data[4].VALUE }}. Your pitch starting at {{ $('Route right message').item.json['Time of pitching'] }}<br>\n<b>Location:</b> {{ $('Aggregate variables values').item.json.data[5].VALUE }}<br><br>\n<b>Format:</b> 15-minute pitch + 30-minute Q&A<br><br>\n\nPlease join 15 minutes early to ensure everything runs smoothly.<br><br>\n\nAlso, if you still want to change anything in your slides, make sure to send us the final slides before the event.<br><br>\n\nBest of luck and speak tomorrow,<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -500,7 +500,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1472,
+        1408,
         -80
       ],
       "id": "80b1da67-7f9f-4462-a9b8-72a8fb80f31e",
@@ -518,7 +518,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "={{ $('Get emails to send reminders').item.json['Startup Name'] }}'s next step after the Investment Committee.",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nThank you for your pitch yesterday. The investors are now discussing the startups.<br><br>\n\nIn order to give them the opportunity to ask further questions, we created <b><a href=\"{{ $('Aggregate variables values').item.json.data[7].VALUE }}\">this document</a></b>.<br><br>\n\nIf they have any questions, they will add them there.<br><br> \n\nThey have the deadline to ask further questions until next <b>{{ $('Aggregate variables values').item.json.data[8].VALUE }}</b>. Please make sure to also answer their questions by then.<br><br>\n\nThank you and have a great day<br><br>\n<i>Sarah</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nThank you for your pitch yesterday. <b>The investors are now discussing the startups.</b><br><br>\n\nIn order to give them the opportunity to ask further questions, we created <b><a href=\"{{ $('Route right message').item.json['Document link']}}\">this document.</a></b><br><br>\n\nIf they have any questions, they will add them there.<br><br> \n\nThey have the deadline to ask further questions until next <b>{{ $('Aggregate variables values').item.json.data[7].VALUE }}</b>. Please make sure to also answer their questions by then.<br><br>\n\nThank you and have a great day,<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -526,7 +526,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1472,
+        1408,
         96
       ],
       "id": "4d480208-82a1-450a-af5d-42f5cd15edce",
@@ -571,7 +571,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1296,
+        1232,
         -240
       ],
       "id": "1627893c-b4f7-4943-8bb7-2de410998e61",
@@ -591,7 +591,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -112,
+        -80,
         -336
       ],
       "typeVersion": 1,
@@ -629,7 +629,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1296,
+        1232,
         -80
       ],
       "id": "8dfac21c-d200-410e-ad97-7468f9b5ffea",
@@ -674,7 +674,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1296,
+        1232,
         96
       ],
       "id": "d2a3be23-9038-4071-8686-7e91e1714539",
@@ -864,7 +864,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e8db3af6-5a4e-4602-bab1-913069ae4a57",
+  "versionId": "94c82f3b-96ca-409e-a55f-38fcec17646f",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

@@ -15,7 +15,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -192,
+        -32,
         -80
       ],
       "id": "b92e5333-9f39-4ea8-a7b9-0723fe950166",
@@ -49,7 +49,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        144,
+        272,
         -80
       ],
       "id": "911d9c36-d149-47f3-b59b-45ca1b6aa6bb",
@@ -59,10 +59,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -76,7 +74,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -16,
+        128,
         -80
       ],
       "id": "f9967d5b-8109-44a9-9113-943ff088d69a",
@@ -92,10 +90,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -109,7 +105,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        368,
+        480,
         -80
       ],
       "id": "eab97759-cce6-47ff-a1b7-de3d4025567a",
@@ -126,10 +122,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -155,7 +149,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1168,
+        1296,
         -80
       ],
       "id": "9b052e97-55e2-4e1c-9332-a812d5402f8e",
@@ -179,7 +173,7 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        560,
+        672,
         -80
       ],
       "id": "f68afaab-9f22-4178-b63f-2c0cb222386a",
@@ -190,10 +184,8 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -261,7 +253,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        2352,
+        2512,
         -80
       ],
       "id": "6fb714e7-78b1-4383-a8ea-acb25f92d168",
@@ -278,10 +270,8 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -390,7 +380,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        2144,
+        2304,
         -80
       ],
       "id": "a554176a-28c4-4dc3-88ff-68f2df77c9cb",
@@ -407,21 +397,21 @@
         "documentId": {
           "__rl": true,
           "value": "={{ $('Aggregate variables values').item.json.data[3].VALUE .split('/d/')[1].split('/')[0] }}",
-          "mode": "id"
+          "mode": "url"
         },
         "sheetName": {
           "__rl": true,
-          "value": 534393700,
+          "value": 976211885,
           "mode": "list",
           "cachedResultName": "Form Responses 1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MUlthVEvcIxUM1kiqP1GwXknWxdxOpGxRsfjf21MNJ4/edit#gid=534393700"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1c5LyxbxPlURgjdY94MhORWIHBNWqcTW1o7gcx5j1f34/edit#gid=976211885"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        768,
+        880,
         -80
       ],
       "id": "5081e572-61f5-4326-aead-4902622d14b9",
@@ -440,10 +430,8 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -561,7 +549,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        976,
+        1088,
         -80
       ],
       "id": "d5101fde-2cc7-4d2a-9037-15daa340c69f",
@@ -709,7 +697,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        1360,
+        1488,
         -128
       ],
       "id": "f2e14f6e-45bf-43a8-8b7f-2599a023a902",
@@ -720,7 +708,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, time to vote on the startups!",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you enjoyed the investment committee yesterday! Now on to the voting on the startups!<br><br>\n\nPlease find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\n<b>*The deadline to vote is {{ $('Aggregate variables values').item.json.data[4].VALUE }}*</b><br><br>\n\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\n\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[8].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[7].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[10].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[9].VALUE }}</a><br><br>\n\n<a href=\"{{ $('Aggregate variables values').item.json.data[12].VALUE }}\">Questions to {{ $('Aggregate variables values').item.json.data[11].VALUE }}</a><br><br>\n\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[13].VALUE }}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n\nAs some of us were not able to join the dinner for the discussion, we will host a discussion meeting on <b>{{ $('Aggregate variables values').item.json.data[14].VALUE }}</b> to be able to make an informed decision. You should have received a calendar invite.<br><br>\n\n<b>Notes:</b><br><br>\n\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\n\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you enjoyed the investment committee yesterday! Now on to the voting on the startups!<br><br>\n\nPlease find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\n<b>*The deadline to vote is {{ $('Aggregate variables values').item.json.data[4].VALUE }}*</b><br><br>\n\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\n\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n\n{{\n  (() => {\n    // 1. Store the data array in a variable to keep the code clean and readable\n    const data = $('Aggregate variables values').item.json.data;\n    \n    // 2. Define the HTML output for each individual startup\n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n\n    // 3. Conditional Chain\n    // Check if Startup 4 exists and is not empty\n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    // Check if Startup 3 exists and is not empty\n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    // Default fallback: Only 2 startups\n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\n\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[15].VALUE}}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n\n{{ $json.Notes }}\n\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -728,7 +716,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1840,
+        1936,
         -400
       ],
       "id": "36940cac-91d1-4cc0-80a2-9e7c8074bdca",
@@ -746,7 +734,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Good afternoon {{ $('Get emails to send reminders').item.json.Name }}! What to do if you are not sure on your vote",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }}<br><br>\n\nHow are you?<br><br>\n\nI wanted to remind you again to vote on the startups from the last investment committee!<br><br>\n\nHere is the voting form: <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\nHave a great weekend<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "message": "=You can still ask further questions to the startups until tomorrow. <br><br>\n\nEspecially if you are thinking about voting \"maybe\" - use this chance to clarify your answer. You can still edit your vote until the end of the voting period. <br><br>\n\n{{\n  (() => {\n    // 1. Store the data array in a variable to keep the code clean and readable\n    const data = $('Aggregate variables values').item.json.data;\n    \n    // 2. Define the HTML output for each individual startup\n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n\n    // 3. Conditional Chain\n    // Check if Startup 4 exists and is not empty\n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    // Check if Startup 3 exists and is not empty\n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    // Default fallback: Only 2 startups\n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\n\n{{ $json.Notes }}\n\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -754,7 +742,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1840,
+        1936,
         -240
       ],
       "id": "2c956aa9-865d-412c-85e4-aa3d96d8c783",
@@ -772,7 +760,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Reminder to vote on the startups",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }}<br><br>\n\nHow are you?<br><br>\n\nI wanted to remind you again to vote on the startups from the last investment committee!<br><br>\n\nHere is the voting form: <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\nHave a great weekend<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }}<br><br>\n\nHow are you?<br><br>\n\nI wanted to remind you again to vote on the startups from the last investment committee!<br><br>\n\nHere is the voting form: <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\n{{ $json.Notes }}\n\nHave a great weekend<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -780,7 +768,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1840,
+        1936,
         -80
       ],
       "id": "91103cd4-5f95-4c48-a9fa-b53a0862c5dc",
@@ -798,7 +786,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Tomorrow is the last day!",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }}!<br><br>\n\nPlease don’t forget that tomorrow is the last day to vote on the startups from the last IC.<br><br>\n\nHere is the voting form in case you missed it: <b><a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form here</a></b><br><br>\n\nHave a great day!<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }}!<br><br>\n\nPlease don’t forget that tomorrow is the last day to vote on the startups from the last IC.<br><br>\n\nHere is the voting form in case you missed it: <b><a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form here</a></b><br><br>\n\n{{ $json.Notes }}\n\nHave a great day!<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -806,7 +794,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1840,
+        1936,
         96
       ],
       "id": "631ad63c-959c-422d-aa30-161590db4305",
@@ -824,7 +812,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=It's today {{ $('Get emails to send reminders').item.json.Name }}!",
-        "message": "=The startup founders are eager to know your vote and <b>today is the last chance to make your opinion count</b>. <br><br>\n\nPlease don't forget to complete the <b><a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">voting form here</a>.</b><br><br>\n\nSee you!<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
+        "message": "=The startup founders are eager to know your vote and <b>today is the last chance to make your opinion count</b>. <br><br>\n\nPlease don't forget to complete the <b><a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">voting form here</a>.</b><br><br>\n\n{{ $json.Notes }}\n\nSee you!<br><br>\n\nBest wishes<br>\n<i>Sarah</i>",
         "options": {
           "appendAttribution": false
         }
@@ -832,7 +820,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1840,
+        1936,
         256
       ],
       "id": "e0486def-7b9d-45fc-9df9-b5f30456bda3",
@@ -850,10 +838,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -879,7 +865,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1664,
+        1760,
         -400
       ],
       "id": "cdb9feb5-fd2b-49e7-b116-38d194d378df",
@@ -897,10 +883,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -926,7 +910,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1664,
+        1760,
         -240
       ],
       "id": "b5a6d27a-16bb-48a0-bc0c-4d38bab71a95",
@@ -944,10 +928,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -973,7 +955,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1664,
+        1760,
         -80
       ],
       "id": "71845f3c-124e-489b-9964-eabdbc5f0c2c",
@@ -991,10 +973,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -1020,7 +1000,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1664,
+        1760,
         96
       ],
       "id": "7288e2f3-96e2-4c60-bf7f-8c1b4c215a9d",
@@ -1038,10 +1018,8 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho",
-          "mode": "list",
-          "cachedResultName": "Communication panel V2",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho/edit?usp=drivesdk"
+          "mode": "id",
+          "value": "1LlzSNtfAnpVpxme0h6qsAdQlD3CBCV5bsfgYCzvI2Ho"
         },
         "sheetName": {
           "__rl": true,
@@ -1067,7 +1045,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1664,
+        1760,
         256
       ],
       "id": "1bfb0dfd-dea0-45c4-9113-635eae42d3f4",
@@ -1080,6 +1058,19 @@
           "name": "Google Sheets account"
         }
       }
+    },
+    {
+      "parameters": {
+        "content": "# Voting automation\n\n"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -144,
+        -352
+      ],
+      "typeVersion": 1,
+      "id": "1a53502f-0c5f-403a-98c9-d29db15df86e",
+      "name": "Sticky Note"
     }
   ],
   "pinData": {},
@@ -1333,11 +1324,11 @@
       ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "420011bb-68f6-4a6d-b66e-deb469836fa7",
+  "versionId": "67caf0ff-ce0b-48b3-a332-b8993e8b56ff",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

@@ -1,0 +1,524 @@
+{
+  "name": "4.1. Startup anonymization",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1VcbInjtVn7JXiWO2UL1pdS0wvJSd7nww",
+          "mode": "id"
+        },
+        "event": "folderUpdated"
+      },
+      "id": "3c5e4b1c-4934-4d4b-bfdf-528ecbaa9da2",
+      "name": "Accepted Folder Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        -32
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "17DNgwE0nbT9aItGzpKIiiUMf2H_bQkdR",
+          "mode": "id"
+        },
+        "event": "folderCreated"
+      },
+      "id": "3319304e-ff25-46f0-93b1-e3d952282f1e",
+      "name": "Rejected Folder Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        176
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "accepted"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1f8d4f3-8e81-4a62-8dbd-069f62857161",
+      "name": "Set Accepted Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -1648,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "status",
+              "value": "rejected"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4700670e-7d97-4706-8edc-6381ddbf599b",
+      "name": "Set Rejected Status",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -1648,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cbc60eeb-30e4-44d2-b75f-4e940a875a7c",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        -1440,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "queryString": "='{{$json[\"Main Folder ID\"]}}' in parents",
+        "returnAll": true,
+        "filter": {},
+        "options": {}
+      },
+      "id": "1d5bf389-059f-45a1-964d-28b476dc5299",
+      "name": "Search startup folders",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1248,
+        80
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "queryString": "='{{$json.id}}' in parents",
+        "returnAll": true,
+        "filter": {},
+        "options": {}
+      },
+      "id": "5ce52ff9-ccf5-4e38-a983-8d357d84df39",
+      "name": "Search files inside startup folder",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1040,
+        80
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5623ae61-2244-4806-9b3d-6e3d02e5fd18",
+      "name": "Loop Over Folder Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -848,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": "={{ $json.id }}",
+        "options": {}
+      },
+      "id": "cd94d682-bd59-4141-85bb-e0b83285d9a9",
+      "name": "Download File",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -640,
+        80
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "999e0fe9-0929-48c8-87a6-ba74f8424642",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        -448,
+        80
+      ],
+      "webhookId": "33d1d076-10f4-453b-ac5f-f1a84bb42e9a"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "conditions": [
+            {
+              "leftValue": "={{$binary.data.mimeType}}",
+              "rightValue": "pdf",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b55794f0-4e19-47a7-bae9-4305a915c9c6",
+      "name": "PDF vs DOCX",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"contents\":[{\"parts\":[{\"text\":\"Extract and anonymize startup and founder names\"},{\"inline_data\":{\"mime_type\":\"{{$binary.data.mimeType}}\",\"data\":\"{{$binary.data.data}}\"}}]}]}",
+        "options": {}
+      },
+      "id": "0b6e3dd1-6797-4338-8520-2b43beb002da",
+      "name": "Send PDF to Gemini",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        -48,
+        -32
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const buffer = Buffer.from($binary.data.data, 'base64'); return [{ json: { text: buffer.toString('utf8') } }];"
+      },
+      "id": "32d3c40c-962f-4f9c-a915-c11e9546dac4",
+      "name": "Convert DOCX",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -48,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"contents\":[{\"parts\":[{\"text\":\"Extract and anonymize startup and founder names\"},{\"text\":\"{{$json.text}}\"}]}]}",
+        "options": {}
+      },
+      "id": "962d2720-d3ca-4a2b-a822-8ead62eb5e78",
+      "name": "Send DOCX to Gemini",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        160,
+        176
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return [{ json: { anonymized: $json.candidates?.[0]?.content?.parts?.[0]?.text || '' } }];"
+      },
+      "id": "baba734f-3b0c-4dc3-9a92-a9a103a0cc11",
+      "name": "Parse Gemini Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        368,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "8f8810a2-c176-46ec-bb1e-fff0bd77b578",
+      "name": "Upload Anonymized File",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        560,
+        80
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Accepted Folder Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Accepted Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rejected Folder Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Rejected Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Accepted Status": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Rejected Status": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Search startup folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search startup folders": {
+      "main": [
+        [
+          {
+            "node": "Search files inside startup folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search files inside startup folder": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Folder Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Folder Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Download File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download File": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "PDF vs DOCX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PDF vs DOCX": {
+      "main": [
+        [
+          {
+            "node": "Send PDF to Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert DOCX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send PDF to Gemini": {
+      "main": [
+        [
+          {
+            "node": "Parse Gemini Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert DOCX": {
+      "main": [
+        [
+          {
+            "node": "Send DOCX to Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send DOCX to Gemini": {
+      "main": [
+        [
+          {
+            "node": "Parse Gemini Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Gemini Response": {
+      "main": [
+        [
+          {
+            "node": "Upload Anonymized File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c7d86ee5-43c6-40eb-a910-cec396873f10",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "e38Nxtf8VYugkXxy",
+  "tags": []
+}

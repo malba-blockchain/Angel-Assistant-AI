@@ -15,10 +15,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -80,
-        -80
+        64,
+        144
       ],
-      "id": "16363dff-568c-4c1a-b7c7-f2eeeafc9542",
+      "id": "53d160e1-6453-40f3-8c32-e5d095225068",
       "name": "Schedule Trigger - Check switch"
     },
     {
@@ -49,10 +49,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        224,
-        -80
+        368,
+        144
       ],
-      "id": "b178f1f7-e03f-4d83-a71c-4253fdee8d8f",
+      "id": "6860bba3-c47f-4acf-9be7-a9fc2d7b67ad",
       "name": "Is switch on?"
     },
     {
@@ -74,15 +74,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        80,
-        -80
+        224,
+        144
       ],
-      "id": "fe4c6b8d-abcf-4aef-b13d-460b17aba57f",
+      "id": "b6223c0b-7bee-4474-ae25-4cb823d5cd0f",
       "name": "Get switch status",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -105,16 +105,16 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        432,
-        -80
+        576,
+        144
       ],
-      "id": "446c027f-ab72-4240-b6a9-93b9ba5eb177",
+      "id": "c00940e9-4470-48ed-bd0b-87e769c8ae66",
       "name": "Get variables values",
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -137,17 +137,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        784,
-        -80
+        928,
+        144
       ],
-      "id": "e081c4a3-dbc9-4420-951a-271d6b1b06e2",
+      "id": "9084ad4b-231d-4757-bfc2-44aeca2d5dd6",
       "name": "Get emails to send reminders",
       "executeOnce": true,
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -161,10 +161,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        624,
-        -80
+        768,
+        144
       ],
-      "id": "8158dd2b-0d0a-43b9-a1cc-c4f8345b5c78",
+      "id": "fb8b1857-be1f-4591-9cc5-b737fd536ca0",
       "name": "Aggregate variables values"
     },
     {
@@ -242,15 +242,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1920,
-        -80
+        2064,
+        144
       ],
-      "id": "d2d9ef48-33ef-46f2-9276-3a17afe6bb01",
+      "id": "db7303d6-18be-4745-88f9-ec7e497cb83c",
       "name": "Update last automation run timestamp",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -358,15 +358,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1680,
-        -80
+        1824,
+        144
       ],
-      "id": "77404711-0d66-446b-9182-3a05818bb295",
+      "id": "3dff536b-1bcc-4a9d-b244-8159adb61cd2",
       "name": "Update reminder stage & last message date",
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -455,10 +455,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        976,
-        -96
+        1120,
+        128
       ],
-      "id": "5cddf252-b319-4a17-9efd-ec99a1d1e130",
+      "id": "c066b7e2-68af-45d9-85f8-d52d44fa159b",
       "name": "Route right message",
       "executeOnce": false
     },
@@ -474,17 +474,17 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1408,
-        -240
+        1552,
+        -16
       ],
-      "id": "2a3ff8fe-caa0-49ed-94a7-0217965fa09c",
+      "id": "f7070b54-d2a5-49f5-b446-7b1915702838",
       "name": "Send email #0",
       "webhookId": "fa2bc7ad-7853-49af-81ac-84423f2460e2",
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "MRspPXk01klnhsPp",
-          "name": "Gmail account Sarah"
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account YAngel"
         }
       }
     },
@@ -500,17 +500,17 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1408,
-        -80
+        1552,
+        144
       ],
-      "id": "80b1da67-7f9f-4462-a9b8-72a8fb80f31e",
+      "id": "3e38cc47-4371-4af5-834b-002b14825306",
       "name": "Send email #1",
       "webhookId": "f1e3e126-da1c-43e1-b33c-01e66716b180",
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "MRspPXk01klnhsPp",
-          "name": "Gmail account Sarah"
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account YAngel"
         }
       }
     },
@@ -526,17 +526,17 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        1408,
-        96
+        1552,
+        320
       ],
-      "id": "4d480208-82a1-450a-af5d-42f5cd15edce",
+      "id": "dffbe461-2cda-4c4a-ad09-662f52eba84b",
       "name": "Send email #2",
       "webhookId": "01dc386f-e90d-4b9e-84a4-a09e961f129d",
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "MRspPXk01klnhsPp",
-          "name": "Gmail account Sarah"
+          "id": "N3opBDaqiYF3vzof",
+          "name": "Gmail account YAngel"
         }
       }
     },
@@ -571,17 +571,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1232,
-        -240
+        1376,
+        -16
       ],
-      "id": "1627893c-b4f7-4943-8bb7-2de410998e61",
+      "id": "78f75de5-c73c-45e4-a070-4e3ec7dba743",
       "name": "Get date to send template #0",
       "executeOnce": false,
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -591,11 +591,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -80,
-        -336
+        64,
+        -112
       ],
       "typeVersion": 1,
-      "id": "0221e0b2-a9e3-4982-a99b-30ffd0d431da",
+      "id": "8c71fc64-03ce-4aaa-852c-1ca3c2d76778",
       "name": "Sticky Note"
     },
     {
@@ -629,17 +629,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1232,
-        -80
+        1376,
+        144
       ],
-      "id": "8dfac21c-d200-410e-ad97-7468f9b5ffea",
+      "id": "1f2d1a54-9bef-42de-b79b-caaa682185cc",
       "name": "Get date to send template #1",
       "executeOnce": false,
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     },
@@ -674,17 +674,17 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        1232,
-        96
+        1376,
+        320
       ],
-      "id": "d2a3be23-9038-4071-8686-7e91e1714539",
+      "id": "7244e885-0dc7-4e69-aec7-338442609c6c",
       "name": "Get date to send template #2",
       "executeOnce": false,
       "alwaysOutputData": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
-          "name": "Google Sheets account"
+          "name": "Google Sheets YAngel Account"
         }
       }
     }
@@ -864,11 +864,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "56cf7561-63b6-47e4-9679-35e0d9d20395",
+  "versionId": "b01a6cda-a014-4a28-b2a5-0decfb9b42cd",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
   },
-  "id": "DHpkebm1PCOJV0Gs",
+  "id": "ms2Cw1MIfpNzPX37",
   "tags": []
 }

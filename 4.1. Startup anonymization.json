@@ -109,34 +109,9 @@
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "Main Folder ID",
-              "stringValue": "={{ $json.parents[0] }}"
-            },
-            {
-              "name": "Status",
-              "stringValue": "={{ $json.status }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "cbc60eeb-30e4-44d2-b75f-4e940a875a7c",
-      "name": "Edit Fields",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3,
-      "position": [
-        -1456,
-        80
-      ]
-    },
-    {
-      "parameters": {
         "resource": "fileFolder",
         "searchMethod": "query",
-        "queryString": "='{{ $('Add new startup to the index').item.json['STARTUP ID'] }}' in parents",
+        "queryString": "='{{ $('Add new startup to the index').item.json['STARTUP ID'] }}' in parents and trashed = false",
         "returnAll": true,
         "filter": {},
         "options": {}
@@ -146,7 +121,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -64,
+        -80,
         80
       ],
       "credentials": {
@@ -165,7 +140,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        144,
+        128,
         80
       ]
     },
@@ -180,7 +155,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        320,
+        304,
         224
       ],
       "credentials": {
@@ -189,21 +164,6 @@
           "name": "Google Drive account - YAngel"
         }
       }
-    },
-    {
-      "parameters": {
-        "amount": 5,
-        "unit": "seconds"
-      },
-      "id": "999e0fe9-0929-48c8-87a6-ba74f8424642",
-      "name": "Wait",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        464,
-        224
-      ],
-      "webhookId": "33d1d076-10f4-453b-ac5f-f1a84bb42e9a"
     },
     {
       "parameters": {
@@ -223,9 +183,9 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "STARTUP ID": "={{ $('Edit Fields').item.json.id }}",
-            "STARTUP NAME": "={{ $('Edit Fields').item.json.name }}",
-            "STATUS": "={{ $('Edit Fields').item.json.status }}"
+            "STARTUP ID": "={{ $('Set up folder ID').item.json.id }}",
+            "STARTUP NAME": "={{ $('Set up folder ID').item.json.name }}",
+            "STATUS": "={{ $('Set up folder ID').item.json.status }}"
           },
           "matchingColumns": [
             "STARTUP ID"
@@ -357,20 +317,6 @@
     },
     {
       "parameters": {
-        "operation": "text",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.extractFromFile",
-      "typeVersion": 1,
-      "position": [
-        784,
-        224
-      ],
-      "id": "dde788e6-e3c7-421d-83a7-3d7dfc47afbe",
-      "name": "Extract from File"
-    },
-    {
-      "parameters": {
         "operation": "toText",
         "sourceProperty": "content.parts[0].text",
         "options": {}
@@ -378,8 +324,8 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        1712,
-        224
+        1888,
+        208
       ],
       "id": "8da13850-92d6-4c96-9446-bc28381b4f8e",
       "name": "Convert to File"
@@ -404,7 +350,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -464,
+        -480,
         192
       ],
       "id": "daa89ccb-7169-41cc-a3ca-8d64b66eacd4",
@@ -418,8 +364,9 @@
     },
     {
       "parameters": {
-        "content": "## figure out why the drive node is outputting four items in the original folder instead of just three as is in reality. ",
-        "height": 240
+        "content": "## Continue testing the system with the rejected company folders. ",
+        "height": 240,
+        "width": 832
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -448,8 +395,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        1888,
-        224
+        2048,
+        208
       ],
       "id": "5dc73c21-940b-4d10-8199-b18dd3446c64",
       "name": "Upload file to folder",
@@ -472,7 +419,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $('Extract from File').item.json.data }}"
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $('Extract from TXT').item.json.data }}"
             }
           ]
         },
@@ -481,8 +428,8 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        1392,
-        224
+        1552,
+        208
       ],
       "id": "6b6d29af-e379-453c-a831-b76cce87f420",
       "name": "Anonymize file information",
@@ -513,7 +460,7 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        928,
+        464,
         224
       ],
       "id": "55df0fa8-aed1-44a3-9b87-d13a8a70f7b3",
@@ -525,18 +472,6 @@
           "name": "Google Gemini(PaLM) Api account 4 - YAngel Paid"
         }
       }
-    },
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        1248,
-        224
-      ],
-      "id": "07f1e711-acf9-4df5-9787-052f01ffeb59",
-      "name": "Wait1",
-      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
     },
     {
       "parameters": {
@@ -558,7 +493,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -464,
+        -480,
         -32
       ],
       "id": "f3371e04-7814-4390-bdd9-b83c2dd7dc56",
@@ -575,7 +510,7 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "={{ $json.id }}",
+          "value": "={{ $('Download File').item.json.id }}",
           "mode": "id"
         },
         "options": {
@@ -589,8 +524,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        624,
-        224
+        1008,
+        320
       ],
       "id": "882626ee-8be7-4031-8fcf-62bef2901a9f",
       "name": "Convert file to txt",
@@ -714,7 +649,9 @@
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "STARTUP ID": "={{ $('Edit Fields').item.json.id }}"
+            "STARTUP ID": "={{ $('Set up folder ID').item.json.id }}",
+            "ANONYMIZED": "=https://drive.google.com/drive/folders/{{ $('Upload file to folder').item.json.parents[0] }}",
+            "ORIGINAL": "=https://drive.google.com/drive/folders/{{ $('Accepted or rejected folder').item.json['STARTUP ID'] }}"
           },
           "matchingColumns": [
             "STARTUP ID"
@@ -779,16 +716,266 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        336,
+        320,
         -16
       ],
       "id": "fe4c70ec-b58a-44e3-bc70-d30006492894",
-      "name": "Add startup links to index",
+      "name": "Add startup links to internal index",
       "alwaysOutputData": false,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
           "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1sWBdGkwpdopBGntntw64lA_GUCNdrOXhnHrKD3ceLxI",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Index",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sWBdGkwpdopBGntntw64lA_GUCNdrOXhnHrKD3ceLxI/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "STARTUP": "={{ $json['STARTUP ID'] }}",
+            "URL": "={{ $json.ANONYMIZED }}",
+            "STATUS": "={{ $('Accepted or rejected folder').item.json.STATUS }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "STARTUP",
+              "displayName": "STARTUP",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "STATUS",
+              "displayName": "STATUS",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        496,
+        -16
+      ],
+      "id": "a6e3db1f-1897-478c-b9bf-d22622db9680",
+      "name": "Add startup info to external index",
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        208
+      ],
+      "id": "07f1e711-acf9-4df5-9787-052f01ffeb59",
+      "name": "Wait",
+      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2048,
+        432
+      ],
+      "id": "84c61bce-8b94-433b-be22-5824d6dae475",
+      "name": "Wait1",
+      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Download File').item.json.name }}",
+                    "rightValue": "pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "f8f5157f-e3b0-4fd5-8e9d-42f7acd5b96f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "pdf"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b8447078-5025-4fde-ba96-0c08c30628ec",
+                    "leftValue": "={{ $('Download File').item.json.name }}",
+                    "rightValue": "pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "notContains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "txt"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        816,
+        224
+      ],
+      "id": "7656f96e-c71a-4363-b54e-2bd1b40ed7b7",
+      "name": "Switch based on document type"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "Main Folder ID",
+              "stringValue": "={{ $json.parents[0] }}"
+            },
+            {
+              "name": "Status",
+              "stringValue": "={{ $json.status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cbc60eeb-30e4-44d2-b75f-4e940a875a7c",
+      "name": "Set up folder ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        -1456,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1184,
+        112
+      ],
+      "id": "dde788e6-e3c7-421d-83a7-3d7dfc47afbe",
+      "name": "Extract from PDF"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1184,
+        320
+      ],
+      "id": "d8b230d5-1af6-499c-bed1-d967ffd73728",
+      "name": "Extract from TXT"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $('Download File').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "text/plain"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1008,
+        112
+      ],
+      "id": "b644d294-0b37-479a-ac77-7323c7178572",
+      "name": "Convert file to pdf",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account - YAngel"
         }
       }
     }
@@ -821,7 +1008,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields",
+            "node": "Set up folder ID",
             "type": "main",
             "index": 0
           }
@@ -832,18 +1019,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Edit Fields": {
-      "main": [
-        [
-          {
-            "node": "Search startup on index",
+            "node": "Set up folder ID",
             "type": "main",
             "index": 0
           }
@@ -865,7 +1041,7 @@
       "main": [
         [
           {
-            "node": "Add startup links to index",
+            "node": "Add startup links to internal index",
             "type": "main",
             "index": 0
           }
@@ -883,18 +1059,7 @@
       "main": [
         [
           {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Convert file to txt",
+            "node": "Anonymize file name",
             "type": "main",
             "index": 0
           }
@@ -934,17 +1099,6 @@
         ]
       ]
     },
-    "Extract from File": {
-      "main": [
-        [
-          {
-            "node": "Anonymize file name",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Convert to File": {
       "main": [
         [
@@ -971,18 +1125,7 @@
       "main": [
         [
           {
-            "node": "Wait1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "Anonymize file information",
+            "node": "Switch based on document type",
             "type": "main",
             "index": 0
           }
@@ -1004,7 +1147,7 @@
       "main": [
         [
           {
-            "node": "Extract from File",
+            "node": "Extract from TXT",
             "type": "main",
             "index": 0
           }
@@ -1055,7 +1198,102 @@
       "main": [
         [
           {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add startup links to internal index": {
+      "main": [
+        [
+          {
+            "node": "Add startup info to external index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Anonymize file information",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
             "node": "Loop Over Folder Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch based on document type": {
+      "main": [
+        [
+          {
+            "node": "Convert file to pdf",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert file to txt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set up folder ID": {
+      "main": [
+        [
+          {
+            "node": "Search startup on index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from PDF": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from TXT": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert file to pdf": {
+      "main": [
+        [
+          {
+            "node": "Extract from PDF",
             "type": "main",
             "index": 0
           }
@@ -1067,7 +1305,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "375689e1-0ac7-444b-a5eb-332cd6213556",
+  "versionId": "97744567-5ed3-45af-a0cf-b0fc4068d04b",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

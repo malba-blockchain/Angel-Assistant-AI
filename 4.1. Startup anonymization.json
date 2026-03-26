@@ -387,7 +387,7 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "={{ $('Create accepted folder').item.json.id }}",
+          "value": "={{ $('Set up startup ID').item.json['STARTUP ID'] }}",
           "mode": "id"
         },
         "options": {}
@@ -824,7 +824,7 @@
       "typeVersion": 1.1,
       "position": [
         2048,
-        432
+        448
       ],
       "id": "84c61bce-8b94-433b-be22-5824d6dae475",
       "name": "Wait1",
@@ -1305,7 +1305,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "97744567-5ed3-45af-a0cf-b0fc4068d04b",
+  "versionId": "e019f33d-1ffd-4f9c-84e4-e1f449ee0121",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

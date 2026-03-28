@@ -35,38 +35,6 @@
     },
     {
       "parameters": {
-        "pollTimes": {
-          "item": [
-            {
-              "mode": "everyMinute"
-            }
-          ]
-        },
-        "triggerOn": "specificFolder",
-        "folderToWatch": {
-          "__rl": true,
-          "value": "17DNgwE0nbT9aItGzpKIiiUMf2H_bQkdR",
-          "mode": "id"
-        },
-        "event": "folderCreated"
-      },
-      "id": "3319304e-ff25-46f0-93b1-e3d952282f1e",
-      "name": "Rejected Folder Trigger",
-      "type": "n8n-nodes-base.googleDriveTrigger",
-      "typeVersion": 1,
-      "position": [
-        -1840,
-        192
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account - YAngel"
-        }
-      }
-    },
-    {
-      "parameters": {
         "values": {
           "string": [
             {
@@ -133,7 +101,9 @@
     },
     {
       "parameters": {
-        "options": {}
+        "options": {
+          "reset": "={{ $prevNode.name === 'Search startup folders' }}"
+        }
       },
       "id": "5623ae61-2244-4806-9b3d-6e3d02e5fd18",
       "name": "Loop Over Folder Items",
@@ -155,8 +125,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        304,
-        224
+        336,
+        64
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
@@ -293,11 +263,11 @@
           "conditions": [
             {
               "id": "cd320178-624c-47d9-9a0e-a20687377317",
-              "leftValue": "={{ $json['STARTUP ID'] }}",
+              "leftValue": "={{ $('Set up folder ID').item.json.id }}",
               "rightValue": "",
               "operator": {
                 "type": "string",
-                "operation": "notExists",
+                "operation": "notEmpty",
                 "singleValue": true
               }
             }
@@ -324,8 +294,8 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        1888,
-        208
+        1984,
+        48
       ],
       "id": "8da13850-92d6-4c96-9446-bc28381b4f8e",
       "name": "Convert to File"
@@ -364,9 +334,9 @@
     },
     {
       "parameters": {
-        "content": "## Continue testing the system with the rejected company folders. ",
+        "content": "## It's time to debug the shit out of the system so we are going to keep only one file per folder and then go step by step on how this is executed in order to see what happens and where the process is breaking up. ",
         "height": 240,
-        "width": 832
+        "width": 512
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
@@ -387,7 +357,7 @@
         },
         "folderId": {
           "__rl": true,
-          "value": "={{ $('Set up startup ID').item.json['STARTUP ID'] }}",
+          "value": "={{ $('Set up startup ID').item.json['NEW FOLDER ID'] }}",
           "mode": "id"
         },
         "options": {}
@@ -395,8 +365,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        2048,
-        208
+        2160,
+        48
       ],
       "id": "5dc73c21-940b-4d10-8199-b18dd3446c64",
       "name": "Upload file to folder",
@@ -405,38 +375,6 @@
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
           "name": "Google Drive account - YAngel"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "modelId": {
-          "__rl": true,
-          "value": "models/gemini-flash-latest",
-          "mode": "list",
-          "cachedResultName": "models/gemini-flash-latest"
-        },
-        "messages": {
-          "values": [
-            {
-              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $('Extract from TXT').item.json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.googleGemini",
-      "typeVersion": 1,
-      "position": [
-        1552,
-        208
-      ],
-      "id": "6b6d29af-e379-453c-a831-b76cce87f420",
-      "name": "Anonymize file information",
-      "credentials": {
-        "googlePalmApi": {
-          "id": "vLHuDAiL1YnVmNLW",
-          "name": "Google Gemini(PaLM) Api account 4 - YAngel Paid"
         }
       }
     },
@@ -460,12 +398,15 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1,
       "position": [
-        464,
-        224
+        496,
+        64
       ],
       "id": "55df0fa8-aed1-44a3-9b87-d13a8a70f7b3",
       "name": "Anonymize file name",
       "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 5000,
       "credentials": {
         "googlePalmApi": {
           "id": "vLHuDAiL1YnVmNLW",
@@ -524,8 +465,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        1008,
-        320
+        1040,
+        160
       ],
       "id": "882626ee-8be7-4031-8fcf-62bef2901a9f",
       "name": "Convert file to txt",
@@ -609,7 +550,7 @@
             {
               "id": "dd5213c0-8dec-470d-b655-36bcf1e81cd2",
               "name": "STARTUP ID",
-              "value": "={{ $json.id }}",
+              "value": "={{ $json.name }}",
               "type": "string"
             },
             {
@@ -716,8 +657,8 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        320,
-        -16
+        432,
+        400
       ],
       "id": "fe4c70ec-b58a-44e3-bc70-d30006492894",
       "name": "Add startup links to internal index",
@@ -789,46 +730,19 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        496,
-        -16
+        624,
+        400
       ],
       "id": "a6e3db1f-1897-478c-b9bf-d22622db9680",
       "name": "Add startup info to external index",
       "alwaysOutputData": false,
+      "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
           "id": "zVx8W8ysVJvIirQR",
           "name": "Google Sheets YAngel Account"
         }
       }
-    },
-    {
-      "parameters": {
-        "amount": 30
-      },
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        1392,
-        208
-      ],
-      "id": "07f1e711-acf9-4df5-9787-052f01ffeb59",
-      "name": "Wait",
-      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
-    },
-    {
-      "parameters": {
-        "amount": 30
-      },
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1.1,
-      "position": [
-        2048,
-        448
-      ],
-      "id": "84c61bce-8b94-433b-be22-5824d6dae475",
-      "name": "Wait1",
-      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
     },
     {
       "parameters": {
@@ -889,8 +803,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        816,
-        224
+        848,
+        64
       ],
       "id": "7656f96e-c71a-4363-b54e-2bd1b40ed7b7",
       "name": "Switch based on document type"
@@ -901,7 +815,7 @@
           "values": [
             {
               "name": "Main Folder ID",
-              "stringValue": "={{ $json.parents[0] }}"
+              "stringValue": "={{ $json.id }}"
             },
             {
               "name": "Status",
@@ -928,8 +842,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        1184,
-        112
+        1216,
+        -48
       ],
       "id": "dde788e6-e3c7-421d-83a7-3d7dfc47afbe",
       "name": "Extract from PDF"
@@ -942,8 +856,8 @@
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        1184,
-        320
+        1216,
+        160
       ],
       "id": "d8b230d5-1af6-499c-bed1-d967ffd73728",
       "name": "Extract from TXT"
@@ -967,8 +881,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        1008,
-        112
+        1040,
+        -48
       ],
       "id": "b644d294-0b37-479a-ac77-7323c7178572",
       "name": "Convert file to pdf",
@@ -978,6 +892,172 @@
           "name": "Google Drive account - YAngel"
         }
       }
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "queryString": "='17DNgwE0nbT9aItGzpKIiiUMf2H_bQkdR' in parents and trashed = false",
+        "returnAll": true,
+        "filter": {},
+        "options": {}
+      },
+      "id": "4521c3c3-f4b5-4059-8707-078f687e8dc9",
+      "name": "Search rejected folders",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2064,
+        192
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account - YAngel"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5050e09d-3f8c-46a5-be33-75c7d3701524",
+      "name": "Loop Over Rejected Folder Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1872,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2256,
+        192
+      ],
+      "id": "0ee41aae-99ef-4ee4-93b1-9e086671205a",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        -48
+      ],
+      "id": "07f1e711-acf9-4df5-9787-052f01ffeb59",
+      "name": "Cool down pdf",
+      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        160
+      ],
+      "id": "ee955373-1417-4936-9e1a-fb4f6a406ca1",
+      "name": "Cool down txt",
+      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-flash-latest",
+          "mode": "list",
+          "cachedResultName": "models/gemini-flash-latest"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        -48
+      ],
+      "id": "6b6d29af-e379-453c-a831-b76cce87f420",
+      "name": "Anonymize pdf content",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 2,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vLHuDAiL1YnVmNLW",
+          "name": "Google Gemini(PaLM) Api account 4 - YAngel Paid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-flash-latest",
+          "mode": "list",
+          "cachedResultName": "models/gemini-flash-latest"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        160
+      ],
+      "id": "636cfd42-df09-46c6-b7c0-9082af2361dd",
+      "name": "Anonymize text content",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 2,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "vLHuDAiL1YnVmNLW",
+          "name": "Google Gemini(PaLM) Api account 4 - YAngel Paid"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 15
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2432,
+        176
+      ],
+      "id": "84c61bce-8b94-433b-be22-5824d6dae475",
+      "name": "Cool down AI",
+      "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
     }
   ],
   "pinData": {},
@@ -987,17 +1067,6 @@
         [
           {
             "node": "Set Accepted Status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Rejected Folder Trigger": {
-      "main": [
-        [
-          {
-            "node": "Set Rejected Status",
             "type": "main",
             "index": 0
           }
@@ -1110,17 +1179,6 @@
         ]
       ]
     },
-    "Anonymize file information": {
-      "main": [
-        [
-          {
-            "node": "Convert to File",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Anonymize file name": {
       "main": [
         [
@@ -1198,7 +1256,7 @@
       "main": [
         [
           {
-            "node": "Wait1",
+            "node": "Cool down AI",
             "type": "main",
             "index": 0
           }
@@ -1210,28 +1268,6 @@
         [
           {
             "node": "Add startup info to external index",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Anonymize file information",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait1": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Folder Items",
             "type": "main",
             "index": 0
           }
@@ -1271,7 +1307,7 @@
       "main": [
         [
           {
-            "node": "Wait",
+            "node": "Cool down pdf",
             "type": "main",
             "index": 0
           }
@@ -1282,7 +1318,7 @@
       "main": [
         [
           {
-            "node": "Wait",
+            "node": "Cool down txt",
             "type": "main",
             "index": 0
           }
@@ -1299,13 +1335,113 @@
           }
         ]
       ]
+    },
+    "Search rejected folders": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Rejected Folder Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Rejected Folder Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set Rejected Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search rejected folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cool down pdf": {
+      "main": [
+        [
+          {
+            "node": "Anonymize pdf content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cool down txt": {
+      "main": [
+        [
+          {
+            "node": "Anonymize text content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anonymize pdf content": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Anonymize text content": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add startup info to external index": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Rejected Folder Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cool down AI": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Folder Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e019f33d-1ffd-4f9c-84e4-e1f449ee0121",
+  "versionId": "ebb92412-cca4-48fe-98fe-f977fa47dc24",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

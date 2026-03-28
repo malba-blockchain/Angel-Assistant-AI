@@ -9,15 +9,15 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        1168,
-        624
+        1200,
+        160
       ],
-      "id": "bd97eec2-8242-4a7d-9894-c41122e0a047",
+      "id": "e723f08c-7c19-413c-8ab0-58514fa2cf7f",
       "name": "Google Gemini Chat Model",
       "credentials": {
         "googlePalmApi": {
-          "id": "hY6FvJsjUYUdK2Hn",
-          "name": "Google Gemini(PaLM) Api account - Ecosystem 2"
+          "id": "vLHuDAiL1YnVmNLW",
+          "name": "Google Gemini(PaLM) Api account 4 - YAngel Paid"
         }
       }
     },
@@ -38,10 +38,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        592,
-        448
+        656,
+        -48
       ],
-      "id": "de1f7fae-3ce1-4309-ae46-fd79e8c1f6e4",
+      "id": "ac1e7df8-92b8-4368-84be-0e400677c682",
       "name": "Text with angel responses"
     },
     {
@@ -52,9 +52,9 @@
       "typeVersion": 1.1,
       "position": [
         2240,
-        448
+        -48
       ],
-      "id": "7bc37d1c-1d87-4432-b6b1-dfe469a2cd9a",
+      "id": "6742d6ef-38df-4df9-b583-91d18bbdd5b3",
       "name": "Wait8",
       "webhookId": "dafeb747-2308-4af7-8436-2e3a8d202021"
     },
@@ -64,9 +64,9 @@
       "typeVersion": 1.1,
       "position": [
         2992,
-        448
+        -48
       ],
-      "id": "289ad68f-e5bb-4b00-b991-f0c0c4362c36",
+      "id": "b0de4931-c176-4c61-a5db-4b988eef752a",
       "name": "Wait10",
       "webhookId": "c2ed91c0-4244-4422-a6a2-4d09b877619f"
     },
@@ -94,14 +94,14 @@
       "typeVersion": 3,
       "position": [
         3376,
-        448
+        -48
       ],
-      "id": "de889d1f-02ba-49d8-bef0-bca39b230fd8",
+      "id": "dd4c6fd1-47ee-4613-8398-e2fc658107f0",
       "name": "Create Folder: NAME - Angel Investor Journey",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -125,14 +125,14 @@
       "typeVersion": 3,
       "position": [
         3792,
-        448
+        -48
       ],
-      "id": "ecc01151-045e-4535-bb07-a39c10772c85",
+      "id": "8622db5d-d4b8-4336-b590-85f8bc5efd1e",
       "name": "Upload the canvas file to the folder",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -191,9 +191,9 @@
       "typeVersion": 4.2,
       "position": [
         2416,
-        640
+        144
       ],
-      "id": "807d1358-e5c1-4062-8402-729e52f78ba6",
+      "id": "3d2f1727-a5cf-41ec-97db-8fcde473936e",
       "name": "Refresh Canva Token",
       "executeOnce": true
     },
@@ -257,9 +257,9 @@
       "typeVersion": 3.4,
       "position": [
         2240,
-        640
+        144
       ],
-      "id": "f5063d3b-1302-4059-8a2e-0b132929cfcc",
+      "id": "8ead69d7-6fdc-4d33-8ae4-2bfad39dc796",
       "name": "Set canva variables",
       "executeOnce": false
     },
@@ -281,9 +281,9 @@
       "typeVersion": 1,
       "position": [
         2080,
-        640
+        144
       ],
-      "id": "c3b0f3f5-dc54-4ed5-b9bf-8d5930efcd4b",
+      "id": "42fcc996-1716-4c0e-80ed-f36855ca6568",
       "name": "Aggregate"
     },
     {
@@ -294,9 +294,9 @@
       "typeVersion": 2,
       "position": [
         2624,
-        640
+        144
       ],
-      "id": "ea930bb9-3437-44a1-91b4-cee12fa45546",
+      "id": "3039bfc7-ac01-44be-8b20-a911396290c6",
       "name": "Process New Tokens"
     },
     {
@@ -308,9 +308,9 @@
       "typeVersion": 1,
       "position": [
         2816,
-        640
+        144
       ],
-      "id": "0359787a-557a-48db-b643-0a9066739cdf",
+      "id": "cc56675b-a978-4b85-af3d-58c2dc1ee32d",
       "name": "Turn tokens into items to store"
     },
     {
@@ -343,9 +343,9 @@
       "typeVersion": 4.5,
       "position": [
         1696,
-        448
+        -48
       ],
-      "id": "942fe956-ef50-46c8-9ace-b1f8928e7045",
+      "id": "01feceb1-44fb-45ae-a3f6-078a389b26b0",
       "name": "Get Canva Tokens",
       "executeOnce": true,
       "retryOnFail": true,
@@ -379,9 +379,9 @@
       "typeVersion": 4.5,
       "position": [
         1904,
-        640
+        144
       ],
-      "id": "a86710b1-5560-439f-8c9b-4be479d3ec09",
+      "id": "0169ebec-d1f9-4151-9568-890ae594c366",
       "name": "Get Current Canva Tokens",
       "executeOnce": true,
       "credentials": {
@@ -468,9 +468,9 @@
       "typeVersion": 4.5,
       "position": [
         3040,
-        640
+        144
       ],
-      "id": "bab39401-8d1d-40cf-bd7b-20ac2c4b33ca",
+      "id": "8395e6ac-47a6-444a-a09d-4c10e72e7b39",
       "name": "Update Canva Tokens in Sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
@@ -488,10 +488,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
       "position": [
-        1152,
-        448
+        1184,
+        -48
       ],
-      "id": "7b6bc218-b20c-41d5-bd08-35fe9e8a718e",
+      "id": "b2926dba-ffe3-42ef-807a-618120637cee",
       "name": "Canvas Keyword Agent",
       "retryOnFail": false,
       "maxTries": 3,
@@ -520,9 +520,9 @@
       "typeVersion": 4.2,
       "position": [
         1904,
-        448
+        -48
       ],
-      "id": "51498bb2-7516-4b6a-9d68-69a8526f2088",
+      "id": "727b12bf-4959-4754-8afa-95d8791923a4",
       "name": "Request (Job) to generate the customized canvas",
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -545,9 +545,9 @@
       "typeVersion": 4.2,
       "position": [
         2416,
-        448
+        -48
       ],
-      "id": "b55ba182-8737-4a1e-88a8-0ba97c6ea648",
+      "id": "1e248e2d-1af3-43c5-8674-afa2f4a09c19",
       "name": "Get the status of the canvas request (Job) sent",
       "retryOnFail": true,
       "waitBetweenTries": 5000
@@ -574,9 +574,9 @@
       "typeVersion": 4.2,
       "position": [
         2800,
-        448
+        -48
       ],
-      "id": "d83ad36b-1d45-4c09-ad6f-b75bb5682fca",
+      "id": "f2202d78-47ab-4f23-8e73-6c541a1cce82",
       "name": "Request (Job) Export the canvas design in PDF",
       "retryOnFail": true,
       "waitBetweenTries": 3000
@@ -599,9 +599,9 @@
       "typeVersion": 4.2,
       "position": [
         3168,
-        448
+        -48
       ],
-      "id": "7a3ddcc0-b9e2-4252-8422-676c3710f2dc",
+      "id": "cd6d22dd-37be-4b19-93c1-7ecc5d2971b3",
       "name": "Request to get the canvas PDF version"
     },
     {
@@ -613,9 +613,9 @@
       "typeVersion": 4.2,
       "position": [
         3568,
-        448
+        -48
       ],
-      "id": "cd5bd81e-7ba1-443f-a9f2-6f325ac838b3",
+      "id": "dd03b70f-ed54-44f7-8a3a-fee7551da5a3",
       "name": "Download the canvas PDF"
     },
     {
@@ -640,14 +640,14 @@
       "typeVersion": 3,
       "position": [
         4240,
-        640
+        144
       ],
-      "id": "6df6a04d-c14d-4613-90bd-e1de39e873cb",
+      "id": "68d9c699-d8ba-4185-ba12-2e49bed16781",
       "name": "Upload the mistakes PDF to the folder",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -672,10 +672,10 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        768,
-        448
+        832,
+        -48
       ],
-      "id": "b8fe7c41-c2b7-48c5-9c73-0a956f9cd82f",
+      "id": "df0d782c-d6ed-44ac-a2c8-2af3a18791fc",
       "name": "Get Canvas Prompts",
       "executeOnce": true,
       "credentials": {
@@ -699,10 +699,10 @@
       "type": "n8n-nodes-base.aggregate",
       "typeVersion": 1,
       "position": [
-        960,
-        448
+        1024,
+        -48
       ],
-      "id": "9fd0b9dd-1674-43b7-9bea-0b66d4badebb",
+      "id": "7e60e9cf-fb0e-47d4-92a6-f8011bb51318",
       "name": "Aggregated Canvas Prompts"
     },
     {
@@ -819,9 +819,9 @@
       "typeVersion": 3.4,
       "position": [
         1520,
-        448
+        -48
       ],
-      "id": "fc300a03-b238-4958-ae8f-921fa7528055",
+      "id": "4c3d697c-beb4-4bda-80d4-0a6bdc92e277",
       "name": "Set Fields"
     },
     {
@@ -837,15 +837,15 @@
       "typeVersion": 2.1,
       "position": [
         4240,
-        448
+        -48
       ],
-      "id": "6af9661e-18ba-4307-9212-ddd64b36c683",
+      "id": "528353b5-87d6-4f00-be4f-6da0db4e235a",
       "name": "Send canvas email",
       "webhookId": "aa2cf1a7-1560-44dc-8384-da837c2261e8",
       "credentials": {
         "gmailOAuth2": {
           "id": "N3opBDaqiYF3vzof",
-          "name": "Gmail account"
+          "name": "Gmail account YAngel"
         }
       }
     },
@@ -878,9 +878,9 @@
       "typeVersion": 2.2,
       "position": [
         2080,
-        448
+        -48
       ],
-      "id": "8ebc44d0-ad82-4fac-8002-3a52c5f2098b",
+      "id": "686bb4b4-a420-40f4-b9f3-e6dca6f63e1d",
       "name": "If"
     },
     {
@@ -1384,9 +1384,9 @@
       "typeVersion": 4.5,
       "position": [
         4448,
-        640
+        144
       ],
-      "id": "c0bf80c9-e54b-4c64-81e8-0fd2b7c50509",
+      "id": "e8620ca7-5c87-4456-b43d-c4a872640df7",
       "name": "Update Angel Registry Status",
       "alwaysOutputData": true,
       "credentials": {
@@ -1403,11 +1403,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        80,
-        416
+        144,
+        -80
       ],
       "typeVersion": 1,
-      "id": "dd3c7a1a-d3dc-420e-81bc-6af9658a871e",
+      "id": "8d77ef0a-6f51-4d24-ae53-5e21f0a41494",
       "name": "Sticky Note"
     },
     {
@@ -1416,9 +1416,9 @@
       "typeVersion": 1.1,
       "position": [
         2592,
-        448
+        -48
       ],
-      "id": "6339acc2-1217-4277-968f-940af4ff4418",
+      "id": "f5ce316d-c5e9-4121-a614-5a8a1b8fecee",
       "name": "Wait1",
       "webhookId": "2ead0739-33aa-4757-a837-d51d9cba11ed"
     },
@@ -1444,14 +1444,14 @@
       "typeVersion": 3,
       "position": [
         4240,
-        832
+        336
       ],
-      "id": "52a11b19-cc7f-43bc-8712-a58d1cc662f2",
+      "id": "b51757b3-cd4f-48d5-9993-6d4385555abe",
       "name": "Upload the mistakes PDF to the folder3",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -1956,9 +1956,9 @@
       "typeVersion": 4.5,
       "position": [
         4448,
-        832
+        336
       ],
-      "id": "e4a80182-bfd6-4e31-a6cc-6504a94d1780",
+      "id": "92cd2daf-441b-4398-ab15-3fc9e9537a4a",
       "name": "Update Angel Registry Status5",
       "alwaysOutputData": true,
       "credentials": {
@@ -2007,9 +2007,9 @@
       "typeVersion": 2.2,
       "position": [
         3792,
-        736
+        240
       ],
-      "id": "848b87dc-f63b-4420-81be-88db1b281e1b",
+      "id": "ef758b37-b202-40c5-a47a-3222048fb2dd",
       "name": "Is Qualified1"
     },
     {
@@ -2026,14 +2026,14 @@
       "typeVersion": 3,
       "position": [
         4048,
-        640
+        144
       ],
-      "id": "3e9e271f-a8af-42b4-abfd-fcc0d7087264",
+      "id": "68f9c454-16ac-44e3-91b6-015571cd87fd",
       "name": "Download the mistakes PDF for Qualified1",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -2051,14 +2051,14 @@
       "typeVersion": 3,
       "position": [
         4048,
-        832
+        336
       ],
-      "id": "c3d9690c-7a41-4cb2-b96c-0504fd5597e8",
+      "id": "7e65ebf7-b05f-4b7c-8166-2eab7d79b972",
       "name": "Download the mistakes PDF for non qualified1",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -2090,14 +2090,14 @@
       "typeVersion": 3,
       "position": [
         4048,
-        448
+        -48
       ],
-      "id": "5e58ace4-3baf-454c-b6a2-d6d6bb077fc9",
+      "id": "0bac1760-f9d7-4af7-be34-56c46afbe49d",
       "name": "Upload the startup checklist",
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account"
+          "name": "Google Drive account - YAngel"
         }
       }
     },
@@ -2108,10 +2108,10 @@
       "type": "n8n-nodes-tallyforms.tallyTrigger",
       "typeVersion": 1,
       "position": [
-        416,
-        448
+        480,
+        -48
       ],
-      "id": "0e6d49b2-873d-4c75-9114-781eb89586b1",
+      "id": "7ab21fc4-0211-4c28-b83e-67f7cbbd21d2",
       "name": "Angel Canvas Trigger",
       "webhookId": "59d396d8-b9d9-46a6-b581-c6325c7eee76",
       "credentials": {
@@ -2393,11 +2393,6 @@
         ]
       ]
     },
-    "Send canvas email": {
-      "main": [
-        []
-      ]
-    },
     "If": {
       "main": [
         [
@@ -2478,16 +2473,6 @@
         ]
       ]
     },
-    "Update Angel Registry Status5": {
-      "main": [
-        []
-      ]
-    },
-    "Update Angel Registry Status": {
-      "main": [
-        []
-      ]
-    },
     "Upload the startup checklist": {
       "main": [
         [
@@ -2515,11 +2500,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ee4fdb8c-88c7-4505-bcd5-6f04d8a7788d",
+  "versionId": "a28e6fee-c155-4cdd-ace2-37adeb61c3a5",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
   },
-  "id": "Tl1yONG6jFez90R3",
+  "id": "0yb5vdvU12NCI0v3",
   "tags": []
 }

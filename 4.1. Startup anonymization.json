@@ -937,7 +937,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.text }}"
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. In case I do not provide any text to anonymize, just output \"no text was provided\". Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.text }}"
             }
           ]
         },
@@ -972,7 +972,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.data }}"
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. In case I do not provide any text to anonymize, just output \"no text was provided\". Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.text }}"
             }
           ]
         },
@@ -1455,7 +1455,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "8989f880-588b-4d24-8e7b-58a8985a76b7",
+  "versionId": "6c4e96c5-6d9f-42d6-880a-02a6b0c5c745",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

@@ -3,38 +3,6 @@
   "nodes": [
     {
       "parameters": {
-        "pollTimes": {
-          "item": [
-            {
-              "mode": "everyMinute"
-            }
-          ]
-        },
-        "triggerOn": "specificFolder",
-        "folderToWatch": {
-          "__rl": true,
-          "value": "1VcbInjtVn7JXiWO2UL1pdS0wvJSd7nww",
-          "mode": "id"
-        },
-        "event": "folderUpdated"
-      },
-      "id": "3c5e4b1c-4934-4d4b-bfdf-528ecbaa9da2",
-      "name": "Accepted Folder Trigger",
-      "type": "n8n-nodes-base.googleDriveTrigger",
-      "typeVersion": 1,
-      "position": [
-        -1840,
-        -32
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "7so2tXpLj0uaQdP7",
-          "name": "Google Drive account - YAngel"
-        }
-      }
-    },
-    {
-      "parameters": {
         "values": {
           "string": [
             {
@@ -126,7 +94,7 @@
       "typeVersion": 3,
       "position": [
         336,
-        64
+        80
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
@@ -295,7 +263,7 @@
       "typeVersion": 1.1,
       "position": [
         1984,
-        48
+        64
       ],
       "id": "8da13850-92d6-4c96-9446-bc28381b4f8e",
       "name": "Convert to File"
@@ -334,7 +302,7 @@
     },
     {
       "parameters": {
-        "content": "## It's time to debug the shit out of the system so we are going to keep only one file per folder and then go step by step on how this is executed in order to see what happens and where the process is breaking up. ",
+        "content": "## Add the folder iteration over the accepted startup folder. ",
         "height": 240,
         "width": 512
       },
@@ -366,7 +334,7 @@
       "typeVersion": 3,
       "position": [
         2160,
-        48
+        64
       ],
       "id": "5dc73c21-940b-4d10-8199-b18dd3446c64",
       "name": "Upload file to folder",
@@ -399,13 +367,13 @@
       "typeVersion": 1,
       "position": [
         496,
-        64
+        80
       ],
       "id": "55df0fa8-aed1-44a3-9b87-d13a8a70f7b3",
       "name": "Anonymize file name",
       "alwaysOutputData": true,
       "retryOnFail": true,
-      "maxTries": 2,
+      "maxTries": 3,
       "waitBetweenTries": 5000,
       "credentials": {
         "googlePalmApi": {
@@ -466,7 +434,7 @@
       "typeVersion": 3,
       "position": [
         1040,
-        160
+        176
       ],
       "id": "882626ee-8be7-4031-8fcf-62bef2901a9f",
       "name": "Convert file to txt",
@@ -804,7 +772,7 @@
       "typeVersion": 3.2,
       "position": [
         848,
-        64
+        80
       ],
       "id": "7656f96e-c71a-4363-b54e-2bd1b40ed7b7",
       "name": "Switch based on document type"
@@ -843,7 +811,7 @@
       "typeVersion": 1,
       "position": [
         1216,
-        -48
+        -32
       ],
       "id": "dde788e6-e3c7-421d-83a7-3d7dfc47afbe",
       "name": "Extract from PDF"
@@ -857,7 +825,7 @@
       "typeVersion": 1,
       "position": [
         1216,
-        160
+        176
       ],
       "id": "d8b230d5-1af6-499c-bed1-d967ffd73728",
       "name": "Extract from TXT"
@@ -882,7 +850,7 @@
       "typeVersion": 3,
       "position": [
         1040,
-        -48
+        -32
       ],
       "id": "b644d294-0b37-479a-ac77-7323c7178572",
       "name": "Convert file to pdf",
@@ -932,30 +900,13 @@
     },
     {
       "parameters": {
-        "rule": {
-          "interval": [
-            {}
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
-      "position": [
-        -2256,
-        192
-      ],
-      "id": "0ee41aae-99ef-4ee4-93b1-9e086671205a",
-      "name": "Schedule Trigger"
-    },
-    {
-      "parameters": {
-        "amount": 15
+        "amount": 30
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
         1392,
-        -48
+        -32
       ],
       "id": "07f1e711-acf9-4df5-9787-052f01ffeb59",
       "name": "Cool down pdf",
@@ -963,13 +914,13 @@
     },
     {
       "parameters": {
-        "amount": 15
+        "amount": 30
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
         1392,
-        160
+        176
       ],
       "id": "ee955373-1417-4936-9e1a-fb4f6a406ca1",
       "name": "Cool down txt",
@@ -996,13 +947,13 @@
       "typeVersion": 1,
       "position": [
         1552,
-        -48
+        -32
       ],
       "id": "6b6d29af-e379-453c-a831-b76cce87f420",
       "name": "Anonymize pdf content",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
-      "maxTries": 2,
+      "maxTries": 3,
       "credentials": {
         "googlePalmApi": {
           "id": "vLHuDAiL1YnVmNLW",
@@ -1031,13 +982,13 @@
       "typeVersion": 1,
       "position": [
         1552,
-        160
+        176
       ],
       "id": "636cfd42-df09-46c6-b7c0-9082af2361dd",
       "name": "Anonymize text content",
       "retryOnFail": true,
       "waitBetweenTries": 5000,
-      "maxTries": 2,
+      "maxTries": 3,
       "credentials": {
         "googlePalmApi": {
           "id": "vLHuDAiL1YnVmNLW",
@@ -1047,32 +998,79 @@
     },
     {
       "parameters": {
-        "amount": 15
+        "amount": 30
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
         2432,
-        176
+        192
       ],
       "id": "84c61bce-8b94-433b-be22-5824d6dae475",
       "name": "Cool down AI",
       "webhookId": "9844334d-1866-4203-b4be-72b40b858d5a"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "queryString": "='1VcbInjtVn7JXiWO2UL1pdS0wvJSd7nww' in parents and trashed = false",
+        "returnAll": true,
+        "filter": {},
+        "options": {}
+      },
+      "id": "62eaf118-c8a9-4d20-ae78-ed9b6bb1da6c",
+      "name": "Search accepted folders",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2064,
+        -32
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "7so2tXpLj0uaQdP7",
+          "name": "Google Drive account - YAngel"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2256,
+        -32
+      ],
+      "id": "e2170349-5542-4ba6-af60-5664aea23e63",
+      "name": "Accepted Trigger"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2256,
+        192
+      ],
+      "id": "0ee41aae-99ef-4ee4-93b1-9e086671205a",
+      "name": "Rejected Trigger"
     }
   ],
   "pinData": {},
   "connections": {
-    "Accepted Folder Trigger": {
-      "main": [
-        [
-          {
-            "node": "Set Accepted Status",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Set Accepted Status": {
       "main": [
         [
@@ -1359,17 +1357,6 @@
         ]
       ]
     },
-    "Schedule Trigger": {
-      "main": [
-        [
-          {
-            "node": "Search rejected folders",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Cool down pdf": {
       "main": [
         [
@@ -1435,13 +1422,40 @@
           }
         ]
       ]
+    },
+    "Search accepted folders": {
+      "main": [
+        []
+      ]
+    },
+    "Accepted Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search accepted folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rejected Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search rejected folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ebb92412-cca4-48fe-98fe-f977fa47dc24",
+  "versionId": "8989f880-588b-4d24-8e7b-58a8985a76b7",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

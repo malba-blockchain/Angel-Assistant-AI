@@ -18,8 +18,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -1648,
-        -32
+        -2016,
+        0
       ]
     },
     {
@@ -39,7 +39,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -1648,
+        -2016,
         192
       ]
     },
@@ -875,7 +875,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2064,
+        -2224,
         192
       ],
       "credentials": {
@@ -884,19 +884,6 @@
           "name": "Google Drive account - YAngel"
         }
       }
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "5050e09d-3f8c-46a5-be33-75c7d3701524",
-      "name": "Loop Over Rejected Folder Items",
-      "type": "n8n-nodes-base.splitInBatches",
-      "typeVersion": 3,
-      "position": [
-        -1872,
-        192
-      ]
     },
     {
       "parameters": {
@@ -972,7 +959,7 @@
         "messages": {
           "values": [
             {
-              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. In case I do not provide any text to anonymize, just output \"no text was provided\". Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.text }}"
+              "content": "=Take your time to fulfill this request as this is extremely important. You will anonymize the following text. Replace all personal names, specific locations, and contact information with generic placeholders like STARTP_NAME, STARTUP_EMAIL, STARTUP_WEBSITE, CO-FOUNDER_NAME, CO-FOUNDER_EMAIL, etc. Keep the information of regions and locations. Make sure to only output the request that I made. In case I do not provide any text to anonymize, just output \"no text was provided\". Do not, I repeat, do not add anything else in the beginning or in the end of the output I requested:\n\n{{ $json.data }}"
             }
           ]
         },
@@ -1024,8 +1011,8 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2064,
-        -32
+        -2224,
+        0
       ],
       "credentials": {
         "googleDriveOAuth2Api": {
@@ -1045,8 +1032,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2256,
-        -32
+        -2416,
+        0
       ],
       "id": "e2170349-5542-4ba6-af60-5664aea23e63",
       "name": "Accepted Trigger"
@@ -1062,11 +1049,24 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2256,
+        -2416,
         192
       ],
       "id": "0ee41aae-99ef-4ee4-93b1-9e086671205a",
       "name": "Rejected Trigger"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "5050e09d-3f8c-46a5-be33-75c7d3701524",
+      "name": "Loop Over Folders",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1680,
+        80
+      ]
     }
   ],
   "pinData": {},
@@ -1075,7 +1075,7 @@
       "main": [
         [
           {
-            "node": "Set up folder ID",
+            "node": "Loop Over Folders",
             "type": "main",
             "index": 0
           }
@@ -1086,7 +1086,7 @@
       "main": [
         [
           {
-            "node": "Set up folder ID",
+            "node": "Loop Over Folders",
             "type": "main",
             "index": 0
           }
@@ -1338,18 +1338,6 @@
       "main": [
         [
           {
-            "node": "Loop Over Rejected Folder Items",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Rejected Folder Items": {
-      "main": [
-        [],
-        [
-          {
             "node": "Set Rejected Status",
             "type": "main",
             "index": 0
@@ -1405,7 +1393,7 @@
       "main": [
         [
           {
-            "node": "Loop Over Rejected Folder Items",
+            "node": "Loop Over Folders",
             "type": "main",
             "index": 0
           }
@@ -1425,7 +1413,13 @@
     },
     "Search accepted folders": {
       "main": [
-        []
+        [
+          {
+            "node": "Set Accepted Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Accepted Trigger": {
@@ -1449,13 +1443,25 @@
           }
         ]
       ]
+    },
+    "Loop Over Folders": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Set up folder ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "6c4e96c5-6d9f-42d6-880a-02a6b0c5c745",
+  "versionId": "a95fb02f-0ebc-4be8-b163-b23fad9b4f2f",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

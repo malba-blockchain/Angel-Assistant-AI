@@ -699,8 +699,8 @@
     {
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
-        "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, it's time to make your opinion count",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nPlease don't forget to send your feedback <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">in the form here</a> <br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, we did something to improve your experience",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you're doing great!<br><br>\n\nAt COREangels Porto, we’re always striving to improve your experience.<br><br>\n\nTo better understand what truly matters to you, we’ve prepared <b>a short survey to understand your experience with the fund.</b><br><br>\n\nIt would be fantastic if you could take 2 minutes to complete it by <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nIf you have any questions, feel free to reach out.<br><br>\nThank you for your time, we truly appreciate it!<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -725,8 +725,8 @@
     {
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
-        "subject": "=Good afternoon {{ $('Get emails to send reminders').item.json.Name }}! It's time to make your opinion count",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nPlease don't forget to send your feedback <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">in the form here</a> <br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "subject": "=Good afternoon {{ $('Get emails to send reminders').item.json.Name }}! Don't miss this change to make your opinion count\n",
+        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nAs you know this is the time of the year you can make your opinion count. We created a <b>2 minutes survey where you can voice your feedback and improvement opportunities for the group</b>.<br><br>\n\nThe deadline to share your opinion is <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nDon't miss on this opportunity to share your input!<br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -751,8 +751,8 @@
     {
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
-        "subject": "=Reminder to make your opinion count",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nPlease don't forget to send your feedback <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">in the form here</a> <br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, it's time to make your voice heard\n",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe value your opinion a lot. Please don't forget to take 2 minutes to <b>fill out the short survey before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>.<br><br>\n\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>\n",
         "options": {
           "appendAttribution": false
         }
@@ -777,8 +777,8 @@
     {
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
-        "subject": "=Tomorrow is the last day!",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nPlease don't forget to send your feedback <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">in the form here</a> <br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "subject": "=Tomorrow is the last chance!\n",
+        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nTomorrow is the last chance to let us know your opinion about COREangels Porto.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>\n",
         "options": {
           "appendAttribution": false
         }
@@ -803,8 +803,8 @@
     {
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
-        "subject": "=It's today {{ $('Get emails to send reminders').item.json.Name }}!",
-        "message": "=\"Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nPlease don't forget to send your feedback <a href=\"\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\"\">in the form here</a> <br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>\"",
+        "subject": "=Today is the last day {{ $('Get emails to send reminders').item.json.Name }}!\n",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nToday is the last day to let us know your opinion about COREangels Porto.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -1066,7 +1066,7 @@
     },
     {
       "parameters": {
-        "amount": 1
+        "amount": 61
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -1345,7 +1345,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "426a594c-c1a6-4a0d-857d-a2afc8ac8b0d",
+  "versionId": "23684c62-a9f7-446b-87c7-aaf556a3bb25",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

@@ -254,7 +254,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        832,
+        816,
         320
       ],
       "id": "edfbc813-37a0-418e-b00d-dfed5e4aa846",
@@ -381,7 +381,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        640,
+        624,
         320
       ],
       "id": "cabd2aac-c262-4f0f-be6b-c4f142ddab72",
@@ -689,7 +689,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -240,
+        -272,
         272
       ],
       "id": "52d32b1c-e9a3-4774-a6e5-cd04996b8277",
@@ -700,7 +700,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, we did something to improve your experience",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you're doing great!<br><br>\n\nAt COREangels Porto, we’re always striving to improve your experience.<br><br>\n\nTo better understand what truly matters to you, we’ve prepared <b>a short survey to understand your experience with the fund.</b><br><br>\n\nIt would be fantastic if you could take 2 minutes to complete it by <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nIf you have any questions, feel free to reach out.<br><br>\nThank you for your time, we truly appreciate it!<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you're doing great!<br><br>\n\nAt COREangels {{ $('Get emails to send reminders').item.json.Fund }}, we’re always striving to improve your experience.<br><br>\n\nTo better understand what truly matters to you, we’ve prepared <b>a short survey to understand your experience with the fund.</b><br><br>\n\nIt would be fantastic if you could take 2 minutes to complete it by <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nIf you have any questions, feel free to reach out.<br><br>\nThank you for your time, we truly appreciate it!<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -708,7 +708,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        208,
+        192,
         0
       ],
       "id": "08b380e5-4f20-41ec-bf5b-dbdaee2d5f8c",
@@ -726,7 +726,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Good afternoon {{ $('Get emails to send reminders').item.json.Name }}! Don't miss this change to make your opinion count\n",
-        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nAs you know this is the time of the year you can make your opinion count. We created a <b>2 minutes survey where you can voice your feedback and improvement opportunities for the group</b>.<br><br>\n\nThe deadline to share your opinion is <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nDon't miss on this opportunity to share your input!<br><br>\n\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nAs you know this is the time of the year you can make your opinion count. We created a <b>2 minutes survey where you can voice your feedback and improvement opportunities for the group</b>.<br><br>\n\nThe deadline to share your opinion is <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nDon't miss on this opportunity to share your input!<br><br>\n\nBest wishes<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -734,7 +734,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        208,
+        192,
         160
       ],
       "id": "22a516c6-65fe-4202-8426-0f0d1c798b18",
@@ -752,7 +752,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, it's time to make your voice heard\n",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe value your opinion a lot. Please don't forget to take 2 minutes to <b>fill out the short survey before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>.<br><br>\n\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>\n",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe value your opinion a lot. Please don't forget to take 2 minutes to <b>fill out the short survey before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>.<br><br>\n\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>\n",
         "options": {
           "appendAttribution": false
         }
@@ -760,7 +760,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        208,
+        192,
         320
       ],
       "id": "439d605b-55d1-4a2f-b4af-54bdb697f05c",
@@ -778,7 +778,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Tomorrow is the last chance!\n",
-        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nTomorrow is the last chance to let us know your opinion about COREangels Porto.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>\n",
+        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nTomorrow is the last chance to let us know your opinion about COREangels {{ $('Get emails to send reminders').item.json.Fund }}.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>\n",
         "options": {
           "appendAttribution": false
         }
@@ -786,7 +786,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        208,
+        192,
         496
       ],
       "id": "1c673c9e-3d63-46ae-b8dc-37593597e4c0",
@@ -804,7 +804,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Today is the last day {{ $('Get emails to send reminders').item.json.Name }}!\n",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nToday is the last day to let us know your opinion about COREangels Porto.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels Porto Team</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nToday is the last day to let us know your opinion about COREangels {{ $('Get emails to send reminders').item.json.Fund }}.<br><br>\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -812,7 +812,7 @@
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
       "position": [
-        208,
+        192,
         656
       ],
       "id": "d0e6903a-747d-4821-98b1-46b5dff88b97",
@@ -857,7 +857,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        16,
+        0,
         0
       ],
       "id": "c03edbf0-b142-41a3-96f4-e26b18366859",
@@ -902,7 +902,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        16,
+        0,
         160
       ],
       "id": "87300f8c-d6a5-4d8c-9335-d2c2dd90709a",
@@ -947,7 +947,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        16,
+        0,
         320
       ],
       "id": "2ce148ed-5e0b-44d3-bcb3-abeddb92f70f",
@@ -992,7 +992,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        16,
+        0,
         496
       ],
       "id": "d82f7f43-4c99-44a7-9d42-ecfcb5ff0f01",
@@ -1037,7 +1037,7 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        16,
+        0,
         656
       ],
       "id": "352e318f-fca8-4fbe-a344-fe3dcc2a20ad",
@@ -1057,7 +1057,7 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1696,
+        -1840,
         80
       ],
       "typeVersion": 1,
@@ -1066,12 +1066,12 @@
     },
     {
       "parameters": {
-        "amount": 61
+        "amount": 1
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        480,
+        464,
         320
       ],
       "id": "283716cc-581b-4230-9571-e28c1923faf6",
@@ -1345,7 +1345,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "23684c62-a9f7-446b-87c7-aaf556a3bb25",
+  "versionId": "3be8cbe4-3604-4827-ae98-f2f9f4536534",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

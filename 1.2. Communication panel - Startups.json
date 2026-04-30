@@ -6,7 +6,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": "={{ 13 - 5 }}",
+              "triggerAtHour": "={{ 14 - 5 }}",
               "triggerAtMinute": 10
             }
           ]
@@ -864,7 +864,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "b01a6cda-a014-4a28-b2a5-0decfb9b42cd",
+  "versionId": "5c2430a0-3ab7-441c-957f-439599d1a844",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

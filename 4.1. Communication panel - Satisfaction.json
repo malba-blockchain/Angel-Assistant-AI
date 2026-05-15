@@ -1066,7 +1066,7 @@
     },
     {
       "parameters": {
-        "amount": 1
+        "amount": 61
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -1345,7 +1345,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "3be8cbe4-3604-4827-ae98-f2f9f4536534",
+  "versionId": "00658652-40ca-49b5-b550-a41f47a23cf2",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

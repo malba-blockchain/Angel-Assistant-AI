@@ -1,0 +1,789 @@
+{
+  "name": "5.1. Communication panel - Incubators",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": "={{ 14 - 5 }}",
+              "triggerAtMinute": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1808,
+        320
+      ],
+      "id": "42f238f1-ccdb-44d1-997b-2eb796955b10",
+      "name": "Schedule Trigger - Check switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "01f30c0f-ac74-413f-b135-1c9198a7f94d",
+              "leftValue": "={{ $json.VALUE }}",
+              "rightValue": "ON",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1456,
+        320
+      ],
+      "id": "4a34c0c9-8c47-4f93-a0fb-7b9516cfc047",
+      "name": "Is switch on?"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls/edit#gid=808711158"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -1648,
+        320
+      ],
+      "id": "ff8eeb42-6bff-43cd-93d4-a6f3b4df8b93",
+      "name": "Get switch status",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls/edit#gid=808711158"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -1232,
+        320
+      ],
+      "id": "354ec1d4-16a3-47e0-ae1e-2d64dc0f1aca",
+      "name": "Get variables values",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Recipients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -848,
+        320
+      ],
+      "id": "4e0fa638-dbd0-4b34-8428-290bb6a1e77d",
+      "name": "Get emails to send reminders",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "include": "specifiedFields",
+        "fieldsToInclude": "VARIABLES, VALUE",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        320
+      ],
+      "id": "e120554b-66ec-4214-b010-155b398de7b9",
+      "name": "Aggregate variables values"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1_z946hMXEkt973SXBm88IcPF5HgfWwMnOqpAq64cxWM",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 808711158,
+          "mode": "list",
+          "cachedResultName": "Admin",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_z946hMXEkt973SXBm88IcPF5HgfWwMnOqpAq64cxWM/edit#gid=808711158"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "VARIABLES": "LAST_AUTOMATION_RUN",
+            "VALUE": "={{    new Date($now).toLocaleString('en-GB', {     day: '2-digit',     month: 'short',     year: 'numeric',     hour: '2-digit',     minute: '2-digit',     hour12: false   }) }}"
+          },
+          "matchingColumns": [
+            "VARIABLES"
+          ],
+          "schema": [
+            {
+              "id": "VARIABLES",
+              "displayName": "VARIABLES",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "VALUE",
+              "displayName": "VALUE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DESCRIPTION",
+              "displayName": "DESCRIPTION",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        448,
+        304
+      ],
+      "id": "7533d21b-7113-4f67-867f-b108c926e465",
+      "name": "Update last automation run timestamp",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1_z946hMXEkt973SXBm88IcPF5HgfWwMnOqpAq64cxWM",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Recipients",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_z946hMXEkt973SXBm88IcPF5HgfWwMnOqpAq64cxWM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Email": "={{ $('Get emails to send reminders').item.json.Email }}",
+            "Already filled it": "NO",
+            "Reminder stage": "={{ (() => {\n  // 1. Get the current stage and clean it\n  const currentStage = ($('Get emails to send reminders').item.json['Reminder stage'] || \"\").toString().trim();\n\n  // 2. Define the \"Next Stage\" map\n  const nextStageMap = {\n    \"\": \"Reminder 0\",\n    \"Reminder 0\": \"Reminder 1\",\n    \"Reminder 1\": \"Reminder 2\",\n    \"Reminder 2\": \"Reminder 3\",\n    \"Reminder 3\": \"Reminder 4\"\n  };\n\n  // 3. Return the next stage, or keep current if it's already Message 4 or unknown\n  return nextStageMap[currentStage] || currentStage;\n})() }}",
+            "Last message": "={{    new Date($now).toLocaleString('en-GB', {     day: '2-digit',     month: 'short',     year: 'numeric',     hour: '2-digit',     minute: '2-digit',     hour12: false   }) }}"
+          },
+          "matchingColumns": [
+            "Email"
+          ],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Full name",
+              "displayName": "Full name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Already filled it",
+              "displayName": "Already filled it",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reminder stage",
+              "displayName": "Reminder stage",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last message",
+              "displayName": "Last message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        256,
+        304
+      ],
+      "id": "5975a38d-117b-4a15-b054-f8e57cfec829",
+      "name": "Update reminder stage & last message date",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json[\"Reminder stage\"] }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "06c168b0-250c-461d-9bd7-d943ca8b0e0c"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Reminder 0"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "768fd984-f986-4001-bebb-dcdc9e48ae5f",
+                    "leftValue": "={{ $json[\"Reminder stage\"] }}",
+                    "rightValue": "Reminder 0",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Reminder 1"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "748bf3b6-a789-4051-84a3-02be3c10fa81",
+                    "leftValue": "={{ $json[\"Reminder stage\"] }}",
+                    "rightValue": "Reminder 1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Reminder 2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -656,
+        304
+      ],
+      "id": "69db5969-b764-4642-9386-ea49fef851be",
+      "name": "Route right message",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
+        "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, we did something to improve your experience",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you're doing great!<br><br>\n\nAt COREangels {{ $('Get emails to send reminders').item.json.Fund }}, we’re always striving to improve your experience.<br><br>\n\nTo better understand what truly matters to you, we’ve prepared <b>a short survey to understand your experience with the fund.</b><br><br>\n\nIt would be fantastic if you could take 2 minutes to complete it by <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nIf you have any questions, feel free to reach out.<br><br>\nThank you for your time, we truly appreciate it!<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -176,
+        112
+      ],
+      "id": "becb93d5-082d-4316-91b6-ce328e91a4c5",
+      "name": "Send email #0",
+      "webhookId": "b252c3f3-331d-4b0e-ae7a-73e033a73b0c",
+      "executeOnce": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
+        "subject": "=Good afternoon {{ $('Get emails to send reminders').item.json.Name }}! Don't miss this change to make your opinion count\n",
+        "message": "=Hi {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nAs you know this is the time of the year you can make your opinion count. We created a <b>2 minutes survey where you can voice your feedback and improvement opportunities for the group</b>.<br><br>\n\nThe deadline to share your opinion is <b>{{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>. You can access it here: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nDon't miss on this opportunity to share your input!<br><br>\n\nBest wishes<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -176,
+        304
+      ],
+      "id": "72b83a73-e17b-4ff5-af62-907af0ef4405",
+      "name": "Send email #1",
+      "webhookId": "a4063e02-4c43-4b72-a8cd-b9295767ddcd",
+      "executeOnce": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
+        "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, it's time to make your voice heard\n",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nWe value your opinion a lot. Please don't forget to take 2 minutes to <b>fill out the short survey before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b>.<br><br>\n\nHere is the link: {{ $('Aggregate variables values').item.json.data[2].VALUE }}<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $('Get emails to send reminders').item.json.Fund }} Team</i>\n",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -176,
+        496
+      ],
+      "id": "6cf48a12-eb10-4c6c-bc25-0cb030300f89",
+      "name": "Send email #2",
+      "webhookId": "e41ac6e7-3e7d-4bb8-8ca5-537dfdc7f743",
+      "executeOnce": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1J7R7wlVGsE2LiixslhNZrvemlklxPzuWr0Od_Ngf9Ls",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1960280471,
+          "mode": "list",
+          "cachedResultName": "Messages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1_z946hMXEkt973SXBm88IcPF5HgfWwMnOqpAq64cxWM/edit#gid=1960280471"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Step",
+              "lookupValue": "={{ $json['Reminder stage'] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -528,
+        -16
+      ],
+      "id": "148a3bcd-98ea-45ca-a82f-f1c5b6342072",
+      "name": "Get date to send template #0",
+      "executeOnce": false,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "zVx8W8ysVJvIirQR",
+          "name": "Google Sheets YAngel Account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# Incubator Outreach automation\n\nNext step is to finish the connection between Get Date to Send template number zero and Send email number zero. \n\n",
+        "height": 192,
+        "width": 304
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1840,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "f9d2b03e-64b3-4901-93d2-8e77f76f5995",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "amount": 61
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        64,
+        304
+      ],
+      "id": "c3d25cce-7d69-43b2-b5cc-af980fbb0865",
+      "name": "Wait",
+      "webhookId": "695d4d11-c508-43a7-bece-652b4e65caba"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger - Check switch": {
+      "main": [
+        [
+          {
+            "node": "Get switch status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get switch status": {
+      "main": [
+        [
+          {
+            "node": "Is switch on?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is switch on?": {
+      "main": [
+        [
+          {
+            "node": "Get variables values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get variables values": {
+      "main": [
+        [
+          {
+            "node": "Aggregate variables values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get emails to send reminders": {
+      "main": [
+        [
+          {
+            "node": "Route right message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate variables values": {
+      "main": [
+        [
+          {
+            "node": "Get emails to send reminders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update reminder stage & last message date": {
+      "main": [
+        [
+          {
+            "node": "Update last automation run timestamp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route right message": {
+      "main": [
+        [
+          {
+            "node": "Send email #0",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send email #1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send email #2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email #0": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email #1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send email #2": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get date to send template #0": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Update reminder stage & last message date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f7aed80d-5ad6-4b91-b865-95859f3d003b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
+  },
+  "id": "9LDWFdM363txhClY",
+  "tags": []
+}

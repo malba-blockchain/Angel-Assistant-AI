@@ -1,0 +1,12 @@
+Improve the communication panel
+
+Create automation to deliver the 3 templates for first approach
+
+Create the bi-monthly reminder templates
+
+Create large event template reminder
+
+Outreach
+Bi-monthly
+Event
+

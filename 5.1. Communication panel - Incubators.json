@@ -1227,7 +1227,7 @@
       "parameters": {
         "sendTo": "={{ $json.Email }}",
         "subject": "=Startups in {{ $json['Full name'] }} looking to raise - COREangels {{ $json.Fund }}",
-        "message": "=Hello,<br><br>\n\nAs we do every two months, we're excited to share that the COREangels {{ $json.Fund }} team is on the lookout for the best <b>startups in the region interested in raising an angel round</b>.<br><br>\n\nHere's the criteria we're looking for: <b><a href=\"{{ \n$('Aggregate variables values1').item.json.data[6].VALUE\n}}\">Startups we are looking for.</a></b> <br><br>\n\nIf you know of startups in your ecosystem that fit, <b>please share the application link below with your top 1 or 2 picks</b>:<b><a href=\"{{ $('Aggregate variables values1').item.json.data[7].VALUE }}\">Form to fill.</a></b><br><br>\n\nPS: Filling out the form is the only way for us to accept their application.<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $json.Fund }} Team</i>\n\n\n",
+        "message": "=Hello,<br><br>\n\nAs we do every two months, we're excited to share that the COREangels {{ $json.Fund }} team is on the lookout for the best <b>startups in the region interested in raising an angel round</b>.<br><br>\n\nHere's the criteria we're looking for: <b><a href=\"{{ \n$('Aggregate variables values1').item.json.data[6].VALUE\n}}\">Startups we are looking for.</a></b> <br><br>\n\nIf you know of startups in your ecosystem that fit, <b>please share the application link below with your top 1 or 2 picks</b>:<b><a href=\"{{ $('Aggregate variables values1').item.json.data[7].VALUE }}\">Form to fill.</a></b><br><br>\n\nPlease make sure to share this with your startups before {{ $('Aggregate variables values1').item.json.data[5].VALUE }}.<br><br>\n\nPS: Filling out the form is the only way for us to accept their application.<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $json.Fund }} Team</i>\n\n\n",
         "options": {
           "appendAttribution": false
         }
@@ -1253,7 +1253,7 @@
       "parameters": {
         "sendTo": "={{ $json.Email }}",
         "subject": "=Startups in {{ $json['Full name'] }} looking to raise - COREangels {{ $json.Fund }}",
-        "message": "=Hello,<br><br>\n\nAs we do every two months, we're excited to share that the COREangels {{ $json.Fund }} team is on the lookout for the best <b>startups in the region interested in raising an angel round</b>.<br><br>\n\nHere's the criteria we're looking for: <b><a href=\"{{ $('Aggregate variables values1').item.json.data[3].VALUE }}\">Startups we are looking for.</a></b> <br><br>\n\nIf you know of startups in your ecosystem that fit, <b>please share the application link below with your top 1 or 2 picks</b>: <b> <a href=\"{{ $('Aggregate variables values1').item.json.data[4].VALUE }}\">Form to fill</a></b><br><br>\n\nPS: Filling out the form is the only way for us to accept their application.<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $json.Fund }} Team</i>\n\n\n",
+        "message": "=Hello,<br><br>\n\nAs we do every two months, we're excited to share that the COREangels {{ $json.Fund }} team is on the lookout for the best <b>startups in the region interested in raising an angel round</b>.<br><br>\n\nHere's the criteria we're looking for: <b><a href=\"{{ $('Aggregate variables values1').item.json.data[3].VALUE }}\">Startups we are looking for.</a></b> <br><br>\n\nIf you know of startups in your ecosystem that fit, <b>please share the application link below with your top 1 or 2 picks</b>: <b> <a href=\"{{ $('Aggregate variables values1').item.json.data[4].VALUE }}\">Form to fill</a></b><br><br>\n\nPlease make sure to share this with your startups before {{ $('Aggregate variables values1').item.json.data[2].VALUE }}.<br><br>\n\nPS: Filling out the form is the only way for us to accept their application.<br><br>\n\nBest regards,<br>\n<i>COREangels {{ $json.Fund }} Team</i>\n\n\n",
         "options": {
           "appendAttribution": false
         }
@@ -1667,7 +1667,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "227c4003-cdd8-4f5b-8554-1b21853baf22",
+  "versionId": "5d91952d-552f-420e-b8e7-801ab43707ef",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

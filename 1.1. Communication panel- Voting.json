@@ -709,7 +709,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, time to vote on the startups!",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\n\nI hope you enjoyed the investment committee yesterday! Now on to the voting on the startups!<br><br>\n\nPlease find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\n\n<b>*The deadline to vote is {{ $('Aggregate variables values').item.json.data[4].VALUE }}*</b><br><br>\n\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\n\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n\n{{\n  (() => {\n    // 1. Store the data array in a variable to keep the code clean and readable\n    const data = $('Aggregate variables values').item.json.data;\n    \n    // 2. Define the HTML output for each individual startup\n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n\n    // 3. Conditional Chain\n    // Check if Startup 4 exists and is not empty\n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    // Check if Startup 3 exists and is not empty\n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    // Default fallback: Only 2 startups\n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\n\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[15].VALUE}}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n\n{{ $json.Notes }}\n\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\n\nBest wishes<br>\n<i>COREangels Lisbon Team</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\nI hope you enjoyed the investment committee yesterday!<br><br>\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n{{\n  (() => {\n    const data = $('Aggregate variables values').item.json.data;\n    \n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n    \n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[15].VALUE}}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n{{ $json.Notes }}\nIf you are already ready to vote, please find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\nBest wishes<br>\n<i>COREangels Porto Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -726,8 +726,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "eABIbvxMOJfcPmad",
-          "name": "Gmail account COREangels Lisbon"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
         }
       }
     },
@@ -752,8 +752,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "eABIbvxMOJfcPmad",
-          "name": "Gmail account COREangels Lisbon"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
         }
       }
     },
@@ -778,8 +778,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "eABIbvxMOJfcPmad",
-          "name": "Gmail account COREangels Lisbon"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
         }
       }
     },
@@ -804,8 +804,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "eABIbvxMOJfcPmad",
-          "name": "Gmail account COREangels Lisbon"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
         }
       }
     },
@@ -830,8 +830,8 @@
       "executeOnce": false,
       "credentials": {
         "gmailOAuth2": {
-          "id": "eABIbvxMOJfcPmad",
-          "name": "Gmail account COREangels Lisbon"
+          "id": "pTKY4XWZOw1Gt1Sa",
+          "name": "Gmail account COREangels Porto"
         }
       }
     },
@@ -1354,7 +1354,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "ee50b32a-5307-4302-9f34-cc2610486a73",
+  "versionId": "117f4ad2-477c-4f71-b92a-6ef41a9986ee",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"

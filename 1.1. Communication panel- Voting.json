@@ -402,10 +402,8 @@
         },
         "sheetName": {
           "__rl": true,
-          "value": 1419195415,
-          "mode": "list",
-          "cachedResultName": "Form Responses 1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Pi_sxLKmbSC3rr67nQKOxzJfQFth6YbB0rcW5FZQkoA/edit#gid=1419195415"
+          "value": "={{ $json.data[3].VALUE.match(/[#&?]gid=(\\d+)/)[1] }}",
+          "mode": "id"
         },
         "options": {}
       },
@@ -709,7 +707,7 @@
       "parameters": {
         "sendTo": "={{ $('Get emails to send reminders').item.json.Email }}",
         "subject": "=Hello {{ $('Get emails to send reminders').item.json.Name }}, time to vote on the startups!",
-        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\nI hope you enjoyed the investment committee yesterday!<br><br>\nIf you want to ask more questions to the startups first, you can write them in these documents:<br><br>\n{{\n  (() => {\n    const data = $('Aggregate variables values').item.json.data;\n    \n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n    \n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[15].VALUE}}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n{{ $json.Notes }}\nIf you are already ready to vote, please find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br><br>\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br><br>\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n<b>Please don't forget to <a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">vote in the form here</a> before {{ $('Aggregate variables values').item.json.data[4].VALUE }}</b><br><br>\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\nBest wishes<br>\n<i>COREangels Porto Team</i>",
+        "message": "=Hello {{ $('Get emails to send reminders').item.json.Name }},<br><br>\nI hope you enjoyed the investment committee yesterday!<br><br>\nIf you want to ask more questions to the startups, you can write them in these documents:<br><br>\n{{\n  (() => {\n    const data = $('Aggregate variables values').item.json.data;\n    \n    const startup1 = `<a href=\"${data[8].VALUE}\">Questions to ${data[7].VALUE}</a><br><br>`;\n    const startup2 = `<a href=\"${data[10].VALUE}\">Questions to ${data[9].VALUE}</a><br><br>`;\n    const startup3 = `<a href=\"${data[12].VALUE}\">Questions to ${data[11].VALUE}</a><br><br>`;\n    const startup4 = `<a href=\"${data[14].VALUE}\">Questions to ${data[13].VALUE}</a><br><br>`;\n    \n    if (data[13] && data[13].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3 + '\\n' + startup4;\n    } \n    else if (data[11] && data[11].VALUE !== \"\") {\n      return startup1 + '\\n' + startup2 + '\\n' + startup3;\n    } \n    else {\n      return startup1 + '\\n' + startup2;\n    }\n  })()\n}}\nThe deadline for asking questions is <b>{{ $('Aggregate variables values').item.json.data[15].VALUE}}</b>. The startups will receive the link to these documents and answer directly underneath.<br><br>\n{{ $json.Notes }}\nIf you are already ready to vote, please find the voting form here: \n<a href=\"{{ $('Aggregate variables values').item.json.data[2].VALUE }}\">Voting form</a><br>\nHere you can find the recording: <a href=\"{{ $('Aggregate variables values').item.json.data[5].VALUE }}\">Recording here</a><br>\nHere is the startup material: \n<a href=\"{{ $('Aggregate variables values').item.json.data[6].VALUE }}\">Startup material here</a><br><br>\n<b>You should only vote one time per participant.</b> Don't worry, you will be able to edit your answers during the voting period. Fill in your email address and you will receive a summary with your responses and a link to edit them.<br><br>\nBest wishes<br>\n<i>COREangels Porto Team</i>",
         "options": {
           "appendAttribution": false
         }
@@ -1354,7 +1352,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "117f4ad2-477c-4f71-b92a-6ef41a9986ee",
+  "versionId": "170ac73f-72e4-47c8-a583-4709df8663ef",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "a5a00baa12a85b9086302f700a603aad89b3f2a6035d43cbd514404a64493513"
